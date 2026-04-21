@@ -5,362 +5,186 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>宝宝英语启蒙 · 第005期</title>
 <style>
-  :root {
-    --primary: #FF9B50; --primary-dark: #E07A2F;
-    --secondary: #7EC8E3; --accent: #A8D8B9;
-    --bg: #FFF9F0; --card-bg: #FFFFFF;
-    --text: #3D3D3D; --text-light: #7A7A7A;
-    --border: #F0E8DC; --shadow: rgba(255,155,80,0.12);
-    --radius: 16px; --font: -apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;padding-bottom:60px;-webkit-font-smoothing:antialiased}
-  .tts-btn{display:inline-flex;align-items:center;gap:4px;background:#FFF3E0;border:1.5px solid #FFE0B2;border-radius:20px;padding:3px 10px 3px 6px;font-size:12px;color:var(--primary-dark);cursor:pointer;transition:all .2s;font-weight:600;margin-left:4px;vertical-align:middle;user-select:none}
-  .tts-btn:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
-  .tts-btn.playing{background:#FF5722;color:#fff;border-color:#FF5722;animation:pulse 1s infinite}
-  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
-  .tts-sentence-btn{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#FF9B50,#FF6B35);color:#fff;border:none;border-radius:12px;padding:8px 16px;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;margin-top:10px;font-family:var(--font)}
-  .tts-sentence-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(255,107,53,0.4)}
-  .hero{background:linear-gradient(135deg,#FFE0B2 0%,#B3E5FC 100%);padding:40px 24px 32px;text-align:center;position:relative;overflow:hidden}
-  .hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:var(--bg);border-radius:50% 50% 0 0}
-  .hero-badge{display:inline-block;background:var(--primary);color:#fff;font-size:12px;font-weight:600;padding:4px 14px;border-radius:20px;margin-bottom:14px;letter-spacing:1px}
-  .hero h1{font-size:26px;font-weight:700;color:#2C2C2C;margin-bottom:6px;line-height:1.3}
-  .hero-sub{font-size:14px;color:#6D4C41;margin-bottom:4px}
-  .hero-meta{display:flex;justify-content:center;gap:20px;margin-top:14px;flex-wrap:wrap}
-  .hero-meta span{font-size:13px;color:var(--text-light);display:flex;align-items:center;gap:4px}
-  .hero-emoji{font-size:64px;margin-bottom:8px}
-  .nav-tabs{display:flex;gap:6px;padding:16px 20px 0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-  .nav-tabs::-webkit-scrollbar{display:none}
-  .nav-tab{flex-shrink:0;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:500;border:1.5px solid var(--border);background:var(--card-bg);color:var(--text-light);cursor:pointer;text-decoration:none;transition:all .2s}
-  .nav-tab.active,.nav-tab:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
-  .card{background:var(--card-bg);border-radius:var(--radius);margin:16px 20px;padding:20px;box-shadow:0 2px 12px var(--shadow)}
-  .intro-card{background:linear-gradient(135deg,#FFF3E0,#E3F2FD);border-left:4px solid var(--primary);border-radius:var(--radius);margin:20px 20px 0;padding:18px 20px;font-size:15px}
-  .intro-card::before{content:'💡';font-size:20px;margin-right:8px}
-  .section-title{font-size:17px;font-weight:700;color:#2C2C2C;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-  .section-title .icon{font-size:22px}
-  .section-title .label{font-size:11px;background:var(--primary);color:#fff;padding:2px 8px;border-radius:10px;font-weight:600;margin-left:auto;flex-shrink:0}
-  .phrase-card{background:var(--card-bg);border-radius:var(--radius);margin:12px 20px;padding:18px 20px;box-shadow:0 2px 10px var(--shadow);border-top:3px solid var(--secondary);position:relative}
-  .phrase-card.scene-card{background:var(--card-bg);border-radius:var(--radius);margin:12px 20px;padding:18px 20px;box-shadow:0 2px 10px var(--shadow);border-top:3px solid var(--accent)}
-  .phrase-num{position:absolute;top:-12px;left:18px;background:var(--secondary);color:#fff;font-size:11px;font-weight:700;padding:2px 10px;border-radius:10px}
-  .phrase-num.scene-num{background:var(--accent)}
-  .phrase-en{font-size:17px;font-weight:700;color:var(--primary-dark);margin-bottom:4px;line-height:1.5;display:flex;align-items:center;flex-wrap:wrap;gap:4px}
-  .phrase-zh{font-size:14px;color:var(--text-light);margin-bottom:10px}
-  .phrase-tip{background:#FFF8E1;border-radius:10px;padding:10px 14px;font-size:13px;color:#7A5800;display:flex;align-items:flex-start;gap:6px;line-height:1.6;margin-top:8px}
-  .phrase-tip::before{content:'🖐️';flex-shrink:0}
-  .song-card{background:linear-gradient(135deg,#F1F8E9,#E8F5E9);border-radius:var(--radius);margin:16px 20px;padding:22px 20px;text-align:center;border:1.5px solid #C8E6C9}
-  .song-title{font-size:15px;font-weight:700;color:#2E7D32;margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
-  .song-lyrics{background:#fff;border-radius:12px;padding:16px;font-size:15px;color:#388E3C;line-height:2.2;font-weight:500;text-align:left;border:1px dashed #A5D6A7;margin-bottom:14px}
-  .lyric-line{display:flex;align-items:center;gap:8px;padding:2px 0;min-height:36px}
-  .lyric-line:hover{background:#F1F8E9;border-radius:8px;padding:2px 6px;margin:-2px -6px}
-  .lyric-en{flex:1;font-weight:600}
-  .lyric-zh{font-size:13px;color:#7A7A7A;flex-shrink:0}
-  .song-tip{font-size:13px;color:#558B2F;text-align:left;padding:0 4px;margin-top:8px}
-  .letter-card{background:var(--card-bg);border-radius:var(--radius);margin:16px 20px;padding:20px;box-shadow:0 2px 10px var(--shadow);text-align:center}
-  .letter-display{display:flex;justify-content:center;align-items:center;gap:24px;margin-bottom:16px;flex-wrap:wrap}
-  .letter-big{font-size:72px;font-weight:800;color:var(--primary);line-height:1}
-  .letter-info{text-align:left}
-  .letter-phonetic{font-size:20px;color:var(--secondary);font-weight:700;margin-bottom:4px}
-  .letter-word{font-size:28px;margin-bottom:2px;display:flex;align-items:center;gap:8px}
-  .letter-word-en{font-size:14px;color:var(--text-light)}
-  .letter-memory{background:#FFF9C4;border-radius:10px;padding:10px 16px;font-size:14px;color:#7A5800;margin-bottom:12px;text-align:left;line-height:1.7}
-  .letter-tip{font-size:13px;color:var(--text-light);text-align:left}
-  .next-card{background:linear-gradient(135deg,#E8EAF6,#F3E5F5);border-radius:var(--radius);margin:16px 20px;padding:20px;border:1.5px solid #D1C4E9}
-  .next-badge{font-size:11px;background:#7E57C2;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;display:inline-block;margin-bottom:10px}
-  .next-title{font-size:16px;font-weight:700;color:#4A148C;margin-bottom:8px}
-  .next-items{font-size:13px;color:#5E35B1}
-  .next-items span{display:block;margin-top:4px}
-  .tips-grid{display:grid;gap:10px}
-  .tip-item{background:#FFF8E1;border-radius:10px;padding:12px 14px;font-size:13px;color:#5D4037;display:flex;align-items:flex-start;gap:8px;line-height:1.6}
-  .tip-num{background:var(--primary);color:#fff;font-size:11px;font-weight:700;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-  .vocab-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:12px}
-  .vocab-table th{background:#FFF3E0;color:var(--primary-dark);padding:8px 12px;text-align:left;font-weight:600;border-radius:8px 8px 0 0}
-  .vocab-table td{padding:8px 12px;border-bottom:1px solid var(--border);color:var(--text)}
-  .vocab-table tr:last-child td{border-bottom:none}
-  .vocab-table tr:nth-child(even){background:#FFFBF5}
-  .game-card{background:linear-gradient(135deg,#E8F5E9,#E0F2F1);border-radius:var(--radius);margin:16px 20px;padding:20px;border:1.5px solid #A5D6A7}
-  .game-title{font-size:15px;font-weight:700;color:#1B5E20;margin-bottom:10px;display:flex;align-items:center;gap:8px}
-  .game-step{background:#fff;border-radius:10px;padding:10px 14px;margin-bottom:8px;font-size:13px;color:#2E7D32;display:flex;align-items:flex-start;gap:8px;line-height:1.6}
-  .game-step::before{content:'🎯';flex-shrink:0}
-  .footer{text-align:center;padding:30px 20px 20px;font-size:12px;color:var(--text-light)}
-  .footer-slogan{font-size:15px;color:var(--primary);font-weight:600;margin-bottom:6px}
-  .footer-divider{width:40px;height:3px;background:var(--primary);border-radius:2px;margin:10px auto 14px}
-  @media(max-width:360px){.hero h1{font-size:22px}.letter-big{font-size:60px}}
+:root{--primary:#FF9B50;--primary-dark:#E07A2F;--secondary:#7EC8E3;--accent:#A8D8B9;--bg:#FFF9F0;--card-bg:#FFFFFF;--text:#3D3D3D;--text-light:#7A7A7A;--border:#F0E8DC;--shadow:rgba(255,155,80,0.12);--radius:16px;--font:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;padding-bottom:60px;-webkit-font-smoothing:antialiased}
+.tts-btn{display:inline-flex;align-items:center;gap:4px;background:#FFF3E0;border:1.5px solid #FFE0B2;border-radius:20px;padding:3px 10px 3px 6px;font-size:12px;color:var(--primary-dark);cursor:pointer;transition:all .2s;font-weight:600;margin-left:4px;vertical-align:middle;user-select:none}
+.tts-btn:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+.tts-btn.playing{background:#FF5722;color:#fff;border-color:#FF5722;animation:pulse .6s infinite}
+.tts-sentence-btn{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#FF9B50,#FF6B35);color:#fff;border:none;border-radius:12px;padding:8px 16px;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;margin-top:10px;font-family:var(--font)}
+.tts-sentence-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(255,107,53,0.4)}
+.tts-sentence-btn.playing{opacity:.7}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+.hero{background:linear-gradient(135deg,#FFE0B2 0%,#B3E5FC 100%);padding:40px 24px 32px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:var(--bg);border-radius:50% 50% 0 0}
+.hero-badge{display:inline-block;background:var(--primary);color:#fff;font-size:12px;font-weight:600;padding:4px 14px;border-radius:20px;margin-bottom:14px;letter-spacing:1px}
+.hero h1{font-size:26px;font-weight:700;color:#2C2C2C;margin-bottom:6px;line-height:1.3}
+.hero-sub{font-size:14px;color:#6D4C41;margin-bottom:4px}
+.hero-meta{display:flex;justify-content:center;gap:20px;margin-top:14px;flex-wrap:wrap}
+.hero-meta span{font-size:13px;color:var(--text-light);display:flex;align-items:center;gap:4px}
+.hero-emoji{font-size:64px;margin-bottom:8px}
+.nav-tabs{display:flex;gap:6px;padding:16px 20px 0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.nav-tabs::-webkit-scrollbar{display:none}
+.nav-tab{flex-shrink:0;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:500;border:1.5px solid var(--border);background:var(--card-bg);color:var(--text-light);cursor:pointer;text-decoration:none;transition:all .2s}
+.nav-tab.active,.nav-tab:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+.card{background:var(--card-bg);border-radius:var(--radius);margin:16px 20px;padding:20px;box-shadow:0 2px 12px var(--shadow)}
+.intro-card{background:linear-gradient(135deg,#FFF3E0,#E3F2FD);border-left:4px solid var(--primary);border-radius:var(--radius);margin:20px 20px 0;padding:18px 20px;font-size:15px}
+.intro-card::before{content:'💡';font-size:20px;margin-right:8px}
+.section-title{font-size:17px;font-weight:700;color:#2C2C2C;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.section-title .icon{font-size:22px}
+.word-card{background:var(--card-bg);border-radius:var(--radius);margin:12px 20px;padding:16px 20px;box-shadow:0 2px 10px var(--shadow);border-left:4px solid var(--secondary)}
+.word-top{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.word-en{font-size:22px;font-weight:800;color:var(--primary-dark)}
+.word-ipa{font-size:14px;color:var(--secondary);font-weight:600;font-style:italic}
+.word-zh{font-size:14px;color:var(--text-light)}
+.word-tip{background:#F0F8FF;border-radius:10px;padding:8px 14px;font-size:13px;color:#1565C0;margin-top:8px;display:flex;align-items:flex-start;gap:6px;line-height:1.6}
+.word-tip::before{content:'💡';flex-shrink:0}
+.song-card{background:linear-gradient(135deg,#F1F8E9,#E8F5E9);border-radius:var(--radius);margin:16px 20px;padding:22px 20px;text-align:center;border:1.5px solid #C8E6C9}
+.song-card .song-title{font-size:18px;font-weight:700;color:#388E3C;margin-bottom:4px}
+.song-card .song-sub{font-size:12px;color:#689F38;margin-bottom:16px}
+.song-card .song-lyrics{background:#F1F8E9;border-radius:12px;padding:16px;text-align:left}
+.song-line{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px dashed #C8E6C9;font-size:15px;color:#33691E}
+.song-line:last-child{border-bottom:none}
+.line-text{flex:1}
+.dialogue-card{background:linear-gradient(135deg,#FFF8E1,#FFECB3);border-radius:var(--radius);margin:16px 20px;padding:20px;border:1.5px solid #FFD54F}
+.dialogue-row{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid #FFE082}
+.dialogue-row:last-child{border-bottom:none}
+.dialogue-emoji{font-size:36px;flex-shrink:0;line-height:1.2}
+.dialogue-text{flex:1}
+.dialogue-en{font-size:16px;font-weight:700;color:#E65100;margin-bottom:4px}
+.dialogue-zh{font-size:13px;color:#795548}
+.big-phrase{background:#FFF3E0;border-radius:12px;padding:16px 20px;margin:14px 20px;text-align:center;border:1.5px solid #FFE0B2}
+.big-phrase .phrase-en{font-size:20px;font-weight:800;color:var(--primary-dark);margin-bottom:8px}
+.phonetic-note{background:#F5F5F5;border-radius:10px;padding:8px 14px;font-size:12px;color:#666;margin:12px 20px 0;text-align:center}
+.footer-note{text-align:center;font-size:12px;color:var(--text-light);padding:24px 20px;line-height:2}
+.footer-note a{color:var(--primary);text-decoration:none}
 </style>
 </head>
 <body>
 
+<div class="hero" style="background:linear-gradient(135deg,#BBDEFB 0%,#E3F2FD 100%)">
+  <div class="hero-badge">第 5 期</div>
+  <div class="hero-emoji">👕</div>
+  <h1>Get Dressed!</h1>
+  <div class="hero-sub">第5期 | 字母E | Egg, Elephant, Eye, Ear + 穿衣服场景</div>
+</div>
+<div class="nav-tabs"><span class="nav-tab" onclick="location.href='issue-001.html'">字母A</span><span class="nav-tab" onclick="location.href='issue-002.html'">字母B</span><span class="nav-tab" onclick="location.href='issue-003.html'">字母C</span><span class="nav-tab" onclick="location.href='issue-004.html'">字母D</span><span class="nav-tab active" onclick="location.href='issue-005.html'">字母E</span></div>
+
+<div class="intro-card">今天结合生活场景——早上穿衣服！T-shirt（T恤）、Sock（袜子）、Shoes（鞋子），同时认识字母 E 和身体部位 Eye、Ear、Egg、Elephant！</div>
+<div class="phonetic-note">📖 今天学字母 E /iː/ — 一起念：E-E-Egg! /eɡ/ /eɡ/ /eɡ! E-E-Elephant! /elɪfənt/ 🐘</div>
+
+<div class="card">
+  <div class="section-title"><span class="icon">📚</span> 今日核心单词</div>
+    <div class="word-card">
+    <div class="word-top">
+      <span class="word-en">Egg</span>
+      <span class="word-ipa">/eɡ/</span>
+      <button class="tts-btn" onclick="playAudio('audio/egg.mp3', 'Egg', this)" title="点击播放发音">🔊 发音</button>
+    </div>
+    <div class="word-zh">鸡蛋</div>
+    <div class="word-tip">💡 早餐吃鸡蛋时说 'Egg! Crack! Crack!' 敲蛋壳很有趣。</div>
+  </div>  <div class="word-card">
+    <div class="word-top">
+      <span class="word-en">Elephant</span>
+      <span class="word-ipa">/ˈelɪfənt/</span>
+      <button class="tts-btn" onclick="playAudio('audio/elephant.mp3', 'Elephant', this)" title="点击播放发音">🔊 发音</button>
+    </div>
+    <div class="word-zh">大象</div>
+    <div class="word-tip">💡 'Elephant has a long nose!' 用鼻子吸气喷水。</div>
+  </div>  <div class="word-card">
+    <div class="word-top">
+      <span class="word-en">Eye</span>
+      <span class="word-ipa">/aɪ/</span>
+      <button class="tts-btn" onclick="playAudio('audio/eye.mp3', 'Eye', this)" title="点击播放发音">🔊 发音</button>
+    </div>
+    <div class="word-zh">眼睛</div>
+    <div class="word-tip">💡 指着眼睛说 'Eye! I can see you!' 让宝宝认识五官。</div>
+  </div>  <div class="word-card">
+    <div class="word-top">
+      <span class="word-en">Ear</span>
+      <span class="word-ipa">/ɪr/</span>
+      <button class="tts-btn" onclick="playAudio('audio/ear.mp3', 'Ear', this)" title="点击播放发音">🔊 发音</button>
+    </div>
+    <div class="word-zh">耳朵</div>
+    <div class="word-tip">💡 指着耳朵说 'Ear! I can hear you!' 教宝宝五官。</div>
+  </div>  <div class="word-card">
+    <div class="word-top">
+      <span class="word-en">T-shirt</span>
+      <span class="word-ipa">/ˈtiː ʃɜːrt/</span>
+      <button class="tts-btn" onclick="playAudio('audio/shirt.mp3', 'T-shirt', this)" title="点击播放发音">🔊 发音</button>
+    </div>
+    <div class="word-zh">T恤</div>
+    <div class="word-tip">💡 穿衣服时说 'Put on your T-shirt!' 每天重复。</div>
+  </div>  <div class="word-card">
+    <div class="word-top">
+      <span class="word-en">Sock</span>
+      <span class="word-ipa">/sɒk/</span>
+      <button class="tts-btn" onclick="playAudio('audio/sock.mp3', 'Sock', this)" title="点击播放发音">🔊 发音</button>
+    </div>
+    <div class="word-zh">袜子</div>
+    <div class="word-tip">💡 'Sock, sock! Put on your socks!' 边说边穿。</div>
+  </div>  <div class="word-card">
+    <div class="word-top">
+      <span class="word-en">Shoes</span>
+      <span class="word-ipa">/ʃuːz/</span>
+      <button class="tts-btn" onclick="playAudio('audio/shoes.mp3', 'Shoes', this)" title="点击播放发音">🔊 发音</button>
+    </div>
+    <div class="word-zh">鞋子</div>
+    <div class="word-tip">💡 'Shoes! Time to go outside!' 穿鞋出门。</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="section-title"><span class="icon">💬</span> E字母场景</div>
+  <div class="dialogue-row"><div class="dialogue-emoji">👕</div><div class="dialogue-text"><div class="dialogue-en">E for Egg! Crack! Crack! <button class="tts-btn" style="flex-shrink:0" onclick="playAudio(null, 'E for Egg! Crack! Crack!', this)" title="点击播放">🔊</button></div><div class="dialogue-zh">E是鸡蛋！喀嚓喀嚓！</div></div></div><div class="dialogue-row"><div class="dialogue-emoji">🐘</div><div class="dialogue-text"><div class="dialogue-en">E for Elephant! Trumpet! Trumpet! <button class="tts-btn" style="flex-shrink:0" onclick="playAudio(null, 'E for Elephant! Trumpet! Trumpet!', this)" title="点击播放">🔊</button></div><div class="dialogue-zh">E是大象！嘟嘟嘟！</div></div></div><div class="dialogue-row"><div class="dialogue-emoji">👁️</div><div class="dialogue-text"><div class="dialogue-en">E for Eye! I can see! <button class="tts-btn" style="flex-shrink:0" onclick="playAudio(null, 'E for Eye! I can see!', this)" title="点击播放">🔊</button></div><div class="dialogue-zh">E是眼睛！我能看见！</div></div></div><div class="dialogue-row"><div class="dialogue-emoji">👂</div><div class="dialogue-text"><div class="dialogue-en">E for Ear! Listen! Listen! <button class="tts-btn" style="flex-shrink:0" onclick="playAudio(null, 'E for Ear! Listen! Listen!', this)" title="点击播放">🔊</button></div><div class="dialogue-zh">E是耳朵！我能听见！</div></div></div>
+</div>
+
+<div class="song-card">
+  <div class="song-title">🎵 Get Dressed! 穿衣服歌</div>
+  <div class="song-sub">边穿衣服边唱，把英语变成日常</div>
+  <div class="song-lyrics">
+          <div class="song-line"><span class="line-text">T-shirt, T-shirt! Put on your T-shirt!</span><button class="tts-btn" style="flex-shrink:0" onclick="playAudio('audio/tshirt_song.mp3', 'T-shirt, T-shirt! Put on your T-shirt!', this)" title="点击播放">🔊</button></div>      <div class="song-line"><span class="line-text">Sock, sock! Put on your socks!</span><button class="tts-btn" style="flex-shrink:0" onclick="playAudio('audio/sock_song.mp3', 'Sock, sock! Put on your socks!', this)" title="点击播放">🔊</button></div>      <div class="song-line"><span class="line-text">Shoes, shoes! Put on your shoes!</span><button class="tts-btn" style="flex-shrink:0" onclick="playAudio('audio/shoes_song.mp3', 'Shoes, shoes! Put on your shoes!', this)" title="点击播放">🔊</button></div>      <div class="song-line"><span class="line-text">Get dressed! Hurry up!</span><button class="tts-btn" style="flex-shrink:0" onclick="playAudio('audio/get_dressed.mp3', 'Get dressed! Hurry up!', this)" title="点击播放">🔊</button></div>
+  </div>
+</div>
+
+<div class="big-phrase">
+  <div class="phrase-en">Get dressed! Hurry up!</div>
+  <button class="tts-sentence-btn" onclick="playAudio('audio/get_dressed.mp3', 'Get dressed! Hurry up!', this)">🎙️ 跟读这句话</button>
+</div>
+
+<div class="footer-note">
+  宝宝英语启蒙系列 · 第001-005期<br>
+  全部内容均为原创 · 适合1.5-3岁宝宝<br>
+  点击喇叭按钮听标准发音 🐣
+</div>
+<script>window.speechSynthesis.getVoices();window.speechSynthesis.addEventListener('voiceschanged',function(){window.speechSynthesis.getVoices();});</script>
+<!-- 音频播放器：MP3优先，TTS降级 -->
 <script>
-function speak(text, btn) {
-  if (!('speechSynthesis' in window)) {
-    alert('当前浏览器不支持语音朗读，请使用Chrome、Safari或Edge浏览器。');
-    return;
-  }
+var _curAud=null;
+function playAudio(src,text,btn){
+  if(_curAud){_curAud.pause();_curAud.currentTime=0;document.querySelectorAll('.tts-btn.playing,.tts-sentence-btn.playing').forEach(function(b){b.classList.remove('playing')});}
+  if(src){
+    var a=new Audio(src);
+    a.addEventListener('play',function(){btn.classList.add('playing');});
+    a.addEventListener('ended',function(){btn.classList.remove('playing');});
+    a.addEventListener('error',function(){btn.classList.remove('playing');speak(text,btn);});
+    a.play().catch(function(){speak(text,btn);});
+    _curAud=a;
+  } else {speak(text,btn);}
+}
+function speak(text,btn){
+  if(!('speechSynthesis' in window)){alert('浏览器不支持语音朗读');return;}
   window.speechSynthesis.cancel();
-  window.speechSynthesis.getVoices();
-  var utt = new SpeechSynthesisUtterance(text);
-  utt.lang = 'en-US';
-  utt.rate = 0.85;
-  utt.pitch = 1.1;
-  var voices = window.speechSynthesis.getVoices();
-  var chosen = null;
-  for (var i = 0; i < voices.length; i++) {
-    var v = voices[i];
-    if (v.lang.indexOf('en') === -1) continue;
-    if (v.lang.indexOf('GB') > -1 || v.lang.indexOf('UK') > -1) { chosen = v; break; }
-    if (!chosen && v.lang.indexOf('US') > -1) chosen = v;
-    if (!chosen) chosen = v;
-  }
-  if (chosen) utt.voice = chosen;
-  if (btn) {
-    btn.classList.add('playing');
-    utt.onend = utt.onerror = function() { btn.classList.remove('playing'); };
-  }
+  var utt=new SpeechSynthesisUtterance(text);utt.lang='en-US';utt.rate=0.85;utt.pitch=1.1;
+  var voices=window.speechSynthesis.getVoices();
+  for(var i=0;i<voices.length;i++){if(voices[i].lang.indexOf('en-GB')>-1||voices[i].lang.indexOf('en-UK')>-1){utt.voice=voices[i];break;}}
+  if(!utt.voice){for(var i=0;i<voices.length;i++){if(voices[i].lang.indexOf('en')>-1){utt.voice=voices[i];break;}}}
+  if(btn){btn.classList.add('playing');utt.onend=utt.onerror=function(){btn.classList.remove('playing')};}
   window.speechSynthesis.speak(utt);
 }
 window.speechSynthesis.getVoices();
-window.speechSynthesis.addEventListener('voiceschanged', function() { window.speechSynthesis.getVoices(); });
+window.speechSynthesis.addEventListener('voiceschanged',function(){window.speechSynthesis.getVoices();});
 </script>
-
-<!-- 顶部横幅 -->
-<div class="hero">
-  <div class="hero-emoji">👕</div>
-  <div class="hero-badge">第 005 期</div>
-  <h1>宝宝英语启蒙</h1>
-  <div class="hero-sub">Getting Dressed · 穿衣服</div>
-  <div class="hero-meta">
-    <span>📅 2026-04-20</span>
-    <span>⏱️ 约10分钟</span>
-    <span>🔤 字母 E</span>
-  </div>
-</div>
-
-<!-- 导航 -->
-<div class="nav-tabs">
-  <a class="nav-tab" href="issue-001.html">001期</a>
-  <a class="nav-tab" href="issue-002.html">002期</a>
-  <a class="nav-tab" href="issue-003.html">003期</a>
-  <a class="nav-tab" href="issue-004.html">004期</a>
-  <a class="nav-tab active" href="issue-005.html">005期</a>
-  <a class="nav-tab" href="index.html">🏠 首页</a>
-</div>
-
-<!-- 场景引入 -->
-<div class="intro-card">
-  每天早上穿衣服是最容易迷失在手机里的时刻——但也是和宝宝说英语的好机会！把今天这些句子用起来，配合动作，宝宝看一眼就懂！
-</div>
-
-<!-- 场景A：选衣服 -->
-<div class="card">
-  <div class="section-title">
-    <span class="icon">🗣️</span> 场景A：选衣服
-  </div>
-  <div class="phrase-card">
-    <div class="phrase-num">A1</div>
-    <div class="phrase-en">What do you want to wear today? <button class="tts-btn" onclick="speak('What do you want to wear today?', this)">🔊</button></div>
-    <div class="phrase-zh">今天想穿什么？</div>
-    <button class="tts-sentence-btn" onclick="speak('What do you want to wear today?', this)">🎙️ 跟读</button>
-  </div>
-  <div class="phrase-card">
-    <div class="phrase-num">A2</div>
-    <div class="phrase-en">This one? The blue one? Good choice! <button class="tts-btn" onclick="speak('This one? The blue one? Good choice!', this)">🔊</button></div>
-    <div class="phrase-zh">这件？蓝色那件？好眼光！</div>
-    <div class="phrase-tip">拿出两件衣服让宝宝选，说出颜色！</div>
-    <button class="tts-sentence-btn" onclick="speak('This one? The blue one? Good choice!', this)">🎙️ 跟读</button>
-  </div>
-</div>
-
-<!-- 场景B：穿衣服 -->
-<div class="card">
-  <div class="section-title">
-    <span class="icon">🗣️</span> 场景B：穿衣服
-  </div>
-  <div class="phrase-card">
-    <div class="phrase-num">B1</div>
-    <div class="phrase-en">Put your arm in! One arm... two arms! Great! <button class="tts-btn" onclick="speak('Put your arm in! One arm, two arms! Great!', this)">🔊</button></div>
-    <div class="phrase-zh">把手臂伸进去！一只手……两只手！太棒了！</div>
-    <button class="tts-sentence-btn" onclick="speak('Put your arm in! One arm, two arms! Great!', this)">🎙️ 跟读</button>
-  </div>
-  <div class="phrase-card">
-    <div class="phrase-num">B2</div>
-    <div class="phrase-en">Now pull it down! Pull down! <button class="tts-btn" onclick="speak('Now pull it down! Pull down!', this)">🔊</button></div>
-    <div class="phrase-zh">现在往下拉！往下拉！</div>
-    <div class="phrase-tip">穿套头衫时说，动作配合语言，宝宝一下就懂了！</div>
-    <button class="tts-sentence-btn" onclick="speak('Now pull it down! Pull down!', this)">🎙️ 跟读</button>
-  </div>
-</div>
-
-<!-- 场景C：穿裤子 -->
-<div class="card">
-  <div class="section-title">
-    <span class="icon">🗣️</span> 场景C：穿裤子
-  </div>
-  <div class="phrase-card">
-    <div class="phrase-num">C1</div>
-    <div class="phrase-en">Sit down! Let's put on your pants! <button class="tts-btn" onclick="speak('Sit down! Let us put on your pants!', this)">🔊</button></div>
-    <div class="phrase-zh">坐下来！穿裤子啦！</div>
-    <button class="tts-sentence-btn" onclick="speak('Sit down! Let us put on your pants!', this)">🎙️ 跟读</button>
-  </div>
-  <div class="phrase-card">
-    <div class="phrase-num">C2</div>
-    <div class="phrase-en">One leg... two legs... Stand up! You did it! <button class="tts-btn" onclick="speak('One leg, two legs, stand up! You did it!', this)">🔊</button></div>
-    <div class="phrase-zh">一条腿……两条腿……站起来！你做到了！</div>
-    <div class="phrase-tip">穿完裤子后配合掌声，宝宝会超有成就感！</div>
-    <button class="tts-sentence-btn" onclick="speak('One leg, two legs, stand up! You did it!', this)">🎙️ 跟读</button>
-  </div>
-</div>
-
-<!-- 衣物词汇表 -->
-<div class="card">
-  <div class="section-title">
-    <span class="icon">👕</span> 衣物词汇表
-    <span class="label">8个</span>
-  </div>
-  <table class="vocab-table">
-    <tr><th>中文</th><th>英文</th><th>发音</th><th>记忆</th></tr>
-    <tr>
-      <td>衣服</td><td><strong>clothes</strong> <button class="tts-btn" style="margin-left:2px" onclick="speak('clothes', this)">🔊</button></td>
-      <td>/kloʊðz/</td><td>穿衣服</td>
-    </tr>
-    <tr>
-      <td>T恤</td><td><strong>T-shirt</strong> <button class="tts-btn" style="margin-left:2px" onclick="speak('T-shirt', this)">🔊</button></td>
-      <td>/ˈtiːʃɜːrt/</td><td>最常用</td>
-    </tr>
-    <tr>
-      <td>裤子</td><td><strong>pants</strong> <button class="tts-btn" style="margin-left:2px" onclick="speak('pants', this)">🔊</button></td>
-      <td>/pænts/</td><td>最常用</td>
-    </tr>
-    <tr>
-      <td>袜子</td><td><strong>socks</strong> <button class="tts-btn" style="margin-left:2px" onclick="speak('socks', this)">🔊</button></td>
-      <td>/sɒks/</td><td>最常用</td>
-    </tr>
-    <tr>
-      <td>鞋子</td><td><strong>shoes</strong> <button class="tts-btn" style="margin-left:2px" onclick="speak('shoes', this)">🔊</button></td>
-      <td>/ʃuːz/</td><td>最常用</td>
-    </tr>
-    <tr>
-      <td>外套</td><td><strong>jacket</strong> <button class="tts-btn" style="margin-left:2px" onclick="speak('jacket', this)">🔊</button></td>
-      <td>/ˈdʒækɪt/</td><td>外套</td>
-    </tr>
-    <tr>
-      <td>帽子</td><td><strong>hat</strong> <button class="tts-btn" style="margin-left:2px" onclick="speak('hat', this)">🔊</button></td>
-      <td>/hæt/</td><td>有檐帽</td>
-    </tr>
-    <tr>
-      <td>颜色</td><td><strong>color</strong> <button class="tts-btn" style="margin-left:2px" onclick="speak('color', this)">🔊</button></td>
-      <td>/ˈkʌlər/</td><td>颜色词</td>
-    </tr>
-  </table>
-  <div style="background:#FFF8E1;border-radius:10px;padding:10px 14px;font-size:13px;color:#7A5800;margin-top:12px">
-    💡 今天先记 <strong>T-shirt / pants / socks / shoes</strong> 这4个最实用的！
-  </div>
-</div>
-
-<!-- 儿歌 -->
-<div class="song-card">
-  <div class="song-title">
-    🎵 Head, Shoulders, Knees and Toes
-    <button class="tts-btn" onclick="speak('Head, shoulders, knees and toes, knees and toes!', this)">🔊 听整首</button>
-  </div>
-  <div class="song-lyrics">
-    <div class="lyric-line">
-      <span class="lyric-en">Head, shoulders, knees and toes,</span>
-      <span class="lyric-zh">头、肩、膝盖、脚趾头</span>
-      <button class="tts-btn" style="flex-shrink:0" onclick="speak('Head, shoulders, knees and toes,', this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <span class="lyric-en">Knees and toes!</span>
-      <span class="lyric-zh">膝盖和脚趾！</span>
-      <button class="tts-btn" style="flex-shrink:0" onclick="speak('Knees and toes!', this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <span class="lyric-en">Head, shoulders, knees and toes,</span>
-      <span class="lyric-zh">头、肩、膝盖、脚趾头</span>
-      <button class="tts-btn" style="flex-shrink:0" onclick="speak('Head, shoulders, knees and toes,', this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <span class="lyric-en">Knees and toes!</span>
-      <span class="lyric-zh">膝盖和脚趾！</span>
-      <button class="tts-btn" style="flex-shrink:0" onclick="speak('Knees and toes!', this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <span class="lyric-en">Eyes and ears and mouth and nose,</span>
-      <span class="lyric-zh">眼睛耳朵和嘴巴和鼻子</span>
-      <button class="tts-btn" style="flex-shrink:0" onclick="speak('Eyes and ears and mouth and nose,', this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <span class="lyric-en">Head, shoulders, knees and toes,</span>
-      <span class="lyric-zh">头、肩、膝盖、脚趾头</span>
-      <button class="tts-btn" style="flex-shrink:0" onclick="speak('Head, shoulders, knees and toes,', this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <span class="lyric-en">Knees and toes!</span>
-      <span class="lyric-zh">膝盖和脚趾！</span>
-      <button class="tts-btn" style="flex-shrink:0" onclick="speak('Knees and toes!', this)">🔊</button>
-    </div>
-  </div>
-  <div class="song-tip">
-    🎯 <strong>怎么唱：</strong>唱到哪个部位就摸哪里！第一遍慢慢来，第二遍越来越快！最后加速版是亲子互动最爆笑的时刻 😂
-  </div>
-</div>
-
-<!-- 字母 -->
-<div class="letter-card">
-  <div class="section-title" style="text-align:left">
-    <span class="icon">🔤</span> 今日字母：E
-    <span class="label">Letter E</span>
-  </div>
-  <div class="letter-display">
-    <div class="letter-big">E</div>
-    <div class="letter-info">
-      <div class="letter-phonetic">/iː/</div>
-      <div class="letter-word">Egg / Elephant <button class="tts-btn" onclick="speak('Egg, Elephant', this)">🔊</button></div>
-      <div class="letter-word-en">🥚 鸡蛋 · 🐘 大象</div>
-    </div>
-  </div>
-  <div class="letter-memory">
-    💡 <strong>记忆口诀：</strong>E 像梳子三齿朝右，横平竖直站得牢 🪮
-  </div>
-  <div class="letter-tip">
-    👶 <em>"Egg! E for egg!"</em> 拿一个鸡蛋展示，或 <em>"Elephant! Big ears! E-E-Elephant!"</em> 做大耳朵动作！
-  </div>
-</div>
-
-<!-- 穿衣服比赛 -->
-<div class="game-card">
-  <div class="game-title">🎮 穿衣服比赛 · 亲子互动游戏</div>
-  <div class="game-step" style="margin-bottom:0">超级好玩的"穿衣服挑战"！把几件衣服放在床上：</div>
-  <div class="game-step" style="margin-bottom:0">
-    🎯 <em>"Find the hat! Where's the hat?"</em> → 宝宝找帽子 <button class="tts-btn" onclick="speak('Find the hat! Where is the hat?', this)">🔊</button>
-  </div>
-  <div class="game-step" style="margin-bottom:0">
-    🎯 <em>"Put on your socks! One sock, two socks!"</em> → 宝宝穿袜子 <button class="tts-btn" onclick="speak('Put on your socks! One sock, two socks!', this)">🔊</button>
-  </div>
-  <div class="game-step" style="margin-bottom:0">
-    🎯 <em>"Where's your T-shirt? Red T-shirt!"</em> → 宝宝找红色T恤 <button class="tts-btn" onclick="speak('Where is your T-shirt? Red T-shirt!', this)">🔊</button>
-  </div>
-  <div class="game-step" style="margin-bottom:0">
-    🎯 <em>"Good job! You did it!"</em> → 完成！给个大拥抱！ <button class="tts-btn" onclick="speak('Good job! You did it!', this)">🔊</button>
-  </div>
-</div>
-
-<!-- 下一期预告 -->
-<div class="next-card">
-  <div class="next-badge">📅 下一期预告</div>
-  <div class="next-title">第006期 · Breakfast Time · 吃早饭</div>
-  <div class="next-items">
-    🍳 场景：早餐时间全套英语表达<br>
-    🎵 儿歌：If You're Happy and You Know It<br>
-    🔤 字母：F（Fish, Frog）
-  </div>
-</div>
-
-<!-- 底部 -->
-<div class="footer">
-  <div class="footer-slogan">🌱 每天10分钟，为宝宝种下英语的种子</div>
-  <div class="footer-divider"></div>
-  <div>宝宝英语启蒙 · 每周一三五日 17:10 推送</div>
-  <div style="margin-top:4px;">点击 🔊 按钮听发音，加油爸爸妈妈！💪</div>
-</div>
 
 </body>
 </html>
