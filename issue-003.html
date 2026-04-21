@@ -5,345 +5,170 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>宝宝英语启蒙 · 第003期</title>
 <style>
-  :root {
-    --primary: #FF9B50; --primary-dark: #E07A2F;
-    --secondary: #7EC8E3; --accent: #A8D8B9;
-    --bg: #FFF9F0; --card-bg: #FFFFFF;
-    --text: #3D3D3D; --text-light: #7A7A7A;
-    --border: #F0E8DC; --shadow: rgba(255,155,80,0.12);
-    --radius: 16px; --font: -apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;padding-bottom:60px;-webkit-font-smoothing:antialiased}
-  .tts-btn{display:inline-flex;align-items:center;gap:4px;background:#FFF3E0;border:1.5px solid #FFE0B2;border-radius:20px;padding:3px 10px 3px 6px;font-size:12px;color:var(--primary-dark);cursor:pointer;transition:all .2s;font-weight:600;margin-left:4px;vertical-align:middle;user-select:none}
-  .tts-btn:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
-  .tts-btn.playing{background:#FF5722;color:#fff;border-color:#FF5722;animation:pulse 1s infinite}
-  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
-  .tts-sentence-btn{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#FF9B50,#FF6B35);color:#fff;border:none;border-radius:12px;padding:8px 16px;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;margin-top:10px;font-family:var(--font)}
-  .tts-sentence-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(255,107,53,0.4)}
-  .hero{background:linear-gradient(135deg,#FFE0B2 0%,#B3E5FC 100%);padding:40px 24px 32px;text-align:center;position:relative;overflow:hidden}
-  .hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:var(--bg);border-radius:50% 50% 0 0}
-  .hero-badge{display:inline-block;background:var(--primary);color:#fff;font-size:12px;font-weight:600;padding:4px 14px;border-radius:20px;margin-bottom:14px;letter-spacing:1px}
-  .hero h1{font-size:26px;font-weight:700;color:#2C2C2C;margin-bottom:6px;line-height:1.3}
-  .hero-sub{font-size:14px;color:#6D4C41;margin-bottom:4px}
-  .hero-meta{display:flex;justify-content:center;gap:20px;margin-top:14px;flex-wrap:wrap}
-  .hero-meta span{font-size:13px;color:var(--text-light);display:flex;align-items:center;gap:4px}
-  .hero-emoji{font-size:64px;margin-bottom:8px}
-  .nav-tabs{display:flex;gap:6px;padding:16px 20px 0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-  .nav-tabs::-webkit-scrollbar{display:none}
-  .nav-tab{flex-shrink:0;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:500;border:1.5px solid var(--border);background:var(--card-bg);color:var(--text-light);cursor:pointer;text-decoration:none;transition:all .2s}
-  .nav-tab.active,.nav-tab:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
-  .card{background:var(--card-bg);border-radius:var(--radius);margin:16px 20px;padding:20px;box-shadow:0 2px 12px var(--shadow)}
-  .intro-card{background:linear-gradient(135deg,#FFF3E0,#E3F2FD);border-left:4px solid var(--primary);border-radius:var(--radius);margin:20px 20px 0;padding:18px 20px;font-size:15px}
-  .intro-card::before{content:'💡';font-size:20px;margin-right:8px}
-  .section-title{font-size:17px;font-weight:700;color:#2C2C2C;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-  .section-title .icon{font-size:22px}
-  .section-title .label{font-size:11px;background:var(--primary);color:#fff;padding:2px 8px;border-radius:10px;font-weight:600;margin-left:auto;flex-shrink:0}
-  .phrase-card{background:var(--card-bg);border-radius:var(--radius);margin:12px 20px;padding:18px 20px;box-shadow:0 2px 10px var(--shadow);border-top:3px solid var(--secondary);position:relative}
-  .phrase-num{position:absolute;top:-12px;left:18px;background:var(--secondary);color:#fff;font-size:11px;font-weight:700;padding:2px 10px;border-radius:10px}
-  .phrase-en{font-size:17px;font-weight:700;color:var(--primary-dark);margin-bottom:4px;line-height:1.5;display:flex;align-items:center;flex-wrap:wrap;gap:4px}
-  .phrase-zh{font-size:14px;color:var(--text-light);margin-bottom:10px}
-  .phrase-tip{background:#FFF8E1;border-radius:10px;padding:10px 14px;font-size:13px;color:#7A5800;display:flex;align-items:flex-start;gap:6px;line-height:1.6;margin-top:8px}
-  .phrase-tip::before{content:'🖐️';flex-shrink:0}
-  .song-card{background:linear-gradient(135deg,#F1F8E9,#E8F5E9);border-radius:var(--radius);margin:16px 20px;padding:22px 20px;text-align:center;border:1.5px solid #C8E6C9}
-  .song-title{font-size:15px;font-weight:700;color:#2E7D32;margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
-  .song-lyrics{background:#fff;border-radius:12px;padding:16px;font-size:15px;color:#388E3C;line-height:2.2;font-weight:500;text-align:left;border:1px dashed #A5D6A7;margin-bottom:14px}
-  .lyric-line{display:flex;align-items:center;gap:8px;padding:2px 0;min-height:36px}
-  .lyric-line:hover{background:#F1F8E9;border-radius:8px;padding:2px 6px;margin:-2px -6px}
-  .lyric-en{flex:1;font-weight:600}
-  .lyric-zh{font-size:13px;color:#7A7A7A;flex-shrink:0}
-  .song-tip{font-size:13px;color:#558B2F;text-align:left;padding:0 4px;margin-top:8px}
-  .book-card{background:linear-gradient(135deg,#FFFDE7,#FFF8E1);border-radius:var(--radius);margin:16px 20px;padding:18px 20px;border:1.5px solid #FFE082}
-  .book-title{font-size:15px;font-weight:700;color:#F57F17;margin-bottom:10px;display:flex;align-items:center;gap:8px}
-  .book-words{font-size:13px;color:#5D4037;display:flex;flex-wrap:wrap;gap:6px}
-  .book-word-item{display:inline-flex;align-items:center;gap:4px;background:#FFF9C4;border-radius:8px;padding:4px 10px;margin:3px 2px;font-size:13px;font-weight:600;color:#E65100;cursor:pointer}
-  .book-word-item:hover{background:#FFE082}
-  .book-tip{margin-top:12px;background:#fff;border-radius:10px;padding:10px 14px;font-size:13px;color:#5D4037;display:flex;align-items:flex-start;gap:6px;line-height:1.7}
-  .book-tip::before{content:'🗣️';flex-shrink:0}
-  .letter-card{background:var(--card-bg);border-radius:var(--radius);margin:16px 20px;padding:20px;box-shadow:0 2px 10px var(--shadow);text-align:center}
-  .letter-display{display:flex;justify-content:center;align-items:center;gap:24px;margin-bottom:16px;flex-wrap:wrap}
-  .letter-big{font-size:72px;font-weight:800;color:var(--primary);line-height:1}
-  .letter-info{text-align:left}
-  .letter-phonetic{font-size:20px;color:var(--secondary);font-weight:700;margin-bottom:4px}
-  .letter-word{font-size:28px;margin-bottom:2px;display:flex;align-items:center;gap:8px}
-  .letter-word-en{font-size:14px;color:var(--text-light)}
-  .letter-memory{background:#FFF9C4;border-radius:10px;padding:10px 16px;font-size:14px;color:#7A5800;margin-bottom:12px;text-align:left;line-height:1.7}
-  .letter-tip{font-size:13px;color:var(--text-light);text-align:left}
-  .next-card{background:linear-gradient(135deg,#E8EAF6,#F3E5F5);border-radius:var(--radius);margin:16px 20px;padding:20px;border:1.5px solid #D1C4E9}
-  .next-badge{font-size:11px;background:#7E57C2;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;display:inline-block;margin-bottom:10px}
-  .next-title{font-size:16px;font-weight:700;color:#4A148C;margin-bottom:8px}
-  .next-items{font-size:13px;color:#5E35B1}
-  .next-items span{display:block;margin-top:4px}
-  .tips-grid{display:grid;gap:10px}
-  .tip-item{background:#FFF8E1;border-radius:10px;padding:12px 14px;font-size:13px;color:#5D4037;display:flex;align-items:flex-start;gap:8px;line-height:1.6}
-  .tip-num{background:var(--primary);color:#fff;font-size:11px;font-weight:700;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-  .vocab-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:12px}
-  .vocab-table th{background:#FFF3E0;color:var(--primary-dark);padding:8px 12px;text-align:left;font-weight:600;border-radius:8px 8px 0 0}
-  .vocab-table td{padding:8px 12px;border-bottom:1px solid var(--border);color:var(--text)}
-  .vocab-table tr:last-child td{border-bottom:none}
-  .vocab-table tr:nth-child(even){background:#FFFBF5}
-  .footer{text-align:center;padding:30px 20px 20px;font-size:12px;color:var(--text-light)}
-  .footer-slogan{font-size:15px;color:var(--primary);font-weight:600;margin-bottom:6px}
-  .footer-divider{width:40px;height:3px;background:var(--primary);border-radius:2px;margin:10px auto 14px}
-  @media(max-width:360px){.hero h1{font-size:22px}.letter-big{font-size:60px}}
+:root{--primary:#FF9B50;--primary-dark:#E07A2F;--secondary:#7EC8E3;--accent:#A8D8B9;--bg:#FFF9F0;--card-bg:#FFFFFF;--text:#3D3D3D;--text-light:#7A7A7A;--border:#F0E8DC;--shadow:rgba(255,155,80,0.12);--radius:16px;--font:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;padding-bottom:60px;-webkit-font-smoothing:antialiased}
+.tts-btn{display:inline-flex;align-items:center;gap:4px;background:#FFF3E0;border:1.5px solid #FFE0B2;border-radius:20px;padding:3px 10px 3px 6px;font-size:12px;color:var(--primary-dark);cursor:pointer;transition:all .2s;font-weight:600;margin-left:4px;vertical-align:middle;user-select:none}
+.tts-btn:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+.tts-btn.playing{background:#FF5722;color:#fff;border-color:#FF5722;animation:pulse .6s infinite}
+.tts-sentence-btn{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#FF9B50,#FF6B35);color:#fff;border:none;border-radius:12px;padding:8px 16px;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;margin-top:10px;font-family:var(--font)}
+.tts-sentence-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(255,107,53,0.4)}
+.tts-sentence-btn.playing{opacity:.7}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+.hero{background:linear-gradient(135deg,#FFE0B2 0%,#B3E5FC 100%);padding:40px 24px 32px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:var(--bg);border-radius:50% 50% 0 0}
+.hero-badge{display:inline-block;background:var(--primary);color:#fff;font-size:12px;font-weight:600;padding:4px 14px;border-radius:20px;margin-bottom:14px;letter-spacing:1px}
+.hero h1{font-size:26px;font-weight:700;color:#2C2C2C;margin-bottom:6px;line-height:1.3}
+.hero-sub{font-size:14px;color:#6D4C41;margin-bottom:4px}
+.hero-meta{display:flex;justify-content:center;gap:20px;margin-top:14px;flex-wrap:wrap}
+.hero-meta span{font-size:13px;color:var(--text-light);display:flex;align-items:center;gap:4px}
+.hero-emoji{font-size:64px;margin-bottom:8px}
+.nav-tabs{display:flex;gap:6px;padding:16px 20px 0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.nav-tabs::-webkit-scrollbar{display:none}
+.nav-tab{flex-shrink:0;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:500;border:1.5px solid var(--border);background:var(--card-bg);color:var(--text-light);cursor:pointer;text-decoration:none;transition:all .2s}
+.nav-tab.active,.nav-tab:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+.card{background:var(--card-bg);border-radius:var(--radius);margin:16px 20px;padding:20px;box-shadow:0 2px 12px var(--shadow)}
+.intro-card{background:linear-gradient(135deg,#FFF3E0,#E3F2FD);border-left:4px solid var(--primary);border-radius:var(--radius);margin:20px 20px 0;padding:18px 20px;font-size:15px}
+.intro-card::before{content:'💡';font-size:20px;margin-right:8px}
+.section-title{font-size:17px;font-weight:700;color:#2C2C2C;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.section-title .icon{font-size:22px}
+.word-card{background:var(--card-bg);border-radius:var(--radius);margin:12px 20px;padding:16px 20px;box-shadow:0 2px 10px var(--shadow);border-left:4px solid var(--secondary)}
+.word-top{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.word-en{font-size:22px;font-weight:800;color:var(--primary-dark)}
+.word-ipa{font-size:14px;color:var(--secondary);font-weight:600;font-style:italic}
+.word-zh{font-size:14px;color:var(--text-light)}
+.word-tip{background:#F0F8FF;border-radius:10px;padding:8px 14px;font-size:13px;color:#1565C0;margin-top:8px;display:flex;align-items:flex-start;gap:6px;line-height:1.6}
+.word-tip::before{content:'💡';flex-shrink:0}
+.song-card{background:linear-gradient(135deg,#F1F8E9,#E8F5E9);border-radius:var(--radius);margin:16px 20px;padding:22px 20px;text-align:center;border:1.5px solid #C8E6C9}
+.song-card .song-title{font-size:18px;font-weight:700;color:#388E3C;margin-bottom:4px}
+.song-card .song-sub{font-size:12px;color:#689F38;margin-bottom:16px}
+.song-card .song-lyrics{background:#F1F8E9;border-radius:12px;padding:16px;text-align:left}
+.song-line{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px dashed #C8E6C9;font-size:15px;color:#33691E}
+.song-line:last-child{border-bottom:none}
+.line-text{flex:1}
+.dialogue-card{background:linear-gradient(135deg,#FFF8E1,#FFECB3);border-radius:var(--radius);margin:16px 20px;padding:20px;border:1.5px solid #FFD54F}
+.dialogue-row{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid #FFE082}
+.dialogue-row:last-child{border-bottom:none}
+.dialogue-emoji{font-size:36px;flex-shrink:0;line-height:1.2}
+.dialogue-text{flex:1}
+.dialogue-en{font-size:16px;font-weight:700;color:#E65100;margin-bottom:4px}
+.dialogue-zh{font-size:13px;color:#795548}
+.big-phrase{background:#FFF3E0;border-radius:12px;padding:16px 20px;margin:14px 20px;text-align:center;border:1.5px solid #FFE0B2}
+.big-phrase .phrase-en{font-size:20px;font-weight:800;color:var(--primary-dark);margin-bottom:8px}
+.phonetic-note{background:#F5F5F5;border-radius:10px;padding:8px 14px;font-size:12px;color:#666;margin:12px 20px 0;text-align:center}
+.footer-note{text-align:center;font-size:12px;color:var(--text-light);padding:24px 20px;line-height:2}
+.footer-note a{color:var(--primary);text-decoration:none}
 </style>
 </head>
 <body>
 
+<div class="hero" style="background:linear-gradient(135deg,#FFCDD2 0%,#F8BBD0 100%)">
+  <div class="hero-badge">第 3 期</div>
+  <div class="hero-emoji">🍎</div>
+  <h1>C for Cat!</h1>
+  <div class="hero-sub">第3期 | 字母C | Cat, Car, Cow, Cake</div>
+</div>
+<div class="nav-tabs"><span class="nav-tab" onclick="location.href='issue-001.html'">字母A</span><span class="nav-tab" onclick="location.href='issue-002.html'">字母B</span><span class="nav-tab active" onclick="location.href='issue-003.html'">字母C</span><span class="nav-tab" onclick="location.href='issue-004.html'">字母D</span><span class="nav-tab" onclick="location.href='issue-005.html'">字母E</span></div>
+
+<div class="intro-card">今天认识字母 C。C 是一个很活泼的字母——Cat（猫）会喵喵叫，Car（汽车）会 Vroom Vroom，Cow（奶牛）会 Moo Moo， Cake（蛋糕）过生日时最开心！</div>
+<div class="phonetic-note">📖 今天学字母 C /siː/ — 一起念：C-C-Cat! /kæt/ /kæt/ /kæt! 🐱</div>
+
+<div class="card">
+  <div class="section-title"><span class="icon">📚</span> 今日核心单词</div>
+    <div class="word-card">
+    <div class="word-top">
+      <span class="word-en">Cat</span>
+      <span class="word-ipa">/kæt/</span>
+      <button class="tts-btn" onclick="playAudio('audio/cat.mp3', 'Cat', this)" title="点击播放发音">🔊 发音</button>
+    </div>
+    <div class="word-zh">猫</div>
+    <div class="word-tip">💡 看到猫时说 'Look! A cat! Meow! Meow!' 让宝宝模仿猫叫。</div>
+  </div>  <div class="word-card">
+    <div class="word-top">
+      <span class="word-en">Car</span>
+      <span class="word-ipa">/kɑːr/</span>
+      <button class="tts-btn" onclick="playAudio('audio/car.mp3', 'Car', this)" title="点击播放发音">🔊 发音</button>
+    </div>
+    <div class="word-zh">汽车</div>
+    <div class="word-tip">💡 听到汽车声时说 'Car! Vroom! Vroom!' 宝宝会很兴奋。</div>
+  </div>  <div class="word-card">
+    <div class="word-top">
+      <span class="word-en">Cow</span>
+      <span class="word-ipa">/kaʊ/</span>
+      <button class="tts-btn" onclick="playAudio('audio/cow.mp3', 'Cow', this)" title="点击播放发音">🔊 发音</button>
+    </div>
+    <div class="word-zh">奶牛</div>
+    <div class="word-tip">💡 绘本里看到奶牛说 'Moo! Cow says Moo!' 模仿奶牛叫声。</div>
+  </div>  <div class="word-card">
+    <div class="word-top">
+      <span class="word-en">Cake</span>
+      <span class="word-ipa">/keɪk/</span>
+      <button class="tts-btn" onclick="playAudio('audio/cake.mp3', 'Cake', this)" title="点击播放发音">🔊 发音</button>
+    </div>
+    <div class="word-zh">蛋糕</div>
+    <div class="word-tip">💡 过生日时唱 'Happy birthday!' 切蛋糕说 'Cake! Yummy!'</div>
+  </div>  <div class="word-card">
+    <div class="word-top">
+      <span class="word-en">Cup</span>
+      <span class="word-ipa">/kʌp/</span>
+      <button class="tts-btn" onclick="playAudio('audio/cup.mp3', 'Cup', this)" title="点击播放发音">🔊 发音</button>
+    </div>
+    <div class="word-zh">杯子</div>
+    <div class="word-tip">💡 喝水时说 'Cup! Drink water!' 让宝宝认杯子。</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="section-title"><span class="icon">💬</span> C字母场景</div>
+  <div class="dialogue-row"><div class="dialogue-emoji">🐱</div><div class="dialogue-text"><div class="dialogue-en">C for Cat! Meow! Meow! <button class="tts-btn" style="flex-shrink:0" onclick="playAudio(null, 'C for Cat! Meow! Meow!', this)" title="点击播放">🔊</button></div><div class="dialogue-zh">猫会说 C！喵喵喵！</div></div></div><div class="dialogue-row"><div class="dialogue-emoji">🚗</div><div class="dialogue-text"><div class="dialogue-en">C for Car! Vroom! Vroom! <button class="tts-btn" style="flex-shrink:0" onclick="playAudio(null, 'C for Car! Vroom! Vroom!', this)" title="点击播放">🔊</button></div><div class="dialogue-zh">汽车会说 C！轰轰轰！</div></div></div><div class="dialogue-row"><div class="dialogue-emoji">🐄</div><div class="dialogue-text"><div class="dialogue-en">C for Cow! Moo! Moo! <button class="tts-btn" style="flex-shrink:0" onclick="playAudio(null, 'C for Cow! Moo! Moo!', this)" title="点击播放">🔊</button></div><div class="dialogue-zh">奶牛会说 C！哞哞哞！</div></div></div><div class="dialogue-row"><div class="dialogue-emoji">🎂</div><div class="dialogue-text"><div class="dialogue-en">Cup of tea, please. <button class="tts-btn" style="flex-shrink:0" onclick="playAudio(null, 'Cup of tea, please.', this)" title="点击播放">🔊</button></div><div class="dialogue-zh">请给我一杯茶。</div></div></div>
+</div>
+
+<div class="song-card">
+  <div class="song-title">🎵 C Says... What Does C Say?</div>
+  <div class="song-sub">每个C单词都有独特的叫声！</div>
+  <div class="song-lyrics">
+          <div class="song-line"><span class="line-text">C for Cat! Meow! Meow!</span><button class="tts-btn" style="flex-shrink:0" onclick="playAudio('audio/nursery_cat.mp3', 'C for Cat! Meow! Meow!', this)" title="点击播放">🔊</button></div>      <div class="song-line"><span class="line-text">C for Car! Vroom! Vroom!</span><button class="tts-btn" style="flex-shrink:0" onclick="playAudio('audio/nursery_car.mp3', 'C for Car! Vroom! Vroom!', this)" title="点击播放">🔊</button></div>      <div class="song-line"><span class="line-text">C for Cow! Moo! Moo!</span><button class="tts-btn" style="flex-shrink:0" onclick="playAudio('audio/nursery_cow.mp3', 'C for Cow! Moo! Moo!', this)" title="点击播放">🔊</button></div>      <div class="song-line"><span class="line-text">C for Cake! Happy birthday!</span><button class="tts-btn" style="flex-shrink:0" onclick="playAudio('audio/nursery_cake.mp3', 'C for Cake! Happy birthday!', this)" title="点击播放">🔊</button></div>
+  </div>
+</div>
+
+<div class="big-phrase">
+  <div class="phrase-en">C for Cat! Meow! Meow!</div>
+  <button class="tts-sentence-btn" onclick="playAudio('audio/nursery_cat.mp3', 'C for Cat! Meow! Meow!', this)">🎙️ 跟读这句话</button>
+</div>
+
+<div class="footer-note">
+  宝宝英语启蒙系列 · 第001-005期<br>
+  全部内容均为原创 · 适合1.5-3岁宝宝<br>
+  点击喇叭按钮听标准发音 🐣
+</div>
+<script>window.speechSynthesis.getVoices();window.speechSynthesis.addEventListener('voiceschanged',function(){window.speechSynthesis.getVoices();});</script>
+<!-- 音频播放器：MP3优先，TTS降级 -->
 <script>
-function speak(text, btn) {
-  if (!('speechSynthesis' in window)) {
-    alert('当前浏览器不支持语音朗读，请使用Chrome、Safari或Edge浏览器。');
-    return;
-  }
+var _curAud=null;
+function playAudio(src,text,btn){
+  if(_curAud){_curAud.pause();_curAud.currentTime=0;document.querySelectorAll('.tts-btn.playing,.tts-sentence-btn.playing').forEach(function(b){b.classList.remove('playing')});}
+  if(src){
+    var a=new Audio(src);
+    a.addEventListener('play',function(){btn.classList.add('playing');});
+    a.addEventListener('ended',function(){btn.classList.remove('playing');});
+    a.addEventListener('error',function(){btn.classList.remove('playing');speak(text,btn);});
+    a.play().catch(function(){speak(text,btn);});
+    _curAud=a;
+  } else {speak(text,btn);}
+}
+function speak(text,btn){
+  if(!('speechSynthesis' in window)){alert('浏览器不支持语音朗读');return;}
   window.speechSynthesis.cancel();
-  window.speechSynthesis.getVoices();
-  var utt = new SpeechSynthesisUtterance(text);
-  utt.lang = 'en-US';
-  utt.rate = 0.85;
-  utt.pitch = 1.1;
-  var voices = window.speechSynthesis.getVoices();
-  var chosen = null;
-  for (var i = 0; i < voices.length; i++) {
-    var v = voices[i];
-    if (v.lang.indexOf('en') === -1) continue;
-    if (v.lang.indexOf('GB') > -1 || v.lang.indexOf('UK') > -1) { chosen = v; break; }
-    if (!chosen && v.lang.indexOf('US') > -1) chosen = v;
-    if (!chosen) chosen = v;
-  }
-  if (chosen) utt.voice = chosen;
-  if (btn) {
-    btn.classList.add('playing');
-    utt.onend = utt.onerror = function() { btn.classList.remove('playing'); };
-  }
+  var utt=new SpeechSynthesisUtterance(text);utt.lang='en-US';utt.rate=0.85;utt.pitch=1.1;
+  var voices=window.speechSynthesis.getVoices();
+  for(var i=0;i<voices.length;i++){if(voices[i].lang.indexOf('en-GB')>-1||voices[i].lang.indexOf('en-UK')>-1){utt.voice=voices[i];break;}}
+  if(!utt.voice){for(var i=0;i<voices.length;i++){if(voices[i].lang.indexOf('en')>-1){utt.voice=voices[i];break;}}}
+  if(btn){btn.classList.add('playing');utt.onend=utt.onerror=function(){btn.classList.remove('playing')};}
   window.speechSynthesis.speak(utt);
 }
 window.speechSynthesis.getVoices();
-window.speechSynthesis.addEventListener('voiceschanged', function() { window.speechSynthesis.getVoices(); });
+window.speechSynthesis.addEventListener('voiceschanged',function(){window.speechSynthesis.getVoices();});
 </script>
-
-<!-- 顶部横幅 -->
-<div class="hero">
-  <div class="hero-emoji">🍎</div>
-  <div class="hero-badge">第 003 期</div>
-  <h1>宝宝英语启蒙</h1>
-  <div class="hero-sub">Fruits World · 水果天地</div>
-  <div class="hero-meta">
-    <span>📅 2026-04-17</span>
-    <span>⏱️ 约10分钟</span>
-    <span>🔤 字母 C</span>
-  </div>
-</div>
-
-<!-- 导航 -->
-<div class="nav-tabs">
-  <a class="nav-tab" href="issue-001.html">001期</a>
-  <a class="nav-tab" href="issue-002.html">002期</a>
-  <a class="nav-tab active" href="issue-003.html">003期</a>
-  <a class="nav-tab" href="issue-004.html">004期</a>
-  <a class="nav-tab" href="issue-005.html">005期</a>
-  <a class="nav-tab" href="index.html">🏠 首页</a>
-</div>
-
-<!-- 场景引入 -->
-<div class="intro-card">
-  宝宝最爱吃水果！今天用苹果、香蕉来学英语，边吃边学，味道最甜！把真实的水果摆在宝宝面前，指着说英文，宝宝通过视觉+触觉+味觉同时学习，记忆深度是普通卡片的3-5倍！
-</div>
-
-<!-- 今日金句 -->
-<div class="card">
-  <div class="section-title">
-    <span class="icon">🗣️</span> 今日金句
-    <span class="label">6句</span>
-  </div>
-
-  <div class="phrase-card">
-    <div class="phrase-num">①</div>
-    <div class="phrase-en">What do you want? Apple or banana? <button class="tts-btn" onclick="speak('What do you want? Apple or banana?', this)">🔊</button></div>
-    <div class="phrase-zh">你想要什么？苹果还是香蕉？</div>
-    <div class="phrase-tip">手里分别拿着苹果和香蕉问宝宝，宝宝会用手指或说出来！</div>
-    <button class="tts-sentence-btn" onclick="speak('What do you want? Apple or banana?', this)">🎙️ 跟读</button>
-  </div>
-
-  <div class="phrase-card">
-    <div class="phrase-num">②</div>
-    <div class="phrase-en">This is an apple. Red and yummy! <button class="tts-btn" onclick="speak('This is an apple. Red and yummy!', this)">🔊</button></div>
-    <div class="phrase-zh">这是苹果。红色的，好好吃！</div>
-    <div class="phrase-tip">递苹果时说，宝宝会把"apple"和红色的苹果直接联系起来。</div>
-    <button class="tts-sentence-btn" onclick="speak('This is an apple. Red and yummy!', this)">🎙️ 跟读</button>
-  </div>
-
-  <div class="phrase-card">
-    <div class="phrase-num">③</div>
-    <div class="phrase-en">Let's peel the banana! Ready? Peel, peel, peel! <button class="tts-btn" onclick="speak('Let us peel the banana! Ready? Peel, peel, peel!', this)">🔊</button></div>
-    <div class="phrase-zh">我们来剥香蕉！准备好了吗？剥剥剥！</div>
-    <div class="phrase-tip">和宝宝一起剥香蕉，边剥边说，宝宝超级爱这个！</div>
-    <button class="tts-sentence-btn" onclick="speak('Let us peel the banana! Ready? Peel, peel, peel!', this)">🎙️ 跟读</button>
-  </div>
-
-  <div class="phrase-card">
-    <div class="phrase-num">④</div>
-    <div class="phrase-en">Mmm, yummy! It's so sweet! <button class="tts-btn" onclick="speak('Mmm, yummy! It is so sweet!', this)">🔊</button></div>
-    <div class="phrase-zh">嗯，好吃！好甜啊！</div>
-    <div class="phrase-tip">宝宝咬第一口时夸张地说，配合"好吃"的表情，宝宝会模仿"yummy！"</div>
-    <button class="tts-sentence-btn" onclick="speak('Mmm, yummy! It is so sweet!', this)">🎙️ 跟读</button>
-  </div>
-
-  <div class="phrase-card">
-    <div class="phrase-num">⑤</div>
-    <div class="phrase-en">Do you want more? More apple? <button class="tts-btn" onclick="speak('Do you want more? More apple?', this)">🔊</button></div>
-    <div class="phrase-zh">还想要吗？还要苹果吗？</div>
-    <div class="phrase-tip">每次宝宝吃完一口时问，培养宝宝用"more"来表达需求。</div>
-    <button class="tts-sentence-btn" onclick="speak('Do you want more? More apple?', this)">🎙️ 跟读</button>
-  </div>
-
-  <div class="phrase-card">
-    <div class="phrase-num">⑥</div>
-    <div class="phrase-en">All done! Good job eating! <button class="tts-btn" onclick="speak('All done! Good job eating!', this)">🔊</button></div>
-    <div class="phrase-zh">吃完啦！宝贝吃得真棒！</div>
-    <div class="phrase-tip">水果吃完后说，宝宝很快学会用"all done"加上手势来表示"吃完了"！</div>
-    <button class="tts-sentence-btn" onclick="speak('All done! Good job eating!', this)">🎙️ 跟读</button>
-  </div>
-</div>
-
-<!-- 水果词汇表 -->
-<div class="card">
-  <div class="section-title">
-    <span class="icon">🍎</span> 水果词汇表
-    <span class="label">6个</span>
-  </div>
-  <table class="vocab-table">
-    <tr><th>中文</th><th>英文</th><th>发音</th><th>示例</th></tr>
-    <tr>
-      <td>苹果</td><td><strong>apple</strong> <button class="tts-btn" style="margin-left:2px" onclick="speak('apple', this)">🔊</button></td>
-      <td>/ˈæpl/</td><td>Red and yummy!</td>
-    </tr>
-    <tr>
-      <td>香蕉</td><td><strong>banana</strong> <button class="tts-btn" style="margin-left:2px" onclick="speak('banana', this)">🔊</button></td>
-      <td>/bəˈnɑːnə/</td><td>Peel the banana!</td>
-    </tr>
-    <tr>
-      <td>橙子</td><td><strong>orange</strong> <button class="tts-btn" style="margin-left:2px" onclick="speak('orange', this)">🔊</button></td>
-      <td>/ˈɒrɪndʒ/</td><td>Orange is sweet!</td>
-    </tr>
-    <tr>
-      <td>草莓</td><td><strong>strawberry</strong> <button class="tts-btn" style="margin-left:2px" onclick="speak('strawberry', this)">🔊</button></td>
-      <td>/ˈstrɔːbəri/</td><td>Red strawberry!</td>
-    </tr>
-    <tr>
-      <td>葡萄</td><td><strong>grape</strong> <button class="tts-btn" style="margin-left:2px" onclick="speak('grape', this)">🔊</button></td>
-      <td>/ɡreɪp/</td><td>One grape, two grapes!</td>
-    </tr>
-    <tr>
-      <td>西瓜</td><td><strong>watermelon</strong> <button class="tts-btn" style="margin-left:2px" onclick="speak('watermelon', this)">🔊</button></td>
-      <td>/ˈwɔːtəmelən/</td><td>Watermelon is juicy!</td>
-    </tr>
-  </table>
-  <div style="background:#FFF8E1;border-radius:10px;padding:10px 14px;font-size:13px;color:#7A5800;margin-top:12px">
-    💡 不需要一次全学！今天先记 <strong>apple</strong> 和 <strong>banana</strong>，其他慢慢来。
-  </div>
-</div>
-
-<!-- 儿歌 -->
-<div class="song-card">
-  <div class="song-title">
-    🎵 Apples and Bananas
-    <button class="tts-btn" onclick="speak('I like to eat, eat, eat apples and bananas!', this)">🔊 听整首</button>
-  </div>
-  <div class="song-lyrics">
-    <div class="lyric-line">
-      <span class="lyric-en">I like to eat, eat, eat</span>
-      <span class="lyric-zh">我喜欢吃吃吃</span>
-      <button class="tts-btn" style="flex-shrink:0" onclick="speak('I like to eat, eat, eat', this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <span class="lyric-en">Apples and bananas!</span>
-      <span class="lyric-zh">苹果和香蕉！</span>
-      <button class="tts-btn" style="flex-shrink:0" onclick="speak('Apples and bananas!', this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <span class="lyric-en">I like to ote, ote, ote</span>
-      <span class="lyric-zh">我喜欢哦吃哦吃</span>
-      <button class="tts-btn" style="flex-shrink:0" onclick="speak('I like to ote, ote, ote', this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <span class="lyric-en">Oples and bononos!</span>
-      <span class="lyric-zh">哦普和波诺诺！</span>
-      <button class="tts-btn" style="flex-shrink:0" onclick="speak('Oples and bononos!', this)">🔊</button>
-    </div>
-    <div style="margin:8px 0 4px;font-size:12px;color:#888;text-align:left;padding:0 4px">--- 第3段：变音 e ---</div>
-    <div class="lyric-line">
-      <span class="lyric-en">I like to eet, eet, eet</span>
-      <span class="lyric-zh">我喜欢诶吃诶吃</span>
-      <button class="tts-btn" style="flex-shrink:0" onclick="speak('I like to eet, eet, eet', this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <span class="lyric-en">Eeples and beneenees!</span>
-      <span class="lyric-zh">诶普和贝尼尼！</span>
-      <button class="tts-btn" style="flex-shrink:0" onclick="speak('Eeples and beneenees!', this)">🔊</button>
-    </div>
-  </div>
-  <div class="song-tip">
-    🎯 <strong>怎么唱：</strong>手里拿着真的苹果和香蕉唱！变音部分会让宝宝捧腹大笑，语感就这样悄悄进来了！
-  </div>
-</div>
-
-<!-- 绘本 -->
-<div class="book-card">
-  <div class="book-title">📖 《小熊很忙》美食场景</div>
-  <div class="book-words">
-    <span class="book-word-item" onclick="speak('apple', this)">apple 🍎</span>
-    <span class="book-word-item" onclick="speak('banana', this)">banana 🍌</span>
-    <span class="book-word-item" onclick="speak('orange', this)">orange 🍊</span>
-    <span class="book-word-item" onclick="speak('strawberry', this)">strawberry 🍓</span>
-    <span class="book-word-item" onclick="speak('eat', this)">eat 吃</span>
-    <span class="book-word-item" onclick="speak('yummy', this)">yummy 好吃</span>
-  </div>
-  <div class="book-tip">
-    翻到水果那一页，指着每种水果问 <em>"What's this? It's a banana!"</em>，然后让宝宝指认！
-  </div>
-</div>
-
-<!-- 字母 -->
-<div class="letter-card">
-  <div class="section-title" style="text-align:left">
-    <span class="icon">🔤</span> 今日字母：C
-    <span class="label">Letter C</span>
-  </div>
-  <div class="letter-display">
-    <div class="letter-big">C</div>
-    <div class="letter-info">
-      <div class="letter-phonetic">/siː/</div>
-      <div class="letter-word">Cat / Cake <button class="tts-btn" onclick="speak('Cat, Cake', this)">🔊</button></div>
-      <div class="letter-word-en">🐱 猫 · 🍰 蛋糕</div>
-    </div>
-  </div>
-  <div class="letter-memory">
-    💡 <strong>记忆口诀：</strong>C 像月牙缺一角，开口朝右笑哈哈 🌙
-  </div>
-  <div class="letter-tip">
-    👶 <em>"Cat! C for cat! Meow meow!"</em> 学小猫叫，或 <em>"Cake! C for cake!"</em> 假装切蛋糕！
-  </div>
-</div>
-
-<!-- 下一期预告 -->
-<div class="next-card">
-  <div class="next-badge">📅 下一期预告</div>
-  <div class="next-title">第004期 · 《古力小超人》绘本精读</div>
-  <div class="next-items">
-    🦸 绘本：小彼恩《古力小超人》第一册<br>
-    🎵 儿歌：I'm a Little Superhero<br>
-    🔤 字母：D（Dog, Duck）
-  </div>
-</div>
-
-<!-- 底部 -->
-<div class="footer">
-  <div class="footer-slogan">🌱 每天10分钟，为宝宝种下英语的种子</div>
-  <div class="footer-divider"></div>
-  <div>宝宝英语启蒙 · 每周一三五日 17:10 推送</div>
-  <div style="margin-top:4px;">点击 🔊 按钮听发音，加油爸爸妈妈！💪</div>
-</div>
 
 </body>
 </html>
