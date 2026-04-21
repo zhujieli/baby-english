@@ -5,320 +5,173 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>宝宝英语启蒙 · 第004期</title>
 <style>
-  :root {
-    --primary: #FF9B50; --primary-dark: #E07A2F;
-    --secondary: #7EC8E3; --accent: #A8D8B9;
-    --bg: #FFF9F0; --card-bg: #FFFFFF;
-    --text: #3D3D3D; --text-light: #7A7A7A;
-    --border: #F0E8DC; --shadow: rgba(255,155,80,0.12);
-    --radius: 16px; --font: -apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;padding-bottom:60px;-webkit-font-smoothing:antialiased}
-  .tts-btn{display:inline-flex;align-items:center;gap:4px;background:#FFF3E0;border:1.5px solid #FFE0B2;border-radius:20px;padding:3px 10px 3px 6px;font-size:12px;color:var(--primary-dark);cursor:pointer;transition:all .2s;font-weight:600;margin-left:4px;vertical-align:middle;user-select:none}
-  .tts-btn:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
-  .tts-btn.playing{background:#FF5722;color:#fff;border-color:#FF5722;animation:pulse 1s infinite}
-  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
-  .tts-sentence-btn{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#FF9B50,#FF6B35);color:#fff;border:none;border-radius:12px;padding:8px 16px;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;margin-top:10px;font-family:var(--font)}
-  .tts-sentence-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(255,107,53,0.4)}
-  .hero{background:linear-gradient(135deg,#FFE0B2 0%,#B3E5FC 100%);padding:40px 24px 32px;text-align:center;position:relative;overflow:hidden}
-  .hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:var(--bg);border-radius:50% 50% 0 0}
-  .hero-badge{display:inline-block;background:var(--primary);color:#fff;font-size:12px;font-weight:600;padding:4px 14px;border-radius:20px;margin-bottom:14px;letter-spacing:1px}
-  .hero h1{font-size:26px;font-weight:700;color:#2C2C2C;margin-bottom:6px;line-height:1.3}
-  .hero-sub{font-size:14px;color:#6D4C41;margin-bottom:4px}
-  .hero-meta{display:flex;justify-content:center;gap:20px;margin-top:14px;flex-wrap:wrap}
-  .hero-meta span{font-size:13px;color:var(--text-light);display:flex;align-items:center;gap:4px}
-  .hero-emoji{font-size:64px;margin-bottom:8px}
-  .nav-tabs{display:flex;gap:6px;padding:16px 20px 0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-  .nav-tabs::-webkit-scrollbar{display:none}
-  .nav-tab{flex-shrink:0;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:500;border:1.5px solid var(--border);background:var(--card-bg);color:var(--text-light);cursor:pointer;text-decoration:none;transition:all .2s}
-  .nav-tab.active,.nav-tab:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
-  .card{background:var(--card-bg);border-radius:var(--radius);margin:16px 20px;padding:20px;box-shadow:0 2px 12px var(--shadow)}
-  .intro-card{background:linear-gradient(135deg,#FFF3E0,#E3F2FD);border-left:4px solid var(--primary);border-radius:var(--radius);margin:20px 20px 0;padding:18px 20px;font-size:15px}
-  .intro-card::before{content:'💡';font-size:20px;margin-right:8px}
-  .section-title{font-size:17px;font-weight:700;color:#2C2C2C;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-  .section-title .icon{font-size:22px}
-  .section-title .label{font-size:11px;background:var(--primary);color:#fff;padding:2px 8px;border-radius:10px;font-weight:600;margin-left:auto;flex-shrink:0}
-  .phrase-card{background:var(--card-bg);border-radius:var(--radius);margin:12px 20px;padding:18px 20px;box-shadow:0 2px 10px var(--shadow);border-top:3px solid var(--secondary);position:relative}
-  .phrase-num{position:absolute;top:-12px;left:18px;background:var(--secondary);color:#fff;font-size:11px;font-weight:700;padding:2px 10px;border-radius:10px}
-  .phrase-en{font-size:17px;font-weight:700;color:var(--primary-dark);margin-bottom:4px;line-height:1.5;display:flex;align-items:center;flex-wrap:wrap;gap:4px}
-  .phrase-zh{font-size:14px;color:var(--text-light);margin-bottom:10px}
-  .phrase-tip{background:#FFF8E1;border-radius:10px;padding:10px 14px;font-size:13px;color:#7A5800;display:flex;align-items:flex-start;gap:6px;line-height:1.6;margin-top:8px}
-  .phrase-tip::before{content:'🖐️';flex-shrink:0}
-  .song-card{background:linear-gradient(135deg,#F1F8E9,#E8F5E9);border-radius:var(--radius);margin:16px 20px;padding:22px 20px;text-align:center;border:1.5px solid #C8E6C9}
-  .song-title{font-size:15px;font-weight:700;color:#2E7D32;margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
-  .song-lyrics{background:#fff;border-radius:12px;padding:16px;font-size:15px;color:#388E3C;line-height:2.2;font-weight:500;text-align:left;border:1px dashed #A5D6A7;margin-bottom:14px}
-  .lyric-line{display:flex;align-items:center;gap:8px;padding:2px 0;min-height:36px}
-  .lyric-line:hover{background:#F1F8E9;border-radius:8px;padding:2px 6px;margin:-2px -6px}
-  .lyric-en{flex:1;font-weight:600}
-  .lyric-zh{font-size:13px;color:#7A7A7A;flex-shrink:0}
-  .song-tip{font-size:13px;color:#558B2F;text-align:left;padding:0 4px;margin-top:8px}
-  .letter-card{background:var(--card-bg);border-radius:var(--radius);margin:16px 20px;padding:20px;box-shadow:0 2px 10px var(--shadow);text-align:center}
-  .letter-display{display:flex;justify-content:center;align-items:center;gap:24px;margin-bottom:16px;flex-wrap:wrap}
-  .letter-big{font-size:72px;font-weight:800;color:var(--primary);line-height:1}
-  .letter-info{text-align:left}
-  .letter-phonetic{font-size:20px;color:var(--secondary);font-weight:700;margin-bottom:4px}
-  .letter-word{font-size:28px;margin-bottom:2px;display:flex;align-items:center;gap:8px}
-  .letter-word-en{font-size:14px;color:var(--text-light)}
-  .letter-memory{background:#FFF9C4;border-radius:10px;padding:10px 16px;font-size:14px;color:#7A5800;margin-bottom:12px;text-align:left;line-height:1.7}
-  .letter-tip{font-size:13px;color:var(--text-light);text-align:left}
-  .next-card{background:linear-gradient(135deg,#E8EAF6,#F3E5F5);border-radius:var(--radius);margin:16px 20px;padding:20px;border:1.5px solid #D1C4E9}
-  .next-badge{font-size:11px;background:#7E57C2;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;display:inline-block;margin-bottom:10px}
-  .next-title{font-size:16px;font-weight:700;color:#4A148C;margin-bottom:8px}
-  .next-items{font-size:13px;color:#5E35B1}
-  .next-items span{display:block;margin-top:4px}
-  .tips-grid{display:grid;gap:10px}
-  .tip-item{background:#FFF8E1;border-radius:10px;padding:12px 14px;font-size:13px;color:#5D4037;display:flex;align-items:flex-start;gap:8px;line-height:1.6}
-  .tip-num{background:var(--primary);color:#fff;font-size:11px;font-weight:700;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-  .game-card{background:linear-gradient(135deg,#E8F5E9,#E0F2F1);border-radius:var(--radius);margin:16px 20px;padding:20px;border:1.5px solid #A5D6A7}
-  .game-title{font-size:15px;font-weight:700;color:#1B5E20;margin-bottom:10px;display:flex;align-items:center;gap:8px}
-  .game-step{background:#fff;border-radius:10px;padding:10px 14px;margin-bottom:8px;font-size:13px;color:#2E7D32;display:flex;align-items:flex-start;gap:8px;line-height:1.6}
-  .game-step::before{content:'🎯';flex-shrink:0}
-  .footer{text-align:center;padding:30px 20px 20px;font-size:12px;color:var(--text-light)}
-  .footer-slogan{font-size:15px;color:var(--primary);font-weight:600;margin-bottom:6px}
-  .footer-divider{width:40px;height:3px;background:var(--primary);border-radius:2px;margin:10px auto 14px}
-  @media(max-width:360px){.hero h1{font-size:22px}.letter-big{font-size:60px}}
+:root{--primary:#FF9B50;--primary-dark:#E07A2F;--secondary:#7EC8E3;--accent:#A8D8B9;--bg:#FFF9F0;--card-bg:#FFFFFF;--text:#3D3D3D;--text-light:#7A7A7A;--border:#F0E8DC;--shadow:rgba(255,155,80,0.12);--radius:16px;--font:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.75;padding-bottom:60px;-webkit-font-smoothing:antialiased}
+.tts-btn{display:inline-flex;align-items:center;gap:4px;background:#FFF3E0;border:1.5px solid #FFE0B2;border-radius:20px;padding:3px 10px 3px 6px;font-size:12px;color:var(--primary-dark);cursor:pointer;transition:all .2s;font-weight:600;margin-left:4px;vertical-align:middle;user-select:none}
+.tts-btn:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+.tts-btn.playing{background:#FF5722;color:#fff;border-color:#FF5722;animation:pulse .6s infinite}
+.tts-sentence-btn{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#FF9B50,#FF6B35);color:#fff;border:none;border-radius:12px;padding:8px 16px;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;margin-top:10px;font-family:var(--font)}
+.tts-sentence-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(255,107,53,0.4)}
+.tts-sentence-btn.playing{opacity:.7}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+.hero{background:linear-gradient(135deg,#FFE0B2 0%,#B3E5FC 100%);padding:40px 24px 32px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:var(--bg);border-radius:50% 50% 0 0}
+.hero-badge{display:inline-block;background:var(--primary);color:#fff;font-size:12px;font-weight:600;padding:4px 14px;border-radius:20px;margin-bottom:14px;letter-spacing:1px}
+.hero h1{font-size:26px;font-weight:700;color:#2C2C2C;margin-bottom:6px;line-height:1.3}
+.hero-sub{font-size:14px;color:#6D4C41;margin-bottom:4px}
+.hero-meta{display:flex;justify-content:center;gap:20px;margin-top:14px;flex-wrap:wrap}
+.hero-meta span{font-size:13px;color:var(--text-light);display:flex;align-items:center;gap:4px}
+.hero-emoji{font-size:64px;margin-bottom:8px}
+.nav-tabs{display:flex;gap:6px;padding:16px 20px 0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.nav-tabs::-webkit-scrollbar{display:none}
+.nav-tab{flex-shrink:0;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:500;border:1.5px solid var(--border);background:var(--card-bg);color:var(--text-light);cursor:pointer;text-decoration:none;transition:all .2s}
+.nav-tab.active,.nav-tab:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+.card{background:var(--card-bg);border-radius:var(--radius);margin:16px 20px;padding:20px;box-shadow:0 2px 12px var(--shadow)}
+.intro-card{background:linear-gradient(135deg,#FFF3E0,#E3F2FD);border-left:4px solid var(--primary);border-radius:var(--radius);margin:20px 20px 0;padding:18px 20px;font-size:15px}
+.intro-card::before{content:'💡';font-size:20px;margin-right:8px}
+.section-title{font-size:17px;font-weight:700;color:#2C2C2C;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.section-title .icon{font-size:22px}
+.word-card{background:var(--card-bg);border-radius:var(--radius);margin:12px 20px;padding:16px 20px;box-shadow:0 2px 10px var(--shadow);border-left:4px solid var(--secondary)}
+.word-top{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.word-en{font-size:22px;font-weight:800;color:var(--primary-dark)}
+.word-ipa{font-size:14px;color:var(--secondary);font-weight:600;font-style:italic}
+.word-zh{font-size:14px;color:var(--text-light)}
+.word-tip{background:#F0F8FF;border-radius:10px;padding:8px 14px;font-size:13px;color:#1565C0;margin-top:8px;display:flex;align-items:flex-start;gap:6px;line-height:1.6}
+.word-tip::before{content:'💡';flex-shrink:0}
+.song-card{background:linear-gradient(135deg,#F1F8E9,#E8F5E9);border-radius:var(--radius);margin:16px 20px;padding:22px 20px;text-align:center;border:1.5px solid #C8E6C9}
+.song-card .song-title{font-size:18px;font-weight:700;color:#388E3C;margin-bottom:4px}
+.song-card .song-sub{font-size:12px;color:#689F38;margin-bottom:16px}
+.song-card .song-lyrics{background:#F1F8E9;border-radius:12px;padding:16px;text-align:left}
+.song-line{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px dashed #C8E6C9;font-size:15px;color:#33691E}
+.song-line:last-child{border-bottom:none}
+.line-text{flex:1}
+.dialogue-card{background:linear-gradient(135deg,#FFF8E1,#FFECB3);border-radius:var(--radius);margin:16px 20px;padding:20px;border:1.5px solid #FFD54F}
+.dialogue-row{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid #FFE082}
+.dialogue-row:last-child{border-bottom:none}
+.dialogue-emoji{font-size:36px;flex-shrink:0;line-height:1.2}
+.dialogue-text{flex:1}
+.dialogue-en{font-size:16px;font-weight:700;color:#E65100;margin-bottom:4px}
+.dialogue-zh{font-size:13px;color:#795548}
+.big-phrase{background:#FFF3E0;border-radius:12px;padding:16px 20px;margin:14px 20px;text-align:center;border:1.5px solid #FFE0B2}
+.big-phrase .phrase-en{font-size:20px;font-weight:800;color:var(--primary-dark);margin-bottom:8px}
+.phonetic-note{background:#F5F5F5;border-radius:10px;padding:8px 14px;font-size:12px;color:#666;margin:12px 20px 0;text-align:center}
+.footer-note{text-align:center;font-size:12px;color:var(--text-light);padding:24px 20px;line-height:2}
+.footer-note a{color:var(--primary);text-decoration:none}
 </style>
 </head>
 <body>
 
+<div class="hero" style="background:linear-gradient(135deg,#E1BEE7 0%,#CE93D8 100%)">
+  <div class="hero-badge">第 4 期</div>
+  <div class="hero-emoji">🦸</div>
+  <h1>I am Super Gali!</h1>
+  <div class="hero-sub">第4期 | 字母D | Dinosaur, Duck, Dog, Drum</div>
+</div>
+<div class="nav-tabs"><span class="nav-tab" onclick="location.href='issue-001.html'">字母A</span><span class="nav-tab" onclick="location.href='issue-002.html'">字母B</span><span class="nav-tab" onclick="location.href='issue-003.html'">字母C</span><span class="nav-tab active" onclick="location.href='issue-004.html'">字母D</span><span class="nav-tab" onclick="location.href='issue-005.html'">字母E</span></div>
+
+<div class="intro-card">今天是小超人的主场！Super Gali（古力小超人）会 Dinosaur（恐龙吼叫）、Drum（敲鼓）！认识字母 D 的同时，也一起变身小超人吧！</div>
+<div class="phonetic-note">📖 今天学字母 D /diː/ — 一起念：D-D-Dinosaur! /daɪnəsɔːr/ 🦕</div>
+
+<div class="card">
+  <div class="section-title"><span class="icon">📚</span> 今日核心单词</div>
+    <div class="word-card">
+    <div class="word-top">
+      <span class="word-en">Dinosaur</span>
+      <span class="word-ipa">/ˈdaɪnəsɔːr/</span>
+      <button class="tts-btn" onclick="playAudio('audio/dinosaur.mp3', 'Dinosaur', this)" title="点击播放发音">🔊 发音</button>
+    </div>
+    <div class="word-zh">恐龙</div>
+    <div class="word-tip">💡 学恐龙叫 'Rawr! Dinosaur!' 宝宝会笑得停不下来。</div>
+  </div>  <div class="word-card">
+    <div class="word-top">
+      <span class="word-en">Duck</span>
+      <span class="word-ipa">/dʌk/</span>
+      <button class="tts-btn" onclick="playAudio('audio/duck.mp3', 'Duck', this)" title="点击播放发音">🔊 发音</button>
+    </div>
+    <div class="word-zh">鸭子</div>
+    <div class="word-tip">💡 'Quack! Duck says Quack!' 边说边学鸭子走路。</div>
+  </div>  <div class="word-card">
+    <div class="word-top">
+      <span class="word-en">Dog</span>
+      <span class="word-ipa">/dɔːɡ/</span>
+      <button class="tts-btn" onclick="playAudio('audio/dog.mp3', 'Dog', this)" title="点击播放发音">🔊 发音</button>
+    </div>
+    <div class="word-zh">狗狗</div>
+    <div class="word-tip">💡 见到小狗说 'Dog! Woof! Woof!' 让宝宝摸摸。</div>
+  </div>  <div class="word-card">
+    <div class="word-top">
+      <span class="word-en">Drum</span>
+      <span class="word-ipa">/drʌm/</span>
+      <button class="tts-btn" onclick="playAudio('audio/drum.mp3', 'Drum', this)" title="点击播放发音">🔊 发音</button>
+    </div>
+    <div class="word-zh">鼓</div>
+    <div class="word-tip">💡 敲锅敲盆说 'Boom! Boom!' 节奏感从小培养。</div>
+  </div>  <div class="word-card">
+    <div class="word-top">
+      <span class="word-en">Door</span>
+      <span class="word-ipa">/dɔːr/</span>
+      <button class="tts-btn" onclick="playAudio('audio/door.mp3', 'Door', this)" title="点击播放发音">🔊 发音</button>
+    </div>
+    <div class="word-zh">门</div>
+    <div class="word-tip">💡 开门关门时说 'Open the door! Close the door!'</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="section-title"><span class="icon">🦸</span> 古力小超人 · 超人对白</div>
+  <div class="dialogue-row"><div class="dialogue-emoji">🦸</div><div class="dialogue-text"><div class="dialogue-en">I am Super Gali! <button class="tts-btn" style="flex-shrink:0" onclick="playAudio(null, 'I am Super Gali!', this)" title="点击播放">🔊</button></div><div class="dialogue-zh">我是古力小超人！</div></div></div><div class="dialogue-row"><div class="dialogue-emoji">🦸</div><div class="dialogue-text"><div class="dialogue-en">Where are you going? <button class="tts-btn" style="flex-shrink:0" onclick="playAudio(null, 'Where are you going?', this)" title="点击播放">🔊</button></div><div class="dialogue-zh">你要去哪里？</div></div></div><div class="dialogue-row"><div class="dialogue-emoji">🦸</div><div class="dialogue-text"><div class="dialogue-en">Rawr! D for Dinosaur! Rawr! <button class="tts-btn" style="flex-shrink:0" onclick="playAudio(null, 'Rawr! D for Dinosaur! Rawr!', this)" title="点击播放">🔊</button></div><div class="dialogue-zh">吼！D是恐龙！吼！</div></div></div><div class="dialogue-row"><div class="dialogue-emoji">🦸</div><div class="dialogue-text"><div class="dialogue-en">Boom! Boom! D for Drum! <button class="tts-btn" style="flex-shrink:0" onclick="playAudio(null, 'Boom! Boom! D for Drum!', this)" title="点击播放">🔊</button></div><div class="dialogue-zh">咚咚！D是鼓！</div></div></div>
+</div>
+
+<div class="song-card">
+  <div class="song-title">🎵 Super Gali 超人歌</div>
+  <div class="song-sub">来自小彼恩《古力小超人》系列绘本</div>
+  <div class="song-lyrics">
+          <div class="song-line"><span class="line-text">D for Dinosaur! Rawr! Rawr!</span><button class="tts-btn" style="flex-shrink:0" onclick="playAudio('audio/nursery_d1.mp3', 'D for Dinosaur! Rawr! Rawr!', this)" title="点击播放">🔊</button></div>      <div class="song-line"><span class="line-text">D for Duck! Quack! Quack!</span><button class="tts-btn" style="flex-shrink:0" onclick="playAudio('audio/nursery_d2.mp3', 'D for Duck! Quack! Quack!', this)" title="点击播放">🔊</button></div>      <div class="song-line"><span class="line-text">D for Dog! Woof! Woof!</span><button class="tts-btn" style="flex-shrink:0" onclick="playAudio('audio/nursery_d3.mp3', 'D for Dog! Woof! Woof!', this)" title="点击播放">🔊</button></div>      <div class="song-line"><span class="line-text">D for Drum! Boom! Boom!</span><button class="tts-btn" style="flex-shrink:0" onclick="playAudio('audio/nursery_d4.mp3', 'D for Drum! Boom! Boom!', this)" title="点击播放">🔊</button></div>
+    <div style="margin-top:12px;text-align:center">
+      <button class="tts-btn" onclick="playAudio('audio/bingo_d.mp3', 'D for Dinosaur! Rawr! Rawr! D for Dinosaur! Rawr! Rawr!', this)">🔊 听完整超人歌</button>
+    </div>
+  </div>
+</div>
+
+<div class="big-phrase">
+  <div class="phrase-en">I am Super Gali!</div>
+  <button class="tts-sentence-btn" onclick="playAudio('audio/i_am_super.mp3', 'I am Super Gali!', this)">🎙️ 跟读这句话</button>
+</div>
+
+<div class="footer-note">
+  宝宝英语启蒙系列 · 第001-005期<br>
+  全部内容均为原创 · 适合1.5-3岁宝宝<br>
+  点击喇叭按钮听标准发音 🐣
+</div>
+<script>window.speechSynthesis.getVoices();window.speechSynthesis.addEventListener('voiceschanged',function(){window.speechSynthesis.getVoices();});</script>
+<!-- 音频播放器：MP3优先，TTS降级 -->
 <script>
-function speak(text, btn) {
-  if (!('speechSynthesis' in window)) {
-    alert('当前浏览器不支持语音朗读，请使用Chrome、Safari或Edge浏览器。');
-    return;
-  }
+var _curAud=null;
+function playAudio(src,text,btn){
+  if(_curAud){_curAud.pause();_curAud.currentTime=0;document.querySelectorAll('.tts-btn.playing,.tts-sentence-btn.playing').forEach(function(b){b.classList.remove('playing')});}
+  if(src){
+    var a=new Audio(src);
+    a.addEventListener('play',function(){btn.classList.add('playing');});
+    a.addEventListener('ended',function(){btn.classList.remove('playing');});
+    a.addEventListener('error',function(){btn.classList.remove('playing');speak(text,btn);});
+    a.play().catch(function(){speak(text,btn);});
+    _curAud=a;
+  } else {speak(text,btn);}
+}
+function speak(text,btn){
+  if(!('speechSynthesis' in window)){alert('浏览器不支持语音朗读');return;}
   window.speechSynthesis.cancel();
-  window.speechSynthesis.getVoices();
-  var utt = new SpeechSynthesisUtterance(text);
-  utt.lang = 'en-US';
-  utt.rate = 0.85;
-  utt.pitch = 1.1;
-  var voices = window.speechSynthesis.getVoices();
-  var chosen = null;
-  for (var i = 0; i < voices.length; i++) {
-    var v = voices[i];
-    if (v.lang.indexOf('en') === -1) continue;
-    if (v.lang.indexOf('GB') > -1 || v.lang.indexOf('UK') > -1) { chosen = v; break; }
-    if (!chosen && v.lang.indexOf('US') > -1) chosen = v;
-    if (!chosen) chosen = v;
-  }
-  if (chosen) utt.voice = chosen;
-  if (btn) {
-    btn.classList.add('playing');
-    utt.onend = utt.onerror = function() { btn.classList.remove('playing'); };
-  }
+  var utt=new SpeechSynthesisUtterance(text);utt.lang='en-US';utt.rate=0.85;utt.pitch=1.1;
+  var voices=window.speechSynthesis.getVoices();
+  for(var i=0;i<voices.length;i++){if(voices[i].lang.indexOf('en-GB')>-1||voices[i].lang.indexOf('en-UK')>-1){utt.voice=voices[i];break;}}
+  if(!utt.voice){for(var i=0;i<voices.length;i++){if(voices[i].lang.indexOf('en')>-1){utt.voice=voices[i];break;}}}
+  if(btn){btn.classList.add('playing');utt.onend=utt.onerror=function(){btn.classList.remove('playing')};}
   window.speechSynthesis.speak(utt);
 }
 window.speechSynthesis.getVoices();
-window.speechSynthesis.addEventListener('voiceschanged', function() { window.speechSynthesis.getVoices(); });
+window.speechSynthesis.addEventListener('voiceschanged',function(){window.speechSynthesis.getVoices();});
 </script>
-
-<!-- 顶部横幅 -->
-<div class="hero">
-  <div class="hero-emoji">🦸</div>
-  <div class="hero-badge">第 004 期</div>
-  <h1>宝宝英语启蒙</h1>
-  <div class="hero-sub">《古力小超人》绘本精读</div>
-  <div class="hero-meta">
-    <span>📅 2026-04-19</span>
-    <span>⏱️ 约10分钟</span>
-    <span>🔤 字母 D</span>
-  </div>
-</div>
-
-<!-- 导航 -->
-<div class="nav-tabs">
-  <a class="nav-tab" href="issue-001.html">001期</a>
-  <a class="nav-tab" href="issue-002.html">002期</a>
-  <a class="nav-tab" href="issue-003.html">003期</a>
-  <a class="nav-tab active" href="issue-004.html">004期</a>
-  <a class="nav-tab" href="issue-005.html">005期</a>
-  <a class="nav-tab" href="index.html">🏠 首页</a>
-</div>
-
-<!-- 场景引入 -->
-<div class="intro-card">
-  今天是小彼恩《古力小超人》绘本精读专场！古力是普通小男孩，但穿上神奇披风就变成超级英雄！和宝宝一起披上"披风"，扮演小超人，边读边玩！
-</div>
-
-<!-- 绘本背景 -->
-<div class="card">
-  <div class="section-title">
-    <span class="icon">📖</span> 故事背景
-  </div>
-  <div style="font-size:15px;line-height:1.8;color:#5D4037;background:#FFFDE7;border-radius:12px;padding:16px 18px;border:1.5px solid #FFE082">
-    古力是一个普通的小男孩，但他有一件神奇的<b>超人披风</b>！只要穿上它，他就变成了<b>古力小超人</b>，可以帮助所有的朋友！今天我们一起学绘本里最经典的6句话，边读边和宝宝一起扮演小超人！
-  </div>
-</div>
-
-<!-- 绘本核心句型 -->
-<div class="card">
-  <div class="section-title">
-    <span class="icon">🗣️</span> 绘本核心句型
-    <span class="label">6句</span>
-  </div>
-
-  <div class="phrase-card">
-    <div class="phrase-num">①</div>
-    <div class="phrase-en">I'm a superhero! <button class="tts-btn" onclick="speak('I am a superhero!', this)">🔊</button></div>
-    <div class="phrase-zh">我是超级英雄！</div>
-    <div class="phrase-tip">给宝宝披上一条小毯子当披风，边说边做飞翔动作！</div>
-    <button class="tts-sentence-btn" onclick="speak('I am a superhero!', this)">🎙️ 跟读</button>
-  </div>
-
-  <div class="phrase-card">
-    <div class="phrase-num">②</div>
-    <div class="phrase-en">I can help you! <button class="tts-btn" onclick="speak('I can help you!', this)">🔊</button></div>
-    <div class="phrase-zh">我可以帮你！</div>
-    <div class="phrase-tip">当宝宝帮你拿东西或做小事时说，反过来让宝宝"帮助"你时也用。</div>
-    <button class="tts-sentence-btn" onclick="speak('I can help you!', this)">🎙️ 跟读</button>
-  </div>
-
-  <div class="phrase-card">
-    <div class="phrase-num">③</div>
-    <div class="phrase-en">Look at me! I can fly! <button class="tts-btn" onclick="speak('Look at me! I can fly!', this)">🔊</button></div>
-    <div class="phrase-zh">看我！我能飞！</div>
-    <div class="phrase-tip">举高宝宝当"飞翔"，宝宝会无比开心地跟着说"fly！"</div>
-    <button class="tts-sentence-btn" onclick="speak('Look at me! I can fly!', this)">🎙️ 跟读</button>
-  </div>
-
-  <div class="phrase-card">
-    <div class="phrase-num">④</div>
-    <div class="phrase-en">Come on! You can do it! <button class="tts-btn" onclick="speak('Come on! You can do it!', this)">🔊</button></div>
-    <div class="phrase-zh">加油！你能行的！</div>
-    <div class="phrase-tip">宝宝尝试做新事情时鼓励，这句话会陪伴宝宝整个成长过程！</div>
-    <button class="tts-sentence-btn" onclick="speak('Come on! You can do it!', this)">🎙️ 跟读</button>
-  </div>
-
-  <div class="phrase-card">
-    <div class="phrase-num">⑤</div>
-    <div class="phrase-en">Don't worry! I'm not scared! <button class="tts-btn" onclick="speak('Do not worry! I am not scared!', this)">🔊</button></div>
-    <div class="phrase-zh">别担心！我不害怕！</div>
-    <div class="phrase-tip">宝宝害怕的时候，陪着宝宝一起说这句"勇气咒语"！</div>
-    <button class="tts-sentence-btn" onclick="speak('Do not worry! I am not scared!', this)">🎙️ 跟读</button>
-  </div>
-
-  <div class="phrase-card">
-    <div class="phrase-num">⑥</div>
-    <div class="phrase-en">Mission complete! Well done! <button class="tts-btn" onclick="speak('Mission complete! Well done!', this)">🔊</button></div>
-    <div class="phrase-zh">任务完成！干得好！</div>
-    <div class="phrase-tip">任何小任务完成后（吃完饭/收玩具）都可以庆祝地说！</div>
-    <button class="tts-sentence-btn" onclick="speak('Mission complete! Well done!', this)">🎙️ 跟读</button>
-  </div>
-</div>
-
-<!-- 儿歌 -->
-<div class="song-card">
-  <div class="song-title">
-    🎵 I'm a Little Superhero
-    <button class="tts-btn" onclick="speak('I am a little superhero, watch me go!', this)">🔊 听整首</button>
-  </div>
-  <div class="song-lyrics">
-    <div class="lyric-line">
-      <span class="lyric-en">I'm a little superhero, watch me go!</span>
-      <span class="lyric-zh">我是小超人，看我飞！</span>
-      <button class="tts-btn" style="flex-shrink:0" onclick="speak('I am a little superhero, watch me go!', this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <span class="lyric-en">I can fly up high, I can fly down low!</span>
-      <span class="lyric-zh">我能飞高高，也能飞低低！</span>
-      <button class="tts-btn" style="flex-shrink:0" onclick="speak('I can fly up high, I can fly down low!', this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <span class="lyric-en">Put on my cape and do a spin,</span>
-      <span class="lyric-zh">披上披风转一圈，</span>
-      <button class="tts-btn" style="flex-shrink:0" onclick="speak('Put on my cape and do a spin,', this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <span class="lyric-en">Saving all my friends, let's begin!</span>
-      <span class="lyric-zh">拯救所有朋友，开始吧！</span>
-      <button class="tts-btn" style="flex-shrink:0" onclick="speak('Saving all my friends, let us begin!', this)">🔊</button>
-    </div>
-  </div>
-  <div class="song-tip">
-    🎯 <strong>怎么唱：</strong>准备一条小毯子当披风！"fly up high"时举高双臂，"fly down low"时蹲下来，"do a spin"时转一圈！
-  </div>
-</div>
-
-<!-- 字母 -->
-<div class="letter-card">
-  <div class="section-title" style="text-align:left">
-    <span class="icon">🔤</span> 今日字母：D
-    <span class="label">Letter D</span>
-  </div>
-  <div class="letter-display">
-    <div class="letter-big">D</div>
-    <div class="letter-info">
-      <div class="letter-phonetic">/diː/</div>
-      <div class="letter-word">Dog / Duck <button class="tts-btn" onclick="speak('Dog, Duck', this)">🔊</button></div>
-      <div class="letter-word-en">🐶 小狗 · 🦆 小鸭子</div>
-    </div>
-  </div>
-  <div class="letter-memory">
-    💡 <strong>记忆口诀：</strong>D 像大肚子朝右站，挺着肚子笑开颜 🐘
-  </div>
-  <div class="letter-tip">
-    👶 <em>"Dog! D for dog! Woof woof!"</em> 学小狗叫，或 <em>"Duck! D for duck! Quack quack!"</em> 学小鸭叫！
-  </div>
-</div>
-
-<!-- 超人训练营游戏 -->
-<div class="game-card">
-  <div class="game-title">🦸 超人训练营 · 亲子互动游戏</div>
-  <div class="game-step">1. 给宝宝披上"披风"（小毯子、围巾都行），大声说："You're a superhero now!"</div>
-  <div class="game-step">2. 爸爸/妈妈布置任务，宝宝完成后一起喊："Mission complete! Well done!"</div>
-  <div class="game-step" style="margin-bottom:0">3. 任务示例：<br>
-    🎯 把玩具放进箱子 → "Put the toy in the box!"<br>
-    🎯 帮妈妈拿遥控器 → "Bring me the remote!"<br>
-    🎯 飞到客厅再飞回来 → "Fly to the living room!"<br>
-    每完成一个任务都给个大拥抱和欢呼！
-  </div>
-</div>
-
-<!-- 共读建议 -->
-<div class="card">
-  <div class="section-title">
-    <span class="icon">📖</span> 亲子共读建议
-  </div>
-  <div class="tips-grid">
-    <div class="tip-item">
-      <span class="tip-num">1</span>
-      <span><strong>第一遍：只看图不说话。</strong>让宝宝自己看，培养观察力。</span>
-    </div>
-    <div class="tip-item">
-      <span class="tip-num">2</span>
-      <span><strong>第二遍：指着图说关键词。</strong>"He's flying! He's a superhero!"宝宝听。</span>
-    </div>
-    <div class="tip-item">
-      <span class="tip-num">3</span>
-      <span><strong>第三遍：问宝宝问题。</strong>"What is he doing?" 你自己回答给宝宝听。</span>
-    </div>
-    <div class="tip-item">
-      <span class="tip-num">4</span>
-      <span><strong>读完后立刻玩"超人游戏"</strong>，把书里的内容活起来！</span>
-    </div>
-  </div>
-</div>
-
-<!-- 下一期预告 -->
-<div class="next-card">
-  <div class="next-badge">📅 下一期预告</div>
-  <div class="next-title">第005期 · Getting Dressed · 穿衣服</div>
-  <div class="next-items">
-    👕 场景：选衣服、穿衣服的全套英语<br>
-    🎵 儿歌：Head, Shoulders, Knees and Toes<br>
-    🔤 字母：E（Egg, Elephant）
-  </div>
-</div>
-
-<!-- 底部 -->
-<div class="footer">
-  <div class="footer-slogan">🌱 每天10分钟，为宝宝种下英语的种子</div>
-  <div class="footer-divider"></div>
-  <div>宝宝英语启蒙 · 每周一三五日 17:10 推送</div>
-  <div style="margin-top:4px;">点击 🔊 按钮听发音，加油爸爸妈妈！💪</div>
-</div>
 
 </body>
 </html>
