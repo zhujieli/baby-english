@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>宝宝英语启蒙</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+    background: #FFF9F0;
+    color: #3D3D3D;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  .hero {
+    margin-bottom: 40px;
+  }
+  .hero-emoji {
+    font-size: 80px;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #2C2C2C;
+    margin-bottom: 8px;
+  }
+  .hero-sub {
+    font-size: 16px;
+    color: #7A7A7A;
+    margin-bottom: 6px;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: #FF9B50;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-top: 10px;
+  }
+  .divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #FF9B50, #7EC8E3);
+    border-radius: 2px;
+    margin: 20px auto;
+  }
+  .slogan {
+    font-size: 15px;
+    color: #FF9B50;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  .episodes {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .ep-card {
+    display: block;
+    background: #fff;
+    border-radius: 16px;
+    padding: 18px 24px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 2px 16px rgba(255,155,80,0.12);
+    text-align: left;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .ep-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, #FF9B50, #7EC8E3);
+    border-radius: 4px 0 0 4px;
+  }
+  .ep-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(255,155,80,0.2);
+  }
+  .ep-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .ep-badge {
+    background: #FF9B50;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 10px;
+  }
+  .ep-tag {
+    background: #FFF3E0;
+    color: #E07A2F;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 8px;
+  }
+  .ep-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2C2C2C;
+    margin-bottom: 2px;
+  }
+  .ep-meta {
+    font-size: 13px;
+    color: #7A7A7A;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .ep-emoji {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 36px;
+    opacity: 0.5;
+  }
+  .footer {
+    margin-top: 40px;
+    font-size: 12px;
+    color: #AAAAAA;
+  }
+  .footer-tip {
+    background: #FFF3E0;
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-size: 14px;
+    color: #5D4037;
+    max-width: 480px;
+    margin-bottom: 20px;
+    text-align: left;
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-emoji">👶🌟</div>
+  <h1>宝宝英语启蒙</h1>
+  <div class="hero-sub">Baby English</div>
+  <div class="hero-tag">每周一三五日 17:10</div>
+</div>
+
+<div class="divider"></div>
+
+<div class="slogan">🌱 每天10分钟，为宝宝种下英语的种子</div>
+
+<div class="footer-tip">
+  👨‍👩‍👧 点击下方卡片开始学习<br>
+  📱 建议横屏或大屏设备体验更佳<br>
+  🔄 内容持续更新中，敬请期待
+</div>
+
+<div class="episodes">
+  <a class="ep-card" href="issue-001.html">
+    <span class="ep-emoji">👋</span>
+    <div class="ep-top">
+      <span class="ep-badge">第001期</span>
+      <span class="ep-tag">字母A</span>
+    </div>
+    <div class="ep-title">Hello &amp; Bye Bye · 打招呼</div>
+    <div class="ep-meta">
+      <span>📅 2026-04-14</span>
+      <span>👋 基础问候</span>
+    </div>
+  </a>
+
+  <a class="ep-card" href="issue-002.html">
+    <span class="ep-emoji">👨‍👩‍👧</span>
+    <div class="ep-top">
+      <span class="ep-badge">第002期</span>
+      <span class="ep-tag">字母B</span>
+    </div>
+    <div class="ep-title">Family · 家庭成员</div>
+    <div class="ep-meta">
+      <span>📅 2026-04-16</span>
+      <span>👨‍👩‍👧 家人称呼</span>
+    </div>
+  </a>
+
+  <a class="ep-card" href="issue-003.html">
+    <span class="ep-emoji">🍎</span>
+    <div class="ep-top">
+      <span class="ep-badge">第003期</span>
+      <span class="ep-tag">字母C</span>
+    </div>
+    <div class="ep-title">Fruits · 水果</div>
+    <div class="ep-meta">
+      <span>📅 2026-04-18</span>
+      <span>🍎 日常食物</span>
+    </div>
+  </a>
+
+  <a class="ep-card" href="issue-004.html">
+    <span class="ep-emoji">🐮</span>
+    <div class="ep-top">
+      <span class="ep-badge">第004期</span>
+      <span class="ep-tag">字母D</span>
+    </div>
+    <div class="ep-title">Farm Animals · 农场动物</div>
+    <div class="ep-meta">
+      <span>📅 2026-04-19</span>
+      <span>🐮 动物叫声</span>
+    </div>
+  </a>
+
+  <a class="ep-card" href="issue-005.html">
+    <span class="ep-emoji">🎵</span>
+    <div class="ep-top">
+      <span class="ep-badge">第005期</span>
+      <span class="ep-tag">字母E</span>
+    </div>
+    <div class="ep-title">Numbers · 数字</div>
+    <div class="ep-meta">
+      <span>📅 2026-04-20</span>
+      <span>🔢 1-5数字</span>
+    </div>
+  </a>
+</div>
+
+<div class="footer">
+  <div>宝宝英语启蒙 · 每周一三五日 17:10 推送</div>
+  <div style="margin-top:6px;">Powered by Vercel · GitHub</div>
+</div>
+
+</body>
+</html>
