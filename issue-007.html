@@ -3,267 +3,261 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>宝宝英语启蒙 · 第007期</title>
+<title>宝宝英语启蒙 · 第007期 · 小熊很忙!</title>
 <style>
-:root{--p:#8B5CF6;--pd:#6D28D9;--s:#F59E0B;--bg:#FDF4FF;--c:#FFF;--t:#3D3D3D;--tl:#7A7A7A}
+:root{--p:#8BC34A;--pd:#689F38;--s:#CDDC39;--sd:#AFB42B;--g:#8BC34A;--bg:#FFF9F0;--t:#3D3D3D;--tl:#7A7A7A}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--t);line-height:1.75;padding-bottom:60px;-webkit-font-smoothing:antialiased}
-.tts-btn{display:inline-flex;align-items:center;gap:4px;background:#F3E8FF;border:1.5px solid #DDD6FE;border-radius:20px;padding:3px 10px 3px 6px;font-size:12px;color:var(--pd);cursor:pointer;font-weight:600;margin-left:4px;vertical-align:middle;-webkit-tap-highlight-color:transparent;user-select:none}
-.tts-btn:hover,.tts-btn:active{background:var(--p);color:#fff;border-color:var(--p)}
-.tts-btn.playing{background:#7C3AED;color:#fff;animation:pulse .6s infinite}
-.tts-sentence-btn{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#8B5CF6,#6D28D9);color:#fff;border:none;border-radius:12px;padding:8px 16px;font-size:14px;font-weight:700;cursor:pointer;margin-top:10px;-webkit-tap-highlight-color:transparent}
-.tts-sentence-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(109,40,217,.4)}
-.tts-sentence-btn.playing{opacity:.7}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
-.hero{background:linear-gradient(135deg,#DDD6FE 0%,#FDE68A 100%);padding:40px 24px 32px;text-align:center;position:relative;overflow:hidden}
+body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--t);line-height:1.75;padding-bottom:80px}
+.hero{background:linear-gradient(135deg,#F1F8E9 0%,#DCEDC8 100%);padding:44px 24px 36px;text-align:center;position:relative;overflow:hidden}
 .hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:var(--bg);border-radius:50% 50% 0 0}
-.hero-badge{display:inline-block;background:var(--p);color:#fff;font-size:12px;font-weight:600;padding:4px 14px;border-radius:20px;margin-bottom:14px;letter-spacing:1px}
-.hero h1{font-size:26px;font-weight:700;color:#2C2C2C;margin-bottom:6px;line-height:1.3}
-.hero-sub{font-size:14px;color:#6D28D9;margin-bottom:4px}
-.nav-tabs{display:flex;gap:6px;padding:16px 20px 0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.nav-tabs::-webkit-scrollbar{display:none}
-.nav-tab{flex-shrink:0;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:500;border:1.5px solid #EDE9FE;background:#FFF;cursor:pointer}
-.nav-tab.active,.nav-tab:hover{background:var(--p);color:#fff;border-color:var(--p)}
-.card{background:#FFF;border-radius:16px;margin:16px 20px;padding:20px;box-shadow:0 2px 12px rgba(139,92,246,.12)}
-.intro-card{background:linear-gradient(135deg,#F3E8FF,#FEF3C7);border-left:4px solid var(--p);border-radius:16px;margin:20px 20px 0;padding:18px 20px;font-size:15px}
-.intro-card::before{content:'📖';font-size:20px;margin-right:8px}
-.section-title{font-size:17px;font-weight:700;color:#2C2C2C;margin-bottom:14px}
-.word-card{background:#FFF;border-radius:16px;margin:12px 20px;padding:16px 20px;box-shadow:0 2px 10px rgba(139,92,246,.1);border-left:4px solid var(--s)}
-.word-top{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.hero-badge{display:inline-block;background:var(--g);color:#fff;font-size:12px;font-weight:700;padding:4px 16px;border-radius:20px;margin-bottom:14px}
+.hero h1{font-size:28px;font-weight:800;color:#2C2C2C;margin-bottom:6px}
+.hero-sub{font-size:14px;color:#558B2F}
+.hero-meta{display:flex;justify-content:center;gap:16px;margin-top:12px;font-size:12px}
+.hero-meta span{background:rgba(255,255,255,.7);padding:3px 10px;border-radius:12px}
+.nav-tabs{display:flex;gap:6px;padding:20px 20px 6px;overflow-x:auto}
+.nav-tab{flex-shrink:0;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid #F0E8DC;background:#FFF}
+.nav-tab.active{background:var(--g);color:#fff;border-color:var(--g)}
+.tts-btn{display:inline-flex;align-items:center;gap:4px;background:#FFF3E0;border:1.5px solid #FFE0B2;border-radius:20px;padding:3px 10px 3px 6px;font-size:12px;color:var(--pd);cursor:pointer;font-weight:600}
+.tts-btn.playing{background:var(--g);color:#fff}
+.play-btn{display:inline-flex;background:linear-gradient(135deg,#8BC34A,#689F38);color:#fff;border:none;border-radius:12px;padding:8px 18px;font-size:14px;font-weight:700;cursor:pointer}
+.card{background:#FFF;border-radius:18px;margin:16px;padding:20px;box-shadow:0 2px 14px rgba(0,0,0,.08)}
+.intro-box{background:linear-gradient(135deg,#F1F8E9,#E8F5E9);border-left:4px solid var(--g);border-radius:16px;margin:20px 16px 4px;padding:16px 18px;font-size:14.5px;line-height:1.8}
+.divider-title{display:flex;align-items:center;gap:8px;margin:24px 16px 0;font-size:12px;color:var(--tl);font-weight:600;text-transform:uppercase}
+.divider-title::before,.divider-title::after{content:'';flex:1;height:1px;background:#F0E8DC}
+.word-grid{display:flex;flex-direction:column;gap:12px}
+.word-card{background:linear-gradient(135deg,#FAFAFA,#F1F8E9);border-radius:14px;padding:14px 16px;border-left:4px solid var(--g)}
 .word-en{font-size:22px;font-weight:800;color:var(--pd)}
-.word-ipa{font-size:14px;color:var(--s);font-style:italic}
-.word-zh{font-size:14px;color:var(--tl)}
-.word-tip{background:#F0F8FF;border-radius:10px;padding:8px 14px;font-size:13px;color:#6D28D9;margin-top:8px;line-height:1.6}
-.song-card{background:linear-gradient(135deg,#FEF3C7,#FDE68A);border-radius:16px;margin:16px 20px;padding:22px 20px;border:1.5px solid #FCD34D;text-align:center}
-.song-title{font-size:18px;font-weight:700;color:#B45309;margin-bottom:4px}
-.song-sub{font-size:12px;color:#D97706;margin-bottom:16px}
-.song-lyrics{background:#FFFBEB;border-radius:12px;padding:16px;text-align:left}
-.song-line{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px dashed #FCD34D;font-size:15px;color:#78350F}
-.song-line:last-child{border-bottom:none}
-.song-line .song-bold{font-weight:700;color:#92400E}
-.line-text{flex:1}
-.dialogue-card{background:linear-gradient(135deg,#F3E8FF,#EDE9FE);border-radius:16px;margin:16px 20px;padding:20px;border:1.5px solid #DDD6FE}
-.dialogue-row{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid #EDE9FE}
-.dialogue-row:last-child{border-bottom:none}
-.dialogue-emoji{font-size:36px;flex-shrink:0;line-height:1.2}
-.dialogue-text{flex:1}
-.dialogue-en{font-size:16px;font-weight:700;color:#6D28D9;margin-bottom:4px}
-.dialogue-zh{font-size:13px;color:#7C3AED}
-.big-phrase{background:#F3E8FF;border-radius:12px;padding:16px 20px;margin:14px 20px;text-align:center;border:1.5px solid #DDD6FE}
-.phrase-en{font-size:20px;font-weight:800;color:var(--pd);margin-bottom:8px}
-.phonetic-note{background:#F5F5F5;border-radius:10px;padding:8px 14px;font-size:12px;color:#666;margin:12px 20px 0;text-align:center}
-.tip-card{background:linear-gradient(135deg,#ECFDF5,#D1FAE5);border-radius:16px;margin:16px 20px;padding:18px 20px;border:1.5px solid #A7F3D0}
-.tip-title{font-size:15px;font-weight:700;color:#065F46;margin-bottom:8px}
-.tip-item{font-size:14px;color:#047857;line-height:1.7;padding:4px 0}
-.footer-note{text-align:center;font-size:12px;color:var(--tl);padding:24px 20px;line-height:2}
-.footer-note a{color:var(--p);text-decoration:none}
-.task-card{background:#FFF;border-radius:16px;margin:16px 20px;padding:18px 20px;box-shadow:0 2px 10px rgba(139,92,246,.08);border:1.5px solid #EDE9FE}
-.task-item{display:flex;align-items:center;gap:10px;padding:6px 0;font-size:14px;color:var(--t)}
-.task-check{width:20px;height:20px;border:2px solid #DDD6FE;border-radius:6px;flex-shrink:0}
+.word-ipa{font-size:13px;color:#7CB342;font-style:italic}
+.word-zh{font-size:14px;color:var(--tl);margin-bottom:6px}
+.word-tip{background:#F1F8E9;border-radius:10px;padding:8px 12px;font-size:13px;color:#558B2F;line-height:1.6}
+.word-example{background:#FFF8E1;border-radius:8px;padding:6px 12px;font-size:13px;color:#E65100;margin-top:6px;font-style:italic}
+.phonics-row{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid #C8E6C9}
+.phonics-icon{font-size:32px;width:44px;text-align:center}
+.phonics-word{font-size:20px;font-weight:800;color:#33691E}
+.phonics-desc{font-size:13px;color:#558B2F}
+.phonics-tip{font-size:12px;color:#33691E;background:rgba(255,255,255,.6);border-radius:8px;padding:4px 10px;margin-top:4px}
+.dialogue-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0}
+.d-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.d-bubble{flex:1;background:#F5F5F5;border-radius:12px;padding:10px 14px}
+.d-bubble.orange{background:#F1F8E9}
+.d-bubble.blue{background:#DCEDC8}
+.d-en{font-size:15px;font-weight:700;color:#2C2C2C;margin-bottom:3px}
+.d-zh{font-size:12px;color:var(--tl)}
+.song-card{background:linear-gradient(135deg,#E8F5E9,#C8E6C9);border-radius:18px;margin:16px;padding:22px 20px;border:1.5px solid #AED581}
+.song-header{text-align:center;margin-bottom:16px}
+.song-title{font-size:19px;font-weight:800;color:#33691E}
+.song-sub{font-size:12px;color:#558B2F}
+.lyrics-box{background:rgba(255,255,255,.7);border-radius:14px;padding:16px}
+.lyric-line{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #AED581;gap:8px}
+.lyric-text{flex:1}
+.lyric-en{font-size:15px;font-weight:600;color:#1B5E20}
+.lyric-zh{font-size:12px;color:#388E3C;margin-top:2px}
+.story-card{background:linear-gradient(135deg,#F1F8E9,#DCEDC8);border-radius:18px;margin:16px;padding:20px;border:1.5px solid #AED581}
+.story-header{text-align:center;margin-bottom:16px}
+.story-emoji{font-size:48px}
+.story-title{font-size:18px;font-weight:800;color:#33691E;margin-top:8px}
+.story-para{margin-bottom:12px}
+.story-en{font-size:15px;font-weight:700;color:#1B5E20;margin-bottom:4px;line-height:1.7}
+.story-zh{font-size:13px;color:#795548;line-height:1.7}
+.checklist-card{background:linear-gradient(135deg,#F1F8E9,#DCEDC8);border-radius:18px;margin:16px;padding:20px;border:1.5px solid #AED581}
+.check-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #C8E6C9;cursor:pointer}
+.check-box{width:24px;height:24px;border:2.5px solid #8BC34A;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.check-box.checked{background:#8BC34A}
+.check-text{font-size:14px;color:#33691E;font-weight:500}
+.repeat-card{background:#F1F8E9;border-radius:14px;padding:16px 18px;margin:8px 16px;text-align:center;border:1.5px solid #AED581}
+.repeat-en{font-size:21px;font-weight:800;color:var(--pd);margin-bottom:8px}
+.repeat-zh{font-size:13px;color:var(--tl);margin-bottom:10px}
+.footer-note{text-align:center;font-size:13px;color:var(--tl);padding:28px 20px 20px;line-height:2}
 </style>
 </head>
 <body>
+
 <div class="hero">
-  <div class="hero-badge">第 7 期 · 绘本精读</div>
-  <div style="font-size:64px;margin-bottom:8px">🐻</div>
-  <h1>小熊很忙 Little Bear is Busy</h1>
-  <div class="hero-sub">📖 绘本推荐 · 字母 G · 儿歌律动</div>
+  <div class="hero-badge">✨ 第 007 期</div>
+  <div style="font-size:68px;margin-bottom:10px">🐻</div>
+  <h1>小熊很忙!</h1>
+  <div class="hero-sub">字母 G · 绘本精读</div>
+  <div class="hero-meta">
+    <span>🕐 约12分钟</span>
+    <span>📖 适合1.5–2岁</span>
+    <span>🎯 5个核心词</span>
+  </div>
 </div>
-<div class="nav-tabs"><span class="nav-tab" onclick="location.href='issue-001.html'">A</span><span class="nav-tab" onclick="location.href='issue-002.html'">B</span><span class="nav-tab" onclick="location.href='issue-003.html'">C</span><span class="nav-tab" onclick="location.href='issue-004.html'">D</span><span class="nav-tab" onclick="location.href='issue-005.html'">E</span><span class="nav-tab" onclick="location.href='issue-006.html'">F</span><span class="nav-tab active" onclick="location.href='issue-007.html'">G</span></div>
 
-<div class="intro-card">《小熊很忙》是小彼恩系列的经典纸板书，厚厚的页面对小手特别友好，还有可以转动的互动机关！跟着忙碌的小熊一起度过快乐的一天吧~ 🐾</div>
+<div class="nav-tabs">
+  <span class="nav-tab" onclick="location.href='issue-001.html'">001·A</span>
+  <span class="nav-tab" onclick="location.href='issue-002.html'">002·B</span>
+  <span class="nav-tab" onclick="location.href='issue-003.html'">003·C</span>
+  <span class="nav-tab" onclick="location.href='issue-004.html'">004·D</span>
+  <span class="nav-tab" onclick="location.href='issue-005.html'">005·E</span>
+  <span class="nav-tab" onclick="location.href='issue-006.html'">006·F</span>
+  <span class="nav-tab active" onclick="location.href='issue-007.html'">007·G</span>
+</div>
 
-<!-- 绘本金句 -->
+<div class="intro-box">
+  <p>🐻 今天我们来认识一位忙碌的小熊！跟着小熊度过快乐的一天，学学他都忙些什么！</p>
+  <p>💡 本期目标：认识 5 个动作词汇，学唱 1 首公交车儿歌，掌握小熊很忙故事</p>
+</div>
+
+<div class="divider-title">📚 模块一 · 今日核心词汇</div>
 <div class="card">
-  <div class="section-title">📖 绘本核心金句</div>
-  <div class="dialogue-card">
-    <div class="dialogue-row">
-      <div class="dialogue-emoji">🌅</div>
-      <div class="dialogue-text">
-        <div class="dialogue-en">Wake up, Little Bear! It's morning! <button class="tts-btn" onclick="playAudio(null,'Wake up, Little Bear! It is morning!',this)">🔊</button></div>
-        <div class="dialogue-zh">起来啦，小熊！早上好！</div>
-      </div>
+  <div class="word-grid">
+    <div class="word-card">
+      <div class="word-en">Busy <span class="word-ipa">/ˈbɪzi/</span></div>
+      <div class="word-zh">忙碌的</div>
+      <div class="word-tip">💡 今天很忙！<b>"Little Bear is busy! We are busy too!"</b></div>
+      <div class="word-example">"I am busy! So many things to do!"</div>
     </div>
-    <div class="dialogue-row">
-      <div class="dialogue-emoji">⏰</div>
-      <div class="dialogue-text">
-        <div class="dialogue-en">Time to get up! Let's start the day! <button class="tts-btn" onclick="playAudio(null,'Time to get up! Let us start the day!',this)">🔊</button></div>
-        <div class="dialogue-zh">该起床啦！新的一天开始咯！</div>
-      </div>
+    <div class="word-card">
+      <div class="word-en">Help <span class="word-ipa">/help/</span></div>
+      <div class="word-zh">帮助</div>
+      <div class="word-tip">💡 帮助别人时说 <b>"Can you help me? Thank you for your help!"</b></div>
+      <div class="word-example">"I want to help! Let me help!"</div>
     </div>
-    <div class="dialogue-row">
-      <div class="dialogue-emoji">🍽️</div>
-      <div class="dialogue-text">
-        <div class="dialogue-en">Yummy, yummy! Little Bear eats breakfast. <button class="tts-btn" onclick="playAudio(null,'Yummy, yummy! Little Bear eats breakfast.',this)">🔊</button></div>
-        <div class="dialogue-zh">好吃好吃！小熊吃早餐啦。</div>
-      </div>
+    <div class="word-card">
+      <div class="word-en">Play <span class="word-ipa">/pleɪ/</span></div>
+      <div class="word-zh">玩</div>
+      <div class="word-tip">💡 出去玩时说 <b>"Time to play! Let's play outside!"</b></div>
+      <div class="word-example">"Baby wants to play! Play with me!"</div>
     </div>
-    <div class="dialogue-row">
-      <div class="dialogue-emoji">🍞</div>
-      <div class="dialogue-text">
-        <div class="dialogue-en">Milk and bread. So delicious! <button class="tts-btn" onclick="playAudio(null,'Milk and bread. So delicious!',this)">🔊</button></div>
-        <div class="dialogue-zh">牛奶和面包。真好吃呀！</div>
-      </div>
+    <div class="word-card">
+      <div class="word-en">Run <span class="word-ipa">/rʌn/</span></div>
+      <div class="word-zh">跑</div>
+      <div class="word-tip">💡 宝宝跑的时候说 <b>"Run run run! Fast or slow?"</b></div>
+      <div class="word-example">"I can run! Watch me run!"</div>
     </div>
-    <div class="dialogue-row">
-      <div class="dialogue-emoji">🌳</div>
-      <div class="dialogue-text">
-        <div class="dialogue-en">Let's go outside! Little Bear is busy! <button class="tts-btn" onclick="playAudio(null,'Let us go outside! Little Bear is busy!',this)">🔊</button></div>
-        <div class="dialogue-zh">我们出去玩吧！小熊好忙呀！</div>
-      </div>
+    <div class="word-card">
+      <div class="word-en">Happy <span class="word-ipa">/ˈhæpi/</span></div>
+      <div class="word-zh">开心的</div>
+      <div class="word-tip">💡 宝宝笑的时候说 <b>"You are so happy! I'm happy too!"</b></div>
+      <div class="word-example">"Happy happy! We are all happy!"</div>
     </div>
   </div>
 </div>
 
-<!-- 亲子共读 -->
+<div class="repeat-card">
+  <div class="repeat-en">Little Bear is busy! 🐻 Happy happy!</div>
+  <div class="repeat-zh">和宝宝一起说！</div>
+  <button class="play-btn" onclick="playAudio(null,'Little Bear is busy! Happy happy!',this)">🎙️ 点我跟读</button>
+</div>
+
+<div class="divider-title">🔤 模块二 · 字母 G 认知</div>
+<div class="card" style="background:linear-gradient(135deg,#F1F8E9,#DCEDC8)">
+  <div style="display:flex;gap:14px;align-items:center;margin-bottom:14px">
+    <div style="font-size:72px;font-weight:900;color:#33691E;text-align:center;width:80px">G</div>
+    <div>
+      <div style="font-size:14px;color:#558B2F;font-weight:700">大写 G · 小写 g</div>
+      <div style="font-size:13px;color:#7CB342">发音：<b>/dʒiː/</b>（"知"的音）</div>
+    </div>
+  </div>
+  <div class="phonics-row">
+    <div class="phonics-icon">🌻</div>
+    <div class="phonics-body"><div class="phonics-word">Garden /ˈɡɑːrdən/</div><div class="phonics-desc">花园</div><div class="phonics-tip">🌻 G for garden! Beautiful flowers!</div></div>
+    <button class="tts-btn" onclick="playAudio(null,'Garden',this)">🔊</button>
+  </div>
+  <div class="phonics-row">
+    <div class="phonics-icon">👧</div>
+    <div class="phonics-body"><div class="phonics-word">Girl /ɡɜːrl/</div><div class="phonics-desc">女孩</div><div class="phonics-tip">👧 G for girl! She's my friend!</div></div>
+    <button class="tts-btn" onclick="playAudio(null,'Girl',this)">🔊</button>
+  </div>
+  <div class="phonics-row">
+    <div class="phonics-icon">🟢</div>
+    <div class="phonics-body"><div class="phonics-word">Green /ɡriːn/</div><div class="phonics-desc">绿色</div><div class="phonics-tip">🟢 G for green! Find something green!</div></div>
+    <button class="tts-btn" onclick="playAudio(null,'Green',this)">🔊</button>
+  </div>
+</div>
+
+<div class="divider-title">💬 模块三 · 亲子情景对话</div>
 <div class="card">
-  <div class="section-title">🎤 亲子共读小剧场</div>
-  <div class="dialogue-card">
-    <div class="dialogue-row">
-      <div class="dialogue-emoji">🐻</div>
-      <div class="dialogue-text">
-        <div class="dialogue-en">Look! Who is this? It's Little Bear! <button class="tts-btn" onclick="playAudio(null,'Look! Who is this? It is Little Bear!',this)">🔊</button></div>
-        <div class="dialogue-zh">看！这是谁？是小熊！翻开绘本指着小熊说</div>
-      </div>
+  <div class="dialogue-row">
+    <div class="d-avatar" style="background:#F1F8E9">👩</div>
+    <div class="d-bubble orange">
+      <div class="d-en">Wake up, Little Bear! Time to get busy!</div>
+      <div class="d-zh">起床啦，小熊！该忙起来啦！</div>
     </div>
-    <div class="dialogue-row">
-      <div class="dialogue-emoji">😋</div>
-      <div class="dialogue-text">
-        <div class="dialogue-en">You eat breakfast too! Yummy yummy! <button class="tts-btn" onclick="playAudio(null,'You eat breakfast too! Yummy yummy!',this)">🔊</button></div>
-        <div class="dialogue-zh">你也吃早餐~ 好吃好吃！假装喂小熊吃东西</div>
-      </div>
+  </div>
+  <div class="dialogue-row">
+    <div class="d-avatar" style="background:#DCEDC8">👶</div>
+    <div class="d-bubble blue">
+      <div class="d-en">Busy busy!</div>
+      <div class="d-zh">忙忙忙！</div>
     </div>
-    <div class="dialogue-row">
-      <div class="dialogue-emoji">🚪</div>
-      <div class="dialogue-text">
-        <div class="dialogue-en">Walk, walk, walk... Little Bear is busy! <button class="tts-btn" onclick="playAudio(null,'Walk, walk, walk. Little Bear is busy!',this)">🔊</button></div>
-        <div class="dialogue-zh">走呀走，小熊好忙呀！做出走路的样子</div>
-      </div>
+  </div>
+  <div class="dialogue-row">
+    <div class="d-avatar" style="background:#F1F8E9">👩</div>
+    <div class="d-bubble orange">
+      <div class="d-en">Yes! A busy day is starting!</div>
+      <div class="d-zh">对！忙碌的一天开始啦！</div>
     </div>
   </div>
 </div>
 
-<!-- 字母G -->
-<div class="card">
-  <div class="section-title">🔤 字母 G 预习</div>
-  <div style="text-align:center;margin-bottom:14px"><span style="font-size:72px;font-weight:900;color:var(--pd);line-height:1">G</span></div>
-  <div class="word-card"><div class="word-top"><span class="word-en">Garden</span><span class="word-ipa">/ˈɡɑːrdn/</span><button class="tts-btn" onclick="playAudio('garden.mp3','Garden',this)">🔊</button></div><div class="word-zh">花园</div><div class="word-tip">Look at the garden! 花园里有花、有草、有蝴蝶~</div></div>
-  <div class="word-card"><div class="word-top"><span class="word-en">Girl</span><span class="word-ipa">/ɡɜːrl/</span><button class="tts-btn" onclick="playAudio('girl.mp3','Girl',this)">🔊</button></div><div class="word-zh">女孩</div><div class="word-tip">You are a girl/boy! 指着宝宝开心地说~</div></div>
-  <div class="word-card"><div class="word-top"><span class="word-en">Green</span><span class="word-ipa">/ɡriːn/</span><button class="tts-btn" onclick="playAudio('green.mp3','Green',this)">🔊</button></div><div class="word-zh">绿色</div><div class="word-tip">Green, green, green! 找找家里绿色的东西~</div></div>
-  <div class="word-card"><div class="word-top"><span class="word-en">Guitar</span><span class="word-ipa">/ɡɪˈtɑːr/</span><button class="tts-btn" onclick="playAudio('guitar.mp3','Guitar',this)">🔊</button></div><div class="word-zh">吉他</div><div class="word-tip">假装弹吉他，发出"叮叮叮"的声音~</div></div>
-</div>
-
-<!-- 儿歌 -->
+<div class="divider-title">🎵 模块四 · 儿歌：The Wheels on the Bus</div>
 <div class="song-card">
-  <div class="song-title">🎵 The Wheels on the Bus</div>
-  <div class="song-sub">公交车歌 · 跟小熊一起坐公交去玩！</div>
-  <div class="song-lyrics">
-    <div class="song-line"><span class="line-text"><span class="song-bold">The wheels on the bus go round and round,</span></span></div>
-    <div class="song-line"><span class="line-text">Round and round, round and round.</span></div>
-    <div class="song-line"><span class="line-text"><span class="song-bold">The wheels on the bus go round and round,</span></span></div>
-    <div class="song-line"><span class="line-text">All through the town.</span></div>
-    <div class="song-line" style="border-top:1px dashed #FCD34D;margin-top:8px;padding-top:10px"><span class="line-text"><span class="song-bold">The doors on the bus go open and shut,</span></span></div>
-    <div class="song-line"><span class="line-text">Open and shut, open and shut.</span></div>
-    <div class="song-line"><span class="line-text"><span class="song-bold">The doors on the bus go open and shut,</span></span></div>
-    <div class="song-line"><span class="line-text">All through the town.</span></div>
-    <div class="song-line" style="border-top:1px dashed #FCD34D;margin-top:8px;padding-top:10px"><span class="line-text"><span class="song-bold">The people on the bus go up and down,</span></span></div>
-    <div class="song-line"><span class="line-text">Up and down, up and down.</span></div>
-    <div class="song-line"><span class="line-text"><span class="song-bold">The people on the bus go up and down,</span></span></div>
-    <div class="song-line"><span class="line-text">All through the town.</span></div>
+  <div class="song-header">
+    <div class="song-title">🚌 The Wheels on the Bus</div>
+    <div class="song-sub">公交车儿歌 · 边唱边做动作</div>
   </div>
-  <div style="margin-top:14px;font-size:13px;color:#92400E;text-align:left;line-height:1.8">
-    💃 <b>互动提示：</b><br>
-    "round and round" → 双手画圈圈 ♻️<br>
-    "open and shut" → 双手开合 🤲<br>
-    "up and down" → 身体起蹲 🧍
+  <div class="lyrics-box">
+    <div class="lyric-line">
+      <div class="lyric-text"><div class="lyric-en">The wheels on the bus go round and round,</div><div class="lyric-zh">公交车的轮子转呀转，</div></div>
+      <button class="tts-btn" onclick="playAudio(null,'The wheels on the bus go round and round',this)">🔊</button>
+    </div>
+    <div class="lyric-line">
+      <div class="lyric-text"><div class="lyric-en">round and round, round and round.</div><div class="lyric-zh">转呀转，转呀转。</div></div>
+      <button class="tts-btn" onclick="playAudio(null,'round and round round and round',this)">🔊</button>
+    </div>
+    <div class="lyric-line">
+      <div class="lyric-text"><div class="lyric-en">The doors on the bus go open and shut,</div><div class="lyric-zh">公交车的门开呀关，</div></div>
+      <button class="tts-btn" onclick="playAudio(null,'The doors on the bus go open and shut',this)">🔊</button>
+    </div>
+    <div class="lyric-line">
+      <div class="lyric-text"><div class="lyric-en">open and shut, open and shut. 🤲</div><div class="lyric-zh">开呀关，开呀关。</div></div>
+      <button class="tts-btn" onclick="playAudio(null,'open and shut',this)">🔊</button>
+    </div>
+  </div>
+  <div style="background:rgba(255,255,255,.6);border-radius:10px;padding:10px 14px;margin-top:14px;font-size:13px;color:#33691E">
+    💡 动作提示："round and round" → 双手画圈 ♻️ "open and shut" → 双手开合 🤲 超级适合在公交车上学！
   </div>
 </div>
 
-<!-- 温馨贴士 -->
-<div class="tip-card">
-  <div class="tip-title">💡 绘本共读3个小技巧</div>
-  <div class="tip-item">🎭 <b>夸张表情</b> — 小熊起床伸懒打哈欠🥱，吃东西咂嘴"嗯~好吃！"😋</div>
-  <div class="tip-item">📖 <b>让宝宝翻页</b> — 鼓励宝宝自己翻，翻到新页说 "What do you see?"</div>
-  <div class="tip-item">🔁 <b>重复是最好的学习</b> — 同一本书连读3-5天，不用宝宝说出来，能指出来就是进步！</div>
+<div class="divider-title">📖 模块五 · 绘本故事</div>
+<div class="story-card">
+  <div class="story-header">
+    <div class="story-emoji">🐻</div>
+    <div class="story-title">Little Bear is Busy</div>
+  </div>
+  <div class="story-para"><div class="story-en">🌅 Good morning! Little Bear wakes up.</div><div class="story-zh">🌅 早上好！小熊醒了。</div></div>
+  <div class="story-para"><div class="story-en">🛁 Little Bear washes his face.</div><div class="story-zh">🛁 小熊洗脸。</div></div>
+  <div class="story-para"><div class="story-en">👕 Little Bear gets dressed.</div><div class="story-zh">👕 小熊穿衣服。</div></div>
+  <div class="story-para"><div class="story-en">🍞 Little Bear eats breakfast.</div><div class="story-zh">🍞 小熊吃早餐。</div></div>
+  <div class="story-para"><div class="story-en">🚌 Little Bear rides the bus.</div><div class="story-zh">🚌 小熊坐公交车。</div></div>
+  <div class="story-para"><div class="story-en">🏠 Little Bear comes home.</div><div class="story-zh">🏠 小熊回家了。</div></div>
+  <div class="story-para"><div class="story-en">🌙 Good night, Little Bear!</div><div class="story-zh">🌙 晚安，小熊！</div></div>
 </div>
 
-<!-- 今日任务 -->
-<div class="task-card">
-  <div class="section-title">📋 今日亲子任务</div>
-  <div class="task-item"><div class="task-check"></div><span>📖 共读《小熊很忙》，至少读2遍</span></div>
-  <div class="task-item"><div class="task-check"></div><span>🚌 唱一遍 The Wheels on the Bus，配合动作</span></div>
-  <div class="task-item"><div class="task-check"></div><span>🔤 认一认字母G，找找家里的"绿色"东西</span></div>
-  <div class="task-item"><div class="task-check"></div><span>🐻 模仿小熊的声音"Roar~"，逗宝宝笑</span></div>
+<div class="divider-title">✅ 模块六 · 今日打卡</div>
+<div class="checklist-card">
+  <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">🐻 听了5个动作词汇</div></div>
+  <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">🚌 唱了 The Wheels on the Bus 儿歌</div></div>
+  <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">📖 共读了小熊很忙故事</div></div>
+  <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">😊 今天很开心</div></div>
 </div>
 
-<div class="big-phrase">
-  <div class="phrase-en">G is for Garden, Girl, Green, Guitar! 🐻</div>
-  <div style="margin-top:8px;font-size:14px;color:#6D28D9">Every day is a new adventure! 每一天都是新的冒险！</div>
-</div>
-<div class="phonetic-note">💡 字母G发音：发 /ɡ/ 音，像打嗝的声音"咕~"。可以跟宝宝一起夸张地发出这个音！</div>
 <div class="footer-note">
-🌟 <b>今日目标</b>：共读绘本《小熊很忙》，学字母G<br>
-和宝宝一起唱 The Wheels on the Bus！<br><br>
-📅 <b>明天预告</b>：出门上街 Going Out · 字母H<br><br>
-<a href="issue-006.html">← 上一期</a> &nbsp;|&nbsp; <a href="index.html">🏠 首页</a>
+  🌟 <b>本期要点</b>：Busy · Help · Play · Run · Happy<br>
+  💡 让宝宝每天都忙忙碌碌、开开心心地学英语！<br><br>
+  🏁 <b>恭喜完成第一轮字母学习！A B C D E F G</b>
 </div>
-<!-- Audio: Multi-CDN fallback + TTS -->
+
 <script>
-var _curAud=null;
-var AUDIO_CDNS=[
-  'https://baby-english-d7gb3dwij91d31020-1346728686.tcloudbaseapp.com/audio/',
-  'https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/',
-  'https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/'
-];
-var _cdnIdx=0;
-function playAudio(src,text,btn){
-  if(!src){speak(text,btn);return;}
-  if(_curAud){_curAud.pause();_curAud.currentTime=0;_curAud=null;}
-  var playingBtns=document.querySelectorAll('.tts-btn.playing,.tts-sentence-btn.playing');
-  for(var i=0;i<playingBtns.length;i++)playingBtns[i].classList.remove('playing');
-  function tryCDN(cdn){
-    var a=new Audio();
-    a.preload='none';
-    a.addEventListener('play',function(){if(btn)btn.classList.add('playing');});
-    a.addEventListener('ended',function(){if(btn)btn.classList.remove('playing');});
-    a.addEventListener('error',function(){
-      if(btn)btn.classList.remove('playing');
-      if(_cdnIdx<AUDIO_CDNS.length-1){_cdnIdx++;tryCDN(AUDIO_CDNS[_cdnIdx]);}else{speak(text,btn);}
-    });
-    var timer=setTimeout(function(){
-      if(!a.readyState||a.readyState<2){a.pause();if(btn)btn.classList.remove('playing');
-        if(_cdnIdx<AUDIO_CDNS.length-1){_cdnIdx++;tryCDN(AUDIO_CDNS[_cdnIdx]);}else{speak(text,btn);}
-      }
-    },5000);
-    a.addEventListener('canplay',function(){clearTimeout(timer);},{once:true});
-    a.src=cdn+src;
-    a.load();
-    a.play().catch(function(){
-      clearTimeout(timer);
-      if(btn)btn.classList.remove('playing');
-      if(_cdnIdx<AUDIO_CDNS.length-1){_cdnIdx++;tryCDN(AUDIO_CDNS[_cdnIdx]);}else{speak(text,btn);}
-    });
-    _curAud=a;
-  }
-  _cdnIdx=0;
-  tryCDN(AUDIO_CDNS[0]);
+function playAudio(src, text, btn) {
+  if(!src) { speak(text, btn); return; }
+  if('speechSynthesis' in window) { var utt=new SpeechSynthesisUtterance(text);utt.lang='en-US';utt.rate=0.82;if(btn)btn.classList.add('playing');utt.onend=utt.onerror=function(){if(btn)btn.classList.remove('playing')};window.speechSynthesis.speak(utt); }
 }
-function speak(text,btn){
-  if(!('speechSynthesis' in window))return;
-  window.speechSynthesis.cancel();
-  var utt=new SpeechSynthesisUtterance(text);
-  utt.lang='en-US';utt.rate=0.85;utt.pitch=1.1;
-  var voices=window.speechSynthesis.getVoices();
-  for(var i=0;i<voices.length;i++){
-    if(voices[i].lang.indexOf('en-AU')>-1||voices[i].lang.indexOf('en-GB')>-1){utt.voice=voices[i];break;}
-  }
-  if(!utt.voice){for(var i=0;i<voices.length;i++){if(voices[i].lang.indexOf('en')>-1){utt.voice=voices[i];break;}}}
-  if(btn)btn.classList.add('playing');
-  utt.onend=utt.onerror=function(){if(btn)btn.classList.remove('playing');};
-  window.speechSynthesis.speak(utt);
-}
-window.speechSynthesis.getVoices();
-window.speechSynthesis.addEventListener('voiceschanged',function(){window.speechSynthesis.getVoices();});
+function speak(text, btn) { if(!('speechSynthesis' in window))return; var utt=new SpeechSynthesisUtterance(text);utt.lang='en-US';utt.rate=0.82;if(btn)btn.classList.add('playing');utt.onend=utt.onerror=function(){if(btn)btn.classList.remove('playing')};window.speechSynthesis.speak(utt); }
+function toggleCheck(item) { var box=item.querySelector('.check-box'); if(box.classList.contains('checked')){box.classList.remove('checked');box.innerHTML='';}else{box.classList.add('checked');box.innerHTML='✓';box.style.color='#fff';} }
 </script>
 </body>
 </html>
