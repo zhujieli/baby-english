@@ -3,303 +3,109 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>宝宝英语启蒙 · 第013期 · Five Little Ducks!</title>
+<title>宝宝英语启蒙 · 第013期 · 数字123</title>
 <style>
-:root{--p:#FF9B50;--pd:#E07A2F;--s:#7EC8E3;--sd:#4AABBF;--g:#66BB6A;--bg:#FFF9F0;--c:#FFF;--t:#3D3D3D;--tl:#7A7A7A}
+:root{--c:#4FC3F7;--bg:#F8F6F0;--card:#FFF;--text:#333;--sub:#666;--r:16px}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:#E1F5FE;color:var(--t);line-height:1.75;padding-bottom:80px;-webkit-font-smoothing:antialiased}
-.tts-btn{display:inline-flex;align-items:center;gap:4px;background:#FFF3E0;border:1.5px solid #FFE0B2;border-radius:20px;padding:3px 10px 3px 6px;font-size:12px;color:var(--pd);cursor:pointer;font-weight:600;margin-left:4px}
-.tts-btn:active{background:var(--p);color:#fff;border-color:var(--p)}
-.hero{background:linear-gradient(135deg,#FFE0B2 0%,#B3E5FC 100%);padding:44px 24px 36px;text-align:center;position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:#E1F5FE;border-radius:50% 50% 0 0}
-.hero-badge{display:inline-block;background:#29B6F6;color:#fff;font-size:12px;font-weight:700;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px}
-.hero h1{font-size:28px;font-weight:800;color:#2C2C2C;margin-bottom:6px}
-.hero-sub{font-size:14px;color:#6D4C41;margin-bottom:4px}
-.hero-meta{display:flex;justify-content:center;gap:16px;margin-top:12px;font-size:12px;color:#795548}
-.hero-meta span{background:rgba(255,255,255,.6);padding:3px 10px;border-radius:12px}
-.nav-tabs{display:flex;gap:6px;padding:20px 20px 6px;overflow-x:auto;scrollbar-width:none}
+body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:#4FC3F711;color:var(--text);line-height:1.8;padding-bottom:90px;-webkit-font-smoothing:antialiased}
+.hero{background:linear-gradient(135deg,#4FC3F722,#4FC3F744);padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden;border-radius:0 0 40px 40px}
+.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:#4FC3F711;border-radius:50% 50% 0 0}
+.hero-badge{display:inline-block;background:#4FC3F7;color:#fff;font-size:12px;font-weight:700;padding:5px 18px;border-radius:20px;letter-spacing:1px}
+.hero h1{font-size:30px;font-weight:800;color:#4FC3F7;margin:14px 0 4px}
+.hero-sub{font-size:17px;opacity:.8;font-weight:600;color:#4FC3F7}
+.hero-meta{display:flex;justify-content:center;gap:12px;margin-top:14px;flex-wrap:wrap}
+.hero-meta span{background:rgba(255,255,255,.7);padding:4px 14px;border-radius:14px;font-size:13px;color:#4FC3F7}
+.nav-tabs{display:flex;gap:6px;padding:20px 16px 6px;overflow-x:auto;scrollbar-width:none;flex-wrap:wrap}
 .nav-tabs::-webkit-scrollbar{display:none}
-.nav-tab{flex-shrink:0;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid #F0E8DC;background:#FFF;cursor:pointer;transition:all .2s}
-.nav-tab.active{background:#29B6F6;color:#fff;border-color:#29B6F6}
-.section-title{font-size:17px;font-weight:800;color:#2C2C2C;margin-bottom:14px;display:flex;align-items:center;gap:6px}
-.card{background:#FFF;border-radius:18px;margin:16px 16px;padding:20px;box-shadow:0 2px 14px rgba(0,0,0,.08)}
-.word-grid{display:flex;flex-direction:column;gap:12px}
-.word-card{background:linear-gradient(135deg,#FAFAFA,#F0F7FF);border-radius:14px;padding:14px 16px;border-left:4px solid var(--s)}
-.word-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px}
-.word-en{font-size:22px;font-weight:800;color:var(--pd)}
-.word-ipa{font-size:13px;color:var(--sd);font-style:italic;font-weight:500}
-.word-zh{font-size:14px;color:var(--tl);margin-bottom:6px}
-.word-tip{background:#E3F2FD;border-radius:10px;padding:8px 12px;font-size:13px;color:#1565C0;line-height:1.6}
-.word-example{background:#FFF8E1;border-radius:8px;padding:6px 12px;font-size:13px;color:#E65100;margin-top:6px;font-style:italic}
-.dialogue-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #FFF3E0}
-.dialogue-row:last-child{border-bottom:none}
-.d-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
-.d-bubble{flex:1;background:#F5F5F5;border-radius:12px;padding:10px 14px}
-.d-bubble.orange{background:#FFF3E0}
-.d-bubble.blue{background:#E3F2FD}
-.d-en{font-size:15px;font-weight:700;color:#2C2C2C;margin-bottom:3px}
-.d-zh{font-size:12px;color:var(--tl)}
-.song-card{background:linear-gradient(135deg,#F1F8E9,#E8F5E9);border-radius:18px;margin:16px 16px;padding:22px 20px;border:1.5px solid #C8E6C9}
-.song-header{text-align:center;margin-bottom:16px}
-.song-title{font-size:19px;font-weight:800;color:#2E7D32}
-.song-sub{font-size:12px;color:#689F38;margin-top:4px}
-.lyrics-box{background:rgba(255,255,255,.7);border-radius:14px;padding:16px}
-.lyric-line{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #C8E6C9;gap:8px}
-.lyric-text{flex:1}
-.lyric-en{font-size:15px;font-weight:600;color:#1B5E20}
-.lyric-zh{font-size:12px;color:#689F38;margin-top:2px}
-.phonics-card{background:linear-gradient(135deg,#F3E5F5,#EDE7F6);border-radius:18px;margin:16px 16px;padding:20px}
-.activity-card{background:linear-gradient(135deg,#E3F2FD,#E8EAF6);border-radius:18px;margin:16px 16px;padding:20px;border:1.5px solid #BBDEFB}
-.activity-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #BBDEFB}
-.activity-item:last-child{border-bottom:none}
-.activity-num{width:28px;height:28px;background:var(--s);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
-.activity-body{flex:1}
-.activity-title{font-size:15px;font-weight:700;color:#1565C0;margin-bottom:3px}
-.activity-desc{font-size:13px;color:#1976D2;line-height:1.6}
-.activity-phrase{background:rgba(255,255,255,.7);border-radius:8px;padding:6px 12px;font-size:14px;font-weight:700;color:#0D47A1;margin-top:6px;display:inline-block}
-.story-card{background:linear-gradient(135deg,#FFF9C4,#FFF3E0);border-radius:18px;margin:16px 16px;padding:20px;border:1.5px solid #FFE082}
-.story-header{text-align:center;margin-bottom:16px}
-.story-emoji{font-size:48px}
-.story-title{font-size:18px;font-weight:800;color:#E65100;margin-top:8px}
-.story-para{margin-bottom:12px}
-.story-en{font-size:15px;font-weight:700;color:#BF360C;margin-bottom:4px;line-height:1.7}
-.story-zh{font-size:13px;color:#795548;line-height:1.7}
-.checklist-card{background:linear-gradient(135deg,#E8F5E9,#F1F8E9);border-radius:18px;margin:16px 16px;padding:20px;border:1.5px solid #A5D6A7}
-.check-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #C8E6C9;cursor:pointer}
-.check-item:last-child{border-bottom:none}
-.check-box{width:24px;height:24px;border:2.5px solid #66BB6A;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.check-box.checked{background:#66BB6A}
-.check-text{font-size:14px;color:#2E7D32;font-weight:500}
-.footer-note{text-align:center;font-size:13px;color:var(--tl);padding:28px 20px 20px;line-height:2}
-.check-tips{background:#E8F5E9;border-radius:14px;padding:14px 16px;margin:12px 0 0;font-size:14px;color:#2E7D32;text-align:center}
+.tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #4FC3F744;background:#fff;cursor:pointer;color:#4FC3F7;transition:all .2s}
+.tab.active{background:#4FC3F7;color:#fff;border-color:#4FC3F7}
+.card{background:#4FC3F711;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #4FC3F733;display:none}
+.card.active{display:block}
+.card-title{font-size:18px;font-weight:800;color:#4FC3F7;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #4FC3F744;display:flex;align-items:center;gap:8px}
+.content p{margin:10px 0;font-size:15px;line-height:1.9}
+.content h4{font-size:16px;font-weight:700;color:#4FC3F7;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #4FC3F744}
+.content blockquote{background:#4FC3F722;border-left:4px solid #4FC3F7;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
+.content ul{list-style:none;margin:10px 0;padding:0}
+.content li{padding:9px 0 9px 22px;position:relative;font-size:15px;border-bottom:1px solid #4FC3F722}
+.content li:last-child{border-bottom:none}
+.content li::before{content:'•';position:absolute;left:6px;color:#4FC3F7;font-weight:bold;font-size:18px;top:8px}
+.content strong{color:#4FC3F7}
+.footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #4FC3F733;z-index:100;gap:12px}
+.footer a{flex:1;text-align:center;padding:13px;background:#4FC3F7;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
+.footer .nav-btn{background:#fff;color:#4FC3F7;border:2px solid #4FC3F7}
+.nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
 </head>
 <body>
 <div class="hero">
-  <div class="hero-badge">✨ 第 013 期</div>
-  <div style="font-size:68px;margin-bottom:10px">🐤</div>
-  <h1>Five Little Ducks!</h1>
-  <div class="hero-sub">字母 M · 五只小鸭子</div>
+  <div class="hero-badge">第013期</div>
+  <h1>数字123</h1>
+  <div class="hero-sub">Counting Numbers!</div>
   <div class="hero-meta">
-    <span>📚 核心词汇</span>
-    <span>🎵 经典儿歌</span>
-    <span>🔤 字母认知</span>
+    <span>📅 每日10分钟</span>
+    <span>🎯 英语启蒙</span>
+    <span>👶 1.5-2岁</span>
   </div>
 </div>
 
-<div class="nav-tabs" id="navTabs"></div>
+<nav class="nav-tabs">
+  <button class="tab active" onclick="showTab('s1')">💬 金句</button>
+  <button class="tab" onclick="showTab('s2')">🎵 儿歌</button>
+  <button class="tab" onclick="showTab('s3')">📖 绘本</button>
+  <button class="tab" onclick="showTab('s4')">🔤 字母</button>
+  <button class="tab" onclick="showTab('s5')">🎮 活动</button>
+  <button class="tab" onclick="showTab('s6')">💡 贴士</button>
+</nav>
 
-<div class="card">
-  <div class="section-title">📚 核心词汇</div>
-  <div class="word-grid">
-        <div class="word-card">
-            <div class="word-top">
-                <span style="font-size:28px">1️⃣</span>
-                <span class="word-en">One</span>
-                <span class="word-ipa">/wʌn/</span>
-                <button class="tts-btn" onclick="playTTS('One')">🔊</button>
-            </div>
-            <div class="word-zh">一</div>
-            <div class="word-tip">💡 One finger! One apple!</div>
-            <div class="word-example">📝 I have one nose!</div>
-        </div>
-        <div class="word-card">
-            <div class="word-top">
-                <span style="font-size:28px">2️⃣</span>
-                <span class="word-en">Two</span>
-                <span class="word-ipa">/tuː/</span>
-                <button class="tts-btn" onclick="playTTS('Two')">🔊</button>
-            </div>
-            <div class="word-zh">二</div>
-            <div class="word-tip">💡 Two eyes! Two ears!</div>
-            <div class="word-example">📝 You have two hands!</div>
-        </div>
-        <div class="word-card">
-            <div class="word-top">
-                <span style="font-size:28px">3️⃣</span>
-                <span class="word-en">Three</span>
-                <span class="word-ipa">/θriː/</span>
-                <button class="tts-btn" onclick="playTTS('Three')">🔊</button>
-            </div>
-            <div class="word-zh">三</div>
-            <div class="word-tip">💡 One, two, three! 边拍手边数</div>
-            <div class="word-example">📝 Three little ducks!</div>
-        </div>
-        <div class="word-card">
-            <div class="word-top">
-                <span style="font-size:28px">4️⃣</span>
-                <span class="word-en">Four</span>
-                <span class="word-ipa">/fɔːr/</span>
-                <button class="tts-btn" onclick="playTTS('Four')">🔊</button>
-            </div>
-            <div class="word-zh">四</div>
-            <div class="word-tip">💡 Four legs on the table!</div>
-            <div class="word-example">📝 The cat has four legs!</div>
-        </div>
-        <div class="word-card">
-            <div class="word-top">
-                <span style="font-size:28px">5️⃣</span>
-                <span class="word-en">Five</span>
-                <span class="word-ipa">/faɪv/</span>
-                <button class="tts-btn" onclick="playTTS('Five')">🔊</button>
-            </div>
-            <div class="word-zh">五</div>
-            <div class="word-tip">💡 Give me five! High five!</div>
-            <div class="word-example">📝 Five little ducks went out to play!</div>
-        </div></div>
-</div>
+<div class="card active" id="s1"><div class="card-title">💬 今日金句</div><div class="content"><p>### 句1：数手指 <blockquote><strong>「One, two, three, four, five! How many fingers?」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：每天数数手指是最好的数数练习！数完一只手说「Five fingers!」建立数和量的对应。</p>
+<p>### 句2：数苹果 <blockquote><strong>「One apple, two apples! Do you want one or two?」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：吃水果时数数，「Do you want one or two?」让宝宝选择，增加参与感。</p>
+<p>### 句3：数台阶 <blockquote><strong>「One step, two steps, three! Up we go!」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：上下楼梯数台阶，让爬楼梯变成数数练习，每一步都有英语。</p>
+<p>### 句4：数玩具 <blockquote><strong>「One bear, two bears, three bears! How many?」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：收拾玩具时数一数！「Clean up time!」数完说「All done!」建立整洁习惯。</p>
+<p>### 句5：数数晚安 <blockquote><strong>「One goodnight, two goodnights... Sweet dreams!」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：睡前数数说晚安，抱抱数「one hug, two hugs」把数和爱联系在一起。</p>
+<p>---</p></div></div>
+<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div><div class="content"><p><strong>数数主歌：</strong> <ul> <li>:musical_note: One, two, three, four, five,</li> <li>:musical_note: Once I caught a fish alive!</li> <li>:musical_note: Six, seven, eight, nine, ten,</li> <li>:musical_note: Then I let it go again!</li> </ul></p>
+<p><strong>简单版：</strong> <ul> <li>:musical_note: One, one, one, a little bunny!</li> <li>:musical_note: Two, two, two, I see two shoes!</li> <li>:musical_note: Three, three, three, look at me!</li> <li>:musical_note: Four, four, four, open the door!</li> </ul></p>
+<p><strong>怎么唱</strong>： 这是数数版的手指歌！边数手指边唱「One, two, three...」每个数字对应一根手指。也可以用小玩具配合唱，每唱一个数字放一个玩具在盒子里。数数歌可以唱到10，让宝宝感受数量从少到多的变化！</p>
+<p>---</p></div></div>
+<div class="card" id="s3"><div class="card-title">📖 绘本预热</div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
+<p>这本经典的绘本天然就是数字启蒙教材——毛毛虫每天吃的食物数量都在变化：</p>
+<p><strong>书中关键词</strong>： <ul> <li>`one` — 一</li> <li>`two` — 二</li> <li>`three` — 三</li> <li>`four` — 四</li> <li>`five` — 五</li> </ul></p>
+<p>🗣️ <strong>亲子共读提示</strong>： 指着书里的食物数数「One apple, two pears...」把数和实物联系起来。也可以拿出真实的水果边吃边数。</p>
+<p>---</p></div></div>
+<div class="card" id="s4"><div class="card-title">🔤 字母认知</div><div class="content"><blockquote><strong>今日字母：M m — moon</strong></blockquote>
+<p>| 大写 | 小写 | 发音 | 联想词 | |------|------|------|--------| | M | m | /ɛm/ | 🍎 moon（月亮）|</p>
+<p><strong>联想词汇</strong>： <ul> <li><strong>Moon</strong> — 月亮：晚上看月亮「Moon! M for moon!」满月「full moon」，弯月「crescent」。</li> <li><strong>Mouse</strong> — 老鼠：小老鼠「Mouse! M for mouse!」吱吱叫「squeak squeak」。</li> <li><strong>Milk</strong> — 牛奶：每天喝牛奶「Milk! M for milk!」「Drink your milk!」</li> </ul></p>
+<p>🗣️ <strong>怎么教</strong>： 指着实物或图片说「Moon! M for moon!」宝宝会先学会说实物名称，字母认知自然就来了！</p>
+<p>---</p></div></div>
+<div class="card" id="s5"><div class="card-title">🎮 亲子活动</div><div class="content"><blockquote>🧒 每天15分钟高质量陪伴，胜过1小时敷衍相处</blockquote>
+<p>| 时间 | 活动 | |------|------| | 楼梯数数 | 上楼梯时数「One, two, three!」下楼梯时倒数「Three, two, one!」 | | 零食数学课 | 吃葡萄干或小饼干时数「One, two, three...」数完再吃 | | 数数接龙 | 家长说「One」，宝宝说「Two」，家长说「Three」...一直数到10 | | 玩具排队 | 让小汽车或动物玩具排队「One, two, three... ten!」数完一起出发 |</p>
+<p>💡 <strong>互动贴士</strong>：楼梯是最自然的数数工具，每上一级说一句英语，数数和运动一起完成。</p>
+<blockquote>✅ 今天完成了吗？明天继续加油！💪</blockquote>
+<p>---</p></div></div>
+<div class="card" id="s6"><div class="card-title">💡 学习贴士</div><div class="content"><p><strong>1.5-2岁宝宝的语言学习规律：</strong></p>
+<blockquote>🧠 这个阶段宝宝处于「语言爆发期前夕」，听得越多、储备越丰富，18-24个月后会突然「开口」！</blockquote>
+<p><strong>三个关键原则：</strong> <strong>1. 数数≠认识数字</strong>：1岁多的宝宝可能还不会认数字，但会数数。数数的顺序是语言学习，数量的概念是数学学习，两者可以同步进行。</p>
+<p><strong>2. 实物数数最有效</strong>：用真实的物品数：手指、玩具、苹果。不要只数「1,2,3」，要让宝宝看到「一个苹果」「两个苹果」。</p>
+<p><strong>3. 不要强迫纠正</strong>：宝宝数错了不要纠正，继续示范正确顺序。输入期重在浸泡，纠错是以后的事。</p>
+<p>---</p></div></div>
 
-
-        <div class="card">
-            <div class="section-title">🔤 字母认知</div>
-            <div class="phonics-card" style="margin:0;background:linear-gradient(135deg,#F3E5F5,#EDE7F6)">
-                <div style="display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid #E1BEE7">
-                    <div style="font-size:52px;width:70px;text-align:center">🍈</div>
-                    <div>
-                        <div style="font-size:32px;font-weight:800;color:#6A1B9A">Letter M M</div>
-                        <div style="font-size:14px;color:#7B1FA2;margin-top:4px">联想词：melon (哈密瓜)</div>
-                    </div>
-                </div>
-                <div style="margin-top:12px;font-size:14px;color:#6A1B9A;background:rgba(255,255,255,.6);border-radius:10px;padding:10px 14px">
-                    🗣️ <strong>怎么教：</strong>指着哈密瓜说 Melon! M for melon! M-M-Melon!
-                </div>
-            </div>
-        </div>
-
-<div class="card">
-  <div class="section-title">💬 情景对话</div>
-  
-        <div class="dialogue-row">
-            <div class="d-avatar" style="background:#FFE0B2">
-                👶
-            </div>
-            <div class="d-bubble orange">
-                <div class="d-en">How many apples?</div>
-                <div class="d-zh">有几个苹果？</div>
-            </div>
-        </div>
-        <div class="dialogue-row">
-            <div class="d-avatar" style="background:#BBDEFB">
-                👨‍👩‍👧
-            </div>
-            <div class="d-bubble blue">
-                <div class="d-en">More or less?</div>
-                <div class="d-zh">多还是少？</div>
-            </div>
-        </div>
-        <div class="dialogue-row">
-            <div class="d-avatar" style="background:#FFE0B2">
-                👶
-            </div>
-            <div class="d-bubble orange">
-                <div class="d-en">One, two, three, four, five... Let's go!</div>
-                <div class="d-zh">一二三四五... 出发！</div>
-            </div>
-        </div>
-</div>
-
-<div class="song-card">
-  <div class="song-header">
-    <div style="font-size:40px">🎶</div>
-    <div class="song-title">Five Little Ducks</div>
-  </div>
-  <div class="lyrics-box">
-    
-        <div class="lyric-line">
-            <div class="lyric-text">
-                <div class="lyric-en">Five little ducks went out one day,</div>
-                
-            </div>
-            <button class="tts-btn" onclick="playTTS('Five little ducks went out one day,')">🔊</button>
-        </div>
-        <div class="lyric-line">
-            <div class="lyric-text">
-                <div class="lyric-en">Over the hills and far away.</div>
-                
-            </div>
-            <button class="tts-btn" onclick="playTTS('Over the hills and far away.')">🔊</button>
-        </div>
-        <div class="lyric-line">
-            <div class="lyric-text">
-                <div class="lyric-en">Mother duck said, 'Quack, quack, quack, quack!'</div>
-                
-            </div>
-            <button class="tts-btn" onclick="playTTS('Mother duck said, \'Quack, quack, quack, quack!\'')">🔊</button>
-        </div>
-        <div class="lyric-line">
-            <div class="lyric-text">
-                <div class="lyric-en">But only four little ducks came back!</div>
-                
-            </div>
-            <button class="tts-btn" onclick="playTTS('But only four little ducks came back!')">🔊</button>
-        </div>
-  </div>
-  <div class="check-tips">🎵 从5开始倒数，每遍少一只，可以配上手指表演！</div>
-</div>
-
-<div class="story-card">
-  <div class="story-header">
-    <div class="story-emoji">🐻</div>
-    <div class="story-title">📖 Brown Bear 数字版</div>
-  </div>
-  <div class="story-para">配合今天学的数字，可以复习 Brown Bear 里的动物！</div>
-  <div style="margin-top:12px"><span style="background:#FFF9C4;padding:4px 10px;border-radius:12px;font-size:13px;margin:3px;display:inline-block">five 五</span><span style="background:#FFF9C4;padding:4px 10px;border-radius:12px;font-size:13px;margin:3px;display:inline-block">four 四</span><span style="background:#FFF9C4;padding:4px 10px;border-radius:12px;font-size:13px;margin:3px;display:inline-block">three 三</span><span style="background:#FFF9C4;padding:4px 10px;border-radius:12px;font-size:13px;margin:3px;display:inline-block">two 二</span><span style="background:#FFF9C4;padding:4px 10px;border-radius:12px;font-size:13px;margin:3px;display:inline-block">one 一</span></div>
-</div>
-
-<div class="checklist-card">
-  <div class="section-title">✅ 打卡记录</div>
-  
-        <div class="check-item" onclick="toggleCheck(this)">
-            <div class="check-box"><span style="color:#fff;font-size:14px">✓</span></div>
-            <div class="check-text">学会了一到五的英语</div>
-        </div>
-        <div class="check-item" onclick="toggleCheck(this)">
-            <div class="check-box"><span style="color:#fff;font-size:14px">✓</span></div>
-            <div class="check-text">唱了 Five Little Ducks</div>
-        </div>
-        <div class="check-item" onclick="toggleCheck(this)">
-            <div class="check-box"><span style="color:#fff;font-size:14px">✓</span></div>
-            <div class="check-text">用手指表演了故事</div>
-        </div>
-        <div class="check-item" onclick="toggleCheck(this)">
-            <div class="check-box"><span style="color:#fff;font-size:14px">✓</span></div>
-            <div class="check-text">在生活中数数了吗？</div>
-        </div>
-  <div class="check-tips" style="background:#FFF9C4;color:#E65100;margin-top:16px">
-    💬 在生活中数数了吗？
-  </div>
-</div>
-
-<div class="footer-note">
-  🌱 每天12分钟，为宝宝种下英语的种子<br>
-  加油，爸爸妈妈！
+<div class="footer">
+  <a href="issue-012.html" class="nav-btn">← 上一期</a>
+  <a href="index.html">📚 目录</a>
+  <a href="issue-014.html" class="nav-btn">下一期 →</a>
 </div>
 
 <script>
-// 导航
-const episodes = ["01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26"];
-const current = "013".padStart(3,'0').slice(-2);
-const nav = document.getElementById('navTabs');
-episodes.forEach(n => {
-  const a = document.createElement('a');
-  a.className = 'nav-tab' + (n === current ? ' active' : '');
-  a.textContent = n;
-  a.href = 'issue-' + n + '.html';
-  nav.appendChild(a);
-});
-
-// TTS
-function playTTS(text) {
-  if (!window.speechSynthesis) return;
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'en-US'; u.rate = 0.85;
-  speechSynthesis.cancel();
-  speechSynthesis.speak(u);
-}
-
-// 打卡
-function toggleCheck(el) {
-  el.querySelector('.check-box').classList.toggle('checked');
+function showTab(id){
+  document.querySelectorAll('.card').forEach(e=>e.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
 }
 </script>
 </body>
