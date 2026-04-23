@@ -19,9 +19,7 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .nav-tabs::-webkit-scrollbar{display:none}
 .tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #4DB6AC44;background:#fff;cursor:pointer;color:#4DB6AC;transition:all .2s}
 .tab.active{background:#4DB6AC;color:#fff;border-color:#4DB6AC}
-.card{background:#4DB6AC11;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #4DB6AC33;display:none}
-.card.active{display:block}
-.card-title{font-size:18px;font-weight:800;color:#4DB6AC;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #4DB6AC44;display:flex;align-items:center;gap:8px}
+.card{margin:16px 16px;padding:22px 18px;border-radius:16px;display:block}
 .content p{margin:10px 0;font-size:15px;line-height:1.9}
 .content h4{font-size:16px;font-weight:700;color:#4DB6AC;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #4DB6AC44}
 .content blockquote{background:#4DB6AC22;border-left:4px solid #4DB6AC;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
@@ -30,11 +28,49 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .content li:last-child{border-bottom:none}
 .content li::before{content:'•';position:absolute;left:6px;color:#4DB6AC;font-weight:bold;font-size:18px;top:8px}
 .content strong{color:#4DB6AC}
+
+.audio-btn{margin:4px 4px;padding:6px 14px;border:none;border-radius:20px;background:#FFF3E0;color:#E65100;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .2s;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+.audio-btn:hover{background:#FFE0B2;transform:scale(1.05)}
+.audio-btn:active{transform:scale(0.95)}
 .footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #4DB6AC33;z-index:100;gap:12px}
 .footer a{flex:1;text-align:center;padding:13px;background:#4DB6AC;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
 .footer .nav-btn{background:#fff;color:#4DB6AC;border:2px solid #4DB6AC}
 .nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
+<script>
+var AUDIO_CDNS = ["https://baby-english-d7gb3dwj91d31020-1346728686.tcloudbaseapp.com/audio/", "https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/", "https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/"];
+var audioPlayer = null;
+function playAudio(audioName) {
+    if (audioPlayer) {
+        audioPlayer.pause();
+    }
+    audioPlayer = new Audio();
+    var cdnIndex = 0;
+    audioPlayer.addEventListener('error', function() {
+        cdnIndex++;
+        if (cdnIndex < AUDIO_CDNS.length) {
+            audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+            audioPlayer.play().catch(function() {});
+        } else {
+            // 最终降级：使用浏览器TTS
+            if (window.speechSynthesis) {
+                var utter = new SpeechSynthesisUtterance(audioName.replace(/_/g, ' '));
+                utter.lang = 'en-US';
+                utter.rate = 0.9;
+                window.speechSynthesis.speak(utter);
+            }
+        }
+    });
+    audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+    audioPlayer.play().catch(function() {});
+}
+function stopAudio() {
+    if (audioPlayer) {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+    }
+}
+</script>
 </head>
 <body>
 <div class="hero">
@@ -48,16 +84,10 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   </div>
 </div>
 
-<nav class="nav-tabs">
-  <button class="tab active" onclick="showTab('s1')">💬 金句</button>
-  <button class="tab" onclick="showTab('s2')">🎵 儿歌</button>
-  <button class="tab" onclick="showTab('s3')">📖 绘本</button>
-  <button class="tab" onclick="showTab('s4')">🔤 字母</button>
-  <button class="tab" onclick="showTab('s5')">🎮 活动</button>
-  <button class="tab" onclick="showTab('s6')">💡 贴士</button>
-</nav>
 
-<div class="card active" id="s1"><div class="card-title">💬 今日金句</div><div class="content"><p>### 句1：出发前准备 <blockquote><strong>「Time to go outside! Put on your shoes!」</strong></blockquote></p>
+
+<div class="card active" id="s1"><div class="card-title">💬 今日金句</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('ball')" title="点击播放音频">🔊 ball</button><button class="audio-btn" onclick="playAudio('park')" title="点击播放音频">🔊 park</button><button class="audio-btn" onclick="playAudio('slide')" title="点击播放音频">🔊 slide</button></div><div class="content"><p>### 句1：出发前准备 <blockquote><strong>「Time to go outside! Put on your shoes!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：出门前说「outside」，让宝宝知道即将进入一个不一样的空间，换鞋是户外仪式的第一步。</p>
 <p>### 句2：草地探险 <blockquote><strong>「Look at the grass! Feel the grass!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：让宝宝光脚踩草地，感受草地的扎扎的感觉「It's prickly!」安全的前提下让宝宝多感受。</p>
@@ -68,11 +98,13 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 <p>### 句5：回家收尾 <blockquote><strong>「All done! Time to go home!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：结束时说「Goodbye park!」和公园告别，让宝宝知道户外活动有始有终。</p>
 <p>---</p></div></div>
-<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div><div class="content"><p><strong>经典版本：</strong> <ul> <li>:musical_note: Here we go round the mulberry bush,</li> <li>:musical_note: the mulberry bush, the mulberry bush!</li> <li>:musical_note: Here we go round the mulberry bush,</li> <li>:musical_note: so early in the morning!</li> </ul></p>
+<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('wheels_on_bus')" title="点击播放音频">🔊 播放儿歌</button></div><div class="content"><p><strong>经典版本：</strong> <ul> <li>:musical_note: Here we go round the mulberry bush,</li> <li>:musical_note: the mulberry bush, the mulberry bush!</li> <li>:musical_note: Here we go round the mulberry bush,</li> <li>:musical_note: so early in the morning!</li> </ul></p>
 <p><strong>户外版：</strong> <ul> <li>:musical_note: This is the way we splash in puddles,</li> <li>:musical_note: splash in puddles, splash in puddles!</li> <li>:musical_note: This is the way we splash in puddles,</li> <li>:musical_note: on a rainy morning!</li> </ul></p>
 <p><strong>怎么唱</strong>： 这首歌特别适合户外活动！在草地上围圈走，边走边唱。改编版可以唱各种户外动作：jump in the puddles, climb the tree, run on the grass。户外活动间隙唱一唱，让玩耍更有节奏感！</p>
 <p>---</p></div></div>
-<div class="card" id="s3"><div class="card-title">📖 绘本预热</div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
+<div class="card" id="s3"><div class="card-title">📖 绘本预热</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('bear')" title="点击播放音频">🔊 播放绘本片段</button></div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
 <p>小熊很忙系列有很多户外场景：建筑工地、海滩、消防站……每本都是一场探险：</p>
 <p><strong>书中关键词</strong>： <ul> <li>`play` — 玩</li> <li>`outside` — 户外</li> <li>`sand` — 沙</li> <li>`water` — 水</li> </ul></p>
 <p>🗣️ <strong>亲子共读提示</strong>： 读完书后去户外实践！指着公园里的滑梯说「Just like in the book!」把书本和现实联系起来。</p>
@@ -100,13 +132,6 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   <a href="issue-011.html" class="nav-btn">下一期 →</a>
 </div>
 
-<script>
-function showTab(id){
-  document.querySelectorAll('.card').forEach(e=>e.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
-}
-</script>
+
 </body>
 </html>
