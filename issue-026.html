@@ -19,9 +19,7 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .nav-tabs::-webkit-scrollbar{display:none}
 .tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #FF704344;background:#fff;cursor:pointer;color:#FF7043;transition:all .2s}
 .tab.active{background:#FF7043;color:#fff;border-color:#FF7043}
-.card{background:#FF704311;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #FF704333;display:none}
-.card.active{display:block}
-.card-title{font-size:18px;font-weight:800;color:#FF7043;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #FF704344;display:flex;align-items:center;gap:8px}
+.card{margin:16px 16px;padding:22px 18px;border-radius:16px;display:block}
 .content p{margin:10px 0;font-size:15px;line-height:1.9}
 .content h4{font-size:16px;font-weight:700;color:#FF7043;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #FF704344}
 .content blockquote{background:#FF704322;border-left:4px solid #FF7043;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
@@ -30,11 +28,49 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .content li:last-child{border-bottom:none}
 .content li::before{content:'•';position:absolute;left:6px;color:#FF7043;font-weight:bold;font-size:18px;top:8px}
 .content strong{color:#FF7043}
+
+.audio-btn{margin:4px 4px;padding:6px 14px;border:none;border-radius:20px;background:#FFF3E0;color:#E65100;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .2s;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+.audio-btn:hover{background:#FFE0B2;transform:scale(1.05)}
+.audio-btn:active{transform:scale(0.95)}
 .footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #FF704333;z-index:100;gap:12px}
 .footer a{flex:1;text-align:center;padding:13px;background:#FF7043;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
 .footer .nav-btn{background:#fff;color:#FF7043;border:2px solid #FF7043}
 .nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
+<script>
+var AUDIO_CDNS = ["https://baby-english-d7gb3dwj91d31020-1346728686.tcloudbaseapp.com/audio/", "https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/", "https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/"];
+var audioPlayer = null;
+function playAudio(audioName) {
+    if (audioPlayer) {
+        audioPlayer.pause();
+    }
+    audioPlayer = new Audio();
+    var cdnIndex = 0;
+    audioPlayer.addEventListener('error', function() {
+        cdnIndex++;
+        if (cdnIndex < AUDIO_CDNS.length) {
+            audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+            audioPlayer.play().catch(function() {});
+        } else {
+            // 最终降级：使用浏览器TTS
+            if (window.speechSynthesis) {
+                var utter = new SpeechSynthesisUtterance(audioName.replace(/_/g, ' '));
+                utter.lang = 'en-US';
+                utter.rate = 0.9;
+                window.speechSynthesis.speak(utter);
+            }
+        }
+    });
+    audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+    audioPlayer.play().catch(function() {});
+}
+function stopAudio() {
+    if (audioPlayer) {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+    }
+}
+</script>
 </head>
 <body>
 <div class="hero">
@@ -48,16 +84,10 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   </div>
 </div>
 
-<nav class="nav-tabs">
-  <button class="tab active" onclick="showTab('s1')">💬 金句</button>
-  <button class="tab" onclick="showTab('s2')">🎵 儿歌</button>
-  <button class="tab" onclick="showTab('s3')">📖 绘本</button>
-  <button class="tab" onclick="showTab('s4')">🔤 字母</button>
-  <button class="tab" onclick="showTab('s5')">🎮 活动</button>
-  <button class="tab" onclick="showTab('s6')">💡 贴士</button>
-</nav>
 
-<div class="card active" id="s1"><div class="card-title">💬 今日金句</div><div class="content"><p>### 句1：回顾起点 <blockquote><strong>「Remember when we started? You didn't know any English!」</strong></blockquote></p>
+
+<div class="card active" id="s1"><div class="card-title">💬 今日金句</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('congratulations')" title="点击播放音频">🔊 congratulations</button><button class="audio-btn" onclick="playAudio('learn')" title="点击播放音频">🔊 learn</button><button class="audio-btn" onclick="playAudio('english')" title="点击播放音频">🔊 english</button></div><div class="content"><p>### 句1：回顾起点 <blockquote><strong>「Remember when we started? You didn't know any English!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：翻看最开始时的照片或记录，让宝宝感受自己的成长和变化「Look how much you've grown!」</p>
 <p>### 句2：数一数成就 <blockquote><strong>「26 weeks! 26 letters! So many words!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：数一数学过的字母、词汇、儿歌、绘本——数字会让宝宝和家长都惊叹「Wow! So much!」</p>
@@ -68,11 +98,13 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 <p>### 句5：未来的计划 <blockquote><strong>「This is just the beginning! We'll keep learning!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：毕业不是结束，而是新的开始。告诉宝宝这只是第一阶段，未来还有更多精彩的英语冒险！</p>
 <p>---</p></div></div>
-<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div><div class="content"><p><strong>主歌：</strong> <ul> <li>:musical_note: The more we learn together, together, together!</li> <li>:musical_note: The more we learn together, the happier we'll be!</li> <li>:musical_note: 'Cause your friends and my friends and baby friends too,</li> <li>:musical_note: Can all learn English, like me and you!</li> </ul></p>
+<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('happy')" title="点击播放音频">🔊 播放儿歌</button></div><div class="content"><p><strong>主歌：</strong> <ul> <li>:musical_note: The more we learn together, together, together!</li> <li>:musical_note: The more we learn together, the happier we'll be!</li> <li>:musical_note: 'Cause your friends and my friends and baby friends too,</li> <li>:musical_note: Can all learn English, like me and you!</li> </ul></p>
 <p><strong>毕业版：</strong> <ul> <li>:musical_note: We've learned our ABCs, and 1 2 3s!</li> <li>:musical_note: We've sung so many songs, and read so many books!</li> <li>:musical_note: Thank you, Mommy! Thank you, Daddy too!</li> <li>:musical_note: We'll keep on learning — I'm excited, aren't you?</li> </ul></p>
 <p><strong>怎么唱</strong>： 毕业版的歌比平时更欢乐！可以配上拍手、拥抱、转圈等动作。最后一遍全班（全家）一起唱，感受集体庆祝的力量。唱完说「Congratulations! Class dismissed!」</p>
 <p>---</p></div></div>
-<div class="card" id="s3"><div class="card-title">📖 绘本预热</div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
+<div class="card" id="s3"><div class="card-title">📖 绘本预热</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('bear')" title="点击播放音频">🔊 播放绘本片段</button></div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
 <p>用《我爸爸》作为这一阶段的最后一本书，因为这本书里有所有的爱——爸爸的爱、妈妈的爱、家庭的爱，这些爱是支持宝宝持续学习的动力：</p>
 <p><strong>书中关键词</strong>： <ul> <li>`love` — 爱</li> <li>`family` — 家庭</li> <li>`together` — 一起</li> <li>`proud` — 骄傲</li> <li>`continue` — 继续</li> </ul></p>
 <p>🗣️ <strong>亲子共读提示</strong>： 读完最后一页，抱着宝宝说「I love you. I am proud of you. You did a great job.」这些话是对宝宝最好的毕业礼物。</p>
@@ -100,13 +132,6 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   <span class="nav-btn nav-disabled">已到最新</span>
 </div>
 
-<script>
-function showTab(id){
-  document.querySelectorAll('.card').forEach(e=>e.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
-}
-</script>
+
 </body>
 </html>
