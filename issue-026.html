@@ -19,7 +19,9 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .nav-tabs::-webkit-scrollbar{display:none}
 .tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #FF704344;background:#fff;cursor:pointer;color:#FF7043;transition:all .2s}
 .tab.active{background:#FF7043;color:#fff;border-color:#FF7043}
-.card{margin:16px 16px;padding:22px 18px;border-radius:16px;display:block}
+.card{background:#FF704311;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #FF704333;display:none}
+.card.active{display:block}
+.card-title{font-size:18px;font-weight:800;color:#FF7043;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #FF704344;display:flex;align-items:center;gap:8px}
 .content p{margin:10px 0;font-size:15px;line-height:1.9}
 .content h4{font-size:16px;font-weight:700;color:#FF7043;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #FF704344}
 .content blockquote{background:#FF704322;border-left:4px solid #FF7043;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
@@ -28,7 +30,6 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .content li:last-child{border-bottom:none}
 .content li::before{content:'•';position:absolute;left:6px;color:#FF7043;font-weight:bold;font-size:18px;top:8px}
 .content strong{color:#FF7043}
-
 .audio-btn{margin:4px 4px;padding:6px 14px;border:none;border-radius:20px;background:#FFF3E0;color:#E65100;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .2s;box-shadow:0 2px 6px rgba(0,0,0,.1)}
 .audio-btn:hover{background:#FFE0B2;transform:scale(1.05)}
 .audio-btn:active{transform:scale(0.95)}
@@ -38,12 +39,14 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
 <script>
-var AUDIO_CDNS = ["https://baby-english-d7gb3dwj91d31020-1346728686.tcloudbaseapp.com/audio/", "https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/", "https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/"];
+var AUDIO_CDNS = [
+    "https://baby-english-d7gb3dwij91d31020-1346728686.tcloudbaseapp.com/audio/",
+    "https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/",
+    "https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/"
+];
 var audioPlayer = null;
 function playAudio(audioName) {
-    if (audioPlayer) {
-        audioPlayer.pause();
-    }
+    if (audioPlayer) audioPlayer.pause();
     audioPlayer = new Audio();
     var cdnIndex = 0;
     audioPlayer.addEventListener('error', function() {
@@ -52,7 +55,6 @@ function playAudio(audioName) {
             audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
             audioPlayer.play().catch(function() {});
         } else {
-            // 最终降级：使用浏览器TTS
             if (window.speechSynthesis) {
                 var utter = new SpeechSynthesisUtterance(audioName.replace(/_/g, ' '));
                 utter.lang = 'en-US';
@@ -64,11 +66,11 @@ function playAudio(audioName) {
     audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
     audioPlayer.play().catch(function() {});
 }
-function stopAudio() {
-    if (audioPlayer) {
-        audioPlayer.pause();
-        audioPlayer.currentTime = 0;
-    }
+function showTab(id) {
+    document.querySelectorAll('.card').forEach(function(e){e.classList.remove('active')});
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('active')});
+    event.target.classList.add('active');
 }
 </script>
 </head>
@@ -76,62 +78,34 @@ function stopAudio() {
 <div class="hero">
   <div class="hero-badge">第026期</div>
   <h1>毕业特辑</h1>
-  <div class="hero-sub">Our English Journey!</div>
+  <div class="hero-sub">
+</div>
   <div class="hero-meta">
-    <span>📅 每日10分钟</span>
-    <span>🎯 英语启蒙</span>
-    <span>👶 1.5-2岁</span>
+    <span>每日10分钟</span>
+    <span>英语启蒙</span>
+    <span>1.5-2岁</span>
   </div>
 </div>
 
-
-
-<div class="card active" id="s1"><div class="card-title">💬 今日金句</div>
-<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('congratulations')" title="点击播放音频">🔊 congratulations</button><button class="audio-btn" onclick="playAudio('learn')" title="点击播放音频">🔊 learn</button><button class="audio-btn" onclick="playAudio('english')" title="点击播放音频">🔊 english</button></div><div class="content"><p>### 句1：回顾起点 <blockquote><strong>「Remember when we started? You didn't know any English!」</strong></blockquote></p>
-<p>💡 <strong>怎么用</strong>：翻看最开始时的照片或记录，让宝宝感受自己的成长和变化「Look how much you've grown!」</p>
-<p>### 句2：数一数成就 <blockquote><strong>「26 weeks! 26 letters! So many words!」</strong></blockquote></p>
-<p>💡 <strong>怎么用</strong>：数一数学过的字母、词汇、儿歌、绘本——数字会让宝宝和家长都惊叹「Wow! So much!」</p>
-<p>### 句3：最爱的时刻 <blockquote><strong>「What was your favorite? The farm? The zoo? Or Bath time?」</strong></blockquote></p>
-<p>💡 <strong>怎么用</strong>：让宝宝回忆最喜欢的内容，帮助家长了解宝宝的兴趣点「What do you want to learn more about?」</p>
-<p>### 句4：谢谢宝宝 <blockquote><strong>「Thank you for learning with me! You are amazing!」</strong></blockquote></p>
-<p>💡 <strong>怎么用</strong>：家长向宝宝表达感谢——是宝宝的配合和成长让这一切变得有意义。</p>
-<p>### 句5：未来的计划 <blockquote><strong>「This is just the beginning! We'll keep learning!」</strong></blockquote></p>
-<p>💡 <strong>怎么用</strong>：毕业不是结束，而是新的开始。告诉宝宝这只是第一阶段，未来还有更多精彩的英语冒险！</p>
-<p>---</p></div></div>
-<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div>
-<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('happy')" title="点击播放音频">🔊 播放儿歌</button></div><div class="content"><p><strong>主歌：</strong> <ul> <li>:musical_note: The more we learn together, together, together!</li> <li>:musical_note: The more we learn together, the happier we'll be!</li> <li>:musical_note: 'Cause your friends and my friends and baby friends too,</li> <li>:musical_note: Can all learn English, like me and you!</li> </ul></p>
-<p><strong>毕业版：</strong> <ul> <li>:musical_note: We've learned our ABCs, and 1 2 3s!</li> <li>:musical_note: We've sung so many songs, and read so many books!</li> <li>:musical_note: Thank you, Mommy! Thank you, Daddy too!</li> <li>:musical_note: We'll keep on learning — I'm excited, aren't you?</li> </ul></p>
-<p><strong>怎么唱</strong>： 毕业版的歌比平时更欢乐！可以配上拍手、拥抱、转圈等动作。最后一遍全班（全家）一起唱，感受集体庆祝的力量。唱完说「Congratulations! Class dismissed!」</p>
-<p>---</p></div></div>
-<div class="card" id="s3"><div class="card-title">📖 绘本预热</div>
-<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('bear')" title="点击播放音频">🔊 播放绘本片段</button></div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
-<p>用《我爸爸》作为这一阶段的最后一本书，因为这本书里有所有的爱——爸爸的爱、妈妈的爱、家庭的爱，这些爱是支持宝宝持续学习的动力：</p>
-<p><strong>书中关键词</strong>： <ul> <li>`love` — 爱</li> <li>`family` — 家庭</li> <li>`together` — 一起</li> <li>`proud` — 骄傲</li> <li>`continue` — 继续</li> </ul></p>
-<p>🗣️ <strong>亲子共读提示</strong>： 读完最后一页，抱着宝宝说「I love you. I am proud of you. You did a great job.」这些话是对宝宝最好的毕业礼物。</p>
-<p>---</p></div></div>
-<div class="card" id="s4"><div class="card-title">🔤 字母认知</div><div class="content"><blockquote><strong>今日字母：Z z — zoo</strong></blockquote>
-<p>| 大写 | 小写 | 发音 | 联想词 | |------|------|------|--------| | Z | z | /ziː/ | 🍎 zoo（动物园）|</p>
-<p><strong>联想词汇</strong>： <ul> <li><strong>Zebra</strong> — 斑马：黑白条纹的斑马「Zebra! Z for zebra!」跑得很快。</li> <li><strong>Zoo</strong> — 动物园：今天是毕业日「Zoo! Z for zoo!」也感谢所有帮助我们学英语的动物们！</li> </ul></p>
-<p>🗣️ <strong>怎么教</strong>： 指着实物或图片说「Zoo! Z for zoo!」宝宝会先学会说实物名称，字母认知自然就来了！</p>
-<p>---</p></div></div>
-<div class="card" id="s5"><div class="card-title">🎮 亲子活动</div><div class="content"><blockquote>🧒 每天15分钟高质量陪伴，胜过1小时敷衍相处</blockquote>
-<p>| 时间 | 活动 | |------|------| | 成就展览 | 把26周的绘本、涂鸦、作品全部展示出来做一个小展览 | | 写一封毕业信 | 家长代笔写一封宝宝的毕业信，记录这26周的点点滴滴 | | 毕业蛋糕 | 做一个字母形状的蛋糕「A B C」或数字「26」 | | 下一阶段规划 | 和宝宝一起选下一阶段想学的主题「What do you want to learn next?」 |</p>
-<p>💡 <strong>互动贴士</strong>：让宝宝看到自己走过的路——每本书、每幅画都是学习的见证！</p>
-<blockquote>✅ 今天完成了吗？明天继续加油！💪</blockquote>
-<p>---</p></div></div>
-<div class="card" id="s6"><div class="card-title">💡 学习贴士</div><div class="content"><p><strong>1.5-2岁宝宝的语言学习规律：</strong></p>
-<blockquote>🧠 这个阶段宝宝处于「语言爆发期前夕」，听得越多、储备越丰富，18-24个月后会突然「开口」！</blockquote>
-<p><strong>三个关键原则：</strong> <strong>1. 坚持本身就是最大的成就</strong>：26周不间断的学习，这本身就是巨大的成功。无论宝宝学会了多少，陪伴本身就是最好的教育。</p>
-<p><strong>2. 英语学习是终身事业</strong>：不要着急看到「输出」。2岁前以输入为主，输出会在某个时刻突然爆发，给你惊喜。</p>
-<p><strong>3. 保持期待和好奇</strong>：未来的英语学习可以更丰富：动画、歌曲、绘本、旅游……让英语成为探索世界的工具。</p>
-<p>---</p></div></div>
+<nav class="nav-tabs">
+  <button class="tab active" onclick="showTab('s1')">金句</button>
+  <button class="tab" onclick="showTab('s2')">儿歌</button>
+  <button class="tab" onclick="showTab('s3')">绘本</button>
+  <button class="tab" onclick="showTab('s4')">字母</button>
+  <button class="tab" onclick="showTab('s5')">活动</button>
+  <button class="tab" onclick="showTab('s6')">贴士</button>
+</nav>
+<div class="card active" id="s1"><div class="card-title"></div>
+<div class="card active" id="s2"><div class="card-title"></div>
+<div class="card active" id="s3"><div class="card-title"></div>
+<div class="card active" id="s4"><div class="card-title"></div>
+<div class="card active" id="s5"><div class="card-title"></div>
+<div class="card active" id="s6"><div class="card-title"></div>
 
 <div class="footer">
-  <a href="issue-025.html" class="nav-btn">← 上一期</a>
-  <a href="index.html">📚 目录</a>
-  <span class="nav-btn nav-disabled">已到最新</span>
+  <a href="issue-025.html" class="nav-btn">上一期</a>
+  <a href="index.html">目录</a>
+  <a href="index.html" class="nav-btn">下一期</a>
 </div>
-
-
 </body>
 </html>
