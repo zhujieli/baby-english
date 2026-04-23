@@ -19,9 +19,7 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .nav-tabs::-webkit-scrollbar{display:none}
 .tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #5C6BC044;background:#fff;cursor:pointer;color:#5C6BC0;transition:all .2s}
 .tab.active{background:#5C6BC0;color:#fff;border-color:#5C6BC0}
-.card{background:#5C6BC011;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #5C6BC033;display:none}
-.card.active{display:block}
-.card-title{font-size:18px;font-weight:800;color:#5C6BC0;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #5C6BC044;display:flex;align-items:center;gap:8px}
+.card{margin:16px 16px;padding:22px 18px;border-radius:16px;display:block}
 .content p{margin:10px 0;font-size:15px;line-height:1.9}
 .content h4{font-size:16px;font-weight:700;color:#5C6BC0;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #5C6BC044}
 .content blockquote{background:#5C6BC022;border-left:4px solid #5C6BC0;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
@@ -30,11 +28,49 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .content li:last-child{border-bottom:none}
 .content li::before{content:'•';position:absolute;left:6px;color:#5C6BC0;font-weight:bold;font-size:18px;top:8px}
 .content strong{color:#5C6BC0}
+
+.audio-btn{margin:4px 4px;padding:6px 14px;border:none;border-radius:20px;background:#FFF3E0;color:#E65100;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .2s;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+.audio-btn:hover{background:#FFE0B2;transform:scale(1.05)}
+.audio-btn:active{transform:scale(0.95)}
 .footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #5C6BC033;z-index:100;gap:12px}
 .footer a{flex:1;text-align:center;padding:13px;background:#5C6BC0;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
 .footer .nav-btn{background:#fff;color:#5C6BC0;border:2px solid #5C6BC0}
 .nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
+<script>
+var AUDIO_CDNS = ["https://baby-english-d7gb3dwj91d31020-1346728686.tcloudbaseapp.com/audio/", "https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/", "https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/"];
+var audioPlayer = null;
+function playAudio(audioName) {
+    if (audioPlayer) {
+        audioPlayer.pause();
+    }
+    audioPlayer = new Audio();
+    var cdnIndex = 0;
+    audioPlayer.addEventListener('error', function() {
+        cdnIndex++;
+        if (cdnIndex < AUDIO_CDNS.length) {
+            audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+            audioPlayer.play().catch(function() {});
+        } else {
+            // 最终降级：使用浏览器TTS
+            if (window.speechSynthesis) {
+                var utter = new SpeechSynthesisUtterance(audioName.replace(/_/g, ' '));
+                utter.lang = 'en-US';
+                utter.rate = 0.9;
+                window.speechSynthesis.speak(utter);
+            }
+        }
+    });
+    audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+    audioPlayer.play().catch(function() {});
+}
+function stopAudio() {
+    if (audioPlayer) {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+    }
+}
+</script>
 </head>
 <body>
 <div class="hero">
@@ -48,16 +84,10 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   </div>
 </div>
 
-<nav class="nav-tabs">
-  <button class="tab active" onclick="showTab('s1')">💬 金句</button>
-  <button class="tab" onclick="showTab('s2')">🎵 儿歌</button>
-  <button class="tab" onclick="showTab('s3')">📖 绘本</button>
-  <button class="tab" onclick="showTab('s4')">🔤 字母</button>
-  <button class="tab" onclick="showTab('s5')">🎮 活动</button>
-  <button class="tab" onclick="showTab('s6')">💡 贴士</button>
-</nav>
 
-<div class="card active" id="s1"><div class="card-title">💬 今日金句</div><div class="content"><p>### 句1：洗澡准备 <blockquote><strong>「Bath time is over! Time to get dry!」</strong></blockquote></p>
+
+<div class="card active" id="s1"><div class="card-title">💬 今日金句</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('bed')" title="点击播放音频">🔊 bed</button><button class="audio-btn" onclick="playAudio('sleep')" title="点击播放音频">🔊 sleep</button><button class="audio-btn" onclick="playAudio('moon')" title="点击播放音频">🔊 moon</button></div><div class="content"><p>### 句1：洗澡准备 <blockquote><strong>「Bath time is over! Time to get dry!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：洗完澡用大毛巾包起来说「All clean and dry!」感受毛巾的柔软「soft」。</p>
 <p>### 句2：穿睡衣 <blockquote><strong>「Time for your pajamas! Nice and cozy!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：睡衣是「pajamas」，和白天穿的衣服不同「special bedtime clothes」。</p>
@@ -68,11 +98,13 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 <p>### 句5：说晚安 <blockquote><strong>「Good night! Sweet dreams! I love you!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：关灯前说「Good night」和宝宝说一遍，和毛绒玩具也说一遍，让晚安变成温暖的仪式。</p>
 <p>---</p></div></div>
-<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div><div class="content"><p><strong>经典版本：</strong> <ul> <li>:musical_note: Twinkle, twinkle, little star,</li> <li>:musical_note: How I wonder what you are!</li> <li>:musical_note: Up above the world so high,</li> <li>:musical_note: Like a diamond in the sky!</li> <li>:musical_note: Twinkle, twinkle, little star,</li> <li>:musical_note: How I wonder what you are!</li> </ul></p>
+<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('twinkle')" title="点击播放音频">🔊 播放儿歌</button></div><div class="content"><p><strong>经典版本：</strong> <ul> <li>:musical_note: Twinkle, twinkle, little star,</li> <li>:musical_note: How I wonder what you are!</li> <li>:musical_note: Up above the world so high,</li> <li>:musical_note: Like a diamond in the sky!</li> <li>:musical_note: Twinkle, twinkle, little star,</li> <li>:musical_note: How I wonder what you are!</li> </ul></p>
 <p><strong>动作版：</strong> <ul> <li>:musical_note: Twinkle, twinkle, little star... (用手指示意一闪一闪)</li> <li>:musical_note: How I wonder what you are... (思考手势)</li> <li>:musical_note: Now it's time to go to sleep! (双手合十放在脸旁)</li> <li>:musical_note: Good night, my darling, go to sleep! (轻拍被子)</li> </ul></p>
 <p><strong>怎么唱</strong>： 关灯后唱最有感觉！声音轻柔缓慢，配合轻轻拍背的动作「pat pat pat」。看着窗户说「I see a star!」让宝宝在温馨中入睡。这首歌也是全球最经典的晚安曲！</p>
 <p>---</p></div></div>
-<div class="card" id="s3"><div class="card-title">📖 绘本预热</div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
+<div class="card" id="s3"><div class="card-title">📖 绘本预热</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('bear')" title="点击播放音频">🔊 播放绘本片段</button></div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
 <p>玛格丽特·怀斯·布朗的经典绘本，逐个和房间里的东西说晚安，是睡前必读：</p>
 <p><strong>书中关键词</strong>： <ul> <li>`good night` — 晚安</li> <li>`moon` — 月亮</li> <li>`star` — 星星</li> <li>`sleepy` — 困了</li> </ul></p>
 <p>🗣️ <strong>亲子共读提示</strong>： 关灯前读这本书，每翻一页和一样东西说晚安「Good night, red balloon!」让宝宝知道睡觉是对一天的美好告别。读完后关灯说「Good night, room!」</p>
@@ -100,13 +132,6 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   <a href="issue-015.html" class="nav-btn">下一期 →</a>
 </div>
 
-<script>
-function showTab(id){
-  document.querySelectorAll('.card').forEach(e=>e.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
-}
-</script>
+
 </body>
 </html>
