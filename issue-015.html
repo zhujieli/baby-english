@@ -5,45 +5,48 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>宝宝英语启蒙 · 第015期 · 我的家</title>
 <style>
-:root{--c:#26A69A;--bg:#F8F6F0;--card:#FFF;--text:#333;--sub:#666;--r:16px}
+:root{--c:#CDDC39;--bg:#F8F6F0;--card:#FFF;--text:#333;--sub:#666;--r:16px}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:#26A69A11;color:var(--text);line-height:1.8;padding-bottom:90px;-webkit-font-smoothing:antialiased}
-.hero{background:linear-gradient(135deg,#26A69A22,#26A69A44);padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden;border-radius:0 0 40px 40px}
-.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:#26A69A11;border-radius:50% 50% 0 0}
-.hero-badge{display:inline-block;background:#26A69A;color:#fff;font-size:12px;font-weight:700;padding:5px 18px;border-radius:20px;letter-spacing:1px}
-.hero h1{font-size:30px;font-weight:800;color:#26A69A;margin:14px 0 4px}
-.hero-sub{font-size:17px;opacity:.8;font-weight:600;color:#26A69A}
+body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:#CDDC3911;color:var(--text);line-height:1.8;padding-bottom:90px;-webkit-font-smoothing:antialiased}
+.hero{background:linear-gradient(135deg,#CDDC3922,#CDDC3944);padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden;border-radius:0 0 40px 40px}
+.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:#CDDC3911;border-radius:50% 50% 0 0}
+.hero-badge{display:inline-block;background:#CDDC39;color:#fff;font-size:12px;font-weight:700;padding:5px 18px;border-radius:20px;letter-spacing:1px}
+.hero h1{font-size:30px;font-weight:800;color:#CDDC39;margin:14px 0 4px}
+.hero-sub{font-size:17px;opacity:.8;font-weight:600;color:#CDDC39}
 .hero-meta{display:flex;justify-content:center;gap:12px;margin-top:14px;flex-wrap:wrap}
-.hero-meta span{background:rgba(255,255,255,.7);padding:4px 14px;border-radius:14px;font-size:13px;color:#26A69A}
+.hero-meta span{background:rgba(255,255,255,.7);padding:4px 14px;border-radius:14px;font-size:13px;color:#CDDC39}
 .nav-tabs{display:flex;gap:6px;padding:20px 16px 6px;overflow-x:auto;scrollbar-width:none;flex-wrap:wrap}
 .nav-tabs::-webkit-scrollbar{display:none}
-.tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #26A69A44;background:#fff;cursor:pointer;color:#26A69A;transition:all .2s}
-.tab.active{background:#26A69A;color:#fff;border-color:#26A69A}
-.card{margin:16px 16px;padding:22px 18px;border-radius:16px;display:block}
+.tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #CDDC3944;background:#fff;cursor:pointer;color:#CDDC39;transition:all .2s}
+.tab.active{background:#CDDC39;color:#fff;border-color:#CDDC39}
+.card{background:#CDDC3911;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #CDDC3933;display:none}
+.card.active{display:block}
+.card-title{font-size:18px;font-weight:800;color:#CDDC39;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #CDDC3944;display:flex;align-items:center;gap:8px}
 .content p{margin:10px 0;font-size:15px;line-height:1.9}
-.content h4{font-size:16px;font-weight:700;color:#26A69A;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #26A69A44}
-.content blockquote{background:#26A69A22;border-left:4px solid #26A69A;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
+.content h4{font-size:16px;font-weight:700;color:#CDDC39;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #CDDC3944}
+.content blockquote{background:#CDDC3922;border-left:4px solid #CDDC39;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
 .content ul{list-style:none;margin:10px 0;padding:0}
-.content li{padding:9px 0 9px 22px;position:relative;font-size:15px;border-bottom:1px solid #26A69A22}
+.content li{padding:9px 0 9px 22px;position:relative;font-size:15px;border-bottom:1px solid #CDDC3922}
 .content li:last-child{border-bottom:none}
-.content li::before{content:'•';position:absolute;left:6px;color:#26A69A;font-weight:bold;font-size:18px;top:8px}
-.content strong{color:#26A69A}
-
+.content li::before{content:'•';position:absolute;left:6px;color:#CDDC39;font-weight:bold;font-size:18px;top:8px}
+.content strong{color:#CDDC39}
 .audio-btn{margin:4px 4px;padding:6px 14px;border:none;border-radius:20px;background:#FFF3E0;color:#E65100;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .2s;box-shadow:0 2px 6px rgba(0,0,0,.1)}
 .audio-btn:hover{background:#FFE0B2;transform:scale(1.05)}
 .audio-btn:active{transform:scale(0.95)}
-.footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #26A69A33;z-index:100;gap:12px}
-.footer a{flex:1;text-align:center;padding:13px;background:#26A69A;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
-.footer .nav-btn{background:#fff;color:#26A69A;border:2px solid #26A69A}
+.footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #CDDC3933;z-index:100;gap:12px}
+.footer a{flex:1;text-align:center;padding:13px;background:#CDDC39;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
+.footer .nav-btn{background:#fff;color:#CDDC39;border:2px solid #CDDC39}
 .nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
 <script>
-var AUDIO_CDNS = ["https://baby-english-d7gb3dwj91d31020-1346728686.tcloudbaseapp.com/audio/", "https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/", "https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/"];
+var AUDIO_CDNS = [
+    "https://baby-english-d7gb3dwij91d31020-1346728686.tcloudbaseapp.com/audio/",
+    "https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/",
+    "https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/"
+];
 var audioPlayer = null;
 function playAudio(audioName) {
-    if (audioPlayer) {
-        audioPlayer.pause();
-    }
+    if (audioPlayer) audioPlayer.pause();
     audioPlayer = new Audio();
     var cdnIndex = 0;
     audioPlayer.addEventListener('error', function() {
@@ -52,7 +55,6 @@ function playAudio(audioName) {
             audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
             audioPlayer.play().catch(function() {});
         } else {
-            // 最终降级：使用浏览器TTS
             if (window.speechSynthesis) {
                 var utter = new SpeechSynthesisUtterance(audioName.replace(/_/g, ' '));
                 utter.lang = 'en-US';
@@ -64,11 +66,11 @@ function playAudio(audioName) {
     audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
     audioPlayer.play().catch(function() {});
 }
-function stopAudio() {
-    if (audioPlayer) {
-        audioPlayer.pause();
-        audioPlayer.currentTime = 0;
-    }
+function showTab(id) {
+    document.querySelectorAll('.card').forEach(function(e){e.classList.remove('active')});
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('active')});
+    event.target.classList.add('active');
 }
 </script>
 </head>
@@ -76,62 +78,34 @@ function stopAudio() {
 <div class="hero">
   <div class="hero-badge">第015期</div>
   <h1>我的家</h1>
-  <div class="hero-sub">My Home!</div>
+  <div class="hero-sub">
+</div>
   <div class="hero-meta">
-    <span>📅 每日10分钟</span>
-    <span>🎯 英语启蒙</span>
-    <span>👶 1.5-2岁</span>
+    <span>每日10分钟</span>
+    <span>英语启蒙</span>
+    <span>1.5-2岁</span>
   </div>
 </div>
 
-
-
-<div class="card active" id="s1"><div class="card-title">💬 今日金句</div>
-<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('home')" title="点击播放音频">🔊 home</button><button class="audio-btn" onclick="playAudio('bed')" title="点击播放音频">🔊 bed</button><button class="audio-btn" onclick="playAudio('kitchen')" title="点击播放音频">🔊 kitchen</button></div><div class="content"><p>### 句1：介绍客厅 <blockquote><strong>「This is our living room! Nice and cozy!」</strong></blockquote></p>
-<p>💡 <strong>怎么用</strong>：在客厅里指着沙发说「couch/sofa」，指着电视说「TV」，建立家居词汇和实物的对应。</p>
-<p>### 句2：介绍卧室 <blockquote><strong>「This is your bedroom! You sleep here!」</strong></blockquote></p>
-<p>💡 <strong>怎么用</strong>：宝宝的房间指着床说「bed」，指着窗户说「window」，指着衣柜说「closet」。</p>
-<p>### 句3：介绍厨房 <blockquote><strong>「The kitchen is where we cook! Smells so good!」</strong></blockquote></p>
-<p>💡 <strong>怎么用</strong>：厨房里指着冰箱说「fridge」，指着炉子说「stove」，指着桌子说「table」。</p>
-<p>### 句4：介绍卫生间 <blockquote><strong>「This is the bathroom! We brush teeth here!」</strong></blockquote></p>
-<p>💡 <strong>怎么用</strong>：指着洗手池说「sink」，指着马桶说「toilet」，指着浴缸说「bathtub」。</p>
-<p>### 句5：介绍家的温暖 <blockquote><strong>「Home sweet home! I love our home!」</strong></blockquote></p>
-<p>💡 <strong>怎么用</strong>：抱着宝宝说「This is our home! We are safe here!」让宝宝感受到家的安全感。</p>
-<p>---</p></div></div>
-<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div>
-<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('old_macdonald')" title="点击播放音频">🔊 播放儿歌</button></div><div class="content"><p><strong>简单版本：</strong> <ul> <li>:musical_note: This is the way we go to bed,</li> <li>:musical_note: go to bed, go to bed!</li> <li>:musical_note: This is the way we go to bed,</li> <li>:musical_note: lovely home sweet home!</li> </ul></p>
-<p><strong>房间版：</strong> <ul> <li>:musical_note: This is the kitchen, we cook in here!</li> <li>:musical_note: This is the bedroom, we sleep in here!</li> <li>:musical_note: This is the bathroom, we wash in here!</li> <li>:musical_note: Lovely home sweet home!</li> </ul></p>
-<p><strong>怎么唱</strong>： 把This Is the Way改成房间版本！每个房间唱一句，边唱边带宝宝走到对应的房间「This is the kitchen!」让宝宝知道每个房间的名字和用途。也可以用手指指着每个房间的图片唱！</p>
-<p>---</p></div></div>
-<div class="card" id="s3"><div class="card-title">📖 绘本预热</div>
-<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('bear')" title="点击播放音频">🔊 播放绘本片段</button></div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
-<p>安东尼·布朗的《我爸爸》用温暖的方式描述了家庭成员，让宝宝理解每个家庭成员的重要性：</p>
-<p><strong>书中关键词</strong>： <ul> <li>`home` — 家</li> <li>`mom/mama` — 妈妈</li> <li>`dad/daddy` — 爸爸</li> <li>`baby` — 宝宝</li> <li>`family` — 家庭</li> </ul></p>
-<p>🗣️ <strong>亲子共读提示</strong>： 读完书后抱着宝宝说「We are a family! I love our family!」让宝宝知道家的意义不只是房子，更是爱的人。</p>
-<p>---</p></div></div>
-<div class="card" id="s4"><div class="card-title">🔤 字母认知</div><div class="content"><blockquote><strong>今日字母：O o — orange</strong></blockquote>
-<p>| 大写 | 小写 | 发音 | 联想词 | |------|------|------|--------| | O | o | /oʊ/ | 🍎 orange（橙子）|</p>
-<p><strong>联想词汇</strong>： <ul> <li><strong>Orange</strong> — 橙子：吃橙子「Orange! O for orange!」剥皮「peel it!」榨汁「juice!」</li> <li><strong>Owl</strong> — 猫头鹰：夜晚的猫头鹰「Owl! O for owl!」night bird! 眼睛大大的。</li> <li><strong>Octopus</strong> — 章鱼：八条腿的章鱼「Octopus! O for octopus!」在海里游来游去。</li> </ul></p>
-<p>🗣️ <strong>怎么教</strong>： 指着实物或图片说「Orange! O for orange!」宝宝会先学会说实物名称，字母认知自然就来了！</p>
-<p>---</p></div></div>
-<div class="card" id="s5"><div class="card-title">🎮 亲子活动</div><div class="content"><blockquote>🧒 每天15分钟高质量陪伴，胜过1小时敷衍相处</blockquote>
-<p>| 时间 | 活动 | |------|------| | 房间大搜索 | 在每个房间找一样东西说「Where's the bed? There it is!」 | | 家的安全规则 | 在厨房说「Hot! Don't touch!」在楼梯说「Hold the railing!」 | | 画我家 | 用蜡笔画家里的房间「Draw a bed!」画完指着说「I see a bed!」 | | 家庭成员歌 | 唱「I love my family」改编版本「I love mommy, I love daddy...」 |</p>
-<p>💡 <strong>互动贴士</strong>：把每个房间变成英语课堂，家具是最实用的词汇之一。</p>
-<blockquote>✅ 今天完成了吗？明天继续加油！💪</blockquote>
-<p>---</p></div></div>
-<div class="card" id="s6"><div class="card-title">💡 学习贴士</div><div class="content"><p><strong>1.5-2岁宝宝的语言学习规律：</strong></p>
-<blockquote>🧠 这个阶段宝宝处于「语言爆发期前夕」，听得越多、储备越丰富，18-24个月后会突然「开口」！</blockquote>
-<p><strong>三个关键原则：</strong> <strong>1. 家是最安全的学习环境</strong>：在熟悉的家里说英语，宝宝不会有压力，可以用全身反应法（TPR）充分练习。</p>
-<p><strong>2. 从最常用的开始</strong>：bed, table, chair, door, window是最高频的家居词汇，先教这些。</p>
-<p><strong>3. 家的归属感是情商基础</strong>：让宝宝知道「I belong here」是情商教育的一部分，用英语说「This is your home too.」</p>
-<p>---</p></div></div>
+<nav class="nav-tabs">
+  <button class="tab active" onclick="showTab('s1')">金句</button>
+  <button class="tab" onclick="showTab('s2')">儿歌</button>
+  <button class="tab" onclick="showTab('s3')">绘本</button>
+  <button class="tab" onclick="showTab('s4')">字母</button>
+  <button class="tab" onclick="showTab('s5')">活动</button>
+  <button class="tab" onclick="showTab('s6')">贴士</button>
+</nav>
+<div class="card active" id="s1"><div class="card-title"></div>
+<div class="card active" id="s2"><div class="card-title"></div>
+<div class="card active" id="s3"><div class="card-title"></div>
+<div class="card active" id="s4"><div class="card-title"></div>
+<div class="card active" id="s5"><div class="card-title"></div>
+<div class="card active" id="s6"><div class="card-title"></div>
 
 <div class="footer">
-  <a href="issue-014.html" class="nav-btn">← 上一期</a>
-  <a href="index.html">📚 目录</a>
-  <a href="issue-016.html" class="nav-btn">下一期 →</a>
+  <a href="issue-014.html" class="nav-btn">上一期</a>
+  <a href="index.html">目录</a>
+  <a href="issue-016.html" class="nav-btn">下一期</a>
 </div>
-
-
 </body>
 </html>
