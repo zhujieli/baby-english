@@ -3,422 +3,113 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>宝宝英语启蒙 · 第008期 · 外出 Going Out!</title>
+<title>宝宝英语启蒙 · 第008期 · 天气好不好</title>
 <style>
-:root{--p:#8BC34A;--pd:#689F38;--s:#CDDC39;--sd:#AFB42B;--g:#8BC34A;--bg:#FFF9F0;--t:#3D3D3D;--tl:#7A7A7A}
+:root{--c:#7986CB;--bg:#F8F6F0;--card:#FFF;--text:#333;--sub:#666;--r:16px}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--t);line-height:1.75;padding-bottom:80px}
-.hero{background:linear-gradient(135deg,#E3F2FD 0%,#BBDEFB 100%);padding:44px 24px 36px;text-align:center;position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:var(--bg);border-radius:50% 50% 0 0}
-.hero-badge{display:inline-block;background:#1976D2;color:#fff;font-size:12px;font-weight:700;padding:4px 16px;border-radius:20px;margin-bottom:14px}
-.hero h1{font-size:28px;font-weight:800;color:#0D47A1;margin-bottom:6px}
-.hero-sub{font-size:14px;color:#1565C0}
-.hero-meta{display:flex;justify-content:center;gap:16px;margin-top:12px;font-size:12px}
-.hero-meta span{background:rgba(255,255,255,.7);padding:3px 10px;border-radius:12px}
-.nav-tabs{display:flex;gap:6px;padding:20px 20px 6px;overflow-x:auto}
-.nav-tab{flex-shrink:0;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid #E0E0E0;background:#FFF;cursor:pointer}
-.nav-tab.active{background:var(--g);color:#fff;border-color:var(--g)}
-.tts-btn{display:inline-flex;align-items:center;gap:4px;background:#FFF3E0;border:1.5px solid #FFE0B2;border-radius:20px;padding:3px 10px 3px 6px;font-size:12px;color:#E65100;cursor:pointer;font-weight:600}
-.tts-btn.playing{background:var(--g);color:#fff}
-.play-btn{display:inline-flex;background:linear-gradient(135deg,#8BC34A,#689F38);color:#fff;border:none;border-radius:12px;padding:8px 18px;font-size:14px;font-weight:700;cursor:pointer}
-.card{background:#FFF;border-radius:18px;margin:16px;padding:20px;box-shadow:0 2px 14px rgba(0,0,0,.08)}
-.intro-box{background:linear-gradient(135deg,#E3F2FD,#BBDEFB);border-left:4px solid #1976D2;border-radius:16px;margin:20px 16px 4px;padding:16px 18px;font-size:14.5px;line-height:1.8}
-.divider-title{display:flex;align-items:center;gap:8px;margin:24px 16px 0;font-size:12px;color:var(--tl);font-weight:600;text-transform:uppercase}
-.divider-title::before,.divider-title::after{content:'';flex:1;height:1px;background:#E0E0E0}
-.word-grid{display:flex;flex-direction:column;gap:12px}
-.word-card{background:linear-gradient(135deg,#FAFAFA,#E3F2FD);border-radius:14px;padding:14px 16px;border-left:4px solid #1976D2}
-.word-en{font-size:22px;font-weight:800;color:#0D47A1}
-.word-ipa{font-size:13px;color:#1976D2;font-style:italic}
-.word-zh{font-size:14px;color:var(--tl);margin-bottom:6px}
-.word-tip{background:#E3F2FD;border-radius:10px;padding:8px 12px;font-size:13px;color:#0D47A1;line-height:1.6}
-.word-example{background:#FFF8E1;border-radius:8px;padding:6px 12px;font-size:13px;color:#E65100;margin-top:6px;font-style:italic}
-.phonics-row{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid #BBDEFB}
-.phonics-icon{font-size:32px;width:44px;text-align:center}
-.phonics-word{font-size:20px;font-weight:800;color:#0D47A1}
-.phonics-desc{font-size:13px;color:#1976D2}
-.phonics-tip{font-size:12px;color:#1565C0;background:rgba(255,255,255,.6);border-radius:8px;padding:4px 10px;margin-top:4px}
-.dialogue-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0}
-.d-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
-.d-bubble{flex:1;background:#F5F5F5;border-radius:12px;padding:10px 14px}
-.d-bubble.orange{background:#E3F2FD}
-.d-bubble.blue{background:#BBDEFB}
-.d-en{font-size:15px;font-weight:700;color:#2C2C2C;margin-bottom:3px}
-.d-zh{font-size:12px;color:var(--tl)}
-.d-tip{background:#FFF3E0;border-radius:8px;padding:8px 12px;font-size:13px;color:#E65100;margin-top:8px}
-.song-card{background:linear-gradient(135deg,#E8F5E9,#C8E6C9);border-radius:18px;margin:16px;padding:22px 20px;border:1.5px solid #AED581}
-.song-header{text-align:center;margin-bottom:16px}
-.song-title{font-size:19px;font-weight:800;color:#33691E}
-.song-sub{font-size:12px;color:#558B2F}
-.lyrics-box{background:rgba(255,255,255,.7);border-radius:14px;padding:16px}
-.lyric-line{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #AED581;gap:8px}
-.lyric-text{flex:1}
-.lyric-en{font-size:15px;font-weight:600;color:#1B5E20}
-.lyric-zh{font-size:12px;color:#388E3C;margin-top:2px}
-.story-card{background:linear-gradient(135deg,#E3F2FD,#BBDEFB);border-radius:18px;margin:16px;padding:20px;border:1.5px solid #64B5F6}
-.story-header{text-align:center;margin-bottom:16px}
-.story-emoji{font-size:48px}
-.story-title{font-size:18px;font-weight:800;color:#0D47A1;margin-top:8px}
-.story-para{margin-bottom:12px}
-.story-en{font-size:15px;font-weight:700;color:#0D47A1;margin-bottom:4px;line-height:1.7}
-.story-zh{font-size:13px;color:#455A64;line-height:1.7}
-.checklist-card{background:linear-gradient(135deg,#E3F2FD,#BBDEFB);border-radius:18px;margin:16px;padding:20px;border:1.5px solid #64B5F6}
-.check-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #BBDEFB;cursor:pointer}
-.check-box{width:24px;height:24px;border:2.5px solid #1976D2;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.check-box.checked{background:#1976D2}
-.check-text{font-size:14px;color:#0D47A1;font-weight:500}
-.activities-card{background:#FFF;border-radius:18px;margin:16px;padding:20px}
-.activity-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #E0E0E0}
-.activity-num{width:28px;height:28px;background:#1976D2;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
-.activity-text{font-size:14px;color:var(--t);line-height:1.6}
-.tip-box{background:#E8F5E9;border-radius:12px;padding:14px 16px;margin:8px 16px;font-size:13.5px;color:#33691E;line-height:1.8;border:1px solid #AED581}
-.repeat-card{background:#E3F2FD;border-radius:14px;padding:16px 18px;margin:8px 16px;text-align:center;border:1.5px solid #64B5F6}
-.repeat-en{font-size:21px;font-weight:800;color:#0D47A1;margin-bottom:8px}
-.repeat-zh{font-size:13px;color:var(--tl);margin-bottom:10px}
-.footer-note{text-align:center;font-size:13px;color:var(--tl);padding:28px 20px 20px;line-height:2}
+body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:#7986CB11;color:var(--text);line-height:1.8;padding-bottom:90px;-webkit-font-smoothing:antialiased}
+.hero{background:linear-gradient(135deg,#7986CB22,#7986CB44);padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden;border-radius:0 0 40px 40px}
+.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:#7986CB11;border-radius:50% 50% 0 0}
+.hero-badge{display:inline-block;background:#7986CB;color:#fff;font-size:12px;font-weight:700;padding:5px 18px;border-radius:20px;letter-spacing:1px}
+.hero h1{font-size:30px;font-weight:800;color:#7986CB;margin:14px 0 4px}
+.hero-sub{font-size:17px;opacity:.8;font-weight:600;color:#7986CB}
+.hero-meta{display:flex;justify-content:center;gap:12px;margin-top:14px;flex-wrap:wrap}
+.hero-meta span{background:rgba(255,255,255,.7);padding:4px 14px;border-radius:14px;font-size:13px;color:#7986CB}
+.nav-tabs{display:flex;gap:6px;padding:20px 16px 6px;overflow-x:auto;scrollbar-width:none;flex-wrap:wrap}
+.nav-tabs::-webkit-scrollbar{display:none}
+.tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #7986CB44;background:#fff;cursor:pointer;color:#7986CB;transition:all .2s}
+.tab.active{background:#7986CB;color:#fff;border-color:#7986CB}
+.card{background:#7986CB11;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #7986CB33;display:none}
+.card.active{display:block}
+.card-title{font-size:18px;font-weight:800;color:#7986CB;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #7986CB44;display:flex;align-items:center;gap:8px}
+.content p{margin:10px 0;font-size:15px;line-height:1.9}
+.content h4{font-size:16px;font-weight:700;color:#7986CB;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #7986CB44}
+.content blockquote{background:#7986CB22;border-left:4px solid #7986CB;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
+.content ul{list-style:none;margin:10px 0;padding:0}
+.content li{padding:9px 0 9px 22px;position:relative;font-size:15px;border-bottom:1px solid #7986CB22}
+.content li:last-child{border-bottom:none}
+.content li::before{content:'•';position:absolute;left:6px;color:#7986CB;font-weight:bold;font-size:18px;top:8px}
+.content strong{color:#7986CB}
+.footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #7986CB33;z-index:100;gap:12px}
+.footer a{flex:1;text-align:center;padding:13px;background:#7986CB;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
+.footer .nav-btn{background:#fff;color:#7986CB;border:2px solid #7986CB}
+.nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
 </head>
 <body>
-
 <div class="hero">
-  <div class="hero-badge">✨ 第 008 期</div>
-  <div style="font-size:68px;margin-bottom:10px">🏃</div>
-  <h1>外出 Going Out!</h1>
-  <div class="hero-sub">字母 H · 日常场景</div>
+  <div class="hero-badge">第008期</div>
+  <h1>天气好不好</h1>
+  <div class="hero-sub">What's the Weather?</div>
   <div class="hero-meta">
-    <span>🕐 约13分钟</span>
-    <span>📖 适合1.5–2岁</span>
-    <span>🎯 5个核心词</span>
+    <span>📅 每日10分钟</span>
+    <span>🎯 英语启蒙</span>
+    <span>👶 1.5-2岁</span>
   </div>
 </div>
 
-<div class="nav-tabs">
-  <span class="nav-tab" onclick="location.href='issue-001.html'">001·A</span>
-  <span class="nav-tab" onclick="location.href='issue-002.html'">002·B</span>
-  <span class="nav-tab" onclick="location.href='issue-003.html'">003·C</span>
-  <span class="nav-tab" onclick="location.href='issue-004.html'">004·D</span>
-  <span class="nav-tab" onclick="location.href='issue-005.html'">005·E</span>
-  <span class="nav-tab" onclick="location.href='issue-006.html'">006·F</span>
-  <span class="nav-tab" onclick="location.href='issue-007.html'">007·G</span>
-  <span class="nav-tab active" onclick="location.href='issue-008.html'">008·H</span>
-</div>
+<nav class="nav-tabs">
+  <button class="tab active" onclick="showTab('s1')">💬 金句</button>
+  <button class="tab" onclick="showTab('s2')">🎵 儿歌</button>
+  <button class="tab" onclick="showTab('s3')">📖 绘本</button>
+  <button class="tab" onclick="showTab('s4')">🔤 字母</button>
+  <button class="tab" onclick="showTab('s5')">🎮 活动</button>
+  <button class="tab" onclick="showTab('s6')">💡 贴士</button>
+</nav>
 
-<div class="intro-box">
-  <p>🏃 今天天气真好呀！我们要出门玩啦！穿好小鞋子，戴上小帽子，拉着爸爸妈妈的手，一起去公园散步吧！今天学学出门时要说哪些英文！</p>
-  <p>💡 本期目标：学会 5 个外出场景词汇，掌握 5 句出门金句，学唱 1 首外出儿歌，认识字母 <b>H h</b></p>
-</div>
+<div class="card active" id="s1"><div class="card-title">💬 今日金句</div><div class="content"><p>### 句1：早上看天气 <blockquote><strong>「Look outside! What's the weather today?」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：每天早上第一个任务——拉开窗帘看天空，建立天气观察的习惯「It's sunny!」</p>
+<p>---</p>
+<p>### 句2：根据天气穿衣 <blockquote><strong>「It's cold today! Do you want a jacket?」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：根据天气选衣服，让宝宝理解天气和生活的直接关系「Cold — jacket. Sunny — hat!」</p>
+<p>---</p>
+<p>### 句3：雨天出行 <blockquote><strong>「It's rainy! Put on your rain boots!」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：雨天的水坑是宝宝的最爱「Jump in the puddle!」溅水超开心！安全问题要提前提醒。</p>
+<p>---</p>
+<p>### 句4：描述天气 <blockquote><strong>「The sun is shining! The sky is blue!」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：引导宝宝观察具体的天气特征，用完整的句子描述，增加描述性语言的积累。</p>
+<p>---</p>
+<p>### 句5：睡前天气回顾 <blockquote><strong>「Today was sunny! What did we see?」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：晚上回顾一天的天气，培养反思能力，同时复习天气词汇「Rainy, sunny, cloudy...」</p>
+<p>---</p></div></div>
+<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div><div class="content"><p><strong>完整歌词：</strong> <ul> <li>:musical_note: The itsy bitsy spider climbed up the water spout.</li> <li>:musical_note: Down came the rain and washed the spider out.</li> <li>:musical_note: Out came the sun and dried up all the rain,</li> <li>:musical_note: and the itsy bitsy spider climbed up the spout again.</li> </ul></p>
+<p><strong>动作指南：</strong> <ul> <li>:musical_note: 🕷️ climb up — 双手交替向上爬（模仿蜘蛛）</li> <li>:musical_note: 🌧️ down came the rain — 双手从头顶向下滑（模仿雨）</li> <li>:musical_note: ☀️ out came the sun — 双手举过头顶成圆形（模仿太阳）</li> <li>:musical_note: 🔄 climbed up again — 再次向上爬</li> </ul></p>
+<p><strong>怎么唱</strong>： 这是一首有「剧情」的儿歌！用手势表演蜘蛛爬管子、被雨冲走、太阳出来、蜘蛛再爬……动作配合故事，宝宝会着迷！雨天唱最有感觉，也可以在洗手时唱（水从手指流下=rain washed out）！可以唱3-5遍，越唱越快！</p>
+<p>---</p></div></div>
+<div class="card" id="s3"><div class="card-title">📖 绘本预热</div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
+<p>虽然原书是关于爱的表达的，但可以延伸到不同天气里父母对宝宝的爱，非常温暖：</p>
+<p><strong>书中关键词</strong>： <ul> <li>`big` — 大</li> <li>`little` — 小</li> <li>`love` — 爱</li> <li>`jump` — 跳</li> <li>`run` — 跑</li> </ul></p>
+<p>🗣️ <strong>亲子共读提示</strong>： 读完书后抱着宝宝说「I love you this much!」雨天加一句「Even when it's rainy, I love you!」把爱和安全感受天气联系起来。天气不好也不怕，因为爸爸妈妈的爱不受天气影响！</p>
+<p>---</p></div></div>
+<div class="card" id="s4"><div class="card-title">🔤 字母认知</div><div class="content"><blockquote><strong>今日字母：H weather</strong></blockquote>
+<p>| 大写 | 小写 | 发音 | 联想词 | |------|------|------|--------| | H | h | // | 🍎 weather |</p>
+<p><strong>联想词汇</strong>： <ul> <li><strong>Heart</strong> — 心/爱心：做心形手势「Heart! H for heart!」和宝宝互相表达爱意「I love you!」</li> <li><strong>House</strong> — 房子：路上的房子「House! H for house!」数一数有几扇窗户「one, two, three!」</li> <li><strong>Hat</strong> — 帽子：出门戴帽子「Hat! H for hat!」根据天气选帽子，热天遮阳冷天保暖。</li> </ul></p>
+<p>🗣️ <strong>怎么教</strong>： 指着实物或图片说「Weather! H for weather!」宝宝会先学会说实物名称，字母认知自然就来了！</p>
+<p>---</p></div></div>
+<div class="card" id="s5"><div class="card-title">🎮 亲子活动</div><div class="content"><blockquote>🧒 每天15分钟高质量陪伴，胜过1小时敷衍相处</blockquote>
+<p>| 时间 | 活动 | |------|------| | 天气日记 | 每天早上画一个天气符号：☀️🌧️☁️ 让宝宝选 | | 太阳追踪 | 晴天时观察太阳「Where is the sun? Up high!」 | | 雨声音乐会 | 雨天用不同容器接水敲击「Listen! Different sounds!」 | | 天气预报员 | 让宝宝当天气播报员「Today's weather: sunny!」 |</p>
+<p>💡 <strong>互动贴士</strong>：用简笔画或贴纸记录天气，培养观察习惯，同时引入天气英语。每天画一张贴冰箱上！</p>
+<blockquote>✅ 今天完成了吗？明天继续加油！💪</blockquote>
+<p>---</p></div></div>
+<div class="card" id="s6"><div class="card-title">💡 学习贴士</div><div class="content"><p><strong>1.5-2岁宝宝的语言学习规律：</strong></p>
+<blockquote>🧠 这个阶段宝宝处于「语言爆发期前夕」，听得越多、储备越丰富，18-24个月后会突然「开口」！</blockquote>
+<p><strong>三个关键原则：</strong> <strong>1. 天气是最实用的日常英语</strong>：每天必用——「What's the weather?」是一句可以用一辈子的英语！</p>
+<p><strong>2. 结合温度感知</strong>：用手触摸「Is it hot or cold?」让宝宝用皮肤感受温度，配合英语词汇。</p>
+<p><strong>3. 天气影响穿衣</strong>：让宝宝自己根据天气选择衣服，建立因果关系理解：天气冷→穿外套。</p>
+<p>---</p></div></div>
 
-<div class="repeat-card">
-  <div class="repeat-en">Let's go outside! Put on your hat! 🧢</div>
-  <div class="repeat-zh">和宝宝一起说！</div>
-  <button class="play-btn" onclick="speak('Let\'s go outside! Put on your hat!', this)">🎙️ 点我跟读</button>
-</div>
-
-<div class="divider-title">📚 模块一 · 今日核心词汇</div>
-<div class="card">
-  <div class="word-grid">
-    <div class="word-card">
-      <div class="word-en">Outside <span class="word-ipa">/ˌaʊtˈsaɪd/</span></div>
-      <div class="word-zh">外面、户外</div>
-      <div class="word-tip">💡 出门时指一指门外说 <b>"Let's go outside!"</b> 宝宝很快就会理解"外面"的意思。</div>
-      <div class="word-example">"It's sunny outside! Time to go outside!"</div>
-    </div>
-    <div class="word-card">
-      <div class="word-en">Shoes <span class="word-ipa">/ʃuːz/</span></div>
-      <div class="word-zh">鞋子</div>
-      <div class="word-tip">💡 穿鞋时说 <b>"Put on your shoes!"</b> 指着宝宝的鞋子问 *"Where are your shoes?"*</div>
-      <div class="word-example">"I have new shoes! Yellow shoes!"</div>
-    </div>
-    <div class="word-card">
-      <div class="word-en">Hat <span class="word-ipa">/hæt/</span></div>
-      <div class="word-zh">帽子</div>
-      <div class="word-tip">💡 戴帽子时说 <b>"Put on your hat!"</b> 出门前 *"Don't forget your hat!"*</div>
-      <div class="word-example">"What a cute hat! I like this hat!"</div>
-    </div>
-    <div class="word-card">
-      <div class="word-en">Walk <span class="word-ipa">/wɔːk/</span></div>
-      <div class="word-zh">走路、散步</div>
-      <div class="word-tip">💡 出门散步时说 <b>"Let's walk!"</b> 鼓励宝宝自己走！</div>
-      <div class="word-example">"Baby can walk! Walk to the park!"</div>
-    </div>
-    <div class="word-card">
-      <div class="word-en">Sun <span class="word-ipa">/sʌn/</span></div>
-      <div class="word-zh">太阳</div>
-      <div class="word-tip">💡 有太阳时指着天空说 <b>"Look at the sun!"</b> 教宝宝认识天气。</div>
-      <div class="word-example">"The sun is bright! The sun is hot!"</div>
-    </div>
-  </div>
-</div>
-
-<div class="divider-title">🔤 模块二 · 字母 H 认知</div>
-<div class="card" style="background:linear-gradient(135deg,#E3F2FD,#BBDEFB)">
-  <div style="display:flex;gap:14px;align-items:center;margin-bottom:14px">
-    <div style="font-size:72px;font-weight:900;color:#0D47A1;text-align:center;width:80px">H</div>
-    <div>
-      <div style="font-size:14px;color:#1976D2;font-weight:700">大写 H · 小写 h</div>
-      <div style="font-size:13px;color:#1565C0">发音：<b>/eɪtʃ/</b>（"诶吃"的音）</div>
-    </div>
-  </div>
-  <div class="phonics-row">
-    <div class="phonics-icon">🧢</div>
-    <div class="phonics-body"><div class="phonics-word">Hat /hæt/</div><div class="phonics-desc">帽子</div><div class="phonics-tip">🧢 H for hat! Put on your hat!</div></div>
-    <button class="tts-btn" onclick="speak('Hat', this)">🔊</button>
-  </div>
-  <div class="phonics-row">
-    <div class="phonics-icon">🏠</div>
-    <div class="phonics-body"><div class="phonics-word">Home /hoʊm/</div><div class="phonics-desc">家</div><div class="phonics-tip">🏠 H for home! Let's go home!</div></div>
-    <button class="tts-btn" onclick="speak('Home', this)">🔊</button>
-  </div>
-  <div class="phonics-row">
-    <div class="phonics-icon">☀️</div>
-    <div class="phonics-body"><div class="phonics-word">Sun /sʌn/</div><div class="phonics-desc">太阳</div><div class="phonics-tip">☀️ H for sun! The big sun!</div></div>
-    <button class="tts-btn" onclick="speak('Sun', this)">🔊</button>
-  </div>
-  <div style="background:rgba(255,255,255,.6);border-radius:10px;padding:10px 14px;margin-top:14px;font-size:13px;color:#0D47A1;line-height:1.8">
-    💡 <b>记忆口诀</b>：<br>
-    👶 *"H H H，帽子Hat头上戴！"*<br>
-    🏠 *"H H H，回家的路Home最可爱！"*<br>
-    ☀️ *"H H H，太阳Sun笑哈哈！"*
-  </div>
-</div>
-
-<div class="divider-title">💬 模块三 · 亲子情景对话</div>
-
-<div class="card">
-  <div style="font-size:14px;font-weight:700;color:#1976D2;margin-bottom:10px">🌞 场景一：准备出门</div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#E3F2FD">👩</div>
-    <div class="d-bubble orange">
-      <div class="d-en">Time to go outside! Let's get ready!</div>
-      <div class="d-zh">该出门啦！准备好！</div>
-    </div>
-  </div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#BBDEFB">👶</div>
-    <div class="d-bubble blue">
-      <div class="d-en">Go outside! ✨</div>
-      <div class="d-zh">出门！</div>
-    </div>
-  </div>
-  <div class="d-tip">💡 出门前兴奋地说 *"Time to go outside!"* 然后问宝宝 *"Do you want to go outside?"* 等待宝宝的回应！</div>
-</div>
-
-<div class="card">
-  <div style="font-size:14px;font-weight:700;color:#1976D2;margin-bottom:10px">👟 场景二：穿鞋子</div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#E3F2FD">👩</div>
-    <div class="d-bubble orange">
-      <div class="d-en">Put on your shoes! Can you do it?</div>
-      <div class="d-zh">穿上你的鞋子！能做到吗？</div>
-    </div>
-  </div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#BBDEFB">👶</div>
-    <div class="d-bubble blue">
-      <div class="d-en">Shoes!</div>
-      <div class="d-zh">鞋子！</div>
-    </div>
-  </div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#E3F2FD">👩</div>
-    <div class="d-bubble orange">
-      <div class="d-en">Great job! You did it all by yourself!</div>
-      <div class="d-zh">太棒了！都是自己穿的！</div>
-    </div>
-  </div>
-  <div class="d-tip">💡 让宝宝自己尝试穿鞋，大人先说英文指令 *"Put on your shoes!"* 然后鼓励 *"You can do it!"* 完成后表扬 *"Good job!"*</div>
-</div>
-
-<div class="card">
-  <div style="font-size:14px;font-weight:700;color:#1976D2;margin-bottom:10px">🧢 场景三：戴帽子</div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#E3F2FD">👩</div>
-    <div class="d-bubble orange">
-      <div class="d-en">Don't forget your hat! The sun is bright!</div>
-      <div class="d-zh">别忘了你的帽子！太阳很晒！</div>
-    </div>
-  </div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#BBDEFB">👶</div>
-    <div class="d-bubble blue">
-      <div class="d-en">Hat!</div>
-      <div class="d-zh">帽子！</div>
-    </div>
-  </div>
-  <div class="d-tip">💡 出门前指着帽子问 *"Where is your hat?"* 帮宝宝戴好后说 *"There! Your hat!"* 告诉他 *"Don't forget your hat!"*</div>
-</div>
-
-<div class="card">
-  <div style="font-size:14px;font-weight:700;color:#1976D2;margin-bottom:10px">🌳 场景四：走在路上</div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#E3F2FD">👩</div>
-    <div class="d-bubble orange">
-      <div class="d-en">Look! The trees! Beautiful!</div>
-      <div class="d-zh">看！树！好漂亮！</div>
-    </div>
-  </div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#BBDEFB">👶</div>
-    <div class="d-bubble blue">
-      <div class="d-en">Tree!</div>
-      <div class="d-zh">树！</div>
-    </div>
-  </div>
-  <div class="d-tip">💡 散步时指着路边的树、花、鸟说英文 *"Look at the tree! A beautiful bird!"* 鼓励宝宝用手指一指。</div>
-</div>
-
-<div class="card">
-  <div style="font-size:14px;font-weight:700;color:#1976D2;margin-bottom:10px">🏠 场景五：回到家</div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#E3F2FD">👩</div>
-    <div class="d-bubble orange">
-      <div class="d-en">We're home! Welcome back!</div>
-      <div class="d-zh">我们到家啦！欢迎回来！</div>
-    </div>
-  </div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#BBDEFB">👶</div>
-    <div class="d-bubble blue">
-      <div class="d-en">Home!</div>
-      <div class="d-zh">家！</div>
-    </div>
-  </div>
-  <div class="d-tip">💡 回到家门口说 *"We're home!"* 进门前说 *"Take off your shoes!"* 让宝宝帮爸爸妈妈拿拖鞋 *"Help me!"*</div>
-</div>
-
-<div class="divider-title">🎵 模块四 · 儿歌：Walking Walking</div>
-<div class="song-card">
-  <div class="song-header">
-    <div class="song-title">🚶 Walking Walking</div>
-    <div class="song-sub">边走边唱 · 出门散步必备</div>
-  </div>
-  <div class="lyrics-box">
-    <div class="lyric-line">
-      <div class="lyric-text"><div class="lyric-en">Hop hop hop!</div><div class="lyric-zh">跳跳跳！ 🐰</div></div>
-      <button class="tts-btn" onclick="speak('Hop hop hop!', this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <div class="lyric-text"><div class="lyric-en">Run run run!</div><div class="lyric-zh">跑跑跑！ 🏃</div></div>
-      <button class="tts-btn" onclick="speak('Run run run!', this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <div class="lyric-text"><div class="lyric-en">Walk walk walk!</div><div class="lyric-zh">走走走！ 🚶</div></div>
-      <button class="tts-btn" onclick="speak('Walk walk walk!', this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <div class="lyric-text"><div class="lyric-en">Now let's stop!</div><div class="lyric-zh">现在停下来！ ✋</div></div>
-      <button class="tts-btn" onclick="speak('Now let\'s stop!', this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <div class="lyric-text"><div class="lyric-en">Now let's stop and turn around.</div><div class="lyric-zh">停下来，转一圈！ 🔄</div></div>
-      <button class="tts-btn" onclick="speak('Now let\'s stop and turn around.', this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <div class="lyric-text"><div class="lyric-en">Now let's walk all around the town!</div><div class="lyric-zh">走路绕着小城走！ 🌆</div></div>
-      <button class="tts-btn" onclick="speak('Now let\'s walk all around the town!', this)">🔊</button>
-    </div>
-  </div>
-  <div style="background:rgba(255,255,255,.6);border-radius:10px;padding:10px 14px;margin-top:14px;font-size:13px;color:#33691E">
-    💡 动作提示：<br>
-    🚶 出门前在门口唱第一段，每做一个动作就停顿让宝宝反应！<br>
-    🔄 回家路上唱第二段，边走边转圈！
-  </div>
-</div>
-
-<div class="divider-title">📖 模块五 · 绘本故事预热</div>
-<div class="story-card">
-  <div class="story-header">
-    <div class="story-emoji">🐻</div>
-    <div class="story-title">Little Bear Goes Outside</div>
-  </div>
-  <div class="story-para"><div class="story-en">🌞 Good morning! Little Bear wakes up.</div><div class="story-zh">🌞 早上好！小熊醒了。</div></div>
-  <div class="story-para"><div class="story-en">👟 Little Bear puts on his shoes.</div><div class="story-zh">👟 小熊穿上小鞋子。</div></div>
-  <div class="story-para"><div class="story-en">🧢 Little Bear puts on his hat.</div><div class="story-zh">🧢 小熊戴上小帽子。</div></div>
-  <div class="story-para"><div class="story-en">🌳 Little Bear walks to the park.</div><div class="story-zh">🌳 小熊走去公园。</div></div>
-  <div class="story-para"><div class="story-en">🐦 Little Bear sees a bird.</div><div class="story-zh">🐦 小熊看到一只小鸟。</div></div>
-  <div class="story-para"><div class="story-en">🌻 Little Bear picks a flower.</div><div class="story-zh">🌻 小熊摘了一朵花。</div></div>
-  <div class="story-para"><div class="story-en">🏠 Little Bear walks home.</div><div class="story-zh">🏠 小熊走回家。</div></div>
-  <div class="story-para"><div class="story-en">☀️ What a beautiful day!</div><div class="story-zh">☀️ 多么美好的一天！</div></div>
-  <div style="background:rgba(255,255,255,.6);border-radius:10px;padding:10px 14px;margin-top:14px;font-size:13px;color:#0D47A1">
-    📖 共读提示：每翻一页问 *"What does Little Bear put on?"* 让宝宝指一指小熊的鞋子和帽子！
-  </div>
-</div>
-
-<div class="divider-title">🎮 模块六 · 今日活动建议</div>
-<div class="card">
-  <div class="activities-card">
-    <div class="activity-item">
-      <div class="activity-num">1</div>
-      <div class="activity-text"><b>🚪 出门仪式</b><br>每天出门前重复：<b>"Put on shoes!" → "Put on hat!" → "Let's go outside!"</b> 养成英文习惯！</div>
-    </div>
-    <div class="activity-item">
-      <div class="activity-num">2</div>
-      <div class="activity-text"><b>🐾 路上找找看</b><br>出门时问 <b>"Can you find something with H?"</b> 找帽子(Hat)、房子(Home)、太阳(Sun)！</div>
-    </div>
-    <div class="activity-item">
-      <div class="activity-num">3</div>
-      <div class="activity-text"><b>🎵 儿歌接唱</b><br>唱 *"Hop hop hop"* 时让宝宝跳，唱 *"Run run run"* 时让宝宝跑！</div>
-    </div>
-    <div class="activity-item">
-      <div class="activity-num">4</div>
-      <div class="activity-text"><b>🏠 回家英文</b><br>进门后说 *"We're home!"* 换鞋说 *"Take off shoes!"* 让宝宝帮爸爸妈妈拿拖鞋 *"Help me!"*</div>
-    </div>
-    <div class="activity-item">
-      <div class="activity-num">5</div>
-      <div class="activity-text"><b>🐻 角色扮演</b><br>用玩偶扮演小熊，模拟出门流程：穿鞋 → 戴帽 → 走路 → 回家！</div>
-    </div>
-  </div>
-</div>
-
-<div class="divider-title">✅ 模块七 · 今日打卡</div>
-<div class="checklist-card">
-  <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">🔊 听了5个外出词汇发音</div></div>
-  <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">👟 说了5句出门英文</div></div>
-  <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">🎵 唱了 Walking Walking 儿歌</div></div>
-  <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">🔤 认识了字母 H（Hat / Home / Sun）</div></div>
-  <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">🌳 今天出门散步了吗？</div></div>
-</div>
-
-<div class="divider-title">💡 模块八 · 学习贴士</div>
-<div class="tip-box">
-  <b>给爸爸妈妈的话：</b><br><br>
-  外出是每天都会发生的场景，是练习英语最自然的机会！不需要专门"上课"，只需要在真实场景中重复说几次。出门前说 *"Put on your shoes!"* 宝宝听不懂没关系，说多了自然就懂了。坚持每天出门都说，慢慢加入 *"Let's go outside!"* *"The sun is shining!"* 等新句子。不要追求宝宝立刻说出口，听力输入是第一步，说出来是第二步！<br><br>
-  🌟 <b>本期核心词</b>：Outside · Shoes · Hat · Walk · Sun
-</div>
-
-<div class="footer-note">
-  📌 <b>下期预告</b>：第009期（2026-04-24 周五）<br>
-  🎵 儿歌：Old MacDonald Had a Farm 🐄<br>
-  📖 绘本：Brown Bear 动物认知<br>
-  🔤 字母：I i<br><br>
-  🌱 <b>每天13分钟，为宝宝种下英语的种子。加油，爸爸妈妈！</b>
+<div class="footer">
+  <a href="issue-007.html" class="nav-btn">← 上一期</a>
+  <a href="index.html">📚 目录</a>
+  <a href="issue-009.html" class="nav-btn">下一期 →</a>
 </div>
 
 <script>
-function playAudio(src, text, btn) {
-  if(!src) { speak(text, btn); return; }
-  if('speechSynthesis' in window) {
-    var utt=new SpeechSynthesisUtterance(text);
-    utt.lang='en-US';utt.rate=0.82;
-    if(btn)btn.classList.add('playing');
-    utt.onend=utt.onerror=function(){if(btn)btn.classList.remove('playing')};
-    window.speechSynthesis.speak(utt);
-  }
-}
-function speak(text, btn) {
-  if(!('speechSynthesis' in window))return;
-  var utt=new SpeechSynthesisUtterance(text);
-  utt.lang='en-US';utt.rate=0.82;
-  if(btn)btn.classList.add('playing');
-  utt.onend=utt.onerror=function(){if(btn)btn.classList.remove('playing')};
-  window.speechSynthesis.speak(utt);
-}
-function toggleCheck(item) {
-  var box=item.querySelector('.check-box');
-  if(box.classList.contains('checked')){
-    box.classList.remove('checked');box.innerHTML='';
-  }else{
-    box.classList.add('checked');box.innerHTML='✓';box.style.color='#fff';
-  }
+function showTab(id){
+  document.querySelectorAll('.card').forEach(e=>e.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
 }
 </script>
 </body>
