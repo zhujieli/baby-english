@@ -2,248 +2,84 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>宝宝英语启蒙</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>宝宝英语启蒙 · Baby English</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
-    background: #FFF9F0;
-    color: #3D3D3D;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-    text-align: center;
-  }
-  .hero {
-    margin-bottom: 40px;
-  }
-  .hero-emoji {
-    font-size: 80px;
-    margin-bottom: 16px;
-  }
-  .hero h1 {
-    font-size: 32px;
-    font-weight: 800;
-    color: #2C2C2C;
-    margin-bottom: 8px;
-  }
-  .hero-sub {
-    font-size: 16px;
-    color: #7A7A7A;
-    margin-bottom: 6px;
-  }
-  .hero-tag {
-    display: inline-block;
-    background: #FF9B50;
-    color: #fff;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 4px 14px;
-    border-radius: 20px;
-    margin-top: 10px;
-  }
-  .divider {
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, #FF9B50, #7EC8E3);
-    border-radius: 2px;
-    margin: 20px auto;
-  }
-  .slogan {
-    font-size: 15px;
-    color: #FF9B50;
-    font-weight: 600;
-    margin-bottom: 30px;
-  }
-  .episodes {
-    width: 100%;
-    max-width: 480px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  .ep-card {
-    display: block;
-    background: #fff;
-    border-radius: 16px;
-    padding: 18px 24px;
-    text-decoration: none;
-    color: inherit;
-    box-shadow: 0 2px 16px rgba(255,155,80,0.12);
-    text-align: left;
-    transition: transform 0.2s, box-shadow 0.2s;
-    position: relative;
-    overflow: hidden;
-  }
-  .ep-card::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: linear-gradient(to bottom, #FF9B50, #7EC8E3);
-    border-radius: 4px 0 0 4px;
-  }
-  .ep-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(255,155,80,0.2);
-  }
-  .ep-top {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 6px;
-  }
-  .ep-badge {
-    background: #FF9B50;
-    color: #fff;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 2px 10px;
-    border-radius: 10px;
-  }
-  .ep-tag {
-    background: #FFF3E0;
-    color: #E07A2F;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 8px;
-  }
-  .ep-title {
-    font-size: 16px;
-    font-weight: 700;
-    color: #2C2C2C;
-    margin-bottom: 2px;
-  }
-  .ep-meta {
-    font-size: 13px;
-    color: #7A7A7A;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .ep-emoji {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 36px;
-    opacity: 0.5;
-  }
-  .footer {
-    margin-top: 40px;
-    font-size: 12px;
-    color: #AAAAAA;
-  }
-  .footer-tip {
-    background: #FFF3E0;
-    border-radius: 12px;
-    padding: 14px 20px;
-    font-size: 14px;
-    color: #5D4037;
-    max-width: 480px;
-    margin-bottom: 20px;
-    text-align: left;
-    line-height: 1.7;
-  }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:linear-gradient(135deg,#FFF8E1,#E8F5E9);min-height:100vh;padding-bottom:40px}
+.header{background:linear-gradient(135deg,#4CAF50,#2E7D32);padding:48px 24px 52px;text-align:center;color:#fff;position:relative}
+.header::after{content:'';position:absolute;bottom:-24px;left:0;right:0;height:48px;background:linear-gradient(135deg,#FFF8E1,#E8F5E9);border-radius:50% 50% 0 0}
+.header h1{font-size:32px;font-weight:800;margin-bottom:8px}
+.header p{font-size:16px;opacity:.9}
+.header-badge{display:inline-block;background:rgba(255,255,255,.25);padding:4px 16px;border-radius:20px;font-size:13px;margin-top:12px}
+.main{padding:40px 16px 20px;max-width:640px;margin:0 auto}
+.info-card{background:#fff;border-radius:20px;padding:24px;margin-bottom:24px;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.info-card h2{font-size:18px;color:#2E7D32;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.toc{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}
+.toc a{display:block;background:linear-gradient(135deg,#E8F5E9,#C8E6C9);padding:14px 12px;border-radius:14px;text-decoration:none;color:#2E7D32;font-size:14px;font-weight:600;text-align:center;transition:all .2s}
+.toc a:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(46,125,50,.2)}
+.toc a.graduation{background:linear-gradient(135deg,#FFF3E0,#FFE0B2);color:#E65100}
+.badge{display:inline-block;background:#4CAF50;color:#fff;font-size:11px;padding:2px 8px;border-radius:10px;margin-bottom:4px;font-weight:700}
+.footer{text-align:center;padding:32px 16px;color:#888;font-size:13px}
+.footer a{color:#4CAF50;text-decoration:none}
 </style>
 </head>
 <body>
-
-<div class="hero">
-  <div class="hero-emoji">👶🌟</div>
-  <h1>宝宝英语启蒙</h1>
-  <div class="hero-sub">Baby English</div>
-  <div class="hero-tag">每周一三五日 17:10</div>
+<div class="header">
+  <h1>🌱 宝宝英语启蒙</h1>
+  <p>每天10分钟，为宝宝种下英语的种子</p>
+  <div class="header-badge">👶 适用年龄：1.5-2岁</div>
 </div>
 
-<div class="divider"></div>
+<div class="main">
+  <div class="info-card">
+    <h2>📚 全部26期课程</h2>
+    <p style="font-size:14px;color:#666;margin-bottom:8px">点击任意一期开始学习</p>
+    <div class="toc">
+      <a href="issue-001.html"><span class="badge">001</span><br>早上起床</a>
+      <a href="issue-002.html"><span class="badge">002</span><br>刷牙洗脸</a>
+      <a href="issue-003.html"><span class="badge">003</span><br>穿衣服</a>
+      <a href="issue-004.html"><span class="badge">004</span><br>洗澡时间</a>
+      <a href="issue-005.html"><span class="badge">005</span><br>出门啦</a>
+      <a href="issue-006.html"><span class="badge">006</span><br>吃早饭</a>
+      <a href="issue-007.html"><span class="badge">007</span><br>农场的动物们</a>
+      <a href="issue-008.html"><span class="badge">008</span><br>天气好不好</a>
+      <a href="issue-009.html"><span class="badge">009</span><br>我的身体</a>
+      <a href="issue-010.html"><span class="badge">010</span><br>户外玩耍</a>
+      <a href="issue-011.html"><span class="badge">011</span><br>颜色真好玩</a>
+      <a href="issue-012.html"><span class="badge">012</span><br>形状大发现</a>
+      <a href="issue-013.html"><span class="badge">013</span><br>数字123</a>
+      <a href="issue-014.html"><span class="badge">014</span><br>睡前时光</a>
+      <a href="issue-015.html"><span class="badge">015</span><br>我的家</a>
+      <a href="issue-016.html"><span class="badge">016</span><br>家庭成员</a>
+      <a href="issue-017.html"><span class="badge">017</span><br>动物园探险</a>
+      <a href="issue-018.html"><span class="badge">018</span><br>感觉真奇妙</a>
+      <a href="issue-019.html"><span class="badge">019</span><br>小学英语启蒙</a>
+      <a href="issue-020.html"><span class="badge">020</span><br>大自然探索</a>
+      <a href="issue-021.html"><span class="badge">021</span><br>反义词大挑战</a>
+      <a href="issue-022.html"><span class="badge">022</span><br>音乐和声音</a>
+      <a href="issue-023.html"><span class="badge">023</span><br>玩具总动员</a>
+      <a href="issue-024.html"><span class="badge">024</span><br>复习与巩固</a>
+      <a href="issue-025.html"><span class="badge">025</span><br>Y和Z的双子星</a>
+      <a href="issue-026.html" class="graduation"><span class="badge" style="background:#FF7043">026</span><br>🎓 毕业特辑</a>
+    </div>
+  </div>
 
-<div class="slogan">🌱 每天10分钟，为宝宝种下英语的种子</div>
-
-<div class="footer-tip">
-  👨‍👩‍👧 点击下方卡片开始学习<br>
-  📱 建议横屏或大屏设备体验更佳<br>
-  🔄 内容持续更新中，敬请期待
-</div>
-
-<div class="episodes">
-  <a class="ep-card" href="issue-001.html">
-    <span class="ep-emoji">👋</span>
-    <div class="ep-top">
-      <span class="ep-badge">第001期</span>
-      <span class="ep-tag">字母A</span>
-    </div>
-    <div class="ep-title">Hello &amp; Bye Bye · 打招呼</div>
-    <div class="ep-meta">
-      <span>📅 2026-04-14</span>
-      <span>👋 基础问候</span>
-    </div>
-  </a>
-
-  <a class="ep-card" href="issue-002.html">
-    <span class="ep-emoji">👨‍👩‍👧</span>
-    <div class="ep-top">
-      <span class="ep-badge">第002期</span>
-      <span class="ep-tag">字母B</span>
-    </div>
-    <div class="ep-title">Family · 家庭成员</div>
-    <div class="ep-meta">
-      <span>📅 2026-04-16</span>
-      <span>👨‍👩‍👧 家人称呼</span>
-    </div>
-  </a>
-
-  <a class="ep-card" href="issue-003.html">
-    <span class="ep-emoji">🍎</span>
-    <div class="ep-top">
-      <span class="ep-badge">第003期</span>
-      <span class="ep-tag">字母C</span>
-    </div>
-    <div class="ep-title">Fruits · 水果</div>
-    <div class="ep-meta">
-      <span>📅 2026-04-18</span>
-      <span>🍎 日常食物</span>
-    </div>
-  </a>
-
-  <a class="ep-card" href="issue-004.html">
-    <span class="ep-emoji">🐮</span>
-    <div class="ep-top">
-      <span class="ep-badge">第004期</span>
-      <span class="ep-tag">字母D</span>
-    </div>
-    <div class="ep-title">Farm Animals · 农场动物</div>
-    <div class="ep-meta">
-      <span>📅 2026-04-19</span>
-      <span>🐮 动物叫声</span>
-    </div>
-  </a>
-
-  <a class="ep-card" href="issue-005.html">
-    <span class="ep-emoji">🎵</span>
-    <div class="ep-top">
-      <span class="ep-badge">第005期</span>
-      <span class="ep-tag">字母E</span>
-    </div>
-    <div class="ep-title">Numbers · 数字</div>
-    <div class="ep-meta">
-      <span>📅 2026-04-20</span>
-      <span>🔢 1-5数字</span>
-    </div>
-  </a>
+  <div class="info-card">
+    <h2>📖 学习导航</h2>
+    <ul style="list-style:none;padding:0;margin-top:12px">
+      <li style="padding:10px 0;border-bottom:1px solid #eee;font-size:14px">💬 <strong>每日金句</strong> — 5句日常英语对话</li>
+      <li style="padding:10px 0;border-bottom:1px solid #eee;font-size:14px">🎵 <strong>配套儿歌</strong> — 经典英文儿歌</li>
+      <li style="padding:10px 0;border-bottom:1px solid #eee;font-size:14px">📖 <strong>绘本预热</strong> — 小彼恩系列引入</li>
+      <li style="padding:10px 0;border-bottom:1px solid #eee;font-size:14px">🔤 <strong>字母认知</strong> — A-Z小学预习</li>
+      <li style="padding:10px 0;font-size:14px">🎮 <strong>亲子活动</strong> — 每日15分钟实践</li>
+    </ul>
+  </div>
 </div>
 
 <div class="footer">
-  <div>宝宝英语启蒙 · 每周一三五日 17:10 推送</div>
-  <div style="margin-top:6px;">Powered by Vercel · GitHub</div>
+  <p>🌱 宝宝英语启蒙 · BabyBuddy Automation</p>
+  <p style="margin-top:8px">每天坚持，静待花开</p>
 </div>
-
 </body>
 </html>
