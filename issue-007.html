@@ -19,9 +19,7 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .nav-tabs::-webkit-scrollbar{display:none}
 .tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #AED58144;background:#fff;cursor:pointer;color:#AED581;transition:all .2s}
 .tab.active{background:#AED581;color:#fff;border-color:#AED581}
-.card{background:#AED58111;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #AED58133;display:none}
-.card.active{display:block}
-.card-title{font-size:18px;font-weight:800;color:#AED581;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #AED58144;display:flex;align-items:center;gap:8px}
+.card{margin:16px 16px;padding:22px 18px;border-radius:16px;display:block}
 .content p{margin:10px 0;font-size:15px;line-height:1.9}
 .content h4{font-size:16px;font-weight:700;color:#AED581;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #AED58144}
 .content blockquote{background:#AED58122;border-left:4px solid #AED581;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
@@ -30,11 +28,49 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .content li:last-child{border-bottom:none}
 .content li::before{content:'•';position:absolute;left:6px;color:#AED581;font-weight:bold;font-size:18px;top:8px}
 .content strong{color:#AED581}
+
+.audio-btn{margin:4px 4px;padding:6px 14px;border:none;border-radius:20px;background:#FFF3E0;color:#E65100;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .2s;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+.audio-btn:hover{background:#FFE0B2;transform:scale(1.05)}
+.audio-btn:active{transform:scale(0.95)}
 .footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #AED58133;z-index:100;gap:12px}
 .footer a{flex:1;text-align:center;padding:13px;background:#AED581;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
 .footer .nav-btn{background:#fff;color:#AED581;border:2px solid #AED581}
 .nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
+<script>
+var AUDIO_CDNS = ["https://baby-english-d7gb3dwj91d31020-1346728686.tcloudbaseapp.com/audio/", "https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/", "https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/"];
+var audioPlayer = null;
+function playAudio(audioName) {
+    if (audioPlayer) {
+        audioPlayer.pause();
+    }
+    audioPlayer = new Audio();
+    var cdnIndex = 0;
+    audioPlayer.addEventListener('error', function() {
+        cdnIndex++;
+        if (cdnIndex < AUDIO_CDNS.length) {
+            audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+            audioPlayer.play().catch(function() {});
+        } else {
+            // 最终降级：使用浏览器TTS
+            if (window.speechSynthesis) {
+                var utter = new SpeechSynthesisUtterance(audioName.replace(/_/g, ' '));
+                utter.lang = 'en-US';
+                utter.rate = 0.9;
+                window.speechSynthesis.speak(utter);
+            }
+        }
+    });
+    audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+    audioPlayer.play().catch(function() {});
+}
+function stopAudio() {
+    if (audioPlayer) {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+    }
+}
+</script>
 </head>
 <body>
 <div class="hero">
@@ -48,16 +84,10 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   </div>
 </div>
 
-<nav class="nav-tabs">
-  <button class="tab active" onclick="showTab('s1')">💬 金句</button>
-  <button class="tab" onclick="showTab('s2')">🎵 儿歌</button>
-  <button class="tab" onclick="showTab('s3')">📖 绘本</button>
-  <button class="tab" onclick="showTab('s4')">🔤 字母</button>
-  <button class="tab" onclick="showTab('s5')">🎮 活动</button>
-  <button class="tab" onclick="showTab('s6')">💡 贴士</button>
-</nav>
 
-<div class="card active" id="s1"><div class="card-title">💬 今日金句</div><div class="content"><p>### 句1：认识动物 <blockquote><strong>「What animal is this?」</strong></blockquote></p>
+
+<div class="card active" id="s1"><div class="card-title">💬 今日金句</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('cow')" title="点击播放音频">🔊 cow</button><button class="audio-btn" onclick="playAudio('dog')" title="点击播放音频">🔊 dog</button><button class="audio-btn" onclick="playAudio('cat')" title="点击播放音频">🔊 cat</button></div><div class="content"><p>### 句1：认识动物 <blockquote><strong>「What animal is this?」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：指着动物图片问，引导宝宝看图片说出动物名。如果宝宝说不出，家长先示范「Moo!」</p>
 <p>---</p>
 <p>### 句2：学动物叫声 <blockquote><strong>「What does the cow say? Moo!」</strong></blockquote></p>
@@ -72,11 +102,13 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 <p>### 句5：叫声连连看 <blockquote><strong>「I say Cow, you say Moo!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：家长说动物名，宝宝说叫声，角色互换，最后让宝宝说动物名家长表演叫声，轮换着来。</p>
 <p>---</p></div></div>
-<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div><div class="content"><p><strong>经典主歌：</strong> <ul> <li>:musical_note: Old MacDonald had a farm. E-I-E-I-O!</li> <li>:musical_note: And on his farm he had a cow. E-I-E-I-O!</li> <li>:musical_note: With a moo-moo here and a moo-moo there,</li> <li>:musical_note: Here a moo, there a moo, everywhere a moo-moo!</li> <li>:musical_note: Old MacDonald had a farm. E-I-E-I-O!</li> </ul></p>
+<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('old_macdonald')" title="点击播放音频">🔊 播放儿歌</button></div><div class="content"><p><strong>经典主歌：</strong> <ul> <li>:musical_note: Old MacDonald had a farm. E-I-E-I-O!</li> <li>:musical_note: And on his farm he had a cow. E-I-E-I-O!</li> <li>:musical_note: With a moo-moo here and a moo-moo there,</li> <li>:musical_note: Here a moo, there a moo, everywhere a moo-moo!</li> <li>:musical_note: Old MacDonald had a farm. E-I-E-I-O!</li> </ul></p>
 <p><strong>动物替换：</strong> <ul> <li>:musical_note: Pig — Oink oink!</li> <li>:musical_note: Duck — Quack quack!</li> <li>:musical_note: Dog — Woof woof!</li> <li>:musical_note: Cat — Meow!</li> <li>:musical_note: Rooster — Cock-a-doodle-doo!</li> </ul></p>
 <p><strong>怎么唱</strong>： 第1遍慢速唱，让宝宝熟悉旋律；唱到动物名时指向对应图片；唱到叫声时全家一起大声喊！换不同的动物（pig/oink, duck/quack）可以唱5-10遍，越唱越快很有趣！每唱一遍换一种动物，农场的演唱会永远不会结束！</p>
 <p>---</p></div></div>
-<div class="card" id="s3"><div class="card-title">📖 绘本预热</div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
+<div class="card" id="s3"><div class="card-title">📖 绘本预热</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('bear')" title="点击播放音频">🔊 播放绘本片段</button></div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
 <p>艾瑞·卡尔的另一本经典，和Old MacDonald的农场主题完美呼应！用简单重复的句式介绍各种动物和颜色：</p>
 <p><strong>书中关键词</strong>： <ul> <li>`bear` — 熊</li> <li>`bird` — 鸟</li> <li>`duck` — 鸭子</li> <li>`frog` — 青蛙</li> <li>`fish` — 鱼</li> <li>`horse` — 马</li> </ul></p>
 <p>🗣️ <strong>亲子共读提示</strong>： 指着棕熊说「Brown Bear, what do you see?」宝宝还不会回答没关系，家长自问自答「I see a red bird looking at me!」慢慢重复，宝宝会记住这个节奏！读3遍以上效果最好。</p>
@@ -104,13 +136,6 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   <a href="issue-008.html" class="nav-btn">下一期 →</a>
 </div>
 
-<script>
-function showTab(id){
-  document.querySelectorAll('.card').forEach(e=>e.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
-}
-</script>
+
 </body>
 </html>
