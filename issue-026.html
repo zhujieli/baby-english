@@ -3,292 +3,109 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>宝宝英语启蒙 · 第026期 · 毕业特辑!</title>
+<title>宝宝英语启蒙 · 第026期 · 毕业特辑</title>
 <style>
-:root{--p:#FF9B50;--pd:#E07A2F;--s:#7EC8E3;--sd:#4AABBF;--g:#66BB6A;--bg:#FFF9F0;--c:#FFF;--t:#3D3D3D;--tl:#7A7A7A}
+:root{--c:#FF7043;--bg:#F8F6F0;--card:#FFF;--text:#333;--sub:#666;--r:16px}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:#FFF9C4;color:var(--t);line-height:1.75;padding-bottom:80px;-webkit-font-smoothing:antialiased}
-.tts-btn{display:inline-flex;align-items:center;gap:4px;background:#FFF3E0;border:1.5px solid #FFE0B2;border-radius:20px;padding:3px 10px 3px 6px;font-size:12px;color:var(--pd);cursor:pointer;font-weight:600;margin-left:4px}
-.tts-btn:active{background:var(--p);color:#fff;border-color:var(--p)}
-.hero{background:linear-gradient(135deg,#FFE0B2 0%,#B3E5FC 100%);padding:44px 24px 36px;text-align:center;position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:#FFF9C4;border-radius:50% 50% 0 0}
-.hero-badge{display:inline-block;background:#FFD700;color:#fff;font-size:12px;font-weight:700;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px}
-.hero h1{font-size:28px;font-weight:800;color:#2C2C2C;margin-bottom:6px}
-.hero-sub{font-size:14px;color:#6D4C41;margin-bottom:4px}
-.hero-meta{display:flex;justify-content:center;gap:16px;margin-top:12px;font-size:12px;color:#795548}
-.hero-meta span{background:rgba(255,255,255,.6);padding:3px 10px;border-radius:12px}
-.nav-tabs{display:flex;gap:6px;padding:20px 20px 6px;overflow-x:auto;scrollbar-width:none}
+body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:#FF704311;color:var(--text);line-height:1.8;padding-bottom:90px;-webkit-font-smoothing:antialiased}
+.hero{background:linear-gradient(135deg,#FF704322,#FF704344);padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden;border-radius:0 0 40px 40px}
+.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:#FF704311;border-radius:50% 50% 0 0}
+.hero-badge{display:inline-block;background:#FF7043;color:#fff;font-size:12px;font-weight:700;padding:5px 18px;border-radius:20px;letter-spacing:1px}
+.hero h1{font-size:30px;font-weight:800;color:#FF7043;margin:14px 0 4px}
+.hero-sub{font-size:17px;opacity:.8;font-weight:600;color:#FF7043}
+.hero-meta{display:flex;justify-content:center;gap:12px;margin-top:14px;flex-wrap:wrap}
+.hero-meta span{background:rgba(255,255,255,.7);padding:4px 14px;border-radius:14px;font-size:13px;color:#FF7043}
+.nav-tabs{display:flex;gap:6px;padding:20px 16px 6px;overflow-x:auto;scrollbar-width:none;flex-wrap:wrap}
 .nav-tabs::-webkit-scrollbar{display:none}
-.nav-tab{flex-shrink:0;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid #F0E8DC;background:#FFF;cursor:pointer;transition:all .2s}
-.nav-tab.active{background:#FFD700;color:#fff;border-color:#FFD700}
-.section-title{font-size:17px;font-weight:800;color:#2C2C2C;margin-bottom:14px;display:flex;align-items:center;gap:6px}
-.card{background:#FFF;border-radius:18px;margin:16px 16px;padding:20px;box-shadow:0 2px 14px rgba(0,0,0,.08)}
-.word-grid{display:flex;flex-direction:column;gap:12px}
-.word-card{background:linear-gradient(135deg,#FAFAFA,#F0F7FF);border-radius:14px;padding:14px 16px;border-left:4px solid var(--s)}
-.word-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px}
-.word-en{font-size:22px;font-weight:800;color:var(--pd)}
-.word-ipa{font-size:13px;color:var(--sd);font-style:italic;font-weight:500}
-.word-zh{font-size:14px;color:var(--tl);margin-bottom:6px}
-.word-tip{background:#E3F2FD;border-radius:10px;padding:8px 12px;font-size:13px;color:#1565C0;line-height:1.6}
-.word-example{background:#FFF8E1;border-radius:8px;padding:6px 12px;font-size:13px;color:#E65100;margin-top:6px;font-style:italic}
-.dialogue-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #FFF3E0}
-.dialogue-row:last-child{border-bottom:none}
-.d-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
-.d-bubble{flex:1;background:#F5F5F5;border-radius:12px;padding:10px 14px}
-.d-bubble.orange{background:#FFF3E0}
-.d-bubble.blue{background:#E3F2FD}
-.d-en{font-size:15px;font-weight:700;color:#2C2C2C;margin-bottom:3px}
-.d-zh{font-size:12px;color:var(--tl)}
-.song-card{background:linear-gradient(135deg,#F1F8E9,#E8F5E9);border-radius:18px;margin:16px 16px;padding:22px 20px;border:1.5px solid #C8E6C9}
-.song-header{text-align:center;margin-bottom:16px}
-.song-title{font-size:19px;font-weight:800;color:#2E7D32}
-.song-sub{font-size:12px;color:#689F38;margin-top:4px}
-.lyrics-box{background:rgba(255,255,255,.7);border-radius:14px;padding:16px}
-.lyric-line{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #C8E6C9;gap:8px}
-.lyric-text{flex:1}
-.lyric-en{font-size:15px;font-weight:600;color:#1B5E20}
-.lyric-zh{font-size:12px;color:#689F38;margin-top:2px}
-.phonics-card{background:linear-gradient(135deg,#F3E5F5,#EDE7F6);border-radius:18px;margin:16px 16px;padding:20px}
-.activity-card{background:linear-gradient(135deg,#E3F2FD,#E8EAF6);border-radius:18px;margin:16px 16px;padding:20px;border:1.5px solid #BBDEFB}
-.activity-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #BBDEFB}
-.activity-item:last-child{border-bottom:none}
-.activity-num{width:28px;height:28px;background:var(--s);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
-.activity-body{flex:1}
-.activity-title{font-size:15px;font-weight:700;color:#1565C0;margin-bottom:3px}
-.activity-desc{font-size:13px;color:#1976D2;line-height:1.6}
-.activity-phrase{background:rgba(255,255,255,.7);border-radius:8px;padding:6px 12px;font-size:14px;font-weight:700;color:#0D47A1;margin-top:6px;display:inline-block}
-.story-card{background:linear-gradient(135deg,#FFF9C4,#FFF3E0);border-radius:18px;margin:16px 16px;padding:20px;border:1.5px solid #FFE082}
-.story-header{text-align:center;margin-bottom:16px}
-.story-emoji{font-size:48px}
-.story-title{font-size:18px;font-weight:800;color:#E65100;margin-top:8px}
-.story-para{margin-bottom:12px}
-.story-en{font-size:15px;font-weight:700;color:#BF360C;margin-bottom:4px;line-height:1.7}
-.story-zh{font-size:13px;color:#795548;line-height:1.7}
-.checklist-card{background:linear-gradient(135deg,#E8F5E9,#F1F8E9);border-radius:18px;margin:16px 16px;padding:20px;border:1.5px solid #A5D6A7}
-.check-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #C8E6C9;cursor:pointer}
-.check-item:last-child{border-bottom:none}
-.check-box{width:24px;height:24px;border:2.5px solid #66BB6A;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.check-box.checked{background:#66BB6A}
-.check-text{font-size:14px;color:#2E7D32;font-weight:500}
-.footer-note{text-align:center;font-size:13px;color:var(--tl);padding:28px 20px 20px;line-height:2}
-.check-tips{background:#E8F5E9;border-radius:14px;padding:14px 16px;margin:12px 0 0;font-size:14px;color:#2E7D32;text-align:center}
+.tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #FF704344;background:#fff;cursor:pointer;color:#FF7043;transition:all .2s}
+.tab.active{background:#FF7043;color:#fff;border-color:#FF7043}
+.card{background:#FF704311;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #FF704333;display:none}
+.card.active{display:block}
+.card-title{font-size:18px;font-weight:800;color:#FF7043;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #FF704344;display:flex;align-items:center;gap:8px}
+.content p{margin:10px 0;font-size:15px;line-height:1.9}
+.content h4{font-size:16px;font-weight:700;color:#FF7043;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #FF704344}
+.content blockquote{background:#FF704322;border-left:4px solid #FF7043;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
+.content ul{list-style:none;margin:10px 0;padding:0}
+.content li{padding:9px 0 9px 22px;position:relative;font-size:15px;border-bottom:1px solid #FF704322}
+.content li:last-child{border-bottom:none}
+.content li::before{content:'•';position:absolute;left:6px;color:#FF7043;font-weight:bold;font-size:18px;top:8px}
+.content strong{color:#FF7043}
+.footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #FF704333;z-index:100;gap:12px}
+.footer a{flex:1;text-align:center;padding:13px;background:#FF7043;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
+.footer .nav-btn{background:#fff;color:#FF7043;border:2px solid #FF7043}
+.nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
 </head>
 <body>
 <div class="hero">
-  <div class="hero-badge">✨ 第 026 期</div>
-  <div style="font-size:68px;margin-bottom:10px">🎓</div>
-  <h1>毕业特辑!</h1>
-  <div class="hero-sub">字母 A-Z · 动物狂欢节</div>
+  <div class="hero-badge">第026期</div>
+  <h1>毕业特辑</h1>
+  <div class="hero-sub">Our English Journey!</div>
   <div class="hero-meta">
-    <span>📚 核心词汇</span>
-    <span>🎵 经典儿歌</span>
-    <span>🔤 字母认知</span>
+    <span>📅 每日10分钟</span>
+    <span>🎯 英语启蒙</span>
+    <span>👶 1.5-2岁</span>
   </div>
 </div>
 
-<div class="nav-tabs" id="navTabs"></div>
+<nav class="nav-tabs">
+  <button class="tab active" onclick="showTab('s1')">💬 金句</button>
+  <button class="tab" onclick="showTab('s2')">🎵 儿歌</button>
+  <button class="tab" onclick="showTab('s3')">📖 绘本</button>
+  <button class="tab" onclick="showTab('s4')">🔤 字母</button>
+  <button class="tab" onclick="showTab('s5')">🎮 活动</button>
+  <button class="tab" onclick="showTab('s6')">💡 贴士</button>
+</nav>
 
-<div class="card">
-  <div class="section-title">📚 核心词汇</div>
-  <div class="word-grid">
-        <div class="word-card">
-            <div class="word-top">
-                <span style="font-size:28px">🎉</span>
-                <span class="word-en">Congratulations!</span>
-                <span class="word-ipa">/kənˌɡrætʃuˈleɪʃənz/</span>
-                <button class="tts-btn" onclick="playTTS('Congratulations!')">🔊</button>
-            </div>
-            <div class="word-zh">恭喜！</div>
-            <div class="word-tip">💡 You did it! Congratulations!</div>
-            <div class="word-example">📝 Congratulations! You finished 26 lessons!</div>
-        </div>
-        <div class="word-card">
-            <div class="word-top">
-                <span style="font-size:28px">⭐</span>
-                <span class="word-en">Amazing!</span>
-                <span class="word-ipa">/əˈmeɪzɪŋ/</span>
-                <button class="tts-btn" onclick="playTTS('Amazing!')">🔊</button>
-            </div>
-            <div class="word-zh">太棒了！</div>
-            <div class="word-tip">💡 You're amazing!</div>
-            <div class="word-example">📝 You're an amazing English learner!</div>
-        </div>
-        <div class="word-card">
-            <div class="word-top">
-                <span style="font-size:28px">❤️</span>
-                <span class="word-en">Love</span>
-                <span class="word-ipa">/lʌv/</span>
-                <button class="tts-btn" onclick="playTTS('Love')">🔊</button>
-            </div>
-            <div class="word-zh">爱</div>
-            <div class="word-tip">💡 We love English! We love learning!</div>
-            <div class="word-example">📝 We love you! LA LA LA LA LA!</div>
-        </div>
-        <div class="word-card">
-            <div class="word-top">
-                <span style="font-size:28px">💪</span>
-                <span class="word-en">Keep going!</span>
-                <span class="word-ipa">/kiːp ˈɡoʊɪŋ/</span>
-                <button class="tts-btn" onclick="playTTS('Keep going!')">🔊</button>
-            </div>
-            <div class="word-zh">继续加油！</div>
-            <div class="word-tip">💡 Don't stop! Keep going!</div>
-            <div class="word-example">📝 Keep going! You're doing great!</div>
-        </div>
-        <div class="word-card">
-            <div class="word-top">
-                <span style="font-size:28px">🙏</span>
-                <span class="word-en">Thank you!</span>
-                <span class="word-ipa">/θæŋk juː/</span>
-                <button class="tts-btn" onclick="playTTS('Thank you!')">🔊</button>
-            </div>
-            <div class="word-zh">谢谢！</div>
-            <div class="word-tip">💡 Thank you for learning with us!</div>
-            <div class="word-example">📝 Thank you, mommy and daddy!</div>
-        </div></div>
-</div>
+<div class="card active" id="s1"><div class="card-title">💬 今日金句</div><div class="content"><p>### 句1：回顾起点 <blockquote><strong>「Remember when we started? You didn't know any English!」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：翻看最开始时的照片或记录，让宝宝感受自己的成长和变化「Look how much you've grown!」</p>
+<p>### 句2：数一数成就 <blockquote><strong>「26 weeks! 26 letters! So many words!」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：数一数学过的字母、词汇、儿歌、绘本——数字会让宝宝和家长都惊叹「Wow! So much!」</p>
+<p>### 句3：最爱的时刻 <blockquote><strong>「What was your favorite? The farm? The zoo? Or Bath time?」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：让宝宝回忆最喜欢的内容，帮助家长了解宝宝的兴趣点「What do you want to learn more about?」</p>
+<p>### 句4：谢谢宝宝 <blockquote><strong>「Thank you for learning with me! You are amazing!」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：家长向宝宝表达感谢——是宝宝的配合和成长让这一切变得有意义。</p>
+<p>### 句5：未来的计划 <blockquote><strong>「This is just the beginning! We'll keep learning!」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：毕业不是结束，而是新的开始。告诉宝宝这只是第一阶段，未来还有更多精彩的英语冒险！</p>
+<p>---</p></div></div>
+<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div><div class="content"><p><strong>主歌：</strong> <ul> <li>:musical_note: The more we learn together, together, together!</li> <li>:musical_note: The more we learn together, the happier we'll be!</li> <li>:musical_note: 'Cause your friends and my friends and baby friends too,</li> <li>:musical_note: Can all learn English, like me and you!</li> </ul></p>
+<p><strong>毕业版：</strong> <ul> <li>:musical_note: We've learned our ABCs, and 1 2 3s!</li> <li>:musical_note: We've sung so many songs, and read so many books!</li> <li>:musical_note: Thank you, Mommy! Thank you, Daddy too!</li> <li>:musical_note: We'll keep on learning — I'm excited, aren't you?</li> </ul></p>
+<p><strong>怎么唱</strong>： 毕业版的歌比平时更欢乐！可以配上拍手、拥抱、转圈等动作。最后一遍全班（全家）一起唱，感受集体庆祝的力量。唱完说「Congratulations! Class dismissed!」</p>
+<p>---</p></div></div>
+<div class="card" id="s3"><div class="card-title">📖 绘本预热</div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
+<p>用《我爸爸》作为这一阶段的最后一本书，因为这本书里有所有的爱——爸爸的爱、妈妈的爱、家庭的爱，这些爱是支持宝宝持续学习的动力：</p>
+<p><strong>书中关键词</strong>： <ul> <li>`love` — 爱</li> <li>`family` — 家庭</li> <li>`together` — 一起</li> <li>`proud` — 骄傲</li> <li>`continue` — 继续</li> </ul></p>
+<p>🗣️ <strong>亲子共读提示</strong>： 读完最后一页，抱着宝宝说「I love you. I am proud of you. You did a great job.」这些话是对宝宝最好的毕业礼物。</p>
+<p>---</p></div></div>
+<div class="card" id="s4"><div class="card-title">🔤 字母认知</div><div class="content"><blockquote><strong>今日字母：Z z — zoo</strong></blockquote>
+<p>| 大写 | 小写 | 发音 | 联想词 | |------|------|------|--------| | Z | z | /ziː/ | 🍎 zoo（动物园）|</p>
+<p><strong>联想词汇</strong>： <ul> <li><strong>Zebra</strong> — 斑马：黑白条纹的斑马「Zebra! Z for zebra!」跑得很快。</li> <li><strong>Zoo</strong> — 动物园：今天是毕业日「Zoo! Z for zoo!」也感谢所有帮助我们学英语的动物们！</li> </ul></p>
+<p>🗣️ <strong>怎么教</strong>： 指着实物或图片说「Zoo! Z for zoo!」宝宝会先学会说实物名称，字母认知自然就来了！</p>
+<p>---</p></div></div>
+<div class="card" id="s5"><div class="card-title">🎮 亲子活动</div><div class="content"><blockquote>🧒 每天15分钟高质量陪伴，胜过1小时敷衍相处</blockquote>
+<p>| 时间 | 活动 | |------|------| | 成就展览 | 把26周的绘本、涂鸦、作品全部展示出来做一个小展览 | | 写一封毕业信 | 家长代笔写一封宝宝的毕业信，记录这26周的点点滴滴 | | 毕业蛋糕 | 做一个字母形状的蛋糕「A B C」或数字「26」 | | 下一阶段规划 | 和宝宝一起选下一阶段想学的主题「What do you want to learn next?」 |</p>
+<p>💡 <strong>互动贴士</strong>：让宝宝看到自己走过的路——每本书、每幅画都是学习的见证！</p>
+<blockquote>✅ 今天完成了吗？明天继续加油！💪</blockquote>
+<p>---</p></div></div>
+<div class="card" id="s6"><div class="card-title">💡 学习贴士</div><div class="content"><p><strong>1.5-2岁宝宝的语言学习规律：</strong></p>
+<blockquote>🧠 这个阶段宝宝处于「语言爆发期前夕」，听得越多、储备越丰富，18-24个月后会突然「开口」！</blockquote>
+<p><strong>三个关键原则：</strong> <strong>1. 坚持本身就是最大的成就</strong>：26周不间断的学习，这本身就是巨大的成功。无论宝宝学会了多少，陪伴本身就是最好的教育。</p>
+<p><strong>2. 英语学习是终身事业</strong>：不要着急看到「输出」。2岁前以输入为主，输出会在某个时刻突然爆发，给你惊喜。</p>
+<p><strong>3. 保持期待和好奇</strong>：未来的英语学习可以更丰富：动画、歌曲、绘本、旅游……让英语成为探索世界的工具。</p>
+<p>---</p></div></div>
 
-
-        <div class="card">
-            <div class="section-title">🔤 字母表总复习</div>
-            <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center">
-        <div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">A</div><div style="font-size:18px">🍎</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">B</div><div style="font-size:18px">🐻</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">C</div><div style="font-size:18px">🐱</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">D</div><div style="font-size:18px">🐕</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">E</div><div style="font-size:18px">🐘</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">F</div><div style="font-size:18px">🐟</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">G</div><div style="font-size:18px">🦆</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">H</div><div style="font-size:18px">🎩</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">I</div><div style="font-size:18px">🍦</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">J</div><div style="font-size:18px">🧥</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">K</div><div style="font-size:18px">🪁</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">L</div><div style="font-size:18px">🍋</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">M</div><div style="font-size:18px">🌙</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">N</div><div style="font-size:18px">🌃</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">O</div><div style="font-size:18px">🍊</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">P</div><div style="font-size:18px">🐷</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">Q</div><div style="font-size:18px">👑</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">R</div><div style="font-size:18px">🌈</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">S</div><div style="font-size:18px">⭐</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">T</div><div style="font-size:18px">🐢</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">U</div><div style="font-size:18px">☂</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">V</div><div style="font-size:18px">️</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">W</div><div style="font-size:18px">🥬</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">X</div><div style="font-size:18px">💧</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">Y</div><div style="font-size:18px">🦊</div></div><div style="background:linear-gradient(135deg,#FFF3E0,#E3F2FD);padding:8px 14px;border-radius:12px;text-align:center"><div style="font-size:22px;font-weight:800">Z</div><div style="font-size:18px">🥛</div></div></div></div>
-
-<div class="card">
-  <div class="section-title">💬 情景对话</div>
-  
-        <div class="dialogue-row">
-            <div class="d-avatar" style="background:#FFE0B2">
-                👶
-            </div>
-            <div class="d-bubble orange">
-                <div class="d-en">You finished 26 lessons!</div>
-                <div class="d-zh">你完成了26期学习！</div>
-            </div>
-        </div>
-        <div class="dialogue-row">
-            <div class="d-avatar" style="background:#BBDEFB">
-                👨‍👩‍👧
-            </div>
-            <div class="d-bubble blue">
-                <div class="d-en">You're an English star!</div>
-                <div class="d-zh">你是英语小明星！</div>
-            </div>
-        </div>
-        <div class="dialogue-row">
-            <div class="d-avatar" style="background:#FFE0B2">
-                👶
-            </div>
-            <div class="d-bubble orange">
-                <div class="d-en">Keep learning every day!</div>
-                <div class="d-zh">继续每天学习！</div>
-            </div>
-        </div>
-</div>
-
-<div class="song-card">
-  <div class="song-header">
-    <div style="font-size:40px">🎶</div>
-    <div class="song-title">Moo Baa La La La!</div>
-  </div>
-  <div class="lyrics-box">
-    
-        <div class="lyric-line">
-            <div class="lyric-text">
-                <div class="lyric-en">A cow says MOO!</div>
-                
-            </div>
-            <button class="tts-btn" onclick="playTTS('A cow says MOO!')">🔊</button>
-        </div>
-        <div class="lyric-line">
-            <div class="lyric-text">
-                <div class="lyric-en">A sheep says BAA!</div>
-                
-            </div>
-            <button class="tts-btn" onclick="playTTS('A sheep says BAA!')">🔊</button>
-        </div>
-        <div class="lyric-line">
-            <div class="lyric-text">
-                <div class="lyric-en">Three pigs say OINK OINK OINK!</div>
-                
-            </div>
-            <button class="tts-btn" onclick="playTTS('Three pigs say OINK OINK OINK!')">🔊</button>
-        </div>
-        <div class="lyric-line">
-            <div class="lyric-text">
-                <div class="lyric-en">We love you! LA LA LA LA LA!</div>
-                
-            </div>
-            <button class="tts-btn" onclick="playTTS('We love you! LA LA LA LA LA!')">🔊</button>
-        </div>
-  </div>
-  <div class="check-tips">🎵 毕业狂欢！全家一起表演动物合唱，最后喊 LA LA LA LA LA！</div>
-</div>
-
-<div class="story-card">
-  <div class="story-header">
-    <div class="story-emoji">📚</div>
-    <div class="story-title">📖 Moo Baa La La La!</div>
-  </div>
-  <div class="story-para">Sandra Boynton 经典绘本，所有的动物一起狂欢，是最好的毕业礼物！</div>
-  <div style="margin-top:12px"><span style="background:#FFF9C4;padding:4px 10px;border-radius:12px;font-size:13px;margin:3px;display:inline-block">moo 牛叫</span><span style="background:#FFF9C4;padding:4px 10px;border-radius:12px;font-size:13px;margin:3px;display:inline-block">baa 羊叫</span><span style="background:#FFF9C4;padding:4px 10px;border-radius:12px;font-size:13px;margin:3px;display:inline-block">quack 鸭子叫</span><span style="background:#FFF9C4;padding:4px 10px;border-radius:12px;font-size:13px;margin:3px;display:inline-block">oink 猪叫</span><span style="background:#FFF9C4;padding:4px 10px;border-radius:12px;font-size:13px;margin:3px;display:inline-block">la la la 啦啦啦</span></div>
-</div>
-
-<div class="checklist-card">
-  <div class="section-title">✅ 打卡记录</div>
-  
-        <div class="check-item" onclick="toggleCheck(this)">
-            <div class="check-box"><span style="color:#fff;font-size:14px">✓</span></div>
-            <div class="check-text">学完了 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
-        </div>
-        <div class="check-item" onclick="toggleCheck(this)">
-            <div class="check-box"><span style="color:#fff;font-size:14px">✓</span></div>
-            <div class="check-text">会唱 10+ 首英语儿歌</div>
-        </div>
-        <div class="check-item" onclick="toggleCheck(this)">
-            <div class="check-box"><span style="color:#fff;font-size:14px">✓</span></div>
-            <div class="check-text">会说 50+ 个英语单词</div>
-        </div>
-        <div class="check-item" onclick="toggleCheck(this)">
-            <div class="check-box"><span style="color:#fff;font-size:14px">✓</span></div>
-            <div class="check-text">养成了每天学英语的习惯</div>
-        </div>
-  <div class="check-tips" style="background:#FFF9C4;color:#E65100;margin-top:16px">
-    💬 养成了每天学英语的习惯
-  </div>
-</div>
-
-<div class="footer-note">
-  🌱 每天12分钟，为宝宝种下英语的种子<br>
-  加油，爸爸妈妈！
+<div class="footer">
+  <a href="issue-025.html" class="nav-btn">← 上一期</a>
+  <a href="index.html">📚 目录</a>
+  <span class="nav-btn nav-disabled">已到最新</span>
 </div>
 
 <script>
-// 导航
-const episodes = ["01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26"];
-const current = "026".padStart(3,'0').slice(-2);
-const nav = document.getElementById('navTabs');
-episodes.forEach(n => {
-  const a = document.createElement('a');
-  a.className = 'nav-tab' + (n === current ? ' active' : '');
-  a.textContent = n;
-  a.href = 'issue-' + n + '.html';
-  nav.appendChild(a);
-});
-
-// TTS
-function playTTS(text) {
-  if (!window.speechSynthesis) return;
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'en-US'; u.rate = 0.85;
-  speechSynthesis.cancel();
-  speechSynthesis.speak(u);
-}
-
-// 打卡
-function toggleCheck(el) {
-  el.querySelector('.check-box').classList.toggle('checked');
+function showTab(id){
+  document.querySelectorAll('.card').forEach(e=>e.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
 }
 </script>
 </body>
