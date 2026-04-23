@@ -5,45 +5,48 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>宝宝英语启蒙 · 第002期 · 刷牙洗脸</title>
 <style>
-:root{--c:#4FC3F7;--bg:#F8F6F0;--card:#FFF;--text:#333;--sub:#666;--r:16px}
+:root{--c:#4CAF50;--bg:#F8F6F0;--card:#FFF;--text:#333;--sub:#666;--r:16px}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:#4FC3F711;color:var(--text);line-height:1.8;padding-bottom:90px;-webkit-font-smoothing:antialiased}
-.hero{background:linear-gradient(135deg,#4FC3F722,#4FC3F744);padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden;border-radius:0 0 40px 40px}
-.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:#4FC3F711;border-radius:50% 50% 0 0}
-.hero-badge{display:inline-block;background:#4FC3F7;color:#fff;font-size:12px;font-weight:700;padding:5px 18px;border-radius:20px;letter-spacing:1px}
-.hero h1{font-size:30px;font-weight:800;color:#4FC3F7;margin:14px 0 4px}
-.hero-sub{font-size:17px;opacity:.8;font-weight:600;color:#4FC3F7}
+body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:#4CAF5011;color:var(--text);line-height:1.8;padding-bottom:90px;-webkit-font-smoothing:antialiased}
+.hero{background:linear-gradient(135deg,#4CAF5022,#4CAF5044);padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden;border-radius:0 0 40px 40px}
+.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:#4CAF5011;border-radius:50% 50% 0 0}
+.hero-badge{display:inline-block;background:#4CAF50;color:#fff;font-size:12px;font-weight:700;padding:5px 18px;border-radius:20px;letter-spacing:1px}
+.hero h1{font-size:30px;font-weight:800;color:#4CAF50;margin:14px 0 4px}
+.hero-sub{font-size:17px;opacity:.8;font-weight:600;color:#4CAF50}
 .hero-meta{display:flex;justify-content:center;gap:12px;margin-top:14px;flex-wrap:wrap}
-.hero-meta span{background:rgba(255,255,255,.7);padding:4px 14px;border-radius:14px;font-size:13px;color:#4FC3F7}
+.hero-meta span{background:rgba(255,255,255,.7);padding:4px 14px;border-radius:14px;font-size:13px;color:#4CAF50}
 .nav-tabs{display:flex;gap:6px;padding:20px 16px 6px;overflow-x:auto;scrollbar-width:none;flex-wrap:wrap}
 .nav-tabs::-webkit-scrollbar{display:none}
-.tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #4FC3F744;background:#fff;cursor:pointer;color:#4FC3F7;transition:all .2s}
-.tab.active{background:#4FC3F7;color:#fff;border-color:#4FC3F7}
-.card{margin:16px 16px;padding:22px 18px;border-radius:16px;display:block}
+.tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #4CAF5044;background:#fff;cursor:pointer;color:#4CAF50;transition:all .2s}
+.tab.active{background:#4CAF50;color:#fff;border-color:#4CAF50}
+.card{background:#4CAF5011;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #4CAF5033;display:none}
+.card.active{display:block}
+.card-title{font-size:18px;font-weight:800;color:#4CAF50;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #4CAF5044;display:flex;align-items:center;gap:8px}
 .content p{margin:10px 0;font-size:15px;line-height:1.9}
-.content h4{font-size:16px;font-weight:700;color:#4FC3F7;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #4FC3F744}
-.content blockquote{background:#4FC3F722;border-left:4px solid #4FC3F7;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
+.content h4{font-size:16px;font-weight:700;color:#4CAF50;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #4CAF5044}
+.content blockquote{background:#4CAF5022;border-left:4px solid #4CAF50;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
 .content ul{list-style:none;margin:10px 0;padding:0}
-.content li{padding:9px 0 9px 22px;position:relative;font-size:15px;border-bottom:1px solid #4FC3F722}
+.content li{padding:9px 0 9px 22px;position:relative;font-size:15px;border-bottom:1px solid #4CAF5022}
 .content li:last-child{border-bottom:none}
-.content li::before{content:'•';position:absolute;left:6px;color:#4FC3F7;font-weight:bold;font-size:18px;top:8px}
-.content strong{color:#4FC3F7}
-
+.content li::before{content:'•';position:absolute;left:6px;color:#4CAF50;font-weight:bold;font-size:18px;top:8px}
+.content strong{color:#4CAF50}
 .audio-btn{margin:4px 4px;padding:6px 14px;border:none;border-radius:20px;background:#FFF3E0;color:#E65100;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .2s;box-shadow:0 2px 6px rgba(0,0,0,.1)}
 .audio-btn:hover{background:#FFE0B2;transform:scale(1.05)}
 .audio-btn:active{transform:scale(0.95)}
-.footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #4FC3F733;z-index:100;gap:12px}
-.footer a{flex:1;text-align:center;padding:13px;background:#4FC3F7;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
-.footer .nav-btn{background:#fff;color:#4FC3F7;border:2px solid #4FC3F7}
+.footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #4CAF5033;z-index:100;gap:12px}
+.footer a{flex:1;text-align:center;padding:13px;background:#4CAF50;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
+.footer .nav-btn{background:#fff;color:#4CAF50;border:2px solid #4CAF50}
 .nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
 <script>
-var AUDIO_CDNS = ["https://baby-english-d7gb3dwj91d31020-1346728686.tcloudbaseapp.com/audio/", "https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/", "https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/"];
+var AUDIO_CDNS = [
+    "https://baby-english-d7gb3dwij91d31020-1346728686.tcloudbaseapp.com/audio/",
+    "https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/",
+    "https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/"
+];
 var audioPlayer = null;
 function playAudio(audioName) {
-    if (audioPlayer) {
-        audioPlayer.pause();
-    }
+    if (audioPlayer) audioPlayer.pause();
     audioPlayer = new Audio();
     var cdnIndex = 0;
     audioPlayer.addEventListener('error', function() {
@@ -52,7 +55,6 @@ function playAudio(audioName) {
             audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
             audioPlayer.play().catch(function() {});
         } else {
-            // 最终降级：使用浏览器TTS
             if (window.speechSynthesis) {
                 var utter = new SpeechSynthesisUtterance(audioName.replace(/_/g, ' '));
                 utter.lang = 'en-US';
@@ -64,11 +66,11 @@ function playAudio(audioName) {
     audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
     audioPlayer.play().catch(function() {});
 }
-function stopAudio() {
-    if (audioPlayer) {
-        audioPlayer.pause();
-        audioPlayer.currentTime = 0;
-    }
+function showTab(id) {
+    document.querySelectorAll('.card').forEach(function(e){e.classList.remove('active')});
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('active')});
+    event.target.classList.add('active');
 }
 </script>
 </head>
@@ -76,66 +78,34 @@ function stopAudio() {
 <div class="hero">
   <div class="hero-badge">第002期</div>
   <h1>刷牙洗脸</h1>
-  <div class="hero-sub">Brush Your Teeth!</div>
+  <div class="hero-sub">
+</div>
   <div class="hero-meta">
-    <span>📅 每日10分钟</span>
-    <span>🎯 英语启蒙</span>
-    <span>👶 1.5-2岁</span>
+    <span>每日10分钟</span>
+    <span>英语启蒙</span>
+    <span>1.5-2岁</span>
   </div>
 </div>
 
-
-
-<div class="card active" id="s1"><div class="card-title">💬 今日金句</div>
-<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('toothbrush')" title="点击播放音频">🔊 toothbrush</button><button class="audio-btn" onclick="playAudio('wash_face')" title="点击播放音频">🔊 wash face</button><button class="audio-btn" onclick="playAudio('clean')" title="点击播放音频">🔊 clean</button></div><div class="content"><p>### 句1：叫宝宝刷牙 <blockquote><strong>「Good morning! Time to brush your teeth! Open wide!」</strong></blockquote></p>
-<p>💡 <strong>怎么用</strong>：推开浴室门，拿着牙刷说这句话，配合张嘴巴的动作。宝宝最初可能会抗拒，慢慢来，用夸张的语气吸引注意力。</p>
-<p>---</p>
-<p>### 句2：一起刷牙 <blockquote><strong>「Brush, brush, brush! Up and down!」</strong></blockquote></p>
-<p>💡 <strong>怎么用</strong>：让宝宝看着镜子里的自己刷牙，边刷边数「One, two, three!」让刷牙变成游戏而不是任务。</p>
-<p>---</p>
-<p>### 句3：夸夸宝宝 <blockquote><strong>「Good job! Your teeth are so clean!」</strong></blockquote></p>
-<p>💡 <strong>怎么用</strong>：刷完后夸张地表扬，指着镜子里的牙齿说「Look! So white! So clean!」建立成就感。</p>
-<p>---</p>
-<p>### 句4：洗小脸蛋 <blockquote><strong>「Time to wash your face! Feel the warm water!」</strong></blockquote></p>
-<p>💡 <strong>怎么用</strong>：用手捧温水往脸上抹，配合「wash wash wash」的声音，边洗边唱歌。</p>
-<p>---</p>
-<p>### 句5：照镜子 <blockquote><strong>「Look in the mirror! So clean and fresh!」</strong></blockquote></p>
-<p>💡 <strong>怎么用</strong>：指着镜子里的脸，让宝宝看到自己的笑容，建立自我认同感和良好感觉。</p>
-<p>---</p></div></div>
-<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div>
-<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('brush_teeth')" title="点击播放音频">🔊 播放儿歌</button></div><div class="content"><p><strong>主歌（刷牙）：</strong> <ul> <li>:musical_note: This is the way we brush our teeth,</li> <li>:musical_note: brush our teeth, brush our teeth!</li> <li>:musical_note: This is the way we brush our teeth,</li> <li>:musical_note: so early in the morning!</li> </ul></p>
-<p><strong>第二段（洗脸）：</strong> <ul> <li>:musical_note: This is the way we wash our face,</li> <li>:musical_note: wash our face, wash our face!</li> <li>:musical_note: This is the way we wash our face,</li> <li>:musical_note: so early in the morning!</li> </ul></p>
-<p><strong>怎么唱</strong>： 刷牙时唱第一段，边唱边做刷牙动作「brush, brush, brush!」；洗脸时唱第二段，用手比划洗脸动作。每天早晚洗漱时循环唱，把洗漱变成有趣的仪式！宝宝很快就会期待这个「刷牙歌时间」！</p>
-<p>---</p></div></div>
-<div class="card" id="s3"><div class="card-title">📖 绘本预热</div>
-<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('guli')" title="点击播放音频">🔊 播放绘本片段</button></div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
-<p>古力小超人系列里有一页是古力早上起床的场景，配合今天的主题使用非常合适：</p>
-<p><strong>书中关键词</strong>： <ul> <li>`wake up` — 醒来</li> <li>`stretch` — 伸懒腰</li> <li>`yawn` — 打哈欠</li> <li>`put on clothes` — 穿衣服</li> <li>`good morning` — 早上好</li> </ul></p>
-<p>🗣️ <strong>亲子共读提示</strong>： 指着图中古力伸懒腰的画面说「Look! He's stretching! Can you stretch?」鼓励宝宝模仿动作，一起伸个大懒腰！</p>
-<p>---</p></div></div>
-<div class="card" id="s4"><div class="card-title">🔤 字母认知</div><div class="content"><blockquote><strong>今日字母：B brush</strong></blockquote>
-<p>| 大写 | 小写 | 发音 | 联想词 | |------|------|------|--------| | B | b | // | 🍎 brush |</p>
-<p><strong>联想词汇</strong>： <ul> <li><strong>Bear</strong> — 熊：大熊玩偶最合适！指着说「Bear! B for bear!」配合大熊拥抱动作。</li> <li><strong>Ball</strong> — 球：踢球或拍球时说「Ball! B for ball!」球类运动是消耗宝宝电量的好活动！</li> <li><strong>Banana</strong> — 香蕉：吃香蕉时说「Banana! B for banana!」宝宝会伸手要，「banana」的发音也很好学！</li> </ul></p>
-<p>🗣️ <strong>怎么教</strong>： 指着实物或图片说「Brush! B for brush!」宝宝会先学会说实物名称，字母认知自然就来了！</p>
-<p>---</p></div></div>
-<div class="card" id="s5"><div class="card-title">🎮 亲子活动</div><div class="content"><blockquote>🧒 每天15分钟高质量陪伴，胜过1小时敷衍相处</blockquote>
-<p>| 时间 | 活动 | |------|------| | 起床时（刷牙） | 说3遍「Good morning! Time to brush!」 | | 洗漱时（洗脸） | 唱「This is the way we wash your face」 | | 全家总动员 | 和爸爸/妈妈一起刷牙「Let's have a brushing race!」 | | 洗手液找找看 | 在超市找B开头的食物「B for... banana!」 |</p>
-<p>💡 <strong>互动贴士</strong>：把牙刷递给宝宝，让宝宝自己放进嘴里（即使只是咬着也要表扬！刷了就是进步！）</p>
-<blockquote>✅ 今天完成了吗？明天继续加油！💪</blockquote>
-<p>---</p></div></div>
-<div class="card" id="s6"><div class="card-title">💡 学习贴士</div><div class="content"><p><strong>1.5-2岁宝宝的语言学习规律：</strong></p>
-<blockquote>🧠 这个阶段宝宝处于「语言爆发期前夕」，听得越多、储备越丰富，18-24个月后会突然「开口」！</blockquote>
-<p><strong>三个关键原则：</strong> <strong>1. 重复是魔法</strong>：同一句话重复100遍，比教100句话一遍效果好10倍。刷牙歌每天唱两遍，一周后宝宝就能哼旋律了！</p>
-<p><strong>2. 动作配合记忆最深</strong>：说「brush」时做刷牙动作，说「wash」时做洗脸动作，身体记忆比语言记忆更深刻。</p>
-<p><strong>3. 不强迫跟读</strong>：听懂就够了，让宝宝主动模仿。不要强制开口，更不要纠正发音——现在是输入期，不是输出期。</p>
-<p>---</p></div></div>
+<nav class="nav-tabs">
+  <button class="tab active" onclick="showTab('s1')">金句</button>
+  <button class="tab" onclick="showTab('s2')">儿歌</button>
+  <button class="tab" onclick="showTab('s3')">绘本</button>
+  <button class="tab" onclick="showTab('s4')">字母</button>
+  <button class="tab" onclick="showTab('s5')">活动</button>
+  <button class="tab" onclick="showTab('s6')">贴士</button>
+</nav>
+<div class="card active" id="s1"><div class="card-title"></div>
+<div class="card active" id="s2"><div class="card-title"></div>
+<div class="card active" id="s3"><div class="card-title"></div>
+<div class="card active" id="s4"><div class="card-title"></div>
+<div class="card active" id="s5"><div class="card-title"></div>
+<div class="card active" id="s6"><div class="card-title"></div>
 
 <div class="footer">
-  <a href="issue-001.html" class="nav-btn">← 上一期</a>
-  <a href="index.html">📚 目录</a>
-  <a href="issue-003.html" class="nav-btn">下一期 →</a>
+  <a href="issue-001.html" class="nav-btn">上一期</a>
+  <a href="index.html">目录</a>
+  <a href="issue-003.html" class="nav-btn">下一期</a>
 </div>
-
-
 </body>
 </html>
