@@ -19,9 +19,7 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .nav-tabs::-webkit-scrollbar{display:none}
 .tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #9CCC6544;background:#fff;cursor:pointer;color:#9CCC65;transition:all .2s}
 .tab.active{background:#9CCC65;color:#fff;border-color:#9CCC65}
-.card{background:#9CCC6511;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #9CCC6533;display:none}
-.card.active{display:block}
-.card-title{font-size:18px;font-weight:800;color:#9CCC65;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #9CCC6544;display:flex;align-items:center;gap:8px}
+.card{margin:16px 16px;padding:22px 18px;border-radius:16px;display:block}
 .content p{margin:10px 0;font-size:15px;line-height:1.9}
 .content h4{font-size:16px;font-weight:700;color:#9CCC65;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #9CCC6544}
 .content blockquote{background:#9CCC6522;border-left:4px solid #9CCC65;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
@@ -30,11 +28,49 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .content li:last-child{border-bottom:none}
 .content li::before{content:'•';position:absolute;left:6px;color:#9CCC65;font-weight:bold;font-size:18px;top:8px}
 .content strong{color:#9CCC65}
+
+.audio-btn{margin:4px 4px;padding:6px 14px;border:none;border-radius:20px;background:#FFF3E0;color:#E65100;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .2s;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+.audio-btn:hover{background:#FFE0B2;transform:scale(1.05)}
+.audio-btn:active{transform:scale(0.95)}
 .footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #9CCC6533;z-index:100;gap:12px}
 .footer a{flex:1;text-align:center;padding:13px;background:#9CCC65;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
 .footer .nav-btn{background:#fff;color:#9CCC65;border:2px solid #9CCC65}
 .nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
+<script>
+var AUDIO_CDNS = ["https://baby-english-d7gb3dwj91d31020-1346728686.tcloudbaseapp.com/audio/", "https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/", "https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/"];
+var audioPlayer = null;
+function playAudio(audioName) {
+    if (audioPlayer) {
+        audioPlayer.pause();
+    }
+    audioPlayer = new Audio();
+    var cdnIndex = 0;
+    audioPlayer.addEventListener('error', function() {
+        cdnIndex++;
+        if (cdnIndex < AUDIO_CDNS.length) {
+            audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+            audioPlayer.play().catch(function() {});
+        } else {
+            // 最终降级：使用浏览器TTS
+            if (window.speechSynthesis) {
+                var utter = new SpeechSynthesisUtterance(audioName.replace(/_/g, ' '));
+                utter.lang = 'en-US';
+                utter.rate = 0.9;
+                window.speechSynthesis.speak(utter);
+            }
+        }
+    });
+    audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+    audioPlayer.play().catch(function() {});
+}
+function stopAudio() {
+    if (audioPlayer) {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+    }
+}
+</script>
 </head>
 <body>
 <div class="hero">
@@ -48,16 +84,10 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   </div>
 </div>
 
-<nav class="nav-tabs">
-  <button class="tab active" onclick="showTab('s1')">💬 金句</button>
-  <button class="tab" onclick="showTab('s2')">🎵 儿歌</button>
-  <button class="tab" onclick="showTab('s3')">📖 绘本</button>
-  <button class="tab" onclick="showTab('s4')">🔤 字母</button>
-  <button class="tab" onclick="showTab('s5')">🎮 活动</button>
-  <button class="tab" onclick="showTab('s6')">💡 贴士</button>
-</nav>
 
-<div class="card active" id="s1"><div class="card-title">💬 今日金句</div><div class="content"><p>### 句1：字母Y登场 <blockquote><strong>「Here comes the letter Y! Y for Yellow!」</strong></blockquote></p>
+
+<div class="card active" id="s1"><div class="card-title">💬 今日金句</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('apple')" title="点击播放音频">🔊 apple</button><button class="audio-btn" onclick="playAudio('zoo')" title="点击播放音频">🔊 zoo</button><button class="audio-btn" onclick="playAudio('yellow')" title="点击播放音频">🔊 yellow</button></div><div class="content"><p>### 句1：字母Y登场 <blockquote><strong>「Here comes the letter Y! Y for Yellow!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：黄色是最亮的颜色！举着黄色的东西说「Yellow! Y for yellow!」太阳是黄色的！</p>
 <p>### 句2：字母Z登场 <blockquote><strong>「And here's the letter Z! Z for Zebra!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：斑马是最有特点的动物！黑白条纹「black and white stripes」。</p>
@@ -68,10 +98,12 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 <p>### 句5：毕业典礼 <blockquote><strong>「You did it! You're an ABC graduate! Hooray!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：为宝宝举办一个小小的毕业典礼！戴一顶自制毕业帽，说「Congratulations!」</p>
 <p>---</p></div></div>
-<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div><div class="content"><p><strong>毕业版本：</strong> <ul> <li>:musical_note: Now I know my ABCs!</li> <li>:musical_note: Next time sing with me!</li> <li>:musical_note: I can say A B C D E F G</li> <li>:musical_note: H I J K L M N O P</li> <li>:musical_note: Q R S T U V</li> <li>:musical_note: W X Y and Z!</li> <li>:musical_note: I did it! Hooray! Hooray!</li> <li>:musical_note: I know my ABCs today!</li> </ul></p>
+<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('abc_song')" title="点击播放音频">🔊 播放儿歌</button></div><div class="content"><p><strong>毕业版本：</strong> <ul> <li>:musical_note: Now I know my ABCs!</li> <li>:musical_note: Next time sing with me!</li> <li>:musical_note: I can say A B C D E F G</li> <li>:musical_note: H I J K L M N O P</li> <li>:musical_note: Q R S T U V</li> <li>:musical_note: W X Y and Z!</li> <li>:musical_note: I did it! Hooray! Hooray!</li> <li>:musical_note: I know my ABCs today!</li> </ul></p>
 <p><strong>怎么唱</strong>： 毕业歌用最隆重的版本唱！可以配上拍手、跺脚、举手等动作。唱到最后「Hooray!」时全家一起欢呼！如果有其他家庭成员在场，一起唱效果更震撼。让宝宝感受到这是值得庆祝的大日子！</p>
 <p>---</p></div></div>
-<div class="card" id="s3"><div class="card-title">📖 绘本预热</div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
+<div class="card" id="s3"><div class="card-title">📖 绘本预热</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('guli')" title="点击播放音频">🔊 播放绘本片段</button></div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
 <p>一本包含所有26个字母的大书，每页一个字母配一个图，作为今天的毕业礼物：</p>
 <p><strong>书中关键词</strong>： <ul> <li>`A-Z` — 26个字母全部学完！</li> <li>`graduate` — 毕业</li> <li>`congratulations` — 祝贺</li> <li>`great job` — 做得好</li> </ul></p>
 <p>🗣️ <strong>亲子共读提示</strong>： 把这26周读过的绘本全部摆出来，翻看每一本说「You remember this one!」让宝宝感受到自己学过的内容真的很多了！</p>
@@ -99,13 +131,6 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   <a href="issue-026.html" class="nav-btn">下一期 →</a>
 </div>
 
-<script>
-function showTab(id){
-  document.querySelectorAll('.card').forEach(e=>e.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
-}
-</script>
+
 </body>
 </html>
