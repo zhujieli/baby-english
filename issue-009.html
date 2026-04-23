@@ -19,9 +19,7 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .nav-tabs::-webkit-scrollbar{display:none}
 .tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #FF8A6544;background:#fff;cursor:pointer;color:#FF8A65;transition:all .2s}
 .tab.active{background:#FF8A65;color:#fff;border-color:#FF8A65}
-.card{background:#FF8A6511;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #FF8A6533;display:none}
-.card.active{display:block}
-.card-title{font-size:18px;font-weight:800;color:#FF8A65;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #FF8A6544;display:flex;align-items:center;gap:8px}
+.card{margin:16px 16px;padding:22px 18px;border-radius:16px;display:block}
 .content p{margin:10px 0;font-size:15px;line-height:1.9}
 .content h4{font-size:16px;font-weight:700;color:#FF8A65;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #FF8A6544}
 .content blockquote{background:#FF8A6522;border-left:4px solid #FF8A65;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
@@ -30,11 +28,49 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .content li:last-child{border-bottom:none}
 .content li::before{content:'•';position:absolute;left:6px;color:#FF8A65;font-weight:bold;font-size:18px;top:8px}
 .content strong{color:#FF8A65}
+
+.audio-btn{margin:4px 4px;padding:6px 14px;border:none;border-radius:20px;background:#FFF3E0;color:#E65100;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .2s;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+.audio-btn:hover{background:#FFE0B2;transform:scale(1.05)}
+.audio-btn:active{transform:scale(0.95)}
 .footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #FF8A6533;z-index:100;gap:12px}
 .footer a{flex:1;text-align:center;padding:13px;background:#FF8A65;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
 .footer .nav-btn{background:#fff;color:#FF8A65;border:2px solid #FF8A65}
 .nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
+<script>
+var AUDIO_CDNS = ["https://baby-english-d7gb3dwj91d31020-1346728686.tcloudbaseapp.com/audio/", "https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/", "https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/"];
+var audioPlayer = null;
+function playAudio(audioName) {
+    if (audioPlayer) {
+        audioPlayer.pause();
+    }
+    audioPlayer = new Audio();
+    var cdnIndex = 0;
+    audioPlayer.addEventListener('error', function() {
+        cdnIndex++;
+        if (cdnIndex < AUDIO_CDNS.length) {
+            audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+            audioPlayer.play().catch(function() {});
+        } else {
+            // 最终降级：使用浏览器TTS
+            if (window.speechSynthesis) {
+                var utter = new SpeechSynthesisUtterance(audioName.replace(/_/g, ' '));
+                utter.lang = 'en-US';
+                utter.rate = 0.9;
+                window.speechSynthesis.speak(utter);
+            }
+        }
+    });
+    audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+    audioPlayer.play().catch(function() {});
+}
+function stopAudio() {
+    if (audioPlayer) {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+    }
+}
+</script>
 </head>
 <body>
 <div class="hero">
@@ -48,16 +84,10 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   </div>
 </div>
 
-<nav class="nav-tabs">
-  <button class="tab active" onclick="showTab('s1')">💬 金句</button>
-  <button class="tab" onclick="showTab('s2')">🎵 儿歌</button>
-  <button class="tab" onclick="showTab('s3')">📖 绘本</button>
-  <button class="tab" onclick="showTab('s4')">🔤 字母</button>
-  <button class="tab" onclick="showTab('s5')">🎮 活动</button>
-  <button class="tab" onclick="showTab('s6')">💡 贴士</button>
-</nav>
 
-<div class="card active" id="s1"><div class="card-title">💬 今日金句</div><div class="content"><p>### 句1：认识五官 <blockquote><strong>「Touch your nose! Where is your nose?」</strong></blockquote></p>
+
+<div class="card active" id="s1"><div class="card-title">💬 今日金句</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('hand')" title="点击播放音频">🔊 hand</button><button class="audio-btn" onclick="playAudio('foot')" title="点击播放音频">🔊 foot</button><button class="audio-btn" onclick="playAudio('head')" title="点击播放音频">🔊 head</button></div><div class="content"><p>### 句1：认识五官 <blockquote><strong>「Touch your nose! Where is your nose?」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：指着自己的鼻子说「nose」，然后轻轻碰宝宝的鼻子说「Here's your nose!」建立五官词汇和实物的对应关系。</p>
 <p>### 句2：认识小手 <blockquote><strong>「Give me your hand! Open and close!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：让宝宝伸手「hand」，然后数手指「One, two, three, four, five!」小手歌配合数数。</p>
@@ -68,11 +98,13 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 <p>### 句5：照镜子认自己 <blockquote><strong>「Look! That's you! You are beautiful!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：抱着宝宝照镜子，指着镜子里的人说「That's [宝宝名字]!」让宝宝认识自己的脸和表情。</p>
 <p>---</p></div></div>
-<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div><div class="content"><p><strong>主歌：</strong> <ul> <li>:musical_note: One little finger, one little finger,</li> <li>:musical_note: One little finger tap tap tap!</li> <li>:musical_note: Put it up high! Put it up high!</li> <li>:musical_note: Put it down low! Put it down low!</li> <li>:musical_note: Put it on your... nose!</li> </ul></p>
+<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('head_shoulders')" title="点击播放音频">🔊 播放儿歌</button></div><div class="content"><p><strong>主歌：</strong> <ul> <li>:musical_note: One little finger, one little finger,</li> <li>:musical_note: One little finger tap tap tap!</li> <li>:musical_note: Put it up high! Put it up high!</li> <li>:musical_note: Put it down low! Put it down low!</li> <li>:musical_note: Put it on your... nose!</li> </ul></p>
 <p><strong>全身升级版：</strong> <ul> <li>:musical_note: One little hand, one little hand,</li> <li>:musical_note: Clap clap clap!</li> <li>:musical_note: Two little feet, two little feet,</li> <li>:musical_note: Stomp stomp stomp!</li> <li>:musical_note: One little body, one little body,</li> <li>:musical_note: Turn around!</li> </ul></p>
 <p><strong>怎么唱</strong>： 唱到哪个部位就指向哪里！手指、脚趾、鼻子、嘴巴……可以从慢速开始，逐渐加快速度，宝宝会笑得很开心！这首歌还可以无限延伸：elbow膝盖、手臂shoulders。唱完歌再指着宝宝的身体复习一遍。</p>
 <p>---</p></div></div>
-<div class="card" id="s3"><div class="card-title">📖 绘本预热</div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
+<div class="card" id="s3"><div class="card-title">📖 绘本预热</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('guli')" title="点击播放音频">🔊 播放绘本片段</button></div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
 <p>《我爸爸》用温暖的方式描述了宝宝眼中的爸爸，也可以延伸到宝宝认识自己的身体：</p>
 <p><strong>书中关键词</strong>： <ul> <li>`body` — 身体</li> <li>`strong` — 强壮</li> <li>`big` — 大</li> <li>`smile` — 微笑</li> </ul></p>
 <p>🗣️ <strong>亲子共读提示</strong>： 读完后抱着宝宝说「You are so big and strong!」让宝宝感受自己的身体，和书里的大熊爸爸比较一下！</p>
@@ -100,13 +132,6 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   <a href="issue-010.html" class="nav-btn">下一期 →</a>
 </div>
 
-<script>
-function showTab(id){
-  document.querySelectorAll('.card').forEach(e=>e.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
-}
-</script>
+
 </body>
 </html>
