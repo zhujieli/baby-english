@@ -3,303 +3,109 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>宝宝英语启蒙 · 第015期 · At the Park!</title>
+<title>宝宝英语启蒙 · 第015期 · 我的家</title>
 <style>
-:root{--p:#FF9B50;--pd:#E07A2F;--s:#7EC8E3;--sd:#4AABBF;--g:#66BB6A;--bg:#FFF9F0;--c:#FFF;--t:#3D3D3D;--tl:#7A7A7A}
+:root{--c:#26A69A;--bg:#F8F6F0;--card:#FFF;--text:#333;--sub:#666;--r:16px}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:#E8F5E9;color:var(--t);line-height:1.75;padding-bottom:80px;-webkit-font-smoothing:antialiased}
-.tts-btn{display:inline-flex;align-items:center;gap:4px;background:#FFF3E0;border:1.5px solid #FFE0B2;border-radius:20px;padding:3px 10px 3px 6px;font-size:12px;color:var(--pd);cursor:pointer;font-weight:600;margin-left:4px}
-.tts-btn:active{background:var(--p);color:#fff;border-color:var(--p)}
-.hero{background:linear-gradient(135deg,#FFE0B2 0%,#B3E5FC 100%);padding:44px 24px 36px;text-align:center;position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:#E8F5E9;border-radius:50% 50% 0 0}
-.hero-badge{display:inline-block;background:#4CAF50;color:#fff;font-size:12px;font-weight:700;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px}
-.hero h1{font-size:28px;font-weight:800;color:#2C2C2C;margin-bottom:6px}
-.hero-sub{font-size:14px;color:#6D4C41;margin-bottom:4px}
-.hero-meta{display:flex;justify-content:center;gap:16px;margin-top:12px;font-size:12px;color:#795548}
-.hero-meta span{background:rgba(255,255,255,.6);padding:3px 10px;border-radius:12px}
-.nav-tabs{display:flex;gap:6px;padding:20px 20px 6px;overflow-x:auto;scrollbar-width:none}
+body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:#26A69A11;color:var(--text);line-height:1.8;padding-bottom:90px;-webkit-font-smoothing:antialiased}
+.hero{background:linear-gradient(135deg,#26A69A22,#26A69A44);padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden;border-radius:0 0 40px 40px}
+.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:#26A69A11;border-radius:50% 50% 0 0}
+.hero-badge{display:inline-block;background:#26A69A;color:#fff;font-size:12px;font-weight:700;padding:5px 18px;border-radius:20px;letter-spacing:1px}
+.hero h1{font-size:30px;font-weight:800;color:#26A69A;margin:14px 0 4px}
+.hero-sub{font-size:17px;opacity:.8;font-weight:600;color:#26A69A}
+.hero-meta{display:flex;justify-content:center;gap:12px;margin-top:14px;flex-wrap:wrap}
+.hero-meta span{background:rgba(255,255,255,.7);padding:4px 14px;border-radius:14px;font-size:13px;color:#26A69A}
+.nav-tabs{display:flex;gap:6px;padding:20px 16px 6px;overflow-x:auto;scrollbar-width:none;flex-wrap:wrap}
 .nav-tabs::-webkit-scrollbar{display:none}
-.nav-tab{flex-shrink:0;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid #F0E8DC;background:#FFF;cursor:pointer;transition:all .2s}
-.nav-tab.active{background:#4CAF50;color:#fff;border-color:#4CAF50}
-.section-title{font-size:17px;font-weight:800;color:#2C2C2C;margin-bottom:14px;display:flex;align-items:center;gap:6px}
-.card{background:#FFF;border-radius:18px;margin:16px 16px;padding:20px;box-shadow:0 2px 14px rgba(0,0,0,.08)}
-.word-grid{display:flex;flex-direction:column;gap:12px}
-.word-card{background:linear-gradient(135deg,#FAFAFA,#F0F7FF);border-radius:14px;padding:14px 16px;border-left:4px solid var(--s)}
-.word-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px}
-.word-en{font-size:22px;font-weight:800;color:var(--pd)}
-.word-ipa{font-size:13px;color:var(--sd);font-style:italic;font-weight:500}
-.word-zh{font-size:14px;color:var(--tl);margin-bottom:6px}
-.word-tip{background:#E3F2FD;border-radius:10px;padding:8px 12px;font-size:13px;color:#1565C0;line-height:1.6}
-.word-example{background:#FFF8E1;border-radius:8px;padding:6px 12px;font-size:13px;color:#E65100;margin-top:6px;font-style:italic}
-.dialogue-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #FFF3E0}
-.dialogue-row:last-child{border-bottom:none}
-.d-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
-.d-bubble{flex:1;background:#F5F5F5;border-radius:12px;padding:10px 14px}
-.d-bubble.orange{background:#FFF3E0}
-.d-bubble.blue{background:#E3F2FD}
-.d-en{font-size:15px;font-weight:700;color:#2C2C2C;margin-bottom:3px}
-.d-zh{font-size:12px;color:var(--tl)}
-.song-card{background:linear-gradient(135deg,#F1F8E9,#E8F5E9);border-radius:18px;margin:16px 16px;padding:22px 20px;border:1.5px solid #C8E6C9}
-.song-header{text-align:center;margin-bottom:16px}
-.song-title{font-size:19px;font-weight:800;color:#2E7D32}
-.song-sub{font-size:12px;color:#689F38;margin-top:4px}
-.lyrics-box{background:rgba(255,255,255,.7);border-radius:14px;padding:16px}
-.lyric-line{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #C8E6C9;gap:8px}
-.lyric-text{flex:1}
-.lyric-en{font-size:15px;font-weight:600;color:#1B5E20}
-.lyric-zh{font-size:12px;color:#689F38;margin-top:2px}
-.phonics-card{background:linear-gradient(135deg,#F3E5F5,#EDE7F6);border-radius:18px;margin:16px 16px;padding:20px}
-.activity-card{background:linear-gradient(135deg,#E3F2FD,#E8EAF6);border-radius:18px;margin:16px 16px;padding:20px;border:1.5px solid #BBDEFB}
-.activity-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #BBDEFB}
-.activity-item:last-child{border-bottom:none}
-.activity-num{width:28px;height:28px;background:var(--s);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
-.activity-body{flex:1}
-.activity-title{font-size:15px;font-weight:700;color:#1565C0;margin-bottom:3px}
-.activity-desc{font-size:13px;color:#1976D2;line-height:1.6}
-.activity-phrase{background:rgba(255,255,255,.7);border-radius:8px;padding:6px 12px;font-size:14px;font-weight:700;color:#0D47A1;margin-top:6px;display:inline-block}
-.story-card{background:linear-gradient(135deg,#FFF9C4,#FFF3E0);border-radius:18px;margin:16px 16px;padding:20px;border:1.5px solid #FFE082}
-.story-header{text-align:center;margin-bottom:16px}
-.story-emoji{font-size:48px}
-.story-title{font-size:18px;font-weight:800;color:#E65100;margin-top:8px}
-.story-para{margin-bottom:12px}
-.story-en{font-size:15px;font-weight:700;color:#BF360C;margin-bottom:4px;line-height:1.7}
-.story-zh{font-size:13px;color:#795548;line-height:1.7}
-.checklist-card{background:linear-gradient(135deg,#E8F5E9,#F1F8E9);border-radius:18px;margin:16px 16px;padding:20px;border:1.5px solid #A5D6A7}
-.check-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #C8E6C9;cursor:pointer}
-.check-item:last-child{border-bottom:none}
-.check-box{width:24px;height:24px;border:2.5px solid #66BB6A;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.check-box.checked{background:#66BB6A}
-.check-text{font-size:14px;color:#2E7D32;font-weight:500}
-.footer-note{text-align:center;font-size:13px;color:var(--tl);padding:28px 20px 20px;line-height:2}
-.check-tips{background:#E8F5E9;border-radius:14px;padding:14px 16px;margin:12px 0 0;font-size:14px;color:#2E7D32;text-align:center}
+.tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #26A69A44;background:#fff;cursor:pointer;color:#26A69A;transition:all .2s}
+.tab.active{background:#26A69A;color:#fff;border-color:#26A69A}
+.card{background:#26A69A11;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #26A69A33;display:none}
+.card.active{display:block}
+.card-title{font-size:18px;font-weight:800;color:#26A69A;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #26A69A44;display:flex;align-items:center;gap:8px}
+.content p{margin:10px 0;font-size:15px;line-height:1.9}
+.content h4{font-size:16px;font-weight:700;color:#26A69A;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #26A69A44}
+.content blockquote{background:#26A69A22;border-left:4px solid #26A69A;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
+.content ul{list-style:none;margin:10px 0;padding:0}
+.content li{padding:9px 0 9px 22px;position:relative;font-size:15px;border-bottom:1px solid #26A69A22}
+.content li:last-child{border-bottom:none}
+.content li::before{content:'•';position:absolute;left:6px;color:#26A69A;font-weight:bold;font-size:18px;top:8px}
+.content strong{color:#26A69A}
+.footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #26A69A33;z-index:100;gap:12px}
+.footer a{flex:1;text-align:center;padding:13px;background:#26A69A;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
+.footer .nav-btn{background:#fff;color:#26A69A;border:2px solid #26A69A}
+.nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
 </head>
 <body>
 <div class="hero">
-  <div class="hero-badge">✨ 第 015 期</div>
-  <div style="font-size:68px;margin-bottom:10px">🌳</div>
-  <h1>At the Park!</h1>
-  <div class="hero-sub">字母 O · 公园玩耍</div>
+  <div class="hero-badge">第015期</div>
+  <h1>我的家</h1>
+  <div class="hero-sub">My Home!</div>
   <div class="hero-meta">
-    <span>📚 核心词汇</span>
-    <span>🎵 经典儿歌</span>
-    <span>🔤 字母认知</span>
+    <span>📅 每日10分钟</span>
+    <span>🎯 英语启蒙</span>
+    <span>👶 1.5-2岁</span>
   </div>
 </div>
 
-<div class="nav-tabs" id="navTabs"></div>
+<nav class="nav-tabs">
+  <button class="tab active" onclick="showTab('s1')">💬 金句</button>
+  <button class="tab" onclick="showTab('s2')">🎵 儿歌</button>
+  <button class="tab" onclick="showTab('s3')">📖 绘本</button>
+  <button class="tab" onclick="showTab('s4')">🔤 字母</button>
+  <button class="tab" onclick="showTab('s5')">🎮 活动</button>
+  <button class="tab" onclick="showTab('s6')">💡 贴士</button>
+</nav>
 
-<div class="card">
-  <div class="section-title">📚 核心词汇</div>
-  <div class="word-grid">
-        <div class="word-card">
-            <div class="word-top">
-                <span style="font-size:28px">🌳</span>
-                <span class="word-en">Park</span>
-                <span class="word-ipa">/pɑːrk/</span>
-                <button class="tts-btn" onclick="playTTS('Park')">🔊</button>
-            </div>
-            <div class="word-zh">公园</div>
-            <div class="word-tip">💡 Look! A park! Let's go to the park!</div>
-            <div class="word-example">📝 The park is beautiful today!</div>
-        </div>
-        <div class="word-card">
-            <div class="word-top">
-                <span style="font-size:28px">🛝</span>
-                <span class="word-en">Slide</span>
-                <span class="word-ipa">/slaɪd/</span>
-                <button class="tts-btn" onclick="playTTS('Slide')">🔊</button>
-            </div>
-            <div class="word-zh">滑梯</div>
-            <div class="word-tip">💡 Wheee! I'm sliding down!</div>
-            <div class="word-example">📝 One, two, three, go down the slide!</div>
-        </div>
-        <div class="word-card">
-            <div class="word-top">
-                <span style="font-size:28px">🎢</span>
-                <span class="word-en">Swing</span>
-                <span class="word-ipa">/swɪŋ/</span>
-                <button class="tts-btn" onclick="playTTS('Swing')">🔊</button>
-            </div>
-            <div class="word-zh">秋千</div>
-            <div class="word-tip">💡 Push me! I'm swinging!</div>
-            <div class="word-example">📝 Higher! Higher! Swing higher!</div>
-        </div>
-        <div class="word-card">
-            <div class="word-top">
-                <span style="font-size:28px">🏖️</span>
-                <span class="word-en">Sand</span>
-                <span class="word-ipa">/sænd/</span>
-                <button class="tts-btn" onclick="playTTS('Sand')">🔊</button>
-            </div>
-            <div class="word-zh">沙子</div>
-            <div class="word-tip">💡 Feel the sand! Sand is soft!</div>
-            <div class="word-example">📝 Let's build a sandcastle!</div>
-        </div>
-        <div class="word-card">
-            <div class="word-top">
-                <span style="font-size:28px">🌿</span>
-                <span class="word-en">Grass</span>
-                <span class="word-ipa">/ɡræs/</span>
-                <button class="tts-btn" onclick="playTTS('Grass')">🔊</button>
-            </div>
-            <div class="word-zh">草地</div>
-            <div class="word-tip">💡 Don't fall on the grass!</div>
-            <div class="word-example">📝 Grass is green and soft!</div>
-        </div></div>
-</div>
+<div class="card active" id="s1"><div class="card-title">💬 今日金句</div><div class="content"><p>### 句1：介绍客厅 <blockquote><strong>「This is our living room! Nice and cozy!」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：在客厅里指着沙发说「couch/sofa」，指着电视说「TV」，建立家居词汇和实物的对应。</p>
+<p>### 句2：介绍卧室 <blockquote><strong>「This is your bedroom! You sleep here!」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：宝宝的房间指着床说「bed」，指着窗户说「window」，指着衣柜说「closet」。</p>
+<p>### 句3：介绍厨房 <blockquote><strong>「The kitchen is where we cook! Smells so good!」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：厨房里指着冰箱说「fridge」，指着炉子说「stove」，指着桌子说「table」。</p>
+<p>### 句4：介绍卫生间 <blockquote><strong>「This is the bathroom! We brush teeth here!」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：指着洗手池说「sink」，指着马桶说「toilet」，指着浴缸说「bathtub」。</p>
+<p>### 句5：介绍家的温暖 <blockquote><strong>「Home sweet home! I love our home!」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：抱着宝宝说「This is our home! We are safe here!」让宝宝感受到家的安全感。</p>
+<p>---</p></div></div>
+<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div><div class="content"><p><strong>简单版本：</strong> <ul> <li>:musical_note: This is the way we go to bed,</li> <li>:musical_note: go to bed, go to bed!</li> <li>:musical_note: This is the way we go to bed,</li> <li>:musical_note: lovely home sweet home!</li> </ul></p>
+<p><strong>房间版：</strong> <ul> <li>:musical_note: This is the kitchen, we cook in here!</li> <li>:musical_note: This is the bedroom, we sleep in here!</li> <li>:musical_note: This is the bathroom, we wash in here!</li> <li>:musical_note: Lovely home sweet home!</li> </ul></p>
+<p><strong>怎么唱</strong>： 把This Is the Way改成房间版本！每个房间唱一句，边唱边带宝宝走到对应的房间「This is the kitchen!」让宝宝知道每个房间的名字和用途。也可以用手指指着每个房间的图片唱！</p>
+<p>---</p></div></div>
+<div class="card" id="s3"><div class="card-title">📖 绘本预热</div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
+<p>安东尼·布朗的《我爸爸》用温暖的方式描述了家庭成员，让宝宝理解每个家庭成员的重要性：</p>
+<p><strong>书中关键词</strong>： <ul> <li>`home` — 家</li> <li>`mom/mama` — 妈妈</li> <li>`dad/daddy` — 爸爸</li> <li>`baby` — 宝宝</li> <li>`family` — 家庭</li> </ul></p>
+<p>🗣️ <strong>亲子共读提示</strong>： 读完书后抱着宝宝说「We are a family! I love our family!」让宝宝知道家的意义不只是房子，更是爱的人。</p>
+<p>---</p></div></div>
+<div class="card" id="s4"><div class="card-title">🔤 字母认知</div><div class="content"><blockquote><strong>今日字母：O o — orange</strong></blockquote>
+<p>| 大写 | 小写 | 发音 | 联想词 | |------|------|------|--------| | O | o | /oʊ/ | 🍎 orange（橙子）|</p>
+<p><strong>联想词汇</strong>： <ul> <li><strong>Orange</strong> — 橙子：吃橙子「Orange! O for orange!」剥皮「peel it!」榨汁「juice!」</li> <li><strong>Owl</strong> — 猫头鹰：夜晚的猫头鹰「Owl! O for owl!」night bird! 眼睛大大的。</li> <li><strong>Octopus</strong> — 章鱼：八条腿的章鱼「Octopus! O for octopus!」在海里游来游去。</li> </ul></p>
+<p>🗣️ <strong>怎么教</strong>： 指着实物或图片说「Orange! O for orange!」宝宝会先学会说实物名称，字母认知自然就来了！</p>
+<p>---</p></div></div>
+<div class="card" id="s5"><div class="card-title">🎮 亲子活动</div><div class="content"><blockquote>🧒 每天15分钟高质量陪伴，胜过1小时敷衍相处</blockquote>
+<p>| 时间 | 活动 | |------|------| | 房间大搜索 | 在每个房间找一样东西说「Where's the bed? There it is!」 | | 家的安全规则 | 在厨房说「Hot! Don't touch!」在楼梯说「Hold the railing!」 | | 画我家 | 用蜡笔画家里的房间「Draw a bed!」画完指着说「I see a bed!」 | | 家庭成员歌 | 唱「I love my family」改编版本「I love mommy, I love daddy...」 |</p>
+<p>💡 <strong>互动贴士</strong>：把每个房间变成英语课堂，家具是最实用的词汇之一。</p>
+<blockquote>✅ 今天完成了吗？明天继续加油！💪</blockquote>
+<p>---</p></div></div>
+<div class="card" id="s6"><div class="card-title">💡 学习贴士</div><div class="content"><p><strong>1.5-2岁宝宝的语言学习规律：</strong></p>
+<blockquote>🧠 这个阶段宝宝处于「语言爆发期前夕」，听得越多、储备越丰富，18-24个月后会突然「开口」！</blockquote>
+<p><strong>三个关键原则：</strong> <strong>1. 家是最安全的学习环境</strong>：在熟悉的家里说英语，宝宝不会有压力，可以用全身反应法（TPR）充分练习。</p>
+<p><strong>2. 从最常用的开始</strong>：bed, table, chair, door, window是最高频的家居词汇，先教这些。</p>
+<p><strong>3. 家的归属感是情商基础</strong>：让宝宝知道「I belong here」是情商教育的一部分，用英语说「This is your home too.」</p>
+<p>---</p></div></div>
 
-
-        <div class="card">
-            <div class="section-title">🔤 字母认知</div>
-            <div class="phonics-card" style="margin:0;background:linear-gradient(135deg,#F3E5F5,#EDE7F6)">
-                <div style="display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid #E1BEE7">
-                    <div style="font-size:52px;width:70px;text-align:center">🍊</div>
-                    <div>
-                        <div style="font-size:32px;font-weight:800;color:#6A1B9A">Letter O O</div>
-                        <div style="font-size:14px;color:#7B1FA2;margin-top:4px">联想词：orange (橙子)</div>
-                    </div>
-                </div>
-                <div style="margin-top:12px;font-size:14px;color:#6A1B9A;background:rgba(255,255,255,.6);border-radius:10px;padding:10px 14px">
-                    🗣️ <strong>怎么教：</strong>指着橙子说 Orange! O for orange! O-O-Orange!
-                </div>
-            </div>
-        </div>
-
-<div class="card">
-  <div class="section-title">💬 情景对话</div>
-  
-        <div class="dialogue-row">
-            <div class="d-avatar" style="background:#FFE0B2">
-                👶
-            </div>
-            <div class="d-bubble orange">
-                <div class="d-en">We're at the park!</div>
-                <div class="d-zh">我们到公园啦！</div>
-            </div>
-        </div>
-        <div class="dialogue-row">
-            <div class="d-avatar" style="background:#BBDEFB">
-                👨‍👩‍👧
-            </div>
-            <div class="d-bubble blue">
-                <div class="d-en">I want to slide!</div>
-                <div class="d-zh">我想玩滑梯！</div>
-            </div>
-        </div>
-        <div class="dialogue-row">
-            <div class="d-avatar" style="background:#FFE0B2">
-                👶
-            </div>
-            <div class="d-bubble orange">
-                <div class="d-en">Wait for your turn!</div>
-                <div class="d-zh">排队等一下！</div>
-            </div>
-        </div>
-</div>
-
-<div class="song-card">
-  <div class="song-header">
-    <div style="font-size:40px">🎶</div>
-    <div class="song-title">At the Park</div>
-  </div>
-  <div class="lyrics-box">
-    
-        <div class="lyric-line">
-            <div class="lyric-text">
-                <div class="lyric-en">At the park, at the park,</div>
-                
-            </div>
-            <button class="tts-btn" onclick="playTTS('At the park, at the park,')">🔊</button>
-        </div>
-        <div class="lyric-line">
-            <div class="lyric-text">
-                <div class="lyric-en">We play all day!</div>
-                
-            </div>
-            <button class="tts-btn" onclick="playTTS('We play all day!')">🔊</button>
-        </div>
-        <div class="lyric-line">
-            <div class="lyric-text">
-                <div class="lyric-en">Slide and swing,</div>
-                
-            </div>
-            <button class="tts-btn" onclick="playTTS('Slide and swing,')">🔊</button>
-        </div>
-        <div class="lyric-line">
-            <div class="lyric-text">
-                <div class="lyric-en">And sing and play!</div>
-                
-            </div>
-            <button class="tts-btn" onclick="playTTS('And sing and play!')">🔊</button>
-        </div>
-  </div>
-  <div class="check-tips">🎵 到公园现场唱最有感觉，唱到哪个词就去做那个动作！</div>
-</div>
-
-<div class="story-card">
-  <div class="story-header">
-    <div class="story-emoji">🐻</div>
-    <div class="story-title">📖 小熊很忙</div>
-  </div>
-  <div class="story-para">小熊很忙系列有公园主题的书，让宝宝认识游乐设施！</div>
-  <div style="margin-top:12px"><span style="background:#FFF9C4;padding:4px 10px;border-radius:12px;font-size:13px;margin:3px;display:inline-block">park 公园</span><span style="background:#FFF9C4;padding:4px 10px;border-radius:12px;font-size:13px;margin:3px;display:inline-block">playground 游乐场</span><span style="background:#FFF9C4;padding:4px 10px;border-radius:12px;font-size:13px;margin:3px;display:inline-block">slide 滑梯</span><span style="background:#FFF9C4;padding:4px 10px;border-radius:12px;font-size:13px;margin:3px;display:inline-block">climb 爬</span><span style="background:#FFF9C4;padding:4px 10px;border-radius:12px;font-size:13px;margin:3px;display:inline-block">fun 有趣</span></div>
-</div>
-
-<div class="checklist-card">
-  <div class="section-title">✅ 打卡记录</div>
-  
-        <div class="check-item" onclick="toggleCheck(this)">
-            <div class="check-box"><span style="color:#fff;font-size:14px">✓</span></div>
-            <div class="check-text">学会了 park / slide / swing / sand / grass</div>
-        </div>
-        <div class="check-item" onclick="toggleCheck(this)">
-            <div class="check-box"><span style="color:#fff;font-size:14px">✓</span></div>
-            <div class="check-text">去公园用了英语</div>
-        </div>
-        <div class="check-item" onclick="toggleCheck(this)">
-            <div class="check-box"><span style="color:#fff;font-size:14px">✓</span></div>
-            <div class="check-text">唱了 At the Park</div>
-        </div>
-        <div class="check-item" onclick="toggleCheck(this)">
-            <div class="check-box"><span style="color:#fff;font-size:14px">✓</span></div>
-            <div class="check-text">最喜欢公园里的什么？</div>
-        </div>
-  <div class="check-tips" style="background:#FFF9C4;color:#E65100;margin-top:16px">
-    💬 最喜欢公园里的什么？
-  </div>
-</div>
-
-<div class="footer-note">
-  🌱 每天12分钟，为宝宝种下英语的种子<br>
-  加油，爸爸妈妈！
+<div class="footer">
+  <a href="issue-014.html" class="nav-btn">← 上一期</a>
+  <a href="index.html">📚 目录</a>
+  <a href="issue-016.html" class="nav-btn">下一期 →</a>
 </div>
 
 <script>
-// 导航
-const episodes = ["01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26"];
-const current = "015".padStart(3,'0').slice(-2);
-const nav = document.getElementById('navTabs');
-episodes.forEach(n => {
-  const a = document.createElement('a');
-  a.className = 'nav-tab' + (n === current ? ' active' : '');
-  a.textContent = n;
-  a.href = 'issue-' + n + '.html';
-  nav.appendChild(a);
-});
-
-// TTS
-function playTTS(text) {
-  if (!window.speechSynthesis) return;
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'en-US'; u.rate = 0.85;
-  speechSynthesis.cancel();
-  speechSynthesis.speak(u);
-}
-
-// 打卡
-function toggleCheck(el) {
-  el.querySelector('.check-box').classList.toggle('checked');
+function showTab(id){
+  document.querySelectorAll('.card').forEach(e=>e.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
 }
 </script>
 </body>
