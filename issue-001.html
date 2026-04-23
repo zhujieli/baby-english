@@ -3,768 +3,110 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>宝宝英语启蒙 · 第001期 · Hello!</title>
+<title>宝宝英语启蒙 · 第001期 · 早上起床</title>
 <style>
-:root{--p:#FF9B50;--pd:#E07A2F;--s:#7EC8E3;--sd:#4AABBF;--g:#66BB6A;--bg:#FFF9F0;--c:#FFF;--t:#3D3D3D;--tl:#7A7A7A}
+:root{--c:#FF9B50;--bg:#F8F6F0;--card:#FFF;--text:#333;--sub:#666;--r:16px}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--t);line-height:1.75;padding-bottom:80px;-webkit-font-smoothing:antialiased}
-/* 按钮 */
-.tts-btn{display:inline-flex;align-items:center;gap:4px;background:#FFF3E0;border:1.5px solid #FFE0B2;border-radius:20px;padding:3px 10px 3px 6px;font-size:12px;color:var(--pd);cursor:pointer;font-weight:600;margin-left:4px;vertical-align:middle;-webkit-tap-highlight-color:transparent;user-select:none;transition:all .2s}
-.tts-btn:active{background:var(--p);color:#fff;border-color:var(--p);transform:scale(0.95)}
-.tts-btn.playing{background:#FF5722;color:#fff;animation:pulse .6s infinite}
-.play-btn{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#FF9B50,#FF6B35);color:#fff;border:none;border-radius:12px;padding:8px 18px;font-size:14px;font-weight:700;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:all .2s;box-shadow:0 3px 10px rgba(255,107,53,.3)}
-.play-btn:active{transform:scale(0.96);box-shadow:none}
-.play-btn.playing{opacity:.7}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
-/* Hero */
-.hero{background:linear-gradient(135deg,#FFE0B2 0%,#B3E5FC 100%);padding:44px 24px 36px;text-align:center;position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:var(--bg);border-radius:50% 50% 0 0}
-.hero-badge{display:inline-block;background:var(--p);color:#fff;font-size:12px;font-weight:700;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px}
-.hero h1{font-size:28px;font-weight:800;color:#2C2C2C;margin-bottom:6px;line-height:1.3}
-.hero-sub{font-size:14px;color:#6D4C41;margin-bottom:4px}
-.hero-meta{display:flex;justify-content:center;gap:16px;margin-top:12px;font-size:12px;color:#795548}
-.hero-meta span{background:rgba(255,255,255,.6);padding:3px 10px;border-radius:12px}
-/* 导航 */
-.nav-tabs{display:flex;gap:6px;padding:20px 20px 6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:#FF9B5011;color:var(--text);line-height:1.8;padding-bottom:90px;-webkit-font-smoothing:antialiased}
+.hero{background:linear-gradient(135deg,#FF9B5022,#FF9B5044);padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden;border-radius:0 0 40px 40px}
+.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:#FF9B5011;border-radius:50% 50% 0 0}
+.hero-badge{display:inline-block;background:#FF9B50;color:#fff;font-size:12px;font-weight:700;padding:5px 18px;border-radius:20px;letter-spacing:1px}
+.hero h1{font-size:30px;font-weight:800;color:#FF9B50;margin:14px 0 4px}
+.hero-sub{font-size:17px;opacity:.8;font-weight:600;color:#FF9B50}
+.hero-meta{display:flex;justify-content:center;gap:12px;margin-top:14px;flex-wrap:wrap}
+.hero-meta span{background:rgba(255,255,255,.7);padding:4px 14px;border-radius:14px;font-size:13px;color:#FF9B50}
+.nav-tabs{display:flex;gap:6px;padding:20px 16px 6px;overflow-x:auto;scrollbar-width:none;flex-wrap:wrap}
 .nav-tabs::-webkit-scrollbar{display:none}
-.nav-tab{flex-shrink:0;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid #F0E8DC;background:#FFF;cursor:pointer;transition:all .2s}
-.nav-tab.active{background:var(--p);color:#fff;border-color:var(--p)}
-/* 通用卡片 */
-.section-title{font-size:17px;font-weight:800;color:#2C2C2C;margin-bottom:14px;display:flex;align-items:center;gap:6px}
-.card{background:#FFF;border-radius:18px;margin:16px 16px;padding:20px;box-shadow:0 2px 14px rgba(255,155,80,.12)}
-/* 导读 */
-.intro-box{background:linear-gradient(135deg,#FFF3E0,#E8F5E9);border-left:4px solid var(--p);border-radius:16px;margin:20px 16px 4px;padding:16px 18px;font-size:14.5px;line-height:1.8}
-.intro-box p{margin-bottom:6px}
-.intro-box p:last-child{margin-bottom:0;color:var(--tl);font-size:13px}
-/* 单词卡 */
-.word-grid{display:flex;flex-direction:column;gap:12px}
-.word-card{background:linear-gradient(135deg,#FAFAFA,#F0F7FF);border-radius:14px;padding:14px 16px;border-left:4px solid var(--s)}
-.word-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px}
-.word-en{font-size:22px;font-weight:800;color:var(--pd)}
-.word-ipa{font-size:13px;color:var(--sd);font-style:italic;font-weight:500}
-.word-zh{font-size:14px;color:var(--tl);margin-bottom:6px}
-.word-tip{background:#E3F2FD;border-radius:10px;padding:8px 12px;font-size:13px;color:#1565C0;line-height:1.6}
-.word-example{background:#FFF8E1;border-radius:8px;padding:6px 12px;font-size:13px;color:#E65100;margin-top:6px;font-style:italic}
-/* 情景对话 */
-.scene-header{background:linear-gradient(135deg,#FFF8E1,#FFF3E0);border-radius:14px 14px 0 0;padding:12px 16px;border-bottom:1.5px dashed #FFD54F;margin:-20px -20px 16px}
-.scene-title{font-size:15px;font-weight:700;color:#E65100}
-.scene-sub{font-size:12px;color:#BF8A3D;margin-top:2px}
-.dialogue-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #FFF3E0}
-.dialogue-row:last-child{border-bottom:none}
-.d-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
-.d-bubble{flex:1;background:#F5F5F5;border-radius:12px;padding:10px 14px}
-.d-bubble.orange{background:#FFF3E0}
-.d-bubble.blue{background:#E3F2FD}
-.d-bubble.green{background:#F1F8E9}
-.d-en{font-size:15px;font-weight:700;color:#2C2C2C;margin-bottom:3px}
-.d-zh{font-size:12px;color:var(--tl)}
-/* 儿歌 */
-.song-card{background:linear-gradient(135deg,#F1F8E9,#E8F5E9);border-radius:18px;margin:16px 16px;padding:22px 20px;border:1.5px solid #C8E6C9}
-.song-header{text-align:center;margin-bottom:16px}
-.song-title{font-size:19px;font-weight:800;color:#2E7D32}
-.song-sub{font-size:12px;color:#689F38;margin-top:4px}
-.song-info{display:flex;justify-content:center;gap:10px;margin-top:8px}
-.song-tag{background:#C8E6C9;color:#2E7D32;font-size:11px;padding:2px 10px;border-radius:10px;font-weight:600}
-.lyrics-box{background:rgba(255,255,255,.7);border-radius:14px;padding:16px}
-.lyric-line{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #C8E6C9;gap:8px}
-.lyric-line:last-child{border-bottom:none}
-.lyric-text{flex:1}
-.lyric-en{font-size:15px;font-weight:600;color:#1B5E20}
-.lyric-zh{font-size:12px;color:#689F38;margin-top:2px}
-.song-play-all{display:flex;justify-content:center;margin-top:16px}
-/* 发音技巧 */
-.phonics-card{background:linear-gradient(135deg,#F3E5F5,#EDE7F6);border-radius:18px;margin:16px 16px;padding:20px}
-.phonics-row{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid #E1BEE7}
-.phonics-row:last-child{border-bottom:none}
-.phonics-icon{font-size:32px;width:44px;text-align:center;flex-shrink:0}
-.phonics-body{flex:1}
-.phonics-word{font-size:20px;font-weight:800;color:#6A1B9A}
-.phonics-desc{font-size:13px;color:#7B1FA2;margin-top:2px}
-.phonics-tip{font-size:12px;color:#9C27B0;background:rgba(255,255,255,.6);border-radius:8px;padding:4px 10px;margin-top:4px}
-/* 场景活动 */
-.activity-card{background:linear-gradient(135deg,#E3F2FD,#E8EAF6);border-radius:18px;margin:16px 16px;padding:20px;border:1.5px solid #BBDEFB}
-.activity-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #BBDEFB}
-.activity-item:last-child{border-bottom:none}
-.activity-num{width:28px;height:28px;background:var(--s);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
-.activity-body{flex:1}
-.activity-title{font-size:15px;font-weight:700;color:#1565C0;margin-bottom:3px}
-.activity-desc{font-size:13px;color:#1976D2;line-height:1.6}
-.activity-phrase{background:rgba(255,255,255,.7);border-radius:8px;padding:6px 12px;font-size:14px;font-weight:700;color:#0D47A1;margin-top:6px;display:inline-block}
-/* 绘本故事 */
-.story-card{background:linear-gradient(135deg,#FFF9C4,#FFF3E0);border-radius:18px;margin:16px 16px;padding:20px;border:1.5px solid #FFE082}
-.story-header{text-align:center;margin-bottom:16px}
-.story-emoji{font-size:48px}
-.story-title{font-size:18px;font-weight:800;color:#E65100;margin-top:8px}
-.story-para{margin-bottom:12px}
-.story-en{font-size:15px;font-weight:700;color:#BF360C;margin-bottom:4px;line-height:1.7}
-.story-zh{font-size:13px;color:#795548;line-height:1.7}
-/* 进度 */
-.checklist-card{background:linear-gradient(135deg,#E8F5E9,#F1F8E9);border-radius:18px;margin:16px 16px;padding:20px;border:1.5px solid #A5D6A7}
-.check-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #C8E6C9;cursor:pointer}
-.check-item:last-child{border-bottom:none}
-.check-box{width:24px;height:24px;border:2.5px solid #66BB6A;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s}
-.check-box.checked{background:#66BB6A;border-color:#66BB6A}
-.check-text{font-size:14px;color:#2E7D32;font-weight:500}
-/* 大句子跟读 */
-.repeat-card{background:#FFF3E0;border-radius:14px;padding:16px 18px;margin:8px 16px;text-align:center;border:1.5px solid #FFE0B2}
-.repeat-en{font-size:21px;font-weight:800;color:var(--pd);margin-bottom:8px;line-height:1.4}
-.repeat-zh{font-size:13px;color:var(--tl);margin-bottom:10px}
-/* Footer */
-.footer-note{text-align:center;font-size:13px;color:var(--tl);padding:28px 20px 20px;line-height:2}
-.footer-note a{color:var(--p);text-decoration:none;font-weight:600}
-.preview-tag{display:inline-block;background:#FFF3E0;border:1.5px solid var(--p);color:var(--pd);padding:4px 14px;border-radius:12px;font-size:13px;font-weight:600;margin-top:8px}
-/* 分割线标题 */
-.divider-title{display:flex;align-items:center;gap:8px;margin:24px 16px 0;font-size:12px;color:var(--tl);font-weight:600;text-transform:uppercase;letter-spacing:1px}
-.divider-title::before,.divider-title::after{content:'';flex:1;height:1px;background:#F0E8DC}
+.tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #FF9B5044;background:#fff;cursor:pointer;color:#FF9B50;transition:all .2s}
+.tab.active{background:#FF9B50;color:#fff;border-color:#FF9B50}
+.card{background:#FF9B5011;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #FF9B5033;display:none}
+.card.active{display:block}
+.card-title{font-size:18px;font-weight:800;color:#FF9B50;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #FF9B5044;display:flex;align-items:center;gap:8px}
+.content p{margin:10px 0;font-size:15px;line-height:1.9}
+.content h4{font-size:16px;font-weight:700;color:#FF9B50;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #FF9B5044}
+.content blockquote{background:#FF9B5022;border-left:4px solid #FF9B50;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
+.content ul{list-style:none;margin:10px 0;padding:0}
+.content li{padding:9px 0 9px 22px;position:relative;font-size:15px;border-bottom:1px solid #FF9B5022}
+.content li:last-child{border-bottom:none}
+.content li::before{content:'•';position:absolute;left:6px;color:#FF9B50;font-weight:bold;font-size:18px;top:8px}
+.content strong{color:#FF9B50}
+.footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #FF9B5033;z-index:100;gap:12px}
+.footer a{flex:1;text-align:center;padding:13px;background:#FF9B50;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
+.footer .nav-btn{background:#fff;color:#FF9B50;border:2px solid #FF9B50}
+.nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
 </head>
 <body>
-
-<!-- HERO -->
 <div class="hero">
-  <div class="hero-badge">✨ 第 001 期</div>
-  <div style="font-size:68px;margin-bottom:10px">👋</div>
-  <h1>Hello, Baby!</h1>
-  <div class="hero-sub">字母 A · 打招呼问候</div>
+  <div class="hero-badge">第001期</div>
+  <h1>早上起床</h1>
+  <div class="hero-sub">Wake Up Time!</div>
   <div class="hero-meta">
-    <span>🕐 约12分钟</span>
-    <span>📖 适合1.5–2岁</span>
-    <span>🎯 5个核心词</span>
+    <span>📅 每日10分钟</span>
+    <span>🎯 英语启蒙</span>
+    <span>👶 1.5-2岁</span>
   </div>
 </div>
 
-<!-- 导航 -->
-<div class="nav-tabs">
-  <span class="nav-tab active" onclick="location.href='issue-001.html'">001·A</span>
-  <span class="nav-tab" onclick="location.href='issue-002.html'">002·B</span>
-  <span class="nav-tab" onclick="location.href='issue-003.html'">003·C</span>
-  <span class="nav-tab" onclick="location.href='issue-004.html'">004·D</span>
-  <span class="nav-tab" onclick="location.href='issue-005.html'">005·E</span>
+<nav class="nav-tabs">
+  <button class="tab active" onclick="showTab('s1')">💬 金句</button>
+  <button class="tab" onclick="showTab('s2')">🎵 儿歌</button>
+  <button class="tab" onclick="showTab('s3')">📖 绘本</button>
+  <button class="tab" onclick="showTab('s4')">🔤 字母</button>
+  <button class="tab" onclick="showTab('s5')">🎮 活动</button>
+  <button class="tab" onclick="showTab('s6')">💡 贴士</button>
+</nav>
+
+<div class="card active" id="s1"><div class="card-title">💬 今日金句</div><div class="content"><p>### 句1：叫醒宝宝 <blockquote><strong>"Good morning, baby! Time to wake up!"</strong></blockquote> <blockquote>早上好，宝贝！该起床啦！</blockquote></p>
+<p>💡 <strong>怎么用</strong>：每天早上推开宝宝房间门时说，配合轻轻拍拍小手或掀被子的动作。</p>
+<p>---</p>
+<p>### 句2：起来啦 <blockquote><strong>"Come on, get up! Rise and shine!"</strong></blockquote> <blockquote>来吧，起来！新的一天开始咯！</blockquote></p>
+<p>💡 <strong>怎么用</strong>：宝宝不想起床时，用欢快的语调说，边说边做拉手站起来的动作。</p>
+<p>---</p>
+<p>### 句3：太阳出来了 <blockquote><strong>"Look! The sun is up! It's a beautiful day!"</strong></blockquote> <blockquote>看！太阳出来了！今天天气真好！</blockquote></p>
+<p>💡 <strong>怎么用</strong>：拉开窗帘的时候指着窗外说，让宝宝跟着看阳光。</p>
+<p>---</p>
+<p>### 句4：肚子饿了吗 <blockquote><strong>"Are you hungry? Let's have breakfast!"</strong></blockquote> <blockquote>你饿了吗？我们去吃早饭吧！</blockquote></p>
+<p>💡 <strong>怎么用</strong>：起床后引导宝宝去厨房，重复"hungry（饿）""breakfast（早饭）"这两个词。</p>
+<p>---</p>
+<p>### 句5：睡好了吗 <blockquote><strong>"Did you sleep well? Did you have sweet dreams?"</strong></blockquote> <blockquote>你睡得好吗？有没有做甜甜的梦？</blockquote></p>
+<p>💡 <strong>怎么用</strong>：抱着宝宝的时候温柔地问，宝宝会慢慢学会做出回应的表情或动作。</p>
+<p>---</p></div></div>
+<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div><div class="content"><blockquote>🎶 <strong>"Good morning, good morning, good morning to you!</strong></blockquote>
+<blockquote><strong>Good morning, good morning, I'm glad to see you!"</strong></blockquote>
+<p><strong>怎么唱</strong>： <ul> <li>妈妈/爸爸抱着宝宝，摇晃着唱</li> <li>唱到"to you"时用手指向宝宝</li> <li>可以反复唱2-3遍，宝宝很快就会跟着哼哼！</li> </ul></p>
+<p>---</p></div></div>
+<div class="card" id="s3"><div class="card-title">📖 绘本预热</div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
+<p>《古力小超人》里有一页是古力早上起床穿衣服的场景，可以配合今天的主题使用：</p>
+<p><strong>书中关键词</strong>： <ul> <li>`wake up` — 醒来</li> <li>`stretch` — 伸懒腰</li> <li>`yawn` — 打哈欠</li> <li>`put on clothes` — 穿衣服</li> </ul></p>
+<p>🗣️ <strong>亲子共读提示</strong>： 指着图中古力伸懒腰的画面说 *"Look! He's stretching! Can you stretch?"* 鼓励宝宝模仿动作！</p>
+<p>---</p></div></div>
+<div class="card" id="s4"><div class="card-title">🔤 字母认知</div><div class="content"><blockquote><strong>今日字母：A a</strong></blockquote>
+<p>| 大写 | 小写 | 发音 | 联想词 | |------|------|------|--------| | A | a | /eɪ/ | 🍎 apple（苹果）|</p>
+<p><strong>记忆口诀</strong>： <blockquote>"A像一座小山峰，上面尖尖脚踩地" ⛰️</blockquote></p>
+<p>🗣️ <strong>怎么教</strong>： 指着苹果/苹果图片说 *"Apple! A for apple! A-A-Apple!"* 宝宝会先学会说"apple"，字母认知自然就来了！</p>
+<p>---</p></div></div>
+<div class="card" id="s5"><div class="card-title">🎮 亲子活动</div><div class="content"><p>| 时间 | 活动 | |------|------| | 起床时 | 说3遍 "Good morning, baby!" | | 拉窗帘时 | 说 "Look! The sun is up!" | | 去厨房时 | 说 "Let's have breakfast!" | | 饭后 | 一起唱一遍 Good Morning Song |</p>
+<blockquote>✅ 今天完成了吗？明天继续加油！</blockquote>
+<p>---</p></div></div>
+<div class="card" id="s6"><div class="card-title">💡 学习贴士</div><div class="content"><p><strong>1.5-2岁宝宝的语言学习规律：</strong></p>
+<blockquote>🧠 这个阶段宝宝处于"语言爆发期前夕"，听得越多、储备越丰富，18个月后会突然"开口"！</blockquote>
+<p><strong>三个关键原则：</strong> 1. <strong>重复 > 数量</strong>：同一句话重复100遍，比教100句话一遍效果好10倍 2. <strong>动作配合</strong>：说"wake up"时做起床动作，宝宝身体记忆最深刻 3. <strong>不强迫跟读</strong>：听懂就够了，让宝宝主动模仿，不要强制开口</p>
+<p>---</p></div></div>
+
+<div class="footer">
+  <span class="nav-btn nav-disabled">← 暂无</span>
+  <a href="index.html">📚 目录</a>
+  <a href="issue-002.html" class="nav-btn">下一期 →</a>
 </div>
 
-<!-- 导读 -->
-<div class="intro-box">
-  <p>👋 宝宝学英语，从最常用的 <b>Hello</b> 和 <b>Bye Bye</b> 开始！打招呼是社交礼仪的第一步，宝宝每天都能用上。配合手势、眼神和微笑，让宝宝在快乐互动中自然习得语言。</p>
-  <p>💡 本期目标：认识 5 个问候词，学唱 2 首儿歌，掌握全天候打招呼场景</p>
-</div>
-
-<!-- ===== 模块1：核心词汇 ===== -->
-<div class="divider-title">📚 模块一 · 今日核心词汇</div>
-<div class="card">
-  <div class="section-title">📚 今日 5 个核心词</div>
-  <div class="word-grid">
-
-    <div class="word-card">
-      <div class="word-top">
-        <span class="word-en">Hello</span>
-        <span class="word-ipa">/həˈloʊ/</span>
-        <button class="tts-btn" onclick="playAudio('hello.mp3','Hello',this)">🔊 听发音</button>
-      </div>
-      <div class="word-zh">你好 · 喂（打招呼、接电话）</div>
-      <div class="word-tip">💡 爸爸妈妈每天早上见到宝宝第一句说 <b>Hello baby!</b>，让宝宝把 Hello 和快乐联系起来。</div>
-      <div class="word-example">"Hello, baby! Good morning! 👋"</div>
-    </div>
-
-    <div class="word-card">
-      <div class="word-top">
-        <span class="word-en">Bye Bye</span>
-        <span class="word-ipa">/baɪ baɪ/</span>
-        <button class="tts-btn" onclick="playAudio('bye.mp3','Bye Bye',this)">🔊 听发音</button>
-      </div>
-      <div class="word-zh">再见 · 拜拜（最常用的告别语）</div>
-      <div class="word-tip">💡 出门前让宝宝挥挥小手说 <b>Bye Bye!</b> 进门时说 Hello！建立仪式感，宝宝超爱模仿。</div>
-      <div class="word-example">"Bye bye, daddy! See you later! 👋"</div>
-    </div>
-
-    <div class="word-card">
-      <div class="word-top">
-        <span class="word-en">Good morning</span>
-        <span class="word-ipa">/ɡʊd ˈmɔːrnɪŋ/</span>
-        <button class="tts-btn" onclick="playAudio('good_morning.mp3','Good morning',this)">🔊 听发音</button>
-      </div>
-      <div class="word-zh">早上好</div>
-      <div class="word-tip">💡 每天早上轻声叫醒宝宝时说 <b>Good morning!</b> 搭配一个拥抱，培养英语语感和时间意识。</div>
-      <div class="word-example">"Good morning, sunshine! 🌞"</div>
-    </div>
-
-    <div class="word-card">
-      <div class="word-top">
-        <span class="word-en">Good night</span>
-        <span class="word-ipa">/ɡʊd naɪt/</span>
-        <button class="tts-btn" onclick="playAudio('good_night.mp3','Good night',this)">🔊 听发音</button>
-      </div>
-      <div class="word-zh">晚安（睡前告别）</div>
-      <div class="word-tip">💡 关灯前抱着宝宝轻声说 <b>Good night, sweet dreams!</b> 形成睡前英语仪式，宝宝会期待这个时刻。</div>
-      <div class="word-example">"Good night, baby. Sweet dreams! 🌙"</div>
-    </div>
-
-    <div class="word-card">
-      <div class="word-top">
-        <span class="word-en">See you</span>
-        <span class="word-ipa">/siː juː/</span>
-        <button class="tts-btn" onclick="playAudio('see_you.mp3','See you',this)">🔊 听发音</button>
-      </div>
-      <div class="word-zh">再见 · 一会儿见（轻松告别）</div>
-      <div class="word-tip">💡 比 Goodbye 更日常、更活泼！分开时说 <b>See you!</b> 宝宝很容易跟着模仿。</div>
-      <div class="word-example">"See you later, alligator! 🐊"</div>
-    </div>
-
-  </div>
-</div>
-
-<!-- 大声跟读1 -->
-<div class="repeat-card">
-  <div class="repeat-en">Hello! 👋 Good morning!</div>
-  <div class="repeat-zh">大声跟妈妈/爸爸一起说！</div>
-  <button class="play-btn" onclick="playAudio('hello_mom.mp3','Hello! Good morning!',this)">🎙️ 点我跟读</button>
-</div>
-
-<!-- ===== 模块2：字母A ===== -->
-<div class="divider-title">🔤 模块二 · 字母 A 认知</div>
-<div class="card">
-  <div class="section-title">🔤 字母 A — 第一个字母</div>
-  <div class="phonics-row" style="background:#F3E5F5;border-radius:12px;padding:12px 14px;margin-bottom:12px">
-    <div style="font-size:72px;font-weight:900;color:#6A1B9A;width:80px;text-align:center;line-height:1">A</div>
-    <div style="flex:1">
-      <div style="font-size:14px;color:#7B1FA2;font-weight:700;margin-bottom:4px">大写 A · 小写 a</div>
-      <div style="font-size:13px;color:#9C27B0;line-height:1.7">发音：<b>/eɪ/</b>（"诶"的音）<br>歌里唱的第一个就是 A！</div>
-      <button class="tts-btn" onclick="playAudio('nursery_a1.mp3','A, A, A! Apple starts with A!',this)" style="margin-top:8px">🔊 听 A 的发音</button>
-    </div>
-  </div>
-  <div class="phonics-row">
-    <div class="phonics-icon">🍎</div>
-    <div class="phonics-body">
-      <div class="phonics-word">Apple <span style="font-size:14px;font-weight:400;color:#9C27B0">/ˈæpəl/</span></div>
-      <div class="phonics-desc">苹果 · A 开头的经典单词</div>
-      <div class="phonics-tip">🌟 A for Apple！边说边拿一个苹果给宝宝看，加深印象</div>
-    </div>
-    <button class="tts-btn" onclick="playAudio('apple.mp3','Apple',this)">🔊</button>
-  </div>
-  <div class="phonics-row">
-    <div class="phonics-icon">✈️</div>
-    <div class="phonics-body">
-      <div class="phonics-word">Airplane <span style="font-size:14px;font-weight:400;color:#9C27B0">/ˈɛrˌpleɪn/</span></div>
-      <div class="phonics-desc">飞机 · A 开头的宝宝最爱</div>
-      <div class="phonics-tip">🌟 指着天上的飞机说 Airplane！宝宝一定会抬头看</div>
-    </div>
-    <button class="tts-btn" onclick="playAudio(null,'Airplane',this)">🔊</button>
-  </div>
-  <div class="phonics-row">
-    <div class="phonics-icon">🐜</div>
-    <div class="phonics-body">
-      <div class="phonics-word">Ant <span style="font-size:14px;font-weight:400;color:#9C27B0">/ænt/</span></div>
-      <div class="phonics-desc">蚂蚁 · 小小 A，小小蚂蚁</div>
-      <div class="phonics-tip">🌟 在地上找到蚂蚁时说 Ant！宝宝超感兴趣</div>
-    </div>
-    <button class="tts-btn" onclick="playAudio(null,'Ant',this)">🔊</button>
-  </div>
-</div>
-
-<!-- ===== 模块3：情景对话 ===== -->
-<div class="divider-title">💬 模块三 · 亲子情景对话</div>
-
-<div class="card">
-  <div class="scene-header">
-    <div class="scene-title">🌅 场景一：早晨起床</div>
-    <div class="scene-sub">每天早上叫宝宝起床时用起来！</div>
-  </div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#FFF3E0">👩</div>
-    <div class="d-bubble orange">
-      <div class="d-en">Good morning, baby! <button class="tts-btn" onclick="playAudio('morning_mom.mp3','Good morning, baby!',this)">🔊</button></div>
-      <div class="d-zh">早上好，宝贝！</div>
-    </div>
-  </div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#E3F2FD">👶</div>
-    <div class="d-bubble blue">
-      <div class="d-en">Good morning, Mom! <button class="tts-btn" onclick="playAudio(null,'Good morning, Mom!',this)">🔊</button></div>
-      <div class="d-zh">早上好，妈妈！</div>
-    </div>
-  </div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#FFF3E0">👨</div>
-    <div class="d-bubble orange">
-      <div class="d-en">Hello! How are you today? <button class="tts-btn" onclick="playAudio('hi_dad.mp3','Hello! How are you today?',this)">🔊</button></div>
-      <div class="d-zh">你好！今天怎么样？</div>
-    </div>
-  </div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#E3F2FD">👶</div>
-    <div class="d-bubble blue">
-      <div class="d-en">I am happy! 😄 <button class="tts-btn" onclick="playAudio(null,'I am happy!',this)">🔊</button></div>
-      <div class="d-zh">我很开心！</div>
-    </div>
-  </div>
-</div>
-
-<div class="card">
-  <div class="scene-header">
-    <div class="scene-title">🚪 场景二：出门 / 回家</div>
-    <div class="scene-sub">每次爸爸妈妈上班、下班时用！</div>
-  </div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#FFF3E0">👨</div>
-    <div class="d-bubble orange">
-      <div class="d-en">Daddy is going to work. Bye bye! <button class="tts-btn" onclick="playAudio(null,'Daddy is going to work. Bye bye!',this)">🔊</button></div>
-      <div class="d-zh">爸爸要去上班了，拜拜！</div>
-    </div>
-  </div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#E3F2FD">👶</div>
-    <div class="d-bubble blue">
-      <div class="d-en">Bye bye, Daddy! See you! <button class="tts-btn" onclick="playAudio(null,'Bye bye, Daddy! See you!',this)">🔊</button></div>
-      <div class="d-zh">拜拜，爸爸！再见！</div>
-    </div>
-  </div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#FFF3E0">👨</div>
-    <div class="d-bubble orange">
-      <div class="d-en">Daddy is home! Hello, baby! <button class="tts-btn" onclick="playAudio('hello_mom.mp3','Daddy is home! Hello, baby!',this)">🔊</button></div>
-      <div class="d-zh">爸爸回来了！你好呀宝贝！</div>
-    </div>
-  </div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#E3F2FD">👶</div>
-    <div class="d-bubble blue">
-      <div class="d-en">Hello, Daddy! Welcome home! <button class="tts-btn" onclick="playAudio(null,'Hello! Welcome home!',this)">🔊</button></div>
-      <div class="d-zh">爸爸好！欢迎回家！</div>
-    </div>
-  </div>
-</div>
-
-<div class="card">
-  <div class="scene-header">
-    <div class="scene-title">🌙 场景三：晚上睡前</div>
-    <div class="scene-sub">睡前仪式，固定每天说！</div>
-  </div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#FFF3E0">👩</div>
-    <div class="d-bubble orange">
-      <div class="d-en">It's bedtime, baby. <button class="tts-btn" onclick="playAudio(null,"It's bedtime, baby.",this)">🔊</button></div>
-      <div class="d-zh">宝宝，要睡觉咯。</div>
-    </div>
-  </div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#E3F2FD">👶</div>
-    <div class="d-bubble blue">
-      <div class="d-en">Good night, Mommy! <button class="tts-btn" onclick="playAudio(null,'Good night, Mommy!',this)">🔊</button></div>
-      <div class="d-zh">晚安，妈妈！</div>
-    </div>
-  </div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#FFF3E0">👩</div>
-    <div class="d-bubble orange">
-      <div class="d-en">Good night, my love. Sweet dreams! 🌙 <button class="tts-btn" onclick="playAudio('good_night_sweet_dreams.mp3','Good night, my love. Sweet dreams!',this)">🔊</button></div>
-      <div class="d-zh">晚安，我的宝贝。做个好梦！</div>
-    </div>
-  </div>
-</div>
-
-<!-- 大声跟读2 -->
-<div class="repeat-card">
-  <div class="repeat-en">Good night! 🌙 Sweet dreams!</div>
-  <div class="repeat-zh">睡前一起说这句话！</div>
-  <button class="play-btn" onclick="playAudio('good_night_sweet_dreams.mp3','Good night! Sweet dreams!',this)">🎙️ 点我跟读</button>
-</div>
-
-<!-- ===== 模块4：儿歌一 ===== -->
-<div class="divider-title">🎵 模块四 · 亲子儿歌（共2首）</div>
-
-<div class="song-card">
-  <div class="song-header">
-    <div class="song-title">🎵 Hello Song</div>
-    <div class="song-sub">经典问候歌 · 每天都能唱</div>
-    <div class="song-info">
-      <span class="song-tag">问候主题</span>
-      <span class="song-tag">节奏欢快</span>
-      <span class="song-tag">1-3岁适合</span>
-    </div>
-  </div>
-  <div class="lyrics-box">
-    <div class="lyric-line">
-      <div class="lyric-text">
-        <div class="lyric-en">Hello, hello, how are you?</div>
-        <div class="lyric-zh">你好你好，你怎么样？</div>
-      </div>
-      <button class="tts-btn" onclick="playAudio('nursery_1.mp3','Hello, hello, how are you?',this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <div class="lyric-text">
-        <div class="lyric-en">I am fine, I am fine, thank you!</div>
-        <div class="lyric-zh">我很好，我很好，谢谢！</div>
-      </div>
-      <button class="tts-btn" onclick="playAudio('nursery_2.mp3','I am fine, I am fine, thank you!',this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <div class="lyric-text">
-        <div class="lyric-en">Hello, hello, how are you?</div>
-        <div class="lyric-zh">你好你好，你怎么样？</div>
-      </div>
-      <button class="tts-btn" onclick="playAudio('nursery_1.mp3','Hello, hello, how are you?',this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <div class="lyric-text">
-        <div class="lyric-en">I am great, I am great, thank you!</div>
-        <div class="lyric-zh">我棒极了，我棒极了，谢谢！</div>
-      </div>
-      <button class="tts-btn" onclick="playAudio('nursery_2.mp3','I am great, I am great, thank you!',this)">🔊</button>
-    </div>
-  </div>
-  <div class="song-play-all">
-    <button class="play-btn" onclick="playAudio('nursery_1.mp3','Hello hello how are you. I am fine I am fine thank you. Hello hello how are you. I am great I am great thank you.',this)">🎵 听完整儿歌</button>
-  </div>
-  <div style="background:rgba(255,255,255,.6);border-radius:10px;padding:10px 14px;margin-top:14px;font-size:13px;color:#388E3C;line-height:1.8">
-    💡 <b>唱法提示：</b>用欢快的节奏唱，妈妈问"How are you?"，宝宝答"I am fine!"。可以边唱边拍手，宝宝很快就能跟着唱第一句！
-  </div>
-</div>
-
-<!-- 儿歌二 -->
-<div class="song-card" style="background:linear-gradient(135deg,#E3F2FD,#E8EAF6);border-color:#BBDEFB">
-  <div class="song-header">
-    <div class="song-title" style="color:#1565C0">🎵 Good Morning Song</div>
-    <div class="song-sub" style="color:#1976D2">早安歌 · 每天起床时唱</div>
-    <div class="song-info">
-      <span class="song-tag" style="background:#BBDEFB;color:#1565C0">早晨仪式</span>
-      <span class="song-tag" style="background:#BBDEFB;color:#1565C0">温柔节奏</span>
-    </div>
-  </div>
-  <div class="lyrics-box" style="background:rgba(255,255,255,.7)">
-    <div class="lyric-line" style="border-color:#BBDEFB">
-      <div class="lyric-text">
-        <div class="lyric-en" style="color:#1B5E20">Good morning, good morning!</div>
-        <div class="lyric-zh" style="color:#1976D2">早上好，早上好！</div>
-      </div>
-      <button class="tts-btn" onclick="playAudio('good_morning.mp3','Good morning, good morning!',this)">🔊</button>
-    </div>
-    <div class="lyric-line" style="border-color:#BBDEFB">
-      <div class="lyric-text">
-        <div class="lyric-en" style="color:#1B5E20">Good morning to you!</div>
-        <div class="lyric-zh" style="color:#1976D2">早上好，祝你好！</div>
-      </div>
-      <button class="tts-btn" onclick="playAudio(null,'Good morning to you!',this)">🔊</button>
-    </div>
-    <div class="lyric-line" style="border-color:#BBDEFB">
-      <div class="lyric-text">
-        <div class="lyric-en" style="color:#1B5E20">Good morning, dear baby,</div>
-        <div class="lyric-zh" style="color:#1976D2">亲爱的宝贝早上好，</div>
-      </div>
-      <button class="tts-btn" onclick="playAudio(null,'Good morning, dear baby,',this)">🔊</button>
-    </div>
-    <div class="lyric-line" style="border-color:#BBDEFB">
-      <div class="lyric-text">
-        <div class="lyric-en" style="color:#1B5E20">Good morning to you! ☀️</div>
-        <div class="lyric-zh" style="color:#1976D2">早上好，祝你愉快！</div>
-      </div>
-      <button class="tts-btn" onclick="playAudio('good_morning.mp3','Good morning to you! Good morning, dear baby, Good morning to you!',this)">🔊</button>
-    </div>
-  </div>
-  <div class="song-play-all">
-    <button class="play-btn" style="background:linear-gradient(135deg,#5C9BF5,#4A7BD5)" onclick="playAudio('good_morning.mp3','Good morning good morning, good morning to you! Good morning dear baby, good morning to you!',this)">🎵 听完整早安歌</button>
-  </div>
-  <div style="background:rgba(255,255,255,.6);border-radius:10px;padding:10px 14px;margin-top:14px;font-size:13px;color:#1565C0;line-height:1.8">
-    💡 <b>使用场景：</b>每天早上叫宝宝起床时，轻轻拍拍宝宝唱这首歌。用"Happy Birthday"的调子来唱，宝宝很容易跟上节奏！
-  </div>
-</div>
-
-<!-- ===== 模块5：绘本故事 ===== -->
-<div class="divider-title">📖 模块五 · 亲子小故事</div>
-
-<div class="story-card">
-  <div class="story-header">
-    <div class="story-emoji">🌞</div>
-    <div class="story-title">A Day with Hello!</div>
-    <div style="font-size:13px;color:#795548;margin-top:4px">一天中的问候时光 · 亲子共读</div>
-  </div>
-
-  <div class="story-para">
-    <div class="story-en">☀️ In the morning, the sun comes up. <br>"Good morning, baby!" says Mommy. <button class="tts-btn" onclick="playAudio('morning_mom.mp3','Good morning, baby!',this)">🔊</button></div>
-    <div class="story-zh">☀️ 早晨，太阳升起来了。妈妈说："早上好，宝贝！"</div>
-  </div>
-
-  <div class="story-para">
-    <div class="story-en">🐱 Baby sees a little cat. <br>"Hello, kitty!" says baby. <button class="tts-btn" onclick="playAudio(null,'Hello, kitty!',this)">🔊</button></div>
-    <div class="story-zh">🐱 宝宝看见一只小猫。宝宝说："你好，小猫！"</div>
-  </div>
-
-  <div class="story-para">
-    <div class="story-en">🏠 Grandma is at the door. <br>"Hello, grandma! How are you?" <button class="tts-btn" onclick="playAudio('nursery_1.mp3','Hello! How are you?',this)">🔊</button></div>
-    <div class="story-zh">🏠 奶奶来到门口。"你好，奶奶！你怎么样？"</div>
-  </div>
-
-  <div class="story-para">
-    <div class="story-en">😊 "I am fine, thank you!" Grandma smiles. <button class="tts-btn" onclick="playAudio('nursery_2.mp3','I am fine, thank you!',this)">🔊</button></div>
-    <div class="story-zh">😊 "我很好，谢谢！"奶奶微笑着说。</div>
-  </div>
-
-  <div class="story-para">
-    <div class="story-en">🌙 At night, Daddy hugs baby tight. <br>"Good night, sweet dreams!" <button class="tts-btn" onclick="playAudio('good_night_sweet_dreams.mp3','Good night, sweet dreams!',this)">🔊</button></div>
-    <div class="story-zh">🌙 晚上，爸爸紧紧抱着宝宝。"晚安，做个好梦！"</div>
-  </div>
-
-  <div style="background:rgba(255,255,255,.6);border-radius:10px;padding:12px 14px;margin-top:10px;font-size:13px;color:#795548;line-height:1.8">
-    📖 <b>共读提示：</b>指着书里的图画，让宝宝看着图说出 Hello / Bye bye / Good morning。重复读2-3遍，宝宝会开始跟着说！
-  </div>
-</div>
-
-<!-- ===== 模块6：发音技巧 ===== -->
-<div class="divider-title">🗣️ 模块六 · 家长发音指南</div>
-
-<div class="phonics-card">
-  <div class="section-title">🗣️ 发音要点 · 家长必看</div>
-
-  <div class="phonics-row">
-    <div class="phonics-icon">👋</div>
-    <div class="phonics-body">
-      <div class="phonics-word">Hello <span style="font-size:14px;color:#9C27B0">/həˈloʊ/</span></div>
-      <div class="phonics-desc">重音在第二个音节 lo，嘴型由半开到圆</div>
-      <div class="phonics-tip">📝 hə（轻声，嘴放松）→ LO（用力，嘴变圆，像说"楼"）</div>
-    </div>
-    <button class="tts-btn" onclick="playAudio('hello.mp3','Hello',this)">🔊</button>
-  </div>
-
-  <div class="phonics-row">
-    <div class="phonics-icon">🌅</div>
-    <div class="phonics-body">
-      <div class="phonics-word">Good morning <span style="font-size:14px;color:#9C27B0">/ɡʊd ˈmɔːrnɪŋ/</span></div>
-      <div class="phonics-desc">连读时 good 的 d 几乎不发音，重音在 MOR</div>
-      <div class="phonics-tip">📝 goo-d(轻)→ MOR（嘴大圆）→ ning（鼻音收尾）</div>
-    </div>
-    <button class="tts-btn" onclick="playAudio('good_morning.mp3','Good morning',this)">🔊</button>
-  </div>
-
-  <div class="phonics-row">
-    <div class="phonics-icon">👋</div>
-    <div class="phonics-body">
-      <div class="phonics-word">Bye bye <span style="font-size:14px;color:#9C27B0">/baɪ baɪ/</span></div>
-      <div class="phonics-desc">两个相同音节，第一个稍重，配合挥手动作</div>
-      <div class="phonics-tip">📝 bai（重）→ bai（轻松），嘴从开到合，非常好发音</div>
-    </div>
-    <button class="tts-btn" onclick="playAudio('bye.mp3','Bye bye',this)">🔊</button>
-  </div>
-
-  <div style="background:rgba(255,255,255,.6);border-radius:10px;padding:12px 14px;margin-top:12px;font-size:13px;color:#6A1B9A;line-height:1.8">
-    💡 <b>小技巧：</b>1岁半的宝宝学语言是靠大量重复输入。你说100次，宝宝可能只会说1次，但每次都很有价值！不要逼宝宝开口，先让耳朵听熟就对了。
-  </div>
-</div>
-
-<!-- ===== 模块7：日常活动建议 ===== -->
-<div class="divider-title">🎮 模块七 · 今日活动建议</div>
-
-<div class="activity-card">
-  <div class="section-title">🎮 4个超简单互动活动</div>
-
-  <div class="activity-item">
-    <div class="activity-num">1</div>
-    <div class="activity-body">
-      <div class="activity-title">🪞 镜子游戏</div>
-      <div class="activity-desc">带宝宝到镜子前，对着镜子里的宝宝说话，边挥手边说：</div>
-      <div class="activity-phrase">Hello, baby! 👋 Who's that?</div>
-    </div>
-  </div>
-
-  <div class="activity-item">
-    <div class="activity-num">2</div>
-    <div class="activity-body">
-      <div class="activity-title">🧸 玩具打招呼</div>
-      <div class="activity-desc">拿宝宝最爱的玩具，帮玩具"说话"打招呼，让宝宝回应：</div>
-      <div class="activity-phrase">Teddy says: Hello! How are you? 🐻</div>
-    </div>
-  </div>
-
-  <div class="activity-item">
-    <div class="activity-num">3</div>
-    <div class="activity-body">
-      <div class="activity-title">🚪 出门仪式</div>
-      <div class="activity-desc">每次爸爸妈妈出门，固定说这句话，养成习惯：</div>
-      <div class="activity-phrase">Bye bye! See you later! 👋</div>
-    </div>
-  </div>
-
-  <div class="activity-item">
-    <div class="activity-num">4</div>
-    <div class="activity-body">
-      <div class="activity-title">🌙 睡前仪式</div>
-      <div class="activity-desc">每晚关灯前固定说这句话，宝宝会期待这个时刻：</div>
-      <div class="activity-phrase">Good night! Sweet dreams! 🌙⭐</div>
-    </div>
-  </div>
-</div>
-
-<!-- ===== 模块8：今日打卡 ===== -->
-<div class="divider-title">✅ 模块八 · 今日学习打卡</div>
-
-<div class="checklist-card">
-  <div class="section-title">✅ 今日完成打卡</div>
-  <div class="check-item" onclick="toggleCheck(this)">
-    <div class="check-box"></div>
-    <div class="check-text">🔊 听了5个核心词发音</div>
-  </div>
-  <div class="check-item" onclick="toggleCheck(this)">
-    <div class="check-box"></div>
-    <div class="check-text">🎵 唱了 Hello Song 儿歌</div>
-  </div>
-  <div class="check-item" onclick="toggleCheck(this)">
-    <div class="check-box"></div>
-    <div class="check-text">💬 和宝宝玩了打招呼对话</div>
-  </div>
-  <div class="check-item" onclick="toggleCheck(this)">
-    <div class="check-box"></div>
-    <div class="check-text">📖 共读了小故事《A Day with Hello》</div>
-  </div>
-  <div class="check-item" onclick="toggleCheck(this)">
-    <div class="check-box"></div>
-    <div class="check-text">🌙 睡前说了 Good night, sweet dreams!</div>
-  </div>
-</div>
-
-<!-- 大声跟读3 -->
-<div class="repeat-card">
-  <div class="repeat-en">Hello! Bye bye! See you! 👋</div>
-  <div class="repeat-zh">最后再大声跟读一遍！</div>
-  <button class="play-btn" onclick="playAudio('hello.mp3','Hello! Bye bye! See you!',this)">🎙️ 大声说出来</button>
-</div>
-
-<!-- Footer -->
-<div class="footer-note">
-  🌟 <b>本期学习要点</b>：Hello · Bye Bye · Good morning · Good night · See you<br>
-  💡 每天重复，一周内宝宝就能主动说出 Hello 和 Bye bye！<br><br>
-  📖 <b>第002期预告</b>：字母 B · 小动物 · Ball / Bird / Bear...<br>
-  <a href="issue-002.html">下一期 →</a><br>
-  <span class="preview-tag">🐻 下期：字母 B · 小球 · 小鸟 · 小熊</span>
-</div>
-
-<!-- ===== 音频 + 脚本 ===== -->
 <script>
-var _curAud = null;
-var AUDIO_CDNS = [
-  'https://baby-english-d7gb3dwij91d31020-1346728686.tcloudbaseapp.com/audio/',
-  'https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/',
-  'https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/'
-];
-var _cdnIdx = 0;
-
-function playAudio(src, text, btn) {
-  // 如果没有音频文件，直接用TTS
-  if (!src) { speak(text, btn); return; }
-
-  // 停止当前音频
-  if (_curAud) { try { _curAud.pause(); _curAud.currentTime = 0; } catch(e){} _curAud = null; }
-
-  // 清除所有播放状态
-  var playing = document.querySelectorAll('.tts-btn.playing, .play-btn.playing');
-  for (var i = 0; i < playing.length; i++) playing[i].classList.remove('playing');
-
-  // 重置CDN索引
-  _cdnIdx = 0;
-  tryCDN(AUDIO_CDNS[0], src, text, btn);
-}
-
-function tryCDN(cdn, src, text, btn) {
-  var a = new Audio();
-  a.preload = 'auto';
-  var loaded = false;
-
-  a.oncanplaythrough = function() {
-    loaded = true;
-    clearTimeout(timer);
-    if (btn) btn.classList.add('playing');
-    var playPromise = a.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(function() {
-        // 自动播放策略阻止 - 仍然尝试
-        a.play();
-      });
-    }
-    _curAud = a;
-  };
-
-  a.onplay = function() {
-    if (btn) btn.classList.add('playing');
-  };
-
-  a.onended = function() {
-    if (btn) btn.classList.remove('playing');
-    _curAud = null;
-  };
-
-  a.onerror = function() {
-    clearTimeout(timer);
-    if (btn) btn.classList.remove('playing');
-    nextCDN(src, text, btn);
-  };
-
-  var timer = setTimeout(function() {
-    if (!loaded) {
-      try { a.pause(); } catch(e){}
-      if (btn) btn.classList.remove('playing');
-      nextCDN(src, text, btn);
-    }
-  }, 6000);
-
-  a.src = cdn + src;
-  a.load();
-}
-
-function nextCDN(src, text, btn) {
-  _cdnIdx++;
-  if (_cdnIdx < AUDIO_CDNS.length) {
-    tryCDN(AUDIO_CDNS[_cdnIdx], src, text, btn);
-  } else {
-    speak(text, btn);
-  }
-}
-
-function speak(text, btn) {
-  if (!('speechSynthesis' in window)) return;
-  window.speechSynthesis.cancel();
-  var utt = new SpeechSynthesisUtterance(text);
-  utt.lang = 'en-US';
-  utt.rate = 0.82;
-  utt.pitch = 1.1;
-  var voices = window.speechSynthesis.getVoices();
-  for (var i = 0; i < voices.length; i++) {
-    var lang = voices[i].lang;
-    if (lang.indexOf('en-AU') > -1 || lang.indexOf('en-GB') > -1) { utt.voice = voices[i]; break; }
-  }
-  if (!utt.voice) {
-    for (var i = 0; i < voices.length; i++) {
-      if (voices[i].lang.indexOf('en') > -1) { utt.voice = voices[i]; break; }
-    }
-  }
-  if (btn) btn.classList.add('playing');
-  utt.onend = utt.onerror = function() { if (btn) btn.classList.remove('playing'); };
-  window.speechSynthesis.speak(utt);
-}
-
-// 打卡功能
-function toggleCheck(item) {
-  var box = item.querySelector('.check-box');
-  var text = item.querySelector('.check-text');
-  if (box.classList.contains('checked')) {
-    box.classList.remove('checked');
-    box.innerHTML = '';
-    text.style.textDecoration = '';
-    text.style.color = '#2E7D32';
-  } else {
-    box.classList.add('checked');
-    box.innerHTML = '✓';
-    box.style.color = '#fff';
-    box.style.fontSize = '14px';
-    box.style.fontWeight = '700';
-    text.style.textDecoration = 'line-through';
-    text.style.color = '#9E9E9E';
-  }
-}
-
-// 预加载语音
-if ('speechSynthesis' in window) {
-  window.speechSynthesis.getVoices();
-  window.speechSynthesis.addEventListener('voiceschanged', function() {
-    window.speechSynthesis.getVoices();
-  });
+function showTab(id){
+  document.querySelectorAll('.card').forEach(e=>e.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
 }
 </script>
-
 </body>
 </html>
