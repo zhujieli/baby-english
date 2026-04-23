@@ -19,9 +19,7 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .nav-tabs::-webkit-scrollbar{display:none}
 .tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #4FC3F744;background:#fff;cursor:pointer;color:#4FC3F7;transition:all .2s}
 .tab.active{background:#4FC3F7;color:#fff;border-color:#4FC3F7}
-.card{background:#4FC3F711;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #4FC3F733;display:none}
-.card.active{display:block}
-.card-title{font-size:18px;font-weight:800;color:#4FC3F7;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #4FC3F744;display:flex;align-items:center;gap:8px}
+.card{margin:16px 16px;padding:22px 18px;border-radius:16px;display:block}
 .content p{margin:10px 0;font-size:15px;line-height:1.9}
 .content h4{font-size:16px;font-weight:700;color:#4FC3F7;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #4FC3F744}
 .content blockquote{background:#4FC3F722;border-left:4px solid #4FC3F7;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
@@ -30,11 +28,49 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .content li:last-child{border-bottom:none}
 .content li::before{content:'•';position:absolute;left:6px;color:#4FC3F7;font-weight:bold;font-size:18px;top:8px}
 .content strong{color:#4FC3F7}
+
+.audio-btn{margin:4px 4px;padding:6px 14px;border:none;border-radius:20px;background:#FFF3E0;color:#E65100;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .2s;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+.audio-btn:hover{background:#FFE0B2;transform:scale(1.05)}
+.audio-btn:active{transform:scale(0.95)}
 .footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #4FC3F733;z-index:100;gap:12px}
 .footer a{flex:1;text-align:center;padding:13px;background:#4FC3F7;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
 .footer .nav-btn{background:#fff;color:#4FC3F7;border:2px solid #4FC3F7}
 .nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
+<script>
+var AUDIO_CDNS = ["https://baby-english-d7gb3dwj91d31020-1346728686.tcloudbaseapp.com/audio/", "https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/", "https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/"];
+var audioPlayer = null;
+function playAudio(audioName) {
+    if (audioPlayer) {
+        audioPlayer.pause();
+    }
+    audioPlayer = new Audio();
+    var cdnIndex = 0;
+    audioPlayer.addEventListener('error', function() {
+        cdnIndex++;
+        if (cdnIndex < AUDIO_CDNS.length) {
+            audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+            audioPlayer.play().catch(function() {});
+        } else {
+            // 最终降级：使用浏览器TTS
+            if (window.speechSynthesis) {
+                var utter = new SpeechSynthesisUtterance(audioName.replace(/_/g, ' '));
+                utter.lang = 'en-US';
+                utter.rate = 0.9;
+                window.speechSynthesis.speak(utter);
+            }
+        }
+    });
+    audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+    audioPlayer.play().catch(function() {});
+}
+function stopAudio() {
+    if (audioPlayer) {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+    }
+}
+</script>
 </head>
 <body>
 <div class="hero">
@@ -48,16 +84,10 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   </div>
 </div>
 
-<nav class="nav-tabs">
-  <button class="tab active" onclick="showTab('s1')">💬 金句</button>
-  <button class="tab" onclick="showTab('s2')">🎵 儿歌</button>
-  <button class="tab" onclick="showTab('s3')">📖 绘本</button>
-  <button class="tab" onclick="showTab('s4')">🔤 字母</button>
-  <button class="tab" onclick="showTab('s5')">🎮 活动</button>
-  <button class="tab" onclick="showTab('s6')">💡 贴士</button>
-</nav>
 
-<div class="card active" id="s1"><div class="card-title">💬 今日金句</div><div class="content"><p>### 句1：叫宝宝刷牙 <blockquote><strong>「Good morning! Time to brush your teeth! Open wide!」</strong></blockquote></p>
+
+<div class="card active" id="s1"><div class="card-title">💬 今日金句</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('toothbrush')" title="点击播放音频">🔊 toothbrush</button><button class="audio-btn" onclick="playAudio('wash_face')" title="点击播放音频">🔊 wash face</button><button class="audio-btn" onclick="playAudio('clean')" title="点击播放音频">🔊 clean</button></div><div class="content"><p>### 句1：叫宝宝刷牙 <blockquote><strong>「Good morning! Time to brush your teeth! Open wide!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：推开浴室门，拿着牙刷说这句话，配合张嘴巴的动作。宝宝最初可能会抗拒，慢慢来，用夸张的语气吸引注意力。</p>
 <p>---</p>
 <p>### 句2：一起刷牙 <blockquote><strong>「Brush, brush, brush! Up and down!」</strong></blockquote></p>
@@ -72,11 +102,13 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 <p>### 句5：照镜子 <blockquote><strong>「Look in the mirror! So clean and fresh!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：指着镜子里的脸，让宝宝看到自己的笑容，建立自我认同感和良好感觉。</p>
 <p>---</p></div></div>
-<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div><div class="content"><p><strong>主歌（刷牙）：</strong> <ul> <li>:musical_note: This is the way we brush our teeth,</li> <li>:musical_note: brush our teeth, brush our teeth!</li> <li>:musical_note: This is the way we brush our teeth,</li> <li>:musical_note: so early in the morning!</li> </ul></p>
+<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('brush_teeth')" title="点击播放音频">🔊 播放儿歌</button></div><div class="content"><p><strong>主歌（刷牙）：</strong> <ul> <li>:musical_note: This is the way we brush our teeth,</li> <li>:musical_note: brush our teeth, brush our teeth!</li> <li>:musical_note: This is the way we brush our teeth,</li> <li>:musical_note: so early in the morning!</li> </ul></p>
 <p><strong>第二段（洗脸）：</strong> <ul> <li>:musical_note: This is the way we wash our face,</li> <li>:musical_note: wash our face, wash our face!</li> <li>:musical_note: This is the way we wash our face,</li> <li>:musical_note: so early in the morning!</li> </ul></p>
 <p><strong>怎么唱</strong>： 刷牙时唱第一段，边唱边做刷牙动作「brush, brush, brush!」；洗脸时唱第二段，用手比划洗脸动作。每天早晚洗漱时循环唱，把洗漱变成有趣的仪式！宝宝很快就会期待这个「刷牙歌时间」！</p>
 <p>---</p></div></div>
-<div class="card" id="s3"><div class="card-title">📖 绘本预热</div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
+<div class="card" id="s3"><div class="card-title">📖 绘本预热</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('guli')" title="点击播放音频">🔊 播放绘本片段</button></div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
 <p>古力小超人系列里有一页是古力早上起床的场景，配合今天的主题使用非常合适：</p>
 <p><strong>书中关键词</strong>： <ul> <li>`wake up` — 醒来</li> <li>`stretch` — 伸懒腰</li> <li>`yawn` — 打哈欠</li> <li>`put on clothes` — 穿衣服</li> <li>`good morning` — 早上好</li> </ul></p>
 <p>🗣️ <strong>亲子共读提示</strong>： 指着图中古力伸懒腰的画面说「Look! He's stretching! Can you stretch?」鼓励宝宝模仿动作，一起伸个大懒腰！</p>
@@ -104,13 +136,6 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   <a href="issue-003.html" class="nav-btn">下一期 →</a>
 </div>
 
-<script>
-function showTab(id){
-  document.querySelectorAll('.card').forEach(e=>e.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
-}
-</script>
+
 </body>
 </html>
