@@ -3,303 +3,108 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>宝宝英语启蒙 · 第024期 · How Do You Feel?</title>
+<title>宝宝英语启蒙 · 第024期 · 复习与巩固</title>
 <style>
-:root{--p:#FF9B50;--pd:#E07A2F;--s:#7EC8E3;--sd:#4AABBF;--g:#66BB6A;--bg:#FFF9F0;--c:#FFF;--t:#3D3D3D;--tl:#7A7A7A}
+:root{--c:#FFCA28;--bg:#F8F6F0;--card:#FFF;--text:#333;--sub:#666;--r:16px}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:#FCE4EC;color:var(--t);line-height:1.75;padding-bottom:80px;-webkit-font-smoothing:antialiased}
-.tts-btn{display:inline-flex;align-items:center;gap:4px;background:#FFF3E0;border:1.5px solid #FFE0B2;border-radius:20px;padding:3px 10px 3px 6px;font-size:12px;color:var(--pd);cursor:pointer;font-weight:600;margin-left:4px}
-.tts-btn:active{background:var(--p);color:#fff;border-color:var(--p)}
-.hero{background:linear-gradient(135deg,#FFE0B2 0%,#B3E5FC 100%);padding:44px 24px 36px;text-align:center;position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:#FCE4EC;border-radius:50% 50% 0 0}
-.hero-badge{display:inline-block;background:#E91E63;color:#fff;font-size:12px;font-weight:700;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px}
-.hero h1{font-size:28px;font-weight:800;color:#2C2C2C;margin-bottom:6px}
-.hero-sub{font-size:14px;color:#6D4C41;margin-bottom:4px}
-.hero-meta{display:flex;justify-content:center;gap:16px;margin-top:12px;font-size:12px;color:#795548}
-.hero-meta span{background:rgba(255,255,255,.6);padding:3px 10px;border-radius:12px}
-.nav-tabs{display:flex;gap:6px;padding:20px 20px 6px;overflow-x:auto;scrollbar-width:none}
+body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:#FFCA2811;color:var(--text);line-height:1.8;padding-bottom:90px;-webkit-font-smoothing:antialiased}
+.hero{background:linear-gradient(135deg,#FFCA2822,#FFCA2844);padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden;border-radius:0 0 40px 40px}
+.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:#FFCA2811;border-radius:50% 50% 0 0}
+.hero-badge{display:inline-block;background:#FFCA28;color:#fff;font-size:12px;font-weight:700;padding:5px 18px;border-radius:20px;letter-spacing:1px}
+.hero h1{font-size:30px;font-weight:800;color:#FFCA28;margin:14px 0 4px}
+.hero-sub{font-size:17px;opacity:.8;font-weight:600;color:#FFCA28}
+.hero-meta{display:flex;justify-content:center;gap:12px;margin-top:14px;flex-wrap:wrap}
+.hero-meta span{background:rgba(255,255,255,.7);padding:4px 14px;border-radius:14px;font-size:13px;color:#FFCA28}
+.nav-tabs{display:flex;gap:6px;padding:20px 16px 6px;overflow-x:auto;scrollbar-width:none;flex-wrap:wrap}
 .nav-tabs::-webkit-scrollbar{display:none}
-.nav-tab{flex-shrink:0;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid #F0E8DC;background:#FFF;cursor:pointer;transition:all .2s}
-.nav-tab.active{background:#E91E63;color:#fff;border-color:#E91E63}
-.section-title{font-size:17px;font-weight:800;color:#2C2C2C;margin-bottom:14px;display:flex;align-items:center;gap:6px}
-.card{background:#FFF;border-radius:18px;margin:16px 16px;padding:20px;box-shadow:0 2px 14px rgba(0,0,0,.08)}
-.word-grid{display:flex;flex-direction:column;gap:12px}
-.word-card{background:linear-gradient(135deg,#FAFAFA,#F0F7FF);border-radius:14px;padding:14px 16px;border-left:4px solid var(--s)}
-.word-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px}
-.word-en{font-size:22px;font-weight:800;color:var(--pd)}
-.word-ipa{font-size:13px;color:var(--sd);font-style:italic;font-weight:500}
-.word-zh{font-size:14px;color:var(--tl);margin-bottom:6px}
-.word-tip{background:#E3F2FD;border-radius:10px;padding:8px 12px;font-size:13px;color:#1565C0;line-height:1.6}
-.word-example{background:#FFF8E1;border-radius:8px;padding:6px 12px;font-size:13px;color:#E65100;margin-top:6px;font-style:italic}
-.dialogue-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #FFF3E0}
-.dialogue-row:last-child{border-bottom:none}
-.d-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
-.d-bubble{flex:1;background:#F5F5F5;border-radius:12px;padding:10px 14px}
-.d-bubble.orange{background:#FFF3E0}
-.d-bubble.blue{background:#E3F2FD}
-.d-en{font-size:15px;font-weight:700;color:#2C2C2C;margin-bottom:3px}
-.d-zh{font-size:12px;color:var(--tl)}
-.song-card{background:linear-gradient(135deg,#F1F8E9,#E8F5E9);border-radius:18px;margin:16px 16px;padding:22px 20px;border:1.5px solid #C8E6C9}
-.song-header{text-align:center;margin-bottom:16px}
-.song-title{font-size:19px;font-weight:800;color:#2E7D32}
-.song-sub{font-size:12px;color:#689F38;margin-top:4px}
-.lyrics-box{background:rgba(255,255,255,.7);border-radius:14px;padding:16px}
-.lyric-line{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #C8E6C9;gap:8px}
-.lyric-text{flex:1}
-.lyric-en{font-size:15px;font-weight:600;color:#1B5E20}
-.lyric-zh{font-size:12px;color:#689F38;margin-top:2px}
-.phonics-card{background:linear-gradient(135deg,#F3E5F5,#EDE7F6);border-radius:18px;margin:16px 16px;padding:20px}
-.activity-card{background:linear-gradient(135deg,#E3F2FD,#E8EAF6);border-radius:18px;margin:16px 16px;padding:20px;border:1.5px solid #BBDEFB}
-.activity-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #BBDEFB}
-.activity-item:last-child{border-bottom:none}
-.activity-num{width:28px;height:28px;background:var(--s);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
-.activity-body{flex:1}
-.activity-title{font-size:15px;font-weight:700;color:#1565C0;margin-bottom:3px}
-.activity-desc{font-size:13px;color:#1976D2;line-height:1.6}
-.activity-phrase{background:rgba(255,255,255,.7);border-radius:8px;padding:6px 12px;font-size:14px;font-weight:700;color:#0D47A1;margin-top:6px;display:inline-block}
-.story-card{background:linear-gradient(135deg,#FFF9C4,#FFF3E0);border-radius:18px;margin:16px 16px;padding:20px;border:1.5px solid #FFE082}
-.story-header{text-align:center;margin-bottom:16px}
-.story-emoji{font-size:48px}
-.story-title{font-size:18px;font-weight:800;color:#E65100;margin-top:8px}
-.story-para{margin-bottom:12px}
-.story-en{font-size:15px;font-weight:700;color:#BF360C;margin-bottom:4px;line-height:1.7}
-.story-zh{font-size:13px;color:#795548;line-height:1.7}
-.checklist-card{background:linear-gradient(135deg,#E8F5E9,#F1F8E9);border-radius:18px;margin:16px 16px;padding:20px;border:1.5px solid #A5D6A7}
-.check-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #C8E6C9;cursor:pointer}
-.check-item:last-child{border-bottom:none}
-.check-box{width:24px;height:24px;border:2.5px solid #66BB6A;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.check-box.checked{background:#66BB6A}
-.check-text{font-size:14px;color:#2E7D32;font-weight:500}
-.footer-note{text-align:center;font-size:13px;color:var(--tl);padding:28px 20px 20px;line-height:2}
-.check-tips{background:#E8F5E9;border-radius:14px;padding:14px 16px;margin:12px 0 0;font-size:14px;color:#2E7D32;text-align:center}
+.tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #FFCA2844;background:#fff;cursor:pointer;color:#FFCA28;transition:all .2s}
+.tab.active{background:#FFCA28;color:#fff;border-color:#FFCA28}
+.card{background:#FFCA2811;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #FFCA2833;display:none}
+.card.active{display:block}
+.card-title{font-size:18px;font-weight:800;color:#FFCA28;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #FFCA2844;display:flex;align-items:center;gap:8px}
+.content p{margin:10px 0;font-size:15px;line-height:1.9}
+.content h4{font-size:16px;font-weight:700;color:#FFCA28;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #FFCA2844}
+.content blockquote{background:#FFCA2822;border-left:4px solid #FFCA28;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
+.content ul{list-style:none;margin:10px 0;padding:0}
+.content li{padding:9px 0 9px 22px;position:relative;font-size:15px;border-bottom:1px solid #FFCA2822}
+.content li:last-child{border-bottom:none}
+.content li::before{content:'•';position:absolute;left:6px;color:#FFCA28;font-weight:bold;font-size:18px;top:8px}
+.content strong{color:#FFCA28}
+.footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #FFCA2833;z-index:100;gap:12px}
+.footer a{flex:1;text-align:center;padding:13px;background:#FFCA28;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
+.footer .nav-btn{background:#fff;color:#FFCA28;border:2px solid #FFCA28}
+.nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
 </head>
 <body>
 <div class="hero">
-  <div class="hero-badge">✨ 第 024 期</div>
-  <div style="font-size:68px;margin-bottom:10px">😊</div>
-  <h1>How Do You Feel?</h1>
-  <div class="hero-sub">字母 X · 我的情绪</div>
+  <div class="hero-badge">第024期</div>
+  <h1>复习与巩固</h1>
+  <div class="hero-sub">Review Time!</div>
   <div class="hero-meta">
-    <span>📚 核心词汇</span>
-    <span>🎵 经典儿歌</span>
-    <span>🔤 字母认知</span>
+    <span>📅 每日10分钟</span>
+    <span>🎯 英语启蒙</span>
+    <span>👶 1.5-2岁</span>
   </div>
 </div>
 
-<div class="nav-tabs" id="navTabs"></div>
+<nav class="nav-tabs">
+  <button class="tab active" onclick="showTab('s1')">💬 金句</button>
+  <button class="tab" onclick="showTab('s2')">🎵 儿歌</button>
+  <button class="tab" onclick="showTab('s3')">📖 绘本</button>
+  <button class="tab" onclick="showTab('s4')">🔤 字母</button>
+  <button class="tab" onclick="showTab('s5')">🎮 活动</button>
+  <button class="tab" onclick="showTab('s6')">💡 贴士</button>
+</nav>
 
-<div class="card">
-  <div class="section-title">📚 核心词汇</div>
-  <div class="word-grid">
-        <div class="word-card">
-            <div class="word-top">
-                <span style="font-size:28px">😊</span>
-                <span class="word-en">Happy</span>
-                <span class="word-ipa">/ˈhæpi/</span>
-                <button class="tts-btn" onclick="playTTS('Happy')">🔊</button>
-            </div>
-            <div class="word-zh">开心</div>
-            <div class="word-tip">💡 I'm happy! You make me happy!</div>
-            <div class="word-example">📝 The baby is happy!</div>
-        </div>
-        <div class="word-card">
-            <div class="word-top">
-                <span style="font-size:28px">😢</span>
-                <span class="word-en">Sad</span>
-                <span class="word-ipa">/sæd/</span>
-                <button class="tts-btn" onclick="playTTS('Sad')">🔊</button>
-            </div>
-            <div class="word-zh">难过</div>
-            <div class="word-tip">💡 I'm sad. I miss mommy.</div>
-            <div class="word-example">📝 Don't be sad! I'm here!</div>
-        </div>
-        <div class="word-card">
-            <div class="word-top">
-                <span style="font-size:28px">😠</span>
-                <span class="word-en">Angry</span>
-                <span class="word-ipa">/ˈæŋɡri/</span>
-                <button class="tts-btn" onclick="playTTS('Angry')">🔊</button>
-            </div>
-            <div class="word-zh">生气</div>
-            <div class="word-tip">💡 I'm angry! Count to ten!</div>
-            <div class="word-example">📝 Take a deep breath. Don't be angry!</div>
-        </div>
-        <div class="word-card">
-            <div class="word-top">
-                <span style="font-size:28px">😨</span>
-                <span class="word-en">Scared</span>
-                <span class="word-ipa">/skerd/</span>
-                <button class="tts-btn" onclick="playTTS('Scared')">🔊</button>
-            </div>
-            <div class="word-zh">害怕</div>
-            <div class="word-tip">💡 Don't be scared! I'm with you!</div>
-            <div class="word-example">📝 The dark is scary! I'm scared!</div>
-        </div>
-        <div class="word-card">
-            <div class="word-top">
-                <span style="font-size:28px">😴</span>
-                <span class="word-en">Tired</span>
-                <span class="word-ipa">/ˈtaɪərd/</span>
-                <button class="tts-btn" onclick="playTTS('Tired')">🔊</button>
-            </div>
-            <div class="word-zh">累</div>
-            <div class="word-tip">💡 You're tired. Let's rest!</div>
-            <div class="word-example">📝 I need to sleep. I'm tired!</div>
-        </div></div>
-</div>
+<div class="card active" id="s1"><div class="card-title">💬 今日金句</div><div class="content"><p>### 句1：字母复习 <blockquote><strong>「A is for Apple! B is for Bear! Can you say it?」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：从A到X快速过一遍，每个字母说一个单词。宝宝记得的说「Great!」不记得的温柔补充。</p>
+<p>### 句2：颜色总复习 <blockquote><strong>「What's your favorite color? Red? Blue? Or Yellow?」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：指着家里所有颜色的物品问，让宝宝用英语回答最喜欢的颜色。</p>
+<p>### 句3：数字复习 <blockquote><strong>「Count to five! One, two, three, four, five!」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：数数手指，让宝宝感受到自己的进步——从不会数到现在能数到5！</p>
+<p>### 句4：身体部位复习 <blockquote><strong>「Touch your nose! Touch your ears! Very good!」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：快速指认身体部位，看看宝宝能跟上几个「10个？15个？」</p>
+<p>### 句5：情绪复习 <blockquote><strong>「How do you feel today? Happy? Sad? Or Angry?」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：让宝宝用英语表达今天的情绪「I'm happy!」或者用表情说出来。</p>
+<p>---</p></div></div>
+<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div><div class="content"><p><strong>综合复习歌：</strong> <ul> <li>:musical_note: A B C D E F G — I can say my ABCs!</li> <li>:musical_note: H I J K L M N — Colors: red and blue and green!</li> <li>:musical_note: O P Q R S T U V — Numbers: one two three four five six seven eight!</li> <li>:musical_note: W X — Great job, you're doing great!</li> <li>:musical_note: Now you know your ABC and 1 2 3!</li> </ul></p>
+<p><strong>怎么唱</strong>： 把所有已学内容串成一首复习歌！每个字母说一个单词，然后串颜色、数字、身体部位。一首歌回顾所有内容，超级有成就感！唱完说「Amazing! You know so much!」</p>
+<p>---</p></div></div>
+<div class="card" id="s3"><div class="card-title">📖 绘本预热</div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
+<p>今天把之前读过的所有绘本都翻出来做回顾，看看宝宝还记得哪些故事：</p>
+<p><strong>书中关键词</strong>： <ul> <li>`review` — 复习</li> <li>`remember` — 记得</li> <li>`great` — 很棒</li> <li>`again` — 再来一次</li> </ul></p>
+<p>🗣️ <strong>亲子共读提示</strong>： 把之前读过的绘本放在床上，让宝宝选「Which one first?」然后重新读一遍，看看宝宝的反应——读过太多遍的绘本会让宝宝特别兴奋！</p>
+<p>---</p></div></div>
+<div class="card" id="s4"><div class="card-title">🔤 字母认知</div><div class="content"><blockquote><strong>今日字母：X x — x-ray</strong></blockquote>
+<p>| 大写 | 小写 | 发音 | 联想词 | |------|------|------|--------| | X | x | /ɛks/ | 🍎 x-ray（X光）|</p>
+<p><strong>联想词汇</strong>： <ul> <li><strong>X-ray</strong> — X光片：医生拍的X光片「X-ray! X for X-ray!」能看到骨头「bone」。</li> <li><strong>Box</strong> — 盒子：各种大小的盒子「Box! X for box!」打开说「open」，关上「close」。</li> <li><strong>Fox</strong> — 狐狸：聪明的狐狸「Fox! X for fox!」棕色毛发「brown fur」。</li> </ul></p>
+<p>🗣️ <strong>怎么教</strong>： 指着实物或图片说「X-Ray! X for x-ray!」宝宝会先学会说实物名称，字母认知自然就来了！</p>
+<p>---</p></div></div>
+<div class="card" id="s5"><div class="card-title">🎮 亲子活动</div><div class="content"><blockquote>🧒 每天15分钟高质量陪伴，胜过1小时敷衍相处</blockquote>
+<p>| 时间 | 活动 | |------|------| | 成就墙 | 画一个进度表，列出宝宝学会的所有字母、颜色、数字 | | 宝宝当老师 | 让宝宝「教」家长学英语，模仿之前教学的方式 | | 家庭展示 | 邀请爷爷奶奶或叔叔阿姨，让宝宝表演英语「节目」 | | 小小考试 | 家长出题「What starts with B?」「What color is the sky?」 |</p>
+<p>💡 <strong>互动贴士</strong>：让宝宝看到自己的进步——可视化的成就感是最强的激励！</p>
+<blockquote>✅ 今天完成了吗？明天继续加油！💪</blockquote>
+<p>---</p></div></div>
+<div class="card" id="s6"><div class="card-title">💡 学习贴士</div><div class="content"><p><strong>1.5-2岁宝宝的语言学习规律：</strong></p>
+<blockquote>🧠 这个阶段宝宝处于「语言爆发期前夕」，听得越多、储备越丰富，18-24个月后会突然「开口」！</blockquote>
+<p><strong>三个关键原则：</strong> <strong>1. 复习是学习之母</strong>：研究表明，新学的内容需要重复7次以上才能转化为长期记忆。不要觉得重复无聊——重复是记忆的最好朋友。</p>
+<p><strong>2. 成就感是最好的动力</strong>：让宝宝看到自己的进步，建立学习信心。信心比任何奖励都更能激发持续学习。</p>
+<p><strong>3. 不要太严格</strong>：复习是快乐的回顾，不是考试。答不上来就温柔地再教一遍，永远不要让宝宝觉得学习是压力。</p>
+<p>---</p></div></div>
 
-
-        <div class="card">
-            <div class="section-title">🔤 字母认知</div>
-            <div class="phonics-card" style="margin:0;background:linear-gradient(135deg,#F3E5F5,#EDE7F6)">
-                <div style="display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid #E1BEE7">
-                    <div style="font-size:52px;width:70px;text-align:center">🦊</div>
-                    <div>
-                        <div style="font-size:32px;font-weight:800;color:#6A1B9A">Letter X X</div>
-                        <div style="font-size:14px;color:#7B1FA2;margin-top:4px">联想词：fox (狐狸)</div>
-                    </div>
-                </div>
-                <div style="margin-top:12px;font-size:14px;color:#6A1B9A;background:rgba(255,255,255,.6);border-radius:10px;padding:10px 14px">
-                    🗣️ <strong>怎么教：</strong>指着狐狸说 Fox! X for fox! X-X-Fox! 狐狸是狡猾的！
-                </div>
-            </div>
-        </div>
-
-<div class="card">
-  <div class="section-title">💬 情景对话</div>
-  
-        <div class="dialogue-row">
-            <div class="d-avatar" style="background:#FFE0B2">
-                👶
-            </div>
-            <div class="d-bubble orange">
-                <div class="d-en">How do you feel?</div>
-                <div class="d-zh">你感觉怎么样？</div>
-            </div>
-        </div>
-        <div class="dialogue-row">
-            <div class="d-avatar" style="background:#BBDEFB">
-                👨‍👩‍👧
-            </div>
-            <div class="d-bubble blue">
-                <div class="d-en">It's okay. Don't cry!</div>
-                <div class="d-zh">没关系，别哭！</div>
-            </div>
-        </div>
-        <div class="dialogue-row">
-            <div class="d-avatar" style="background:#FFE0B2">
-                👶
-            </div>
-            <div class="d-bubble orange">
-                <div class="d-en">I'm happy because...</div>
-                <div class="d-zh">我开心因为...</div>
-            </div>
-        </div>
-</div>
-
-<div class="song-card">
-  <div class="song-header">
-    <div style="font-size:40px">🎶</div>
-    <div class="song-title">How Do You Feel?</div>
-  </div>
-  <div class="lyrics-box">
-    
-        <div class="lyric-line">
-            <div class="lyric-text">
-                <div class="lyric-en">How do you feel?</div>
-                
-            </div>
-            <button class="tts-btn" onclick="playTTS('How do you feel?')">🔊</button>
-        </div>
-        <div class="lyric-line">
-            <div class="lyric-text">
-                <div class="lyric-en">I feel happy!</div>
-                
-            </div>
-            <button class="tts-btn" onclick="playTTS('I feel happy!')">🔊</button>
-        </div>
-        <div class="lyric-line">
-            <div class="lyric-text">
-                <div class="lyric-en">How do you feel?</div>
-                
-            </div>
-            <button class="tts-btn" onclick="playTTS('How do you feel?')">🔊</button>
-        </div>
-        <div class="lyric-line">
-            <div class="lyric-text">
-                <div class="lyric-en">I feel sad!</div>
-                
-            </div>
-            <button class="tts-btn" onclick="playTTS('I feel sad!')">🔊</button>
-        </div>
-  </div>
-  <div class="check-tips">🎵 唱到不同情绪做不同表情：happy笑，sad哭丧脸，angry皱眉，scared瞪大眼睛！</div>
-</div>
-
-<div class="story-card">
-  <div class="story-header">
-    <div class="story-emoji">📚</div>
-    <div class="story-title">📖 情绪主题绘本</div>
-  </div>
-  <div class="story-para">《The Color Monster》《In My Heart》等情商培养绘本！</div>
-  <div style="margin-top:12px"><span style="background:#FFF9C4;padding:4px 10px;border-radius:12px;font-size:13px;margin:3px;display:inline-block">feel 感觉</span><span style="background:#FFF9C4;padding:4px 10px;border-radius:12px;font-size:13px;margin:3px;display:inline-block">emotion 情绪</span><span style="background:#FFF9C4;padding:4px 10px;border-radius:12px;font-size:13px;margin:3px;display:inline-block">smile 微笑</span><span style="background:#FFF9C4;padding:4px 10px;border-radius:12px;font-size:13px;margin:3px;display:inline-block">cry 哭</span><span style="background:#FFF9C4;padding:4px 10px;border-radius:12px;font-size:13px;margin:3px;display:inline-block">laugh 笑</span></div>
-</div>
-
-<div class="checklist-card">
-  <div class="section-title">✅ 打卡记录</div>
-  
-        <div class="check-item" onclick="toggleCheck(this)">
-            <div class="check-box"><span style="color:#fff;font-size:14px">✓</span></div>
-            <div class="check-text">学会了 happy / sad / angry / scared / tired</div>
-        </div>
-        <div class="check-item" onclick="toggleCheck(this)">
-            <div class="check-box"><span style="color:#fff;font-size:14px">✓</span></div>
-            <div class="check-text">唱了 How Do You Feel</div>
-        </div>
-        <div class="check-item" onclick="toggleCheck(this)">
-            <div class="check-box"><span style="color:#fff;font-size:14px">✓</span></div>
-            <div class="check-text">问宝宝 How do you feel? 了吗？</div>
-        </div>
-        <div class="check-item" onclick="toggleCheck(this)">
-            <div class="check-box"><span style="color:#fff;font-size:14px">✓</span></div>
-            <div class="check-text">宝宝今天感觉怎么样？</div>
-        </div>
-  <div class="check-tips" style="background:#FFF9C4;color:#E65100;margin-top:16px">
-    💬 宝宝今天感觉怎么样？
-  </div>
-</div>
-
-<div class="footer-note">
-  🌱 每天12分钟，为宝宝种下英语的种子<br>
-  加油，爸爸妈妈！
+<div class="footer">
+  <a href="issue-023.html" class="nav-btn">← 上一期</a>
+  <a href="index.html">📚 目录</a>
+  <a href="issue-025.html" class="nav-btn">下一期 →</a>
 </div>
 
 <script>
-// 导航
-const episodes = ["01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26"];
-const current = "024".padStart(3,'0').slice(-2);
-const nav = document.getElementById('navTabs');
-episodes.forEach(n => {
-  const a = document.createElement('a');
-  a.className = 'nav-tab' + (n === current ? ' active' : '');
-  a.textContent = n;
-  a.href = 'issue-' + n + '.html';
-  nav.appendChild(a);
-});
-
-// TTS
-function playTTS(text) {
-  if (!window.speechSynthesis) return;
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'en-US'; u.rate = 0.85;
-  speechSynthesis.cancel();
-  speechSynthesis.speak(u);
-}
-
-// 打卡
-function toggleCheck(el) {
-  el.querySelector('.check-box').classList.toggle('checked');
+function showTab(id){
+  document.querySelectorAll('.card').forEach(e=>e.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
 }
 </script>
 </body>
