@@ -19,9 +19,7 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .nav-tabs::-webkit-scrollbar{display:none}
 .tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #F0629244;background:#fff;cursor:pointer;color:#F06292;transition:all .2s}
 .tab.active{background:#F06292;color:#fff;border-color:#F06292}
-.card{background:#F0629211;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #F0629233;display:none}
-.card.active{display:block}
-.card-title{font-size:18px;font-weight:800;color:#F06292;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #F0629244;display:flex;align-items:center;gap:8px}
+.card{margin:16px 16px;padding:22px 18px;border-radius:16px;display:block}
 .content p{margin:10px 0;font-size:15px;line-height:1.9}
 .content h4{font-size:16px;font-weight:700;color:#F06292;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #F0629244}
 .content blockquote{background:#F0629222;border-left:4px solid #F06292;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
@@ -30,11 +28,49 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .content li:last-child{border-bottom:none}
 .content li::before{content:'•';position:absolute;left:6px;color:#F06292;font-weight:bold;font-size:18px;top:8px}
 .content strong{color:#F06292}
+
+.audio-btn{margin:4px 4px;padding:6px 14px;border:none;border-radius:20px;background:#FFF3E0;color:#E65100;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .2s;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+.audio-btn:hover{background:#FFE0B2;transform:scale(1.05)}
+.audio-btn:active{transform:scale(0.95)}
 .footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #F0629233;z-index:100;gap:12px}
 .footer a{flex:1;text-align:center;padding:13px;background:#F06292;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
 .footer .nav-btn{background:#fff;color:#F06292;border:2px solid #F06292}
 .nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
+<script>
+var AUDIO_CDNS = ["https://baby-english-d7gb3dwj91d31020-1346728686.tcloudbaseapp.com/audio/", "https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/", "https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/"];
+var audioPlayer = null;
+function playAudio(audioName) {
+    if (audioPlayer) {
+        audioPlayer.pause();
+    }
+    audioPlayer = new Audio();
+    var cdnIndex = 0;
+    audioPlayer.addEventListener('error', function() {
+        cdnIndex++;
+        if (cdnIndex < AUDIO_CDNS.length) {
+            audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+            audioPlayer.play().catch(function() {});
+        } else {
+            // 最终降级：使用浏览器TTS
+            if (window.speechSynthesis) {
+                var utter = new SpeechSynthesisUtterance(audioName.replace(/_/g, ' '));
+                utter.lang = 'en-US';
+                utter.rate = 0.9;
+                window.speechSynthesis.speak(utter);
+            }
+        }
+    });
+    audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+    audioPlayer.play().catch(function() {});
+}
+function stopAudio() {
+    if (audioPlayer) {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+    }
+}
+</script>
 </head>
 <body>
 <div class="hero">
@@ -48,16 +84,10 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   </div>
 </div>
 
-<nav class="nav-tabs">
-  <button class="tab active" onclick="showTab('s1')">💬 金句</button>
-  <button class="tab" onclick="showTab('s2')">🎵 儿歌</button>
-  <button class="tab" onclick="showTab('s3')">📖 绘本</button>
-  <button class="tab" onclick="showTab('s4')">🔤 字母</button>
-  <button class="tab" onclick="showTab('s5')">🎮 活动</button>
-  <button class="tab" onclick="showTab('s6')">💡 贴士</button>
-</nav>
 
-<div class="card active" id="s1"><div class="card-title">💬 今日金句</div><div class="content"><p>### 句1：认识红色 <blockquote><strong>「Look! The apple is red! Red apple!」</strong></blockquote></p>
+
+<div class="card active" id="s1"><div class="card-title">💬 今日金句</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('red')" title="点击播放音频">🔊 red</button><button class="audio-btn" onclick="playAudio('blue')" title="点击播放音频">🔊 blue</button><button class="audio-btn" onclick="playAudio('yellow')" title="点击播放音频">🔊 yellow</button></div><div class="content"><p>### 句1：认识红色 <blockquote><strong>「Look! The apple is red! Red apple!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：红色是最好认的颜色，指着苹果说「red」，让宝宝摸一摸、闻一闻、尝一尝。</p>
 <p>### 句2：认识蓝色 <blockquote><strong>「The sky is blue! So blue and beautiful!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：抬头看天说「blue」，还可以指着水坑「blue puddle」。蓝色无处不在。</p>
@@ -68,11 +98,13 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 <p>### 句5：彩虹时刻 <blockquote><strong>「Look! A rainbow! So many colors!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：有彩虹的时候绝对不能错过！数一数「One, two, three, four...」每种颜色都说一遍。</p>
 <p>---</p></div></div>
-<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div><div class="content"><p><strong>基础版：</strong> <ul> <li>:musical_note: I see something pink and I want you to find it!</li> <li>:musical_note: I see something pink, can you point to it?</li> <li>:musical_note: Pink, pink, pink, what is pink?</li> <li>:musical_note: An elephant is pink! Touch your nose and blink!</li> </ul></p>
+<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('rainbow')" title="点击播放音频">🔊 播放儿歌</button></div><div class="content"><p><strong>基础版：</strong> <ul> <li>:musical_note: I see something pink and I want you to find it!</li> <li>:musical_note: I see something pink, can you point to it?</li> <li>:musical_note: Pink, pink, pink, what is pink?</li> <li>:musical_note: An elephant is pink! Touch your nose and blink!</li> </ul></p>
 <p><strong>进阶替换：</strong> <ul> <li>:musical_note: Red — apple, fire truck!</li> <li>:musical_note: Blue — sky, ocean!</li> <li>:musical_note: Yellow — sun, banana!</li> <li>:musical_note: Green — grass, leaf!</li> </ul></p>
 <p><strong>怎么唱</strong>： 这首颜色歌可以唱遍全家！指着房间里的东西唱「I see something [颜色]...」让宝宝找！全家一起玩，看谁找得快！每找到一个新物品就换一个颜色，无限循环！</p>
 <p>---</p></div></div>
-<div class="card" id="s3"><div class="card-title">📖 绘本预热</div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
+<div class="card" id="s3"><div class="card-title">📖 绘本预热</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('guli')" title="点击播放音频">🔊 播放绘本片段</button></div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
 <p>艾瑞·卡尔用最简单的句式介绍了各种动物和颜色，是颜色启蒙的最佳绘本：</p>
 <p><strong>书中关键词</strong>： <ul> <li>`brown` — 棕色</li> <li>`red` — 红色</li> <li>`yellow` — 黄色</li> <li>`blue` — 蓝色</li> <li>`green` — 绿色</li> </ul></p>
 <p>🗣️ <strong>亲子共读提示</strong>： 每翻一页指颜色「What color is it?」宝宝答不出来没关系，家长自问自答「It's brown!」慢慢重复，让宝宝建立颜色和图片的联系。</p>
@@ -100,13 +132,6 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   <a href="issue-012.html" class="nav-btn">下一期 →</a>
 </div>
 
-<script>
-function showTab(id){
-  document.querySelectorAll('.card').forEach(e=>e.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
-}
-</script>
+
 </body>
 </html>
