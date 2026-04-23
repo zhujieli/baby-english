@@ -3,109 +3,366 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>宝宝英语启蒙 · 第011期 · 颜色真好玩</title>
+<title>宝宝英语启蒙 · 第011期 · Colors are Fun!</title>
 <style>
-:root{--c:#009688;--bg:#F8F6F0;--card:#FFF;--text:#333;--sub:#666;--r:16px}
+
+:root{--p:#FF9B50;--pd:#E07A2F;--s:#7EC8E3;--sd:#4AABBF;--g:#66BB6A;--bg:#FFF9F0;--c:#FFF;--t:#3D3D3D;--tl:#7A7A7A}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:#00968811;color:var(--text);line-height:1.8;padding-bottom:90px;-webkit-font-smoothing:antialiased}
-.hero{background:linear-gradient(135deg,#00968822,#00968844);padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden;border-radius:0 0 40px 40px}
-.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:#00968811;border-radius:50% 50% 0 0}
-.hero-badge{display:inline-block;background:#009688;color:#fff;font-size:12px;font-weight:700;padding:5px 18px;border-radius:20px;letter-spacing:1px}
-.hero h1{font-size:30px;font-weight:800;color:#009688;margin:14px 0 4px}
-.hero-sub{font-size:17px;opacity:.8;font-weight:600;color:#009688}
-.hero-meta{display:flex;justify-content:center;gap:12px;margin-top:14px;flex-wrap:wrap}
-.hero-meta span{background:rgba(255,255,255,.7);padding:4px 14px;border-radius:14px;font-size:13px;color:#009688}
-.nav-tabs{display:flex;gap:6px;padding:20px 16px 6px;overflow-x:auto;scrollbar-width:none;flex-wrap:wrap}
+body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--t);line-height:1.75;padding-bottom:80px;-webkit-font-smoothing:antialiased}
+/* 按钮 */
+.tts-btn{display:inline-flex;align-items:center;gap:4px;background:#FFF3E0;border:1.5px solid #FFE0B2;border-radius:20px;padding:3px 10px 3px 6px;font-size:12px;color:var(--pd);cursor:pointer;font-weight:600;margin-left:4px;vertical-align:middle;-webkit-tap-highlight-color:transparent;user-select:none;transition:all .2s}
+.tts-btn:active{background:var(--p);color:#fff;border-color:var(--p);transform:scale(0.95)}
+.tts-btn.playing{background:#FF5722;color:#fff;animation:pulse .6s infinite}
+.play-btn{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#FF9B50,#FF6B35);color:#fff;border:none;border-radius:12px;padding:8px 18px;font-size:14px;font-weight:700;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:all .2s;box-shadow:0 3px 10px rgba(255,107,53,.3)}
+.play-btn:active{transform:scale(0.96);box-shadow:none}
+.play-btn.playing{opacity:.7}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+/* Hero */
+.hero{background:linear-gradient(135deg,#FFE0B2 0%,#B3E5FC 100%);padding:44px 24px 36px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:var(--bg);border-radius:50% 50% 0 0}
+.hero-badge{display:inline-block;background:var(--p);color:#fff;font-size:12px;font-weight:700;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px}
+.hero h1{font-size:28px;font-weight:800;color:#2C2C2C;margin-bottom:6px;line-height:1.3}
+.hero-sub{font-size:14px;color:#6D4C41;margin-bottom:4px}
+.hero-meta{display:flex;justify-content:center;gap:16px;margin-top:12px;font-size:12px;color:#795548}
+.hero-meta span{background:rgba(255,255,255,.6);padding:3px 10px;border-radius:12px}
+/* 导航 */
+.nav-tabs{display:flex;gap:6px;padding:20px 20px 6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .nav-tabs::-webkit-scrollbar{display:none}
-.tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #00968844;background:#fff;cursor:pointer;color:#009688;transition:all .2s}
-.tab.active{background:#009688;color:#fff;border-color:#009688}
-.card{background:#00968811;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #00968833;display:none}
-.card.active{display:block}
-.card-title{font-size:18px;font-weight:800;color:#009688;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #00968844;display:flex;align-items:center;gap:8px}
-.content p{margin:10px 0;font-size:15px;line-height:1.9}
-.content h4{font-size:16px;font-weight:700;color:#009688;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #00968844}
-.content blockquote{background:#00968822;border-left:4px solid #009688;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
-.content ul{list-style:none;margin:10px 0;padding:0}
-.content li{padding:9px 0 9px 22px;position:relative;font-size:15px;border-bottom:1px solid #00968822}
-.content li:last-child{border-bottom:none}
-.content li::before{content:'•';position:absolute;left:6px;color:#009688;font-weight:bold;font-size:18px;top:8px}
-.content strong{color:#009688}
-.audio-btn{margin:4px 4px;padding:6px 14px;border:none;border-radius:20px;background:#FFF3E0;color:#E65100;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .2s;box-shadow:0 2px 6px rgba(0,0,0,.1)}
-.audio-btn:hover{background:#FFE0B2;transform:scale(1.05)}
-.audio-btn:active{transform:scale(0.95)}
-.footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #00968833;z-index:100;gap:12px}
-.footer a{flex:1;text-align:center;padding:13px;background:#009688;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
-.footer .nav-btn{background:#fff;color:#009688;border:2px solid #009688}
-.nav-disabled{opacity:.4;cursor:not-allowed}
+.nav-tab{flex-shrink:0;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid #F0E8DC;background:#FFF;cursor:pointer;transition:all .2s}
+.nav-tab.active{background:var(--p);color:#fff;border-color:var(--p)}
+/* 通用卡片 */
+.section-title{font-size:17px;font-weight:800;color:#2C2C2C;margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.card{background:#FFF;border-radius:18px;margin:16px 16px;padding:20px;box-shadow:0 2px 14px rgba(255,155,80,.12)}
+/* 导读 */
+.intro-box{background:linear-gradient(135deg,#FFF3E0,#E8F5E9);border-left:4px solid var(--p);border-radius:16px;margin:20px 16px 4px;padding:16px 18px;font-size:14.5px;line-height:1.8}
+.intro-box p{margin-bottom:6px}
+.intro-box p:last-child{margin-bottom:0;color:var(--tl);font-size:13px}
+/* 单词卡 */
+.word-grid{display:flex;flex-direction:column;gap:12px}
+.word-card{background:linear-gradient(135deg,#FAFAFA,#F0F7FF);border-radius:14px;padding:14px 16px;border-left:4px solid var(--s)}
+.word-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+.word-en{font-size:22px;font-weight:800;color:var(--pd)}
+.word-ipa{font-size:13px;color:var(--sd);font-style:italic;font-weight:500}
+.word-zh{font-size:14px;color:var(--tl);margin-bottom:6px}
+.word-tip{background:#E3F2FD;border-radius:10px;padding:8px 12px;font-size:13px;color:#1565C0;line-height:1.6}
+.word-example{background:#FFF8E1;border-radius:8px;padding:6px 12px;font-size:13px;color:#E65100;margin-top:6px;font-style:italic}
+/* 情景对话 */
+.scene-header{background:linear-gradient(135deg,#FFF8E1,#FFF3E0);border-radius:14px 14px 0 0;padding:12px 16px;border-bottom:1.5px dashed #FFD54F;margin:-20px -20px 16px}
+.scene-title{font-size:15px;font-weight:700;color:#E65100}
+.scene-sub{font-size:12px;color:#BF8A3D;margin-top:2px}
+.dialogue-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #FFF3E0}
+.dialogue-row:last-child{border-bottom:none}
+.d-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.d-bubble{flex:1;background:#F5F5F5;border-radius:12px;padding:10px 14px}
+.d-bubble.orange{background:#FFF3E0}
+.d-bubble.blue{background:#E3F2FD}
+.d-bubble.green{background:#F1F8E9}
+.d-en{font-size:15px;font-weight:700;color:#2C2C2C;margin-bottom:3px}
+.d-zh{font-size:12px;color:var(--tl)}
+/* 儿歌 */
+.song-card{background:linear-gradient(135deg,#F1F8E9,#E8F5E9);border-radius:18px;margin:16px 16px;padding:22px 20px;border:1.5px solid #C8E6C9}
+.song-header{text-align:center;margin-bottom:16px}
+.song-title{font-size:19px;font-weight:800;color:#2E7D32}
+.song-sub{font-size:12px;color:#689F38;margin-top:4px}
+.song-info{display:flex;justify-content:center;gap:10px;margin-top:8px}
+.song-tag{background:#C8E6C9;color:#2E7D32;font-size:11px;padding:2px 10px;border-radius:10px;font-weight:600}
+.lyrics-box{background:rgba(255,255,255,.7);border-radius:14px;padding:16px}
+.lyric-line{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #C8E6C9;gap:8px}
+.lyric-line:last-child{border-bottom:none}
+.lyric-text{flex:1}
+.lyric-en{font-size:15px;font-weight:600;color:#1B5E20}
+.lyric-zh{font-size:12px;color:#689F38;margin-top:2px}
+.song-play-all{display:flex;justify-content:center;margin-top:16px}
+/* 发音技巧 */
+.phonics-card{background:linear-gradient(135deg,#F3E5F5,#EDE7F6);border-radius:18px;margin:16px 16px;padding:20px}
+.phonics-row{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid #E1BEE7}
+.phonics-row:last-child{border-bottom:none}
+.phonics-icon{font-size:32px;width:44px;text-align:center;flex-shrink:0}
+.phonics-body{flex:1}
+.phonics-word{font-size:20px;font-weight:800;color:#6A1B9A}
+.phonics-desc{font-size:13px;color:#7B1FA2;margin-top:2px}
+.phonics-tip{font-size:12px;color:#9C27B0;background:rgba(255,255,255,.6);border-radius:8px;padding:4px 10px;margin-top:4px}
+/* 场景活动 */
+.activity-card{background:linear-gradient(135deg,#E3F2FD,#E8EAF6);border-radius:18px;margin:16px 16px;padding:20px;border:1.5px solid #BBDEFB}
+.activity-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #BBDEFB}
+.activity-item:last-child{border-bottom:none}
+.activity-num{width:28px;height:28px;background:var(--s);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
+.activity-body{flex:1}
+.activity-title{font-size:15px;font-weight:700;color:#1565C0;margin-bottom:3px}
+.activity-desc{font-size:13px;color:#1976D2;line-height:1.6}
+.activity-phrase{background:rgba(255,255,255,.7);border-radius:8px;padding:6px 12px;font-size:14px;font-weight:700;color:#0D47A1;margin-top:6px;display:inline-block}
+/* 绘本故事 */
+.story-card{background:linear-gradient(135deg,#FFF9C4,#FFF3E0);border-radius:18px;margin:16px 16px;padding:20px;border:1.5px solid #FFE082}
+.story-header{text-align:center;margin-bottom:16px}
+.story-emoji{font-size:48px}
+.story-title{font-size:18px;font-weight:800;color:#E65100;margin-top:8px}
+.story-para{margin-bottom:12px}
+.story-en{font-size:15px;font-weight:700;color:#BF360C;margin-bottom:4px;line-height:1.7}
+.story-zh{font-size:13px;color:#795548;line-height:1.7}
+/* 进度 */
+.checklist-card{background:linear-gradient(135deg,#E8F5E9,#F1F8E9);border-radius:18px;margin:16px 16px;padding:20px;border:1.5px solid #A5D6A7}
+.check-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #C8E6C9;cursor:pointer}
+.check-item:last-child{border-bottom:none}
+.check-box{width:24px;height:24px;border:2.5px solid #66BB6A;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.check-box.checked{background:#66BB6A;border-color:#66BB6A}
+.check-text{font-size:14px;color:#2E7D32;font-weight:500}
+/* 大句子跟读 */
+.repeat-card{background:#FFF3E0;border-radius:14px;padding:16px 18px;margin:8px 16px;text-align:center;border:1.5px solid #FFE0B2}
+.repeat-en{font-size:21px;font-weight:800;color:var(--pd);margin-bottom:8px;line-height:1.4}
+.repeat-zh{font-size:13px;color:var(--tl);margin-bottom:10px}
+/* Footer */
+.footer-note{text-align:center;font-size:13px;color:var(--tl);padding:28px 20px 20px;line-height:2}
+.footer-note a{color:var(--p);text-decoration:none;font-weight:600}
+.preview-tag{display:inline-block;background:#FFF3E0;border:1.5px solid var(--p);color:var(--pd);padding:4px 14px;border-radius:12px;font-size:13px;font-weight:600;margin-top:8px}
+/* 分割线标题 */
+.divider-title{display:flex;align-items:center;gap:8px;margin:24px 16px 0;font-size:12px;color:var(--tl);font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.divider-title::before,.divider-title::after{content:'';flex:1;height:1px;background:#F0E8DC}
+
 </style>
-<script>
-var AUDIO_CDNS = [
-    "https://baby-english-d7gb3dwij91d31020-1346728686.tcloudbaseapp.com/audio/",
-    "https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/",
-    "https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/"
-];
-var audioPlayer = null;
-function playAudio(audioName) {
-    if (audioPlayer) audioPlayer.pause();
-    audioPlayer = new Audio();
-    var cdnIndex = 0;
-    audioPlayer.addEventListener('error', function() {
-        cdnIndex++;
-        if (cdnIndex < AUDIO_CDNS.length) {
-            audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
-            audioPlayer.play().catch(function() {});
-        } else {
-            if (window.speechSynthesis) {
-                var utter = new SpeechSynthesisUtterance(audioName.replace(/_/g, ' '));
-                utter.lang = 'en-US';
-                utter.rate = 0.9;
-                window.speechSynthesis.speak(utter);
-            }
-        }
-    });
-    audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
-    audioPlayer.play().catch(function() {});
-}
-function showTab(id) {
-    document.querySelectorAll('.card').forEach(function(e){e.classList.remove('active')});
-    document.getElementById(id).classList.add('active');
-    document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('active')});
-    event.target.classList.add('active');
-}
-</script>
 </head>
 <body>
+
+<!-- HERO -->
 <div class="hero">
-  <div class="hero-badge">第011期</div>
-  <h1>颜色真好玩</h1>
-  <div class="hero-sub">
-</div>
+  <div class="hero-badge">✨ 第 011 期</div>
+  <div style="font-size:68px;margin-bottom:10px">🎨</div>
+  <h1>Colors are Fun!</h1>
+  <div class="hero-sub">字母 L · 颜色真好玩</div>
   <div class="hero-meta">
-    <span>每日10分钟</span>
-    <span>英语启蒙</span>
-    <span>1.5-2岁</span>
+    <span>🕐 约12分钟</span>
+    <span>📖 适合1.5–2岁</span>
+    <span>🎯 英语启蒙</span>
   </div>
 </div>
 
-<nav class="nav-tabs">
-  <button class="tab active" onclick="showTab('s1')">金句</button>
-  <button class="tab" onclick="showTab('s2')">儿歌</button>
-  <button class="tab" onclick="showTab('s3')">绘本</button>
-  <button class="tab" onclick="showTab('s4')">字母</button>
-  <button class="tab" onclick="showTab('s5')">活动</button>
-  <button class="tab" onclick="showTab('s6')">贴士</button>
-</nav>
-<div class="card active" id="s1"><div class="card-title"></div>
-<div class="card active" id="s2"><div class="card-title"></div>
-<div class="card active" id="s3"><div class="card-title"></div>
-<div class="card active" id="s4"><div class="card-title"></div>
-<div class="card active" id="s5"><div class="card-title"></div>
-<div class="card active" id="s6"><div class="card-title"></div>
-
-<div class="footer">
-  <a href="issue-010.html" class="nav-btn">上一期</a>
-  <a href="index.html">目录</a>
-  <a href="issue-012.html" class="nav-btn">下一期</a>
+<!-- 导航 -->
+<div class="nav-tabs">
+  <span class="nav-tab active" onclick="location.href='issue-011.html'">011·L</span>
 </div>
+
+
+<div class="card" style="margin:16px">
+  <div class="section-title">:star: 宝宝英语启蒙 · 第011期</div>
+  <div class="word-card" style="background:#fff;border-radius:14px;padding:16px;margin-top:12px">
+    <p style="margin:8px 0;font-size:14px;line-height:1.7">📅 <b style="color:#E65100">2026年4月26日（周日）</b></p>
+<p style="margin:8px 0;font-size:14px;line-height:1.7">🎯 <b style="color:#E65100">今日主题：颜色真好玩 — Colors Are Fun!</b></p>
+<p style="margin:8px 0;font-size:14px;line-height:1.7">⏱️ 阅读时间：约 13 分钟</p>
+  </div>
+</div>
+
+<div class="card" style="margin:16px">
+  <div class="section-title">模块 2</div>
+  <div class="song-card" style="background:#fff;border-radius:14px;padding:16px;margin-top:12px">
+    <h3 style="color:#E65100;margin:16px 0 8px">🌈 一、今日场景：颜色真好玩</h3>
+<p style="margin:8px 0;font-size:14px;line-height:1.7">*参考：羊市长Coco英语 / 多娜校长英语启蒙风格*</p>
+<blockquote style="background:#FFF3E0;border-left:4px solid #FF9B50;padding:10px 14px;margin:10px 0;border-radius:0 8px 8px 0;font-size:14px">世界是彩色的！今天用彩虹的颜色学英语，让宝宝在认识颜色的同时学会用英语描述这个五彩斑斓的世界！</blockquote>
+<p style="margin:8px 0;font-size:14px;line-height:1.7">💡 <b style="color:#E65100">本期目标</b>：认识5个颜色词汇，学唱1首颜色歌，掌握用英语描述颜色的能力</p>
+  </div>
+</div>
+
+<div class="card" style="margin:16px">
+  <div class="section-title">模块 3</div>
+  <div class="story-card" style="background:#fff;border-radius:14px;padding:16px;margin-top:12px">
+    <h3 style="color:#E65100;margin:16px 0 8px">🗣️ 二、今日金句（5句 · 日常对话）</h3>
+<h4 style="color:#E65100;margin:12px 0 6px;font-size:15px">句1：认识红色</h4>
+<blockquote style="background:#FFF3E0;border-left:4px solid #FF9B50;padding:10px 14px;margin:10px 0;border-radius:0 8px 8px 0;font-size:14px"><b style="color:#E65100">「Look! The apple is red! Red apple!」</b></blockquote>
+<p style="margin:8px 0;font-size:14px;line-height:1.7">💡 <b style="color:#E65100">怎么用</b>：红色是最好认的颜色，指着苹果说「red」，让宝宝摸一摸、闻一闻、尝一尝。</p>
+<h4 style="color:#E65100;margin:12px 0 6px;font-size:15px">句2：认识蓝色</h4>
+<blockquote style="background:#FFF3E0;border-left:4px solid #FF9B50;padding:10px 14px;margin:10px 0;border-radius:0 8px 8px 0;font-size:14px"><b style="color:#E65100">「The sky is blue! So blue and beautiful!」</b></blockquote>
+<p style="margin:8px 0;font-size:14px;line-height:1.7">💡 <b style="color:#E65100">怎么用</b>：抬头看天说「blue」，还可以指着水坑「blue puddle」。蓝色无处不在。</p>
+<h4 style="color:#E65100;margin:12px 0 6px;font-size:15px">句3：认识黄色</h4>
+<blockquote style="background:#FFF3E0;border-left:4px solid #FF9B50;padding:10px 14px;margin:10px 0;border-radius:0 8px 8px 0;font-size:14px"><b style="color:#E65100">「The sun is yellow! It gives us light!」</b></blockquote>
+<p style="margin:8px 0;font-size:14px;line-height:1.7">💡 <b style="color:#E65100">怎么用</b>：黄色的太阳最温暖，让宝宝感受阳光的温度「It's warm!」描述太阳的颜色。</p>
+<h4 style="color:#E65100;margin:12px 0 6px;font-size:15px">句4：混色游戏</h4>
+<blockquote style="background:#FFF3E0;border-left:4px solid #FF9B50;padding:10px 14px;margin:10px 0;border-radius:0 8px 8px 0;font-size:14px"><b style="color:#E65100">「What color do you want? Red or blue?」</b></blockquote>
+<p style="margin:8px 0;font-size:14px;line-height:1.7">💡 <b style="color:#E65100">怎么用</b>：选择是宝宝最喜欢的游戏之一。选红色说「Red!」选蓝色说「Blue!」</p>
+<h4 style="color:#E65100;margin:12px 0 6px;font-size:15px">句5：彩虹时刻</h4>
+<blockquote style="background:#FFF3E0;border-left:4px solid #FF9B50;padding:10px 14px;margin:10px 0;border-radius:0 8px 8px 0;font-size:14px"><b style="color:#E65100">「Look! A rainbow! So many colors!」</b></blockquote>
+<p style="margin:8px 0;font-size:14px;line-height:1.7">💡 <b style="color:#E65100">怎么用</b>：有彩虹的时候绝对不能错过！数一数「One, two, three, four...」每种颜色都说一遍。</p>
+  </div>
+</div>
+
+<div class="card" style="margin:16px">
+  <div class="section-title">模块 4</div>
+  <div class="activity-card" style="background:#fff;border-radius:14px;padding:16px;margin-top:12px">
+    <h3 style="color:#E65100;margin:16px 0 8px">🎵 三、今日配套儿歌：I See Something Pink（颜色歌）</h3>
+<p style="margin:8px 0;font-size:14px;line-height:1.7"><b style="color:#E65100">基础版：</b></p>
+<ul style="margin:8px 0;padding-left:20px">
+<li style="margin:6px 0;font-size:14px;line-height:1.6">:musical_note: I see something pink and I want you to find it!</li>
+<li style="margin:6px 0;font-size:14px;line-height:1.6">:musical_note: I see something pink, can you point to it?</li>
+<li style="margin:6px 0;font-size:14px;line-height:1.6">:musical_note: Pink, pink, pink, what is pink?</li>
+<li style="margin:6px 0;font-size:14px;line-height:1.6">:musical_note: An elephant is pink! Touch your nose and blink!</li>
+</ul>
+<p style="margin:8px 0;font-size:14px;line-height:1.7"><b style="color:#E65100">进阶替换：</b></p>
+<ul style="margin:8px 0;padding-left:20px">
+<li style="margin:6px 0;font-size:14px;line-height:1.6">:musical_note: Red — apple, fire truck!</li>
+<li style="margin:6px 0;font-size:14px;line-height:1.6">:musical_note: Blue — sky, ocean!</li>
+<li style="margin:6px 0;font-size:14px;line-height:1.6">:musical_note: Yellow — sun, banana!</li>
+<li style="margin:6px 0;font-size:14px;line-height:1.6">:musical_note: Green — grass, leaf!</li>
+</ul>
+<p style="margin:8px 0;font-size:14px;line-height:1.7"><b style="color:#E65100">怎么唱</b>：</p>
+<p style="margin:8px 0;font-size:14px;line-height:1.7">这首颜色歌可以唱遍全家！指着房间里的东西唱「I see something [颜色]...」让宝宝找！全家一起玩，看谁找得快！每找到一个新物品就换一个颜色，无限循环！</p>
+  </div>
+</div>
+
+<div class="card" style="margin:16px">
+  <div class="section-title">模块 5</div>
+  <div class="phonics-card" style="background:#fff;border-radius:14px;padding:16px;margin-top:12px">
+    <h3 style="color:#E65100;margin:16px 0 8px">📖 四、绘本预热：《棕色的熊，棕色的熊，你在看什么？》</h3>
+<blockquote style="background:#FFF3E0;border-left:4px solid #FF9B50;padding:10px 14px;margin:10px 0;border-radius:0 8px 8px 0;font-size:14px"><b style="color:#E65100">小彼恩系列·今日片段引入</b></blockquote>
+<p style="margin:8px 0;font-size:14px;line-height:1.7">艾瑞·卡尔用最简单的句式介绍了各种动物和颜色，是颜色启蒙的最佳绘本：</p>
+<p style="margin:8px 0;font-size:14px;line-height:1.7"><b style="color:#E65100">书中关键词</b>：</p>
+<ul style="margin:8px 0;padding-left:20px">
+<li style="margin:6px 0;font-size:14px;line-height:1.6">`brown` — 棕色</li>
+<li style="margin:6px 0;font-size:14px;line-height:1.6">`red` — 红色</li>
+<li style="margin:6px 0;font-size:14px;line-height:1.6">`yellow` — 黄色</li>
+<li style="margin:6px 0;font-size:14px;line-height:1.6">`blue` — 蓝色</li>
+<li style="margin:6px 0;font-size:14px;line-height:1.6">`green` — 绿色</li>
+</ul>
+<p style="margin:8px 0;font-size:14px;line-height:1.7">🗣️ <b style="color:#E65100">亲子共读提示</b>：</p>
+<p style="margin:8px 0;font-size:14px;line-height:1.7">每翻一页指颜色「What color is it?」宝宝答不出来没关系，家长自问自答「It's brown!」慢慢重复，让宝宝建立颜色和图片的联系。</p>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer-note">
+  🌟 <b>本期学习完成！</b><br>
+  💡 每天坚持，静待花开！<br><br>
+  <a href="index.html">📚 返回目录</a>
+</div>
+
+<script>
+
+var _curAud = null;
+var AUDIO_CDNS = [
+  'https://baby-english-d7gb3dwij91d31020-1346728686.tcloudbaseapp.com/audio/',
+  'https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/',
+  'https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/'
+];
+var _cdnIdx = 0;
+
+function playAudio(src, text, btn) {
+  // 如果没有音频文件，直接用TTS
+  if (!src) { speak(text, btn); return; }
+
+  // 停止当前音频
+  if (_curAud) { try { _curAud.pause(); _curAud.currentTime = 0; } catch(e){} _curAud = null; }
+
+  // 清除所有播放状态
+  var playing = document.querySelectorAll('.tts-btn.playing, .play-btn.playing');
+  for (var i = 0; i < playing.length; i++) playing[i].classList.remove('playing');
+
+  // 重置CDN索引
+  _cdnIdx = 0;
+  tryCDN(AUDIO_CDNS[0], src, text, btn);
+}
+
+function tryCDN(cdn, src, text, btn) {
+  var a = new Audio();
+  a.preload = 'auto';
+  var loaded = false;
+
+  a.oncanplaythrough = function() {
+    loaded = true;
+    clearTimeout(timer);
+    if (btn) btn.classList.add('playing');
+    var playPromise = a.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(function() {
+        // 自动播放策略阻止 - 仍然尝试
+        a.play();
+      });
+    }
+    _curAud = a;
+  };
+
+  a.onplay = function() {
+    if (btn) btn.classList.add('playing');
+  };
+
+  a.onended = function() {
+    if (btn) btn.classList.remove('playing');
+    _curAud = null;
+  };
+
+  a.onerror = function() {
+    clearTimeout(timer);
+    if (btn) btn.classList.remove('playing');
+    nextCDN(src, text, btn);
+  };
+
+  var timer = setTimeout(function() {
+    if (!loaded) {
+      try { a.pause(); } catch(e){}
+      if (btn) btn.classList.remove('playing');
+      nextCDN(src, text, btn);
+    }
+  }, 6000);
+
+  a.src = cdn + src;
+  a.load();
+}
+
+function nextCDN(src, text, btn) {
+  _cdnIdx++;
+  if (_cdnIdx < AUDIO_CDNS.length) {
+    tryCDN(AUDIO_CDNS[_cdnIdx], src, text, btn);
+  } else {
+    speak(text, btn);
+  }
+}
+
+function speak(text, btn) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  var utt = new SpeechSynthesisUtterance(text);
+  utt.lang = 'en-US';
+  utt.rate = 0.82;
+  utt.pitch = 1.1;
+  var voices = window.speechSynthesis.getVoices();
+  for (var i = 0; i < voices.length; i++) {
+    var lang = voices[i].lang;
+    if (lang.indexOf('en-AU') > -1 || lang.indexOf('en-GB') > -1) { utt.voice = voices[i]; break; }
+  }
+  if (!utt.voice) {
+    for (var i = 0; i < voices.length; i++) {
+      if (voices[i].lang.indexOf('en') > -1) { utt.voice = voices[i]; break; }
+    }
+  }
+  if (btn) btn.classList.add('playing');
+  utt.onend = utt.onerror = function() { if (btn) btn.classList.remove('playing'); };
+  window.speechSynthesis.speak(utt);
+}
+
+// 打卡功能
+function toggleCheck(item) {
+  var box = item.querySelector('.check-box');
+  var text = item.querySelector('.check-text');
+  if (box.classList.contains('checked')) {
+    box.classList.remove('checked');
+    box.innerHTML = '';
+    text.style.textDecoration = '';
+    text.style.color = '#2E7D32';
+  } else {
+    box.classList.add('checked');
+    box.innerHTML = '✓';
+    box.style.color = '#fff';
+    box.style.fontSize = '14px';
+    box.style.fontWeight = '700';
+    text.style.textDecoration = 'line-through';
+    text.style.color = '#9E9E9E';
+  }
+}
+
+// 预加载语音
+if ('speechSynthesis' in window) {
+  window.speechSynthesis.getVoices();
+  window.speechSynthesis.addEventListener('voiceschanged', function() {
+    window.speechSynthesis.getVoices();
+  });
+}
+
+</script>
+
 </body>
 </html>
