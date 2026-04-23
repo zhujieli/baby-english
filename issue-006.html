@@ -3,258 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>宝宝英语启蒙 · 第006期 · Breakfast Time!</title>
+<title>宝宝英语启蒙 · 第006期 · 吃早饭</title>
 <style>
-:root{--p:#FF9800;--pd:#F57C00;--s:#FFC107;--sd:#FFB300;--g:#FF9800;--bg:#FFF9F0;--t:#3D3D3D;--tl:#7A7A7A}
+:root{--c:#FFB74D;--bg:#F8F6F0;--card:#FFF;--text:#333;--sub:#666;--r:16px}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--t);line-height:1.75;padding-bottom:80px}
-.hero{background:linear-gradient(135deg,#FFF3E0 0%,#FFE0B2 100%);padding:44px 24px 36px;text-align:center;position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:var(--bg);border-radius:50% 50% 0 0}
-.hero-badge{display:inline-block;background:var(--p);color:#fff;font-size:12px;font-weight:700;padding:4px 16px;border-radius:20px;margin-bottom:14px}
-.hero h1{font-size:28px;font-weight:800;color:#2C2C2C;margin-bottom:6px}
-.hero-sub{font-size:14px;color:#E65100}
-.hero-meta{display:flex;justify-content:center;gap:16px;margin-top:12px;font-size:12px}
-.hero-meta span{background:rgba(255,255,255,.7);padding:3px 10px;border-radius:12px}
-.nav-tabs{display:flex;gap:6px;padding:20px 20px 6px;overflow-x:auto}
-.nav-tab{flex-shrink:0;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid #F0E8DC;background:#FFF}
-.nav-tab.active{background:var(--p);color:#fff;border-color:var(--p)}
-.tts-btn{display:inline-flex;align-items:center;gap:4px;background:#FFF3E0;border:1.5px solid #FFE0B2;border-radius:20px;padding:3px 10px 3px 6px;font-size:12px;color:var(--pd);cursor:pointer;font-weight:600}
-.tts-btn.playing{background:var(--p);color:#fff}
-.play-btn{display:inline-flex;background:linear-gradient(135deg,#FF9800,#F57C00);color:#fff;border:none;border-radius:12px;padding:8px 18px;font-size:14px;font-weight:700;cursor:pointer}
-.card{background:#FFF;border-radius:18px;margin:16px;padding:20px;box-shadow:0 2px 14px rgba(0,0,0,.08)}
-.intro-box{background:linear-gradient(135deg,#FFF3E0,#FFF8E1);border-left:4px solid var(--p);border-radius:16px;margin:20px 16px 4px;padding:16px 18px;font-size:14.5px;line-height:1.8}
-.divider-title{display:flex;align-items:center;gap:8px;margin:24px 16px 0;font-size:12px;color:var(--tl);font-weight:600;text-transform:uppercase}
-.divider-title::before,.divider-title::after{content:'';flex:1;height:1px;background:#F0E8DC}
-.word-grid{display:flex;flex-direction:column;gap:12px}
-.word-card{background:linear-gradient(135deg,#FAFAFA,#FFF8E1);border-radius:14px;padding:14px 16px;border-left:4px solid var(--p)}
-.word-en{font-size:22px;font-weight:800;color:var(--pd)}
-.word-ipa{font-size:13px;color:#FF9800;font-style:italic}
-.word-zh{font-size:14px;color:var(--tl);margin-bottom:6px}
-.word-tip{background:#FFF8E1;border-radius:10px;padding:8px 12px;font-size:13px;color:#E65100;line-height:1.6}
-.word-example{background:#FFF3E0;border-radius:8px;padding:6px 12px;font-size:13px;color:#BF360C;margin-top:6px;font-style:italic}
-.phonics-row{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid #FFE082}
-.phonics-icon{font-size:32px;width:44px;text-align:center}
-.phonics-word{font-size:20px;font-weight:800;color:#E65100}
-.phonics-desc{font-size:13px;color:#F57C00}
-.phonics-tip{font-size:12px;color:#BF360C;background:rgba(255,255,255,.6);border-radius:8px;padding:4px 10px;margin-top:4px}
-.dialogue-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0}
-.d-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
-.d-bubble{flex:1;background:#F5F5F5;border-radius:12px;padding:10px 14px}
-.d-bubble.orange{background:#FFF3E0}
-.d-bubble.blue{background:#FFF8E1}
-.d-en{font-size:15px;font-weight:700;color:#2C2C2C;margin-bottom:3px}
-.d-zh{font-size:12px;color:var(--tl)}
-.song-card{background:linear-gradient(135deg,#FFF8E1,#FFECB3);border-radius:18px;margin:16px;padding:22px 20px;border:1.5px solid #FFD54F}
-.song-header{text-align:center;margin-bottom:16px}
-.song-title{font-size:19px;font-weight:800;color:#F57C00}
-.song-sub{font-size:12px;color:#FF9800}
-.lyrics-box{background:rgba(255,255,255,.7);border-radius:14px;padding:16px}
-.lyric-line{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #FFD54F;gap:8px}
-.lyric-text{flex:1}
-.lyric-en{font-size:15px;font-weight:600;color:#E65100}
-.lyric-zh{font-size:12px;color:#F57C00;margin-top:2px}
-.story-card{background:linear-gradient(135deg,#FFF3E0,#FFECB3);border-radius:18px;margin:16px;padding:20px;border:1.5px solid #FFCC80}
-.story-header{text-align:center;margin-bottom:16px}
-.story-emoji{font-size:48px}
-.story-title{font-size:18px;font-weight:800;color:#E65100;margin-top:8px}
-.story-para{margin-bottom:12px}
-.story-en{font-size:15px;font-weight:700;color:#BF360C;margin-bottom:4px;line-height:1.7}
-.story-zh{font-size:13px;color:#795548;line-height:1.7}
-.checklist-card{background:linear-gradient(135deg,#FFF8E1,#FFECB3);border-radius:18px;margin:16px;padding:20px;border:1.5px solid #FFD54F}
-.check-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #FFE082;cursor:pointer}
-.check-box{width:24px;height:24px;border:2.5px solid #FF9800;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.check-box.checked{background:#FF9800}
-.check-text{font-size:14px;color:#E65100;font-weight:500}
-.repeat-card{background:#FFF3E0;border-radius:14px;padding:16px 18px;margin:8px 16px;text-align:center;border:1.5px solid #FFE0B2}
-.repeat-en{font-size:21px;font-weight:800;color:var(--pd);margin-bottom:8px}
-.repeat-zh{font-size:13px;color:var(--tl);margin-bottom:10px}
-.footer-note{text-align:center;font-size:13px;color:var(--tl);padding:28px 20px 20px;line-height:2}
-.footer-note a{color:var(--p);text-decoration:none;font-weight:600}
+body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:#FFB74D11;color:var(--text);line-height:1.8;padding-bottom:90px;-webkit-font-smoothing:antialiased}
+.hero{background:linear-gradient(135deg,#FFB74D22,#FFB74D44);padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden;border-radius:0 0 40px 40px}
+.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:#FFB74D11;border-radius:50% 50% 0 0}
+.hero-badge{display:inline-block;background:#FFB74D;color:#fff;font-size:12px;font-weight:700;padding:5px 18px;border-radius:20px;letter-spacing:1px}
+.hero h1{font-size:30px;font-weight:800;color:#FFB74D;margin:14px 0 4px}
+.hero-sub{font-size:17px;opacity:.8;font-weight:600;color:#FFB74D}
+.hero-meta{display:flex;justify-content:center;gap:12px;margin-top:14px;flex-wrap:wrap}
+.hero-meta span{background:rgba(255,255,255,.7);padding:4px 14px;border-radius:14px;font-size:13px;color:#FFB74D}
+.nav-tabs{display:flex;gap:6px;padding:20px 16px 6px;overflow-x:auto;scrollbar-width:none;flex-wrap:wrap}
+.nav-tabs::-webkit-scrollbar{display:none}
+.tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #FFB74D44;background:#fff;cursor:pointer;color:#FFB74D;transition:all .2s}
+.tab.active{background:#FFB74D;color:#fff;border-color:#FFB74D}
+.card{background:#FFB74D11;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #FFB74D33;display:none}
+.card.active{display:block}
+.card-title{font-size:18px;font-weight:800;color:#FFB74D;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #FFB74D44;display:flex;align-items:center;gap:8px}
+.content p{margin:10px 0;font-size:15px;line-height:1.9}
+.content h4{font-size:16px;font-weight:700;color:#FFB74D;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #FFB74D44}
+.content blockquote{background:#FFB74D22;border-left:4px solid #FFB74D;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
+.content ul{list-style:none;margin:10px 0;padding:0}
+.content li{padding:9px 0 9px 22px;position:relative;font-size:15px;border-bottom:1px solid #FFB74D22}
+.content li:last-child{border-bottom:none}
+.content li::before{content:'•';position:absolute;left:6px;color:#FFB74D;font-weight:bold;font-size:18px;top:8px}
+.content strong{color:#FFB74D}
+.footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #FFB74D33;z-index:100;gap:12px}
+.footer a{flex:1;text-align:center;padding:13px;background:#FFB74D;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
+.footer .nav-btn{background:#fff;color:#FFB74D;border:2px solid #FFB74D}
+.nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
 </head>
 <body>
-
 <div class="hero">
-  <div class="hero-badge">✨ 第 006 期</div>
-  <div style="font-size:68px;margin-bottom:10px">🥣</div>
-  <h1>Breakfast Time!</h1>
-  <div class="hero-sub">字母 F · 吃早饭</div>
+  <div class="hero-badge">第006期</div>
+  <h1>吃早饭</h1>
+  <div class="hero-sub">Breakfast Time!</div>
   <div class="hero-meta">
-    <span>🕐 约12分钟</span>
-    <span>📖 适合1.5–2岁</span>
-    <span>🎯 5个核心词</span>
+    <span>📅 每日10分钟</span>
+    <span>🎯 英语启蒙</span>
+    <span>👶 1.5-2岁</span>
   </div>
 </div>
 
-<div class="nav-tabs">
-  <span class="nav-tab" onclick="location.href='issue-001.html'">001·A</span>
-  <span class="nav-tab" onclick="location.href='issue-002.html'">002·B</span>
-  <span class="nav-tab" onclick="location.href='issue-003.html'">003·C</span>
-  <span class="nav-tab" onclick="location.href='issue-004.html'">004·D</span>
-  <span class="nav-tab" onclick="location.href='issue-005.html'">005·E</span>
-  <span class="nav-tab active" onclick="location.href='issue-006.html'">006·F</span>
-  <span class="nav-tab" onclick="location.href='issue-007.html'">007·G</span>
-</div>
+<nav class="nav-tabs">
+  <button class="tab active" onclick="showTab('s1')">💬 金句</button>
+  <button class="tab" onclick="showTab('s2')">🎵 儿歌</button>
+  <button class="tab" onclick="showTab('s3')">📖 绘本</button>
+  <button class="tab" onclick="showTab('s4')">🔤 字母</button>
+  <button class="tab" onclick="showTab('s5')">🎮 活动</button>
+  <button class="tab" onclick="showTab('s6')">💡 贴士</button>
+</nav>
 
-<div class="intro-box">
-  <p>🥣 早餐是全家最温馨的时刻，也是英语输入的好机会！今天学5个早餐词汇，把饭桌变成英语课堂！</p>
-  <p>💡 本期目标：认识 5 个早餐词汇，学唱 1 首经典儿歌，掌握餐桌对话场景</p>
-</div>
+<div class="card active" id="s1"><div class="card-title">💬 今日金句</div><div class="content"><p>### 句1：叫吃早餐 <blockquote><strong>「Good morning! It's breakfast time! Are you hungry?」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：推开厨房门，闻到饭香味说「Something smells good!」引起宝宝的食欲「Are you hungry?」</p>
+<p>---</p>
+<p>### 句2：选择食物 <blockquote><strong>「Do you want eggs or cereal?」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：让宝宝选择，无论选什么都表扬「Good choice!」让宝宝有决定权「I want...」</p>
+<p>---</p>
+<p>### 句3：吃早饭啦 <blockquote><strong>「Yummy breakfast! Here you go! Smells so good!」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：把食物放在宝宝面前，夸张地说「Smells so good!」宝宝吃一口后问「Is it yummy?」</p>
+<p>---</p>
+<p>### 句4：喝牛奶 <blockquote><strong>「Here's your milk! Drink it up!」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：配合举杯的动作「Clink! Cheers!」增加用餐的仪式感「Milk is good for you!」</p>
+<p>---</p>
+<p>### 句5：吃饱结束 <blockquote><strong>「All done? Are you full? Good job eating!」</strong></blockquote></p>
+<p>💡 <strong>怎么用</strong>：宝宝说full或做动作表示吃饱后，收拾碗筷「Let's clean up!」建立用餐好习惯。</p>
+<p>---</p></div></div>
+<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div><div class="content"><p><strong>拍手版：</strong> <ul> <li>:musical_note: If you're happy and you know it, clap your hands! :clap::clap:</li> <li>:musical_note: If you're happy and you know it, clap your hands! :clap::clap:</li> <li>:musical_note: If you're happy and you know it,</li> <li>:musical_note: and you really want to show it,</li> <li>:musical_note: If you're happy and you know it, clap your hands! :clap::clap:</li> </ul></p>
+<p><strong>跺脚版：</strong> <ul> <li>:musical_note: If you're happy and you know it, stomp your feet! :foot:</li> <li>:musical_note: If you're happy and you know it, stomp your feet! :foot:</li> <li>:musical_note: If you're happy and you know it,</li> <li>:musical_note: and you really want to show it,</li> <li>:musical_note: If you're happy and you know it, stomp your feet! :foot:</li> </ul></p>
+<p><strong>喊耶版：</strong> <ul> <li>:musical_note: If you're happy and you know it, shout 'Hooray!' :tada:</li> <li>:musical_note: If you're happy and you know it, shout 'Hooray!' :tada:</li> <li>:musical_note: If you're happy and you know it,</li> <li>:musical_note: and you really want to show it,</li> <li>:musical_note: If you're happy and you know it, shout 'Hooray!' :tada:</li> </ul></p>
+<p><strong>怎么唱</strong>： 全家一起唱！拍手、跺脚、喊「耶」！唱到哪个动作就做哪个动作。吃完早饭后唱一遍庆祝「Good job eating! Hooray!」让用餐有个愉快的结尾！这一首歌可以唱完整天——宝宝哭闹时唱这首，马上转移注意力！</p>
+<p>---</p></div></div>
+<div class="card" id="s3"><div class="card-title">📖 绘本预热</div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
+<p>艾瑞·卡尔的经典绘本，讲述毛毛虫从一颗蛋变成蝴蝶的过程，中间吃了各种食物，非常适合引入食物词汇：</p>
+<p><strong>书中关键词</strong>： <ul> <li>`hungry` — 饿</li> <li>`eat` — 吃</li> <li>`fruit` — 水果</li> <li>`cocoon` — 茧</li> <li>`beautiful` — 美丽的</li> </ul></p>
+<p>🗣️ <strong>亲子共读提示</strong>： 指着书里的水果说「Apple! Orange!」然后拿出真实水果让宝宝摸一摸、闻一闻、尝一尝！五感输入记得最牢！</p>
+<p>---</p></div></div>
+<div class="card" id="s4"><div class="card-title">🔤 字母认知</div><div class="content"><blockquote><strong>今日字母：F food</strong></blockquote>
+<p>| 大写 | 小写 | 发音 | 联想词 | |------|------|------|--------| | F | f | // | 🍎 food |</p>
+<p><strong>联想词汇</strong>： <ul> <li><strong>Frog</strong> — 青蛙：学青蛙跳「Frog! F for frog! Ribbit ribbit!」夏天可以去池塘找青蛙。</li> <li><strong>Fish</strong> — 鱼：吃鱼或看金鱼时「Fish! F for fish!」手指在水中模仿鱼游。</li> <li><strong>Flower</strong> — 花：公园里的花「Flower! F for flower!」闻一闻「Smells good!」</li> </ul></p>
+<p>🗣️ <strong>怎么教</strong>： 指着实物或图片说「Food! F for food!」宝宝会先学会说实物名称，字母认知自然就来了！</p>
+<p>---</p></div></div>
+<div class="card" id="s5"><div class="card-title">🎮 亲子活动</div><div class="content"><blockquote>🧒 每天15分钟高质量陪伴，胜过1小时敷衍相处</blockquote>
+<p>| 时间 | 活动 | |------|------| | 厨房小帮手 | 让宝宝帮忙递东西「Pass me the eggs!」宝宝递对了说「Thank you!」 | | 餐桌歌时间 | 吃完早饭后唱「If You're Happy」，全家一起拍手跺脚 | | 表达练习 | 问宝宝「Hungry or full?」教宝宝用动作或词语回答 | | 食物颜色 | 「What color is the banana? Yellow!」顺便引入颜色词汇 |</p>
+<p>💡 <strong>互动贴士</strong>：参与感让宝宝对早餐更有兴趣，也学会了基本的请求表达和礼貌用语。</p>
+<blockquote>✅ 今天完成了吗？明天继续加油！💪</blockquote>
+<p>---</p></div></div>
+<div class="card" id="s6"><div class="card-title">💡 学习贴士</div><div class="content"><p><strong>1.5-2岁宝宝的语言学习规律：</strong></p>
+<blockquote>🧠 这个阶段宝宝处于「语言爆发期前夕」，听得越多、储备越丰富，18-24个月后会突然「开口」！</blockquote>
+<p><strong>三个关键原则：</strong> <strong>1. 餐桌是社交场</strong>：即使宝宝还不会说话，也要边喂边描述「Now you eat the egg. It's soft. Mm!」宝宝的小耳朵一直在吸收。</p>
+<p><strong>2. 不要追着喂</strong>：说「Food stays at the table」把吃饭和「玩」区分开，建立良好的饮食习惯。追着喂会破坏宝宝的食欲感。</p>
+<p><strong>3. 饥饿是最好的调味剂</strong>：如果宝宝不想吃，不用强迫。饿了下顿自然会吃，不要因为喂饭把吃饭变成战场。</p>
+<p>---</p></div></div>
 
-<div class="divider-title">📚 模块一 · 今日核心词汇</div>
-<div class="card">
-  <div class="word-grid">
-    <div class="word-card">
-      <div class="word-en">Breakfast <span class="word-ipa">/ˈbrekfəst/</span></div>
-      <div class="word-zh">早餐</div>
-      <div class="word-tip">💡 每天早上第一句：<b>"Good morning! It's breakfast time!"</b></div>
-      <div class="word-example">"Breakfast is ready! Come and eat!"</div>
-    </div>
-    <div class="word-card">
-      <div class="word-en">Hungry <span class="word-ipa">/ˈhʌŋɡri/</span></div>
-      <div class="word-zh">饿的</div>
-      <div class="word-tip">💡 宝宝没精神时说 <b>"Are you hungry? Let's eat!"</b></div>
-      <div class="word-example">"I'm hungry! I want breakfast!"</div>
-    </div>
-    <div class="word-card">
-      <div class="word-en">Yummy <span class="word-ipa">/ˈjʌmi/</span></div>
-      <div class="word-zh">好吃的</div>
-      <div class="word-tip">💡 宝宝吃第一口后问 <b>"Is it yummy?"</b></div>
-      <div class="word-example">"Yummy yummy! This is so delicious!"</div>
-    </div>
-    <div class="word-card">
-      <div class="word-en">Milk <span class="word-ipa">/mɪlk/</span></div>
-      <div class="word-zh">牛奶</div>
-      <div class="word-tip">💡 递牛奶时说 <b>"Here's your milk! Drink it up!"</b></div>
-      <div class="word-example">"Milk is good for you! M is for milk!"</div>
-    </div>
-    <div class="word-card">
-      <div class="word-en">Full <span class="word-ipa">/fʊl/</span></div>
-      <div class="word-zh">吃饱了</div>
-      <div class="word-tip">💡 宝宝不想吃时说 <b>"Are you full?"</b> 教宝宝用英语表达吃饱</div>
-      <div class="word-example">"I'm full! No more, thank you!"</div>
-    </div>
-  </div>
-</div>
-
-<div class="repeat-card">
-  <div class="repeat-en">Breakfast time! 🥣 Yummy! I'm full!</div>
-  <div class="repeat-zh">和宝宝一起说！</div>
-  <button class="play-btn" onclick="playAudio(null,'Breakfast time! Yummy! I am full!',this)">🎙️ 点我跟读</button>
-</div>
-
-<div class="divider-title">🔤 模块二 · 字母 F 认知</div>
-<div class="card" style="background:linear-gradient(135deg,#FFF8E1,#FFECB3)">
-  <div style="display:flex;gap:14px;align-items:center;margin-bottom:14px">
-    <div style="font-size:72px;font-weight:900;color:#E65100;text-align:center;width:80px">F</div>
-    <div>
-      <div style="font-size:14px;color:#F57C00;font-weight:700">大写 F · 小写 f</div>
-      <div style="font-size:13px;color:#FF9800">发音：<b>/ɛf/</b>（像吹蜡烛的"呼"音）</div>
-    </div>
-  </div>
-  <div class="phonics-row">
-    <div class="phonics-icon">🐸</div>
-    <div class="phonics-body"><div class="phonics-word">Frog /frɒɡ/</div><div class="phonics-desc">青蛙</div><div class="phonics-tip">🐸 F for frog! Ribbit ribbit!</div></div>
-    <button class="tts-btn" onclick="playAudio(null,'Frog',this)">🔊</button>
-  </div>
-  <div class="phonics-row">
-    <div class="phonics-icon">🐟</div>
-    <div class="phonics-body"><div class="phonics-word">Fish /fɪʃ/</div><div class="phonics-desc">鱼</div><div class="phonics-tip">🐟 F for fish! Swim swim swim!</div></div>
-    <button class="tts-btn" onclick="playAudio(null,'Fish',this)">🔊</button>
-  </div>
-  <div class="phonics-row">
-    <div class="phonics-icon">👨</div>
-    <div class="phonics-body"><div class="phonics-word">Father /ˈfɑːðər/</div><div class="phonics-desc">爸爸</div><div class="phonics-tip">👨 F for father! My dad!</div></div>
-    <button class="tts-btn" onclick="playAudio(null,'Father',this)">🔊</button>
-  </div>
-</div>
-
-<div class="divider-title">💬 模块三 · 亲子情景对话</div>
-<div class="card">
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#FFF3E0">👩</div>
-    <div class="d-bubble orange">
-      <div class="d-en">Good morning! It's breakfast time! Are you hungry?</div>
-      <div class="d-zh">早上好！吃早饭啦！你饿了吗？</div>
-    </div>
-  </div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#FFF8E1">👶</div>
-    <div class="d-bubble blue">
-      <div class="d-en">Hungry!</div>
-      <div class="d-zh">饿了！</div>
-    </div>
-  </div>
-  <div class="dialogue-row">
-    <div class="d-avatar" style="background:#FFF3E0">👩</div>
-    <div class="d-bubble orange">
-      <div class="d-en">Great! Let's eat! Yummy breakfast!</div>
-      <div class="d-zh">好！吃吧！好吃！</div>
-    </div>
-  </div>
-</div>
-
-<div class="divider-title">🎵 模块四 · 儿歌：If You're Happy</div>
-<div class="song-card">
-  <div class="song-header">
-    <div class="song-title">🎵 If You're Happy and You Know It</div>
-    <div class="song-sub">经典儿歌 · 拍手跺脚喊耶</div>
-  </div>
-  <div class="lyrics-box">
-    <div class="lyric-line">
-      <div class="lyric-text"><div class="lyric-en">If you're happy and you know it, clap your hands! 👏👏</div><div class="lyric-zh">如果你开心就拍拍手！</div></div>
-      <button class="tts-btn" onclick="playAudio(null,'If you are happy and you know it clap your hands',this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <div class="lyric-text"><div class="lyric-en">If you're happy and you know it, stomp your feet! 🦶🦶</div><div class="lyric-zh">如果你开心就跺跺脚！</div></div>
-      <button class="tts-btn" onclick="playAudio(null,'stomp your feet',this)">🔊</button>
-    </div>
-    <div class="lyric-line">
-      <div class="lyric-text"><div class="lyric-en">If you're happy and you know it, shout "Hooray!" 🎉</div><div class="lyric-zh">如果你开心就喊耶！</div></div>
-      <button class="tts-btn" onclick="playAudio(null,'shout Hooray',this)">🔊</button>
-    </div>
-  </div>
-  <div style="background:rgba(255,255,255,.6);border-radius:10px;padding:10px 14px;margin-top:14px;font-size:13px;color:#F57C00">
-    💡 全家一起唱！拍手、跺脚、喊"耶"！吃完饭后可以再唱一遍庆祝！
-  </div>
-</div>
-
-<div class="divider-title">📖 模块五 · 绘本故事</div>
-<div class="story-card">
-  <div class="story-header">
-    <div class="story-emoji">🐻</div>
-    <div class="story-title">Little Bear Has Breakfast</div>
-  </div>
-  <div class="story-para"><div class="story-en">☀️ Morning comes. Little Bear is hungry.</div><div class="story-zh">☀️ 早上到了，小熊饿了。</div></div>
-  <div class="story-para"><div class="story-en">🍳 "Time for breakfast!" says Mommy Bear.</div><div class="story-zh">🍳 熊妈妈说："该吃早饭啦！"</div></div>
-  <div class="story-para"><div class="story-en">🥚 "I want eggs!" says Little Bear.</div><div class="story-zh">🥚 小熊说："我想吃鸡蛋！"</div></div>
-  <div class="story-para"><div class="story-en">🥛 "And some milk too!"</div><div class="story-zh">🥛 "还要喝牛奶！"</div></div>
-  <div class="story-para"><div class="story-en">😊 "Yummy! This breakfast is so good!"</div><div class="story-zh">😊 "好吃！早饭太好吃了！"</div></div>
-  <div class="story-para"><div class="story-en">👍 "I'm full! Thank you, Mommy!"</div><div class="story-zh">👍 "我吃饱啦！谢谢妈妈！"</div></div>
-</div>
-
-<div class="divider-title">✅ 模块六 · 今日打卡</div>
-<div class="checklist-card">
-  <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">🥣 听了5个早餐词汇</div></div>
-  <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">🎵 唱了 If You're Happy 儿歌</div></div>
-  <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">🥣 吃早餐时说英语</div></div>
-  <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">📖 共读了早餐故事</div></div>
-  <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">🎉 饭后唱了庆祝歌</div></div>
-</div>
-
-<div class="footer-note">
-  🌟 <b>本期要点</b>：Breakfast · Hungry · Yummy · Milk · Full<br>
-  💡 早餐时间每天重复，一周后宝宝就能说 "Hungry!" 和 "Yummy!"<br><br>
-  <a href="issue-007.html">下一期 →</a>
+<div class="footer">
+  <a href="issue-005.html" class="nav-btn">← 上一期</a>
+  <a href="index.html">📚 目录</a>
+  <a href="issue-007.html" class="nav-btn">下一期 →</a>
 </div>
 
 <script>
-function playAudio(src, text, btn) {
-  if(!src) { speak(text, btn); return; }
-  if('speechSynthesis' in window) { var utt=new SpeechSynthesisUtterance(text);utt.lang='en-US';utt.rate=0.82;if(btn)btn.classList.add('playing');utt.onend=utt.onerror=function(){if(btn)btn.classList.remove('playing')};window.speechSynthesis.speak(utt); }
+function showTab(id){
+  document.querySelectorAll('.card').forEach(e=>e.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
 }
-function speak(text, btn) { if(!('speechSynthesis' in window))return; var utt=new SpeechSynthesisUtterance(text);utt.lang='en-US';utt.rate=0.82;if(btn)btn.classList.add('playing');utt.onend=utt.onerror=function(){if(btn)btn.classList.remove('playing')};window.speechSynthesis.speak(utt); }
-function toggleCheck(item) { var box=item.querySelector('.check-box'); if(box.classList.contains('checked')){box.classList.remove('checked');box.innerHTML='';}else{box.classList.add('checked');box.innerHTML='✓';box.style.color='#fff';} }
 </script>
 </body>
 </html>
