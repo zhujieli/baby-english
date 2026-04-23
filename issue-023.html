@@ -5,45 +5,48 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>宝宝英语启蒙 · 第023期 · 玩具总动员</title>
 <style>
-:root{--c:#42A5F5;--bg:#F8F6F0;--card:#FFF;--text:#333;--sub:#666;--r:16px}
+:root{--c:#E53935;--bg:#F8F6F0;--card:#FFF;--text:#333;--sub:#666;--r:16px}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:#42A5F511;color:var(--text);line-height:1.8;padding-bottom:90px;-webkit-font-smoothing:antialiased}
-.hero{background:linear-gradient(135deg,#42A5F522,#42A5F544);padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden;border-radius:0 0 40px 40px}
-.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:#42A5F511;border-radius:50% 50% 0 0}
-.hero-badge{display:inline-block;background:#42A5F5;color:#fff;font-size:12px;font-weight:700;padding:5px 18px;border-radius:20px;letter-spacing:1px}
-.hero h1{font-size:30px;font-weight:800;color:#42A5F5;margin:14px 0 4px}
-.hero-sub{font-size:17px;opacity:.8;font-weight:600;color:#42A5F5}
+body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:#E5393511;color:var(--text);line-height:1.8;padding-bottom:90px;-webkit-font-smoothing:antialiased}
+.hero{background:linear-gradient(135deg,#E5393522,#E5393544);padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden;border-radius:0 0 40px 40px}
+.hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:#E5393511;border-radius:50% 50% 0 0}
+.hero-badge{display:inline-block;background:#E53935;color:#fff;font-size:12px;font-weight:700;padding:5px 18px;border-radius:20px;letter-spacing:1px}
+.hero h1{font-size:30px;font-weight:800;color:#E53935;margin:14px 0 4px}
+.hero-sub{font-size:17px;opacity:.8;font-weight:600;color:#E53935}
 .hero-meta{display:flex;justify-content:center;gap:12px;margin-top:14px;flex-wrap:wrap}
-.hero-meta span{background:rgba(255,255,255,.7);padding:4px 14px;border-radius:14px;font-size:13px;color:#42A5F5}
+.hero-meta span{background:rgba(255,255,255,.7);padding:4px 14px;border-radius:14px;font-size:13px;color:#E53935}
 .nav-tabs{display:flex;gap:6px;padding:20px 16px 6px;overflow-x:auto;scrollbar-width:none;flex-wrap:wrap}
 .nav-tabs::-webkit-scrollbar{display:none}
-.tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #42A5F544;background:#fff;cursor:pointer;color:#42A5F5;transition:all .2s}
-.tab.active{background:#42A5F5;color:#fff;border-color:#42A5F5}
-.card{margin:16px 16px;padding:22px 18px;border-radius:16px;display:block}
+.tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #E5393544;background:#fff;cursor:pointer;color:#E53935;transition:all .2s}
+.tab.active{background:#E53935;color:#fff;border-color:#E53935}
+.card{background:#E5393511;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #E5393533;display:none}
+.card.active{display:block}
+.card-title{font-size:18px;font-weight:800;color:#E53935;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #E5393544;display:flex;align-items:center;gap:8px}
 .content p{margin:10px 0;font-size:15px;line-height:1.9}
-.content h4{font-size:16px;font-weight:700;color:#42A5F5;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #42A5F544}
-.content blockquote{background:#42A5F522;border-left:4px solid #42A5F5;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
+.content h4{font-size:16px;font-weight:700;color:#E53935;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #E5393544}
+.content blockquote{background:#E5393522;border-left:4px solid #E53935;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
 .content ul{list-style:none;margin:10px 0;padding:0}
-.content li{padding:9px 0 9px 22px;position:relative;font-size:15px;border-bottom:1px solid #42A5F522}
+.content li{padding:9px 0 9px 22px;position:relative;font-size:15px;border-bottom:1px solid #E5393522}
 .content li:last-child{border-bottom:none}
-.content li::before{content:'•';position:absolute;left:6px;color:#42A5F5;font-weight:bold;font-size:18px;top:8px}
-.content strong{color:#42A5F5}
-
+.content li::before{content:'•';position:absolute;left:6px;color:#E53935;font-weight:bold;font-size:18px;top:8px}
+.content strong{color:#E53935}
 .audio-btn{margin:4px 4px;padding:6px 14px;border:none;border-radius:20px;background:#FFF3E0;color:#E65100;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .2s;box-shadow:0 2px 6px rgba(0,0,0,.1)}
 .audio-btn:hover{background:#FFE0B2;transform:scale(1.05)}
 .audio-btn:active{transform:scale(0.95)}
-.footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #42A5F533;z-index:100;gap:12px}
-.footer a{flex:1;text-align:center;padding:13px;background:#42A5F5;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
-.footer .nav-btn{background:#fff;color:#42A5F5;border:2px solid #42A5F5}
+.footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #E5393533;z-index:100;gap:12px}
+.footer a{flex:1;text-align:center;padding:13px;background:#E53935;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
+.footer .nav-btn{background:#fff;color:#E53935;border:2px solid #E53935}
 .nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
 <script>
-var AUDIO_CDNS = ["https://baby-english-d7gb3dwj91d31020-1346728686.tcloudbaseapp.com/audio/", "https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/", "https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/"];
+var AUDIO_CDNS = [
+    "https://baby-english-d7gb3dwij91d31020-1346728686.tcloudbaseapp.com/audio/",
+    "https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/",
+    "https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/"
+];
 var audioPlayer = null;
 function playAudio(audioName) {
-    if (audioPlayer) {
-        audioPlayer.pause();
-    }
+    if (audioPlayer) audioPlayer.pause();
     audioPlayer = new Audio();
     var cdnIndex = 0;
     audioPlayer.addEventListener('error', function() {
@@ -52,7 +55,6 @@ function playAudio(audioName) {
             audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
             audioPlayer.play().catch(function() {});
         } else {
-            // 最终降级：使用浏览器TTS
             if (window.speechSynthesis) {
                 var utter = new SpeechSynthesisUtterance(audioName.replace(/_/g, ' '));
                 utter.lang = 'en-US';
@@ -64,11 +66,11 @@ function playAudio(audioName) {
     audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
     audioPlayer.play().catch(function() {});
 }
-function stopAudio() {
-    if (audioPlayer) {
-        audioPlayer.pause();
-        audioPlayer.currentTime = 0;
-    }
+function showTab(id) {
+    document.querySelectorAll('.card').forEach(function(e){e.classList.remove('active')});
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('active')});
+    event.target.classList.add('active');
 }
 </script>
 </head>
@@ -76,62 +78,34 @@ function stopAudio() {
 <div class="hero">
   <div class="hero-badge">第023期</div>
   <h1>玩具总动员</h1>
-  <div class="hero-sub">My Favorite Toys!</div>
+  <div class="hero-sub">
+</div>
   <div class="hero-meta">
-    <span>📅 每日10分钟</span>
-    <span>🎯 英语启蒙</span>
-    <span>👶 1.5-2岁</span>
+    <span>每日10分钟</span>
+    <span>英语启蒙</span>
+    <span>1.5-2岁</span>
   </div>
 </div>
 
-
-
-<div class="card active" id="s1"><div class="card-title">💬 今日金句</div>
-<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('toy')" title="点击播放音频">🔊 toy</button><button class="audio-btn" onclick="playAudio('ball')" title="点击播放音频">🔊 ball</button><button class="audio-btn" onclick="playAudio('car')" title="点击播放音频">🔊 car</button></div><div class="content"><p>### 句1：介绍玩具 <blockquote><strong>「This is your teddy bear! It's your favorite!」</strong></blockquote></p>
-<p>💡 <strong>怎么用</strong>：抱着最喜欢的玩具说「teddy bear」，让宝宝感受到玩具被珍视的感觉。</p>
-<p>### 句2：颜色玩具 <blockquote><strong>「Give me the red ball! Good job!」</strong></blockquote></p>
-<p>💡 <strong>怎么用</strong>：用颜色描述玩具「red ball」「blue car」，让宝宝在颜色和物品之间建立联系。</p>
-<p>### 句3：整理玩具 <blockquote><strong>「Time to clean up! Put the toys in the box!」</strong></blockquote></p>
-<p>💡 <strong>怎么用</strong>：收拾玩具时说「clean up」「in the box」，让整理变成有仪式感的活动。</p>
-<p>### 句4：分享玩具 <blockquote><strong>「Can I have a turn? Thank you for sharing!」</strong></blockquote></p>
-<p>💡 <strong>怎么用</strong>：分享时教「share」「take turns」，建立社交意识的同时学会请求表达。</p>
-<p>### 句5：数玩具 <blockquote><strong>「One bear, two bears, three bears! Let's count!」</strong></blockquote></p>
-<p>💡 <strong>怎么用</strong>：收拾时数一数「How many toys?」建立数和物的对应关系。</p>
-<p>---</p></div></div>
-<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div>
-<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('wheels_on_bus')" title="点击播放音频">🔊 播放儿歌</button></div><div class="content"><p><strong>经典版本：</strong> <ul> <li>:musical_note: Clean up, clean up, everybody everywhere!</li> <li>:musical_note: Clean up, clean up, everybody do your share!</li> </ul></p>
-<p><strong>动作版：</strong> <ul> <li>:musical_note: Blocks in the box! (put hands in)</li> <li>:musical_note: Cars in the car! (driving motion)</li> <li>:musical_note: Dolls on the shelf! (place up high)</li> <li>:musical_note: Clean up time! We're done ourselves!</li> </ul></p>
-<p><strong>怎么唱</strong>： 这是所有幼儿园都会唱的整理歌！每次玩完玩具唱这首歌，让宝宝知道整理是有时间限制的，边唱边收「5, 4, 3, 2, 1!」唱完就要收好！</p>
-<p>---</p></div></div>
-<div class="card" id="s3"><div class="card-title">📖 绘本预热</div>
-<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('bear')" title="点击播放音频">🔊 播放绘本片段</button></div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
-<p>小熊很忙系列每本都有丰富的场景，可以延伸到玩具主题：</p>
-<p><strong>书中关键词</strong>： <ul> <li>`toy` — 玩具</li> <li>`bear` — 熊</li> <li>`ball` — 球</li> <li>`car` — 车</li> <li>`share` — 分享</li> </ul></p>
-<p>🗣️ <strong>亲子共读提示</strong>： 读完书后拿出真实玩具对照「Just like in the book!」让宝宝知道书里的内容和真实生活是联系的。</p>
-<p>---</p></div></div>
-<div class="card" id="s4"><div class="card-title">🔤 字母认知</div><div class="content"><blockquote><strong>今日字母：W w — water</strong></blockquote>
-<p>| 大写 | 小写 | 发音 | 联想词 | |------|------|------|--------| | W | w | /ˈdʌbəljuː/ | 🍎 water（水）|</p>
-<p><strong>联想词汇</strong>： <ul> <li><strong>Water</strong> — 水：生命之源「Water! W for water!」渴了要喝水「I'm thirsty!」</li> <li><strong>Whale</strong> — 鲸鱼：海里最大的动物「Whale! W for whale!」喷水「spray」。</li> <li><strong>Watch</strong> — 手表：看时间「Watch! W for watch!」tick tock！</li> </ul></p>
-<p>🗣️ <strong>怎么教</strong>： 指着实物或图片说「Water! W for water!」宝宝会先学会说实物名称，字母认知自然就来了！</p>
-<p>---</p></div></div>
-<div class="card" id="s5"><div class="card-title">🎮 亲子活动</div><div class="content"><blockquote>🧒 每天15分钟高质量陪伴，胜过1小时敷衍相处</blockquote>
-<p>| 时间 | 活动 | |------|------| | 玩具分类 | 把玩具分类放好「The cars here, the dolls there!」边放边说 | | 过家家游戏 | 用毛绒玩具过家家「The teddy bear is eating breakfast!」 | | 玩具修理工 | 假装修理坏掉的玩具「Let me fix it! Wrench! Hammer!」 | | 交换玩具 | 和其他小朋友交换玩具「Can I have a turn?」说谢谢 |</p>
-<p>💡 <strong>互动贴士</strong>：分类是数学思维的基础，也是整理能力的基础。告诉宝宝每种玩具都有自己的家。</p>
-<blockquote>✅ 今天完成了吗？明天继续加油！💪</blockquote>
-<p>---</p></div></div>
-<div class="card" id="s6"><div class="card-title">💡 学习贴士</div><div class="content"><p><strong>1.5-2岁宝宝的语言学习规律：</strong></p>
-<blockquote>🧠 这个阶段宝宝处于「语言爆发期前夕」，听得越多、储备越丰富，18-24个月后会突然「开口」！</blockquote>
-<p><strong>三个关键原则：</strong> <strong>1. 玩具是语言学习的媒介</strong>：宝宝和玩具说话时语言输出最丰富——鼓励宝宝和玩具「对话」，哪怕是自言自语。</p>
-<p><strong>2. 整理是重要的生活习惯</strong>：从1岁开始培养整理习惯「每样东西都有自己的家」，以后上幼儿园会轻松很多。</p>
-<p><strong>3. 少买玩具多玩法</strong>：研究表明，少量玩具比大量玩具更能激发创造力。几个好玩具比一堆普通玩具更有价值。</p>
-<p>---</p></div></div>
+<nav class="nav-tabs">
+  <button class="tab active" onclick="showTab('s1')">金句</button>
+  <button class="tab" onclick="showTab('s2')">儿歌</button>
+  <button class="tab" onclick="showTab('s3')">绘本</button>
+  <button class="tab" onclick="showTab('s4')">字母</button>
+  <button class="tab" onclick="showTab('s5')">活动</button>
+  <button class="tab" onclick="showTab('s6')">贴士</button>
+</nav>
+<div class="card active" id="s1"><div class="card-title"></div>
+<div class="card active" id="s2"><div class="card-title"></div>
+<div class="card active" id="s3"><div class="card-title"></div>
+<div class="card active" id="s4"><div class="card-title"></div>
+<div class="card active" id="s5"><div class="card-title"></div>
+<div class="card active" id="s6"><div class="card-title"></div>
 
 <div class="footer">
-  <a href="issue-022.html" class="nav-btn">← 上一期</a>
-  <a href="index.html">📚 目录</a>
-  <a href="issue-024.html" class="nav-btn">下一期 →</a>
+  <a href="issue-022.html" class="nav-btn">上一期</a>
+  <a href="index.html">目录</a>
+  <a href="issue-024.html" class="nav-btn">下一期</a>
 </div>
-
-
 </body>
 </html>
