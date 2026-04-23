@@ -3,130 +3,561 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>宝宝英语启蒙 · 第002期</title>
+<title>宝宝英语启蒙 · 第002期 · Brush Your Teeth!</title>
 <style>
-:root{--p:#FF9B50;--pd:#E07A2F;--s:#7EC8E3;--bg:#FFF9F0;--c:#FFF;--t:#3D3D3D;--tl:#7A7A7A}
+:root{--p:#FF9B50;--pd:#E07A2F;--s:#7EC8E3;--sd:#4AABBF;--g:#66BB6A;--bg:#FFF9F0;--c:#FFF;--t:#3D3D3D;--tl:#7A7A7A}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--t);line-height:1.75;padding-bottom:60px;-webkit-font-smoothing:antialiased}
-.tts-btn{display:inline-flex;align-items:center;gap:4px;background:#FFF3E0;border:1.5px solid #FFE0B2;border-radius:20px;padding:3px 10px 3px 6px;font-size:12px;color:var(--pd);cursor:pointer;font-weight:600;margin-left:4px;vertical-align:middle;-webkit-tap-highlight-color:transparent;user-select:none}
-.tts-btn:hover,.tts-btn:active{background:var(--p);color:#fff;border-color:var(--p)}
+body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--t);line-height:1.75;padding-bottom:80px;-webkit-font-smoothing:antialiased}
+.tts-btn{display:inline-flex;align-items:center;gap:4px;background:#FFF3E0;border:1.5px solid #FFE0B2;border-radius:20px;padding:3px 10px 3px 6px;font-size:12px;color:var(--pd);cursor:pointer;font-weight:600;margin-left:4px}
+.tts-btn:active{background:var(--p);color:#fff;border-color:var(--p)}
 .tts-btn.playing{background:#FF5722;color:#fff;animation:pulse .6s infinite}
-.tts-sentence-btn{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#FF9B50,#FF6B35);color:#fff;border:none;border-radius:12px;padding:8px 16px;font-size:14px;font-weight:700;cursor:pointer;margin-top:10px;-webkit-tap-highlight-color:transparent}
-.tts-sentence-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(255,107,53,.4)}
-.tts-sentence-btn.playing{opacity:.7}
+.play-btn{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#FF9B50,#FF6B35);color:#fff;border:none;border-radius:12px;padding:8px 18px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(255,107,53,.3)}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
-.hero{background:linear-gradient(135deg,#FFE0B2 0%,#B3E5FC 100%);padding:40px 24px 32px;text-align:center;position:relative;overflow:hidden}
+.hero{background:linear-gradient(135deg,#FFE0B2 0%,#B3E5FC 100%);padding:44px 24px 36px;text-align:center;position:relative;overflow:hidden}
 .hero::after{content:'';position:absolute;bottom:-20px;left:0;right:0;height:40px;background:var(--bg);border-radius:50% 50% 0 0}
-.hero-badge{display:inline-block;background:var(--p);color:#fff;font-size:12px;font-weight:600;padding:4px 14px;border-radius:20px;margin-bottom:14px;letter-spacing:1px}
-.hero h1{font-size:26px;font-weight:700;color:#2C2C2C;margin-bottom:6px;line-height:1.3}
+.hero-badge{display:inline-block;background:var(--p);color:#fff;font-size:12px;font-weight:700;padding:4px 16px;border-radius:20px;margin-bottom:14px;letter-spacing:1px}
+.hero h1{font-size:28px;font-weight:800;color:#2C2C2C;margin-bottom:6px}
 .hero-sub{font-size:14px;color:#6D4C41;margin-bottom:4px}
-.nav-tabs{display:flex;gap:6px;padding:16px 20px 0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.hero-meta{display:flex;justify-content:center;gap:16px;margin-top:12px;font-size:12px;color:#795548}
+.hero-meta span{background:rgba(255,255,255,.6);padding:3px 10px;border-radius:12px}
+.nav-tabs{display:flex;gap:6px;padding:20px 20px 6px;overflow-x:auto;scrollbar-width:none}
 .nav-tabs::-webkit-scrollbar{display:none}
-.nav-tab{flex-shrink:0;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:500;border:1.5px solid #F0E8DC;background:#FFF;cursor:pointer}
-.nav-tab.active,.nav-tab:hover{background:var(--p);color:#fff;border-color:var(--p)}
-.card{background:#FFF;border-radius:16px;margin:16px 20px;padding:20px;box-shadow:0 2px 12px rgba(255,155,80,.12)}
-.intro-card{background:linear-gradient(135deg,#FFF3E0,#E3F2FD);border-left:4px solid var(--p);border-radius:16px;margin:20px 20px 0;padding:18px 20px;font-size:15px}
-.intro-card::before{content:'!';font-size:20px;margin-right:8px}
-.section-title{font-size:17px;font-weight:700;color:#2C2C2C;margin-bottom:14px}
-.word-card{background:#FFF;border-radius:16px;margin:12px 20px;padding:16px 20px;box-shadow:0 2px 10px rgba(255,155,80,.1);border-left:4px solid var(--s)}
-.word-top{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.nav-tab{flex-shrink:0;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid #F0E8DC;background:#FFF;cursor:pointer;transition:all .2s}
+.nav-tab.active{background:var(--p);color:#fff;border-color:var(--p)}
+.section-title{font-size:17px;font-weight:800;color:#2C2C2C;margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.card{background:#FFF;border-radius:18px;margin:16px 16px;padding:20px;box-shadow:0 2px 14px rgba(255,155,80,.12)}
+.intro-box{background:linear-gradient(135deg,#FFF3E0,#E8F5E9);border-left:4px solid var(--p);border-radius:16px;margin:20px 16px 4px;padding:16px 18px;font-size:14.5px;line-height:1.8}
+.word-grid{display:flex;flex-direction:column;gap:12px}
+.word-card{background:linear-gradient(135deg,#FAFAFA,#F0F7FF);border-radius:14px;padding:14px 16px;border-left:4px solid var(--s)}
+.word-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px}
 .word-en{font-size:22px;font-weight:800;color:var(--pd)}
-.word-ipa{font-size:14px;color:var(--s);font-style:italic}
-.word-zh{font-size:14px;color:var(--tl)}
-.word-tip{background:#F0F8FF;border-radius:10px;padding:8px 14px;font-size:13px;color:#1565C0;margin-top:8px;line-height:1.6}
-.song-card{background:linear-gradient(135deg,#F1F8E9,#E8F5E9);border-radius:16px;margin:16px 20px;padding:22px 20px;border:1.5px solid #C8E6C9;text-align:center}
-.song-title{font-size:18px;font-weight:700;color:#388E3C;margin-bottom:4px}
-.song-sub{font-size:12px;color:#689F38;margin-bottom:16px}
-.song-lyrics{background:#F1F8E9;border-radius:12px;padding:16px;text-align:left}
-.song-line{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px dashed #C8E6C9;font-size:15px;color:#33691E}
-.song-line:last-child{border-bottom:none}
-.line-text{flex:1}
-.dialogue-card{background:linear-gradient(135deg,#FFF8E1,#FFECB3);border-radius:16px;margin:16px 20px;padding:20px;border:1.5px solid #FFD54F}
-.dialogue-row{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid #FFE082}
+.word-ipa{font-size:13px;color:var(--sd);font-style:italic;font-weight:500}
+.word-zh{font-size:14px;color:var(--tl);margin-bottom:6px}
+.word-tip{background:#E3F2FD;border-radius:10px;padding:8px 12px;font-size:13px;color:#1565C0;line-height:1.6}
+.word-example{background:#FFF8E1;border-radius:8px;padding:6px 12px;font-size:13px;color:#E65100;margin-top:6px;font-style:italic}
+.dialogue-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #FFF3E0}
 .dialogue-row:last-child{border-bottom:none}
-.dialogue-emoji{font-size:36px;flex-shrink:0;line-height:1.2}
-.dialogue-text{flex:1}
-.dialogue-en{font-size:16px;font-weight:700;color:#E65100;margin-bottom:4px}
-.dialogue-zh{font-size:13px;color:#795548}
-.big-phrase{background:#FFF3E0;border-radius:12px;padding:16px 20px;margin:14px 20px;text-align:center;border:1.5px solid #FFE0B2}
-.phrase-en{font-size:20px;font-weight:800;color:var(--pd);margin-bottom:8px}
-.phonetic-note{background:#F5F5F5;border-radius:10px;padding:8px 14px;font-size:12px;color:#666;margin:12px 20px 0;text-align:center}
-.footer-note{text-align:center;font-size:12px;color:var(--tl);padding:24px 20px;line-height:2}
-.footer-note a{color:var(--p);text-decoration:none}
+.d-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.d-bubble{flex:1;background:#F5F5F5;border-radius:12px;padding:10px 14px}
+.d-bubble.orange{background:#FFF3E0}
+.d-bubble.blue{background:#E3F2FD}
+.d-en{font-size:15px;font-weight:700;color:#2C2C2C;margin-bottom:3px}
+.d-zh{font-size:12px;color:var(--tl)}
+.song-card{background:linear-gradient(135deg,#F1F8E9,#E8F5E9);border-radius:18px;margin:16px 16px;padding:22px 20px;border:1.5px solid #C8E6C9}
+.song-header{text-align:center;margin-bottom:16px}
+.song-title{font-size:19px;font-weight:800;color:#2E7D32}
+.song-sub{font-size:12px;color:#689F38;margin-top:4px}
+.lyrics-box{background:rgba(255,255,255,.7);border-radius:14px;padding:16px}
+.lyric-line{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #C8E6C9;gap:8px}
+.lyric-text{flex:1}
+.lyric-en{font-size:15px;font-weight:600;color:#1B5E20}
+.lyric-zh{font-size:12px;color:#689F38;margin-top:2px}
+.phonics-card{background:linear-gradient(135deg,#F3E5F5,#EDE7F6);border-radius:18px;margin:16px 16px;padding:20px}
+.phonics-row{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid #E1BEE7}
+.phonics-row:last-child{border-bottom:none}
+.phonics-icon{font-size:32px;width:44px;text-align:center;flex-shrink:0}
+.phonics-body{flex:1}
+.phonics-word{font-size:20px;font-weight:800;color:#6A1B9A}
+.phonics-desc{font-size:13px;color:#7B1FA2;margin-top:2px}
+.phonics-tip{font-size:12px;color:#9C27B0;background:rgba(255,255,255,.6);border-radius:8px;padding:4px 10px;margin-top:4px}
+.activity-card{background:linear-gradient(135deg,#E3F2FD,#E8EAF6);border-radius:18px;margin:16px 16px;padding:20px;border:1.5px solid #BBDEFB}
+.activity-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #BBDEFB}
+.activity-item:last-child{border-bottom:none}
+.activity-num{width:28px;height:28px;background:var(--s);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
+.activity-body{flex:1}
+.activity-title{font-size:15px;font-weight:700;color:#1565C0;margin-bottom:3px}
+.activity-desc{font-size:13px;color:#1976D2;line-height:1.6}
+.activity-phrase{background:rgba(255,255,255,.7);border-radius:8px;padding:6px 12px;font-size:14px;font-weight:700;color:#0D47A1;margin-top:6px;display:inline-block}
+.story-card{background:linear-gradient(135deg,#FFF9C4,#FFF3E0);border-radius:18px;margin:16px 16px;padding:20px;border:1.5px solid #FFE082}
+.story-header{text-align:center;margin-bottom:16px}
+.story-emoji{font-size:48px}
+.story-title{font-size:18px;font-weight:800;color:#E65100;margin-top:8px}
+.story-para{margin-bottom:12px}
+.story-en{font-size:15px;font-weight:700;color:#BF360C;margin-bottom:4px;line-height:1.7}
+.story-zh{font-size:13px;color:#795548;line-height:1.7}
+.checklist-card{background:linear-gradient(135deg,#E8F5E9,#F1F8E9);border-radius:18px;margin:16px 16px;padding:20px;border:1.5px solid #A5D6A7}
+.check-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #C8E6C9;cursor:pointer}
+.check-item:last-child{border-bottom:none}
+.check-box{width:24px;height:24px;border:2.5px solid #66BB6A;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.check-box.checked{background:#66BB6A;border-color:#66BB6A}
+.check-text{font-size:14px;color:#2E7D32;font-weight:500}
+.repeat-card{background:#FFF3E0;border-radius:14px;padding:16px 18px;margin:8px 16px;text-align:center;border:1.5px solid #FFE0B2}
+.repeat-en{font-size:21px;font-weight:800;color:var(--pd);margin-bottom:8px;line-height:1.4}
+.repeat-zh{font-size:13px;color:var(--tl);margin-bottom:10px}
+.footer-note{text-align:center;font-size:13px;color:var(--tl);padding:28px 20px 20px;line-height:2}
+.divider-title{display:flex;align-items:center;gap:8px;margin:24px 16px 0;font-size:12px;color:var(--tl);font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.divider-title::before,.divider-title::after{content:'';flex:1;height:1px;background:#F0E8DC}
 </style>
 </head>
 <body>
-<div class="hero" style="background:linear-gradient(135deg,#FFE0B2 0%,#B3E5FC 100%)">
-  <div class="hero-badge">第 2 期</div>
-  <div style="font-size:64px;margin-bottom:8px">🍎</div>
-  <h1>Fruity Fun! (B)</h1>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">✨ 第 002 期</div>
+  <div style="font-size:68px;margin-bottom:10px">🪥</div>
+  <h1>Brush Your Teeth!</h1>
+  <div class="hero-sub">字母 B · 刷牙洗脸</div>
+  <div class="hero-meta">
+    <span>🕐 约12分钟</span>
+    <span>📖 适合1.5–2岁</span>
+    <span>🎯 5个核心词</span>
+  </div>
 </div>
-<div class="nav-tabs"><span class="nav-tab " onclick="location.href='issue-001.html'">A</span><span class="nav-tab active" onclick="location.href='issue-002.html'">B</span><span class="nav-tab " onclick="location.href='issue-003.html'">C</span><span class="nav-tab " onclick="location.href='issue-004.html'">D</span><span class="nav-tab " onclick="location.href='issue-005.html'">E</span></div>
-<div class="intro-card">今天我们学习字母 B 和 6 个超实用单词！苹果、香蕉、小床、洗澡、球、小鸟……全是我们日常生活中天天见到的东西！</div>
-<div class="card"><div class="section-title">📚 今日核心单词</div><div class="word-card"><div class="word-top"><span class="word-en">Apple</span><span class="word-ipa">/ˈæpəl/</span><button class="tts-btn" onclick="playAudio('apple.mp3','Apple',this)">🔊</button></div><div class="word-zh">苹果</div><div class="word-tip">吃苹果时举起苹果说 Apple! 宝宝会把它和红红的颜色、甜甜的味道联系起来。</div></div><div class="word-card"><div class="word-top"><span class="word-en">Banana</span><span class="word-ipa">/bəˈnænə/</span><button class="tts-btn" onclick="playAudio('banana.mp3','Banana',this)">🔊</button></div><div class="word-zh">香蕉</div><div class="word-tip">Banana 开头也是 B！一起记：Apple 和 Banana 都是 B 开头的水果！</div></div><div class="word-card"><div class="word-top"><span class="word-en">Bed</span><span class="word-ipa">/bed/</span><button class="tts-btn" onclick="playAudio('bed.mp3','Bed',this)">🔊</button></div><div class="word-zh">床</div><div class="word-tip">每天带宝宝认识 Bed，说 Time for bed! 培养睡前仪式感。</div></div><div class="word-card"><div class="word-top"><span class="word-en">Bath</span><span class="word-ipa">/bæθ/</span><button class="tts-btn" onclick="playAudio('bath.mp3','Bath',this)">🔊</button></div><div class="word-zh">洗澡</div><div class="word-tip">Bath time! 洗澡时指着浴缸说 Bath! 让宝宝爱上洗澡。</div></div><div class="word-card"><div class="word-top"><span class="word-en">Ball</span><span class="word-ipa">/bɔːl/</span><button class="tts-btn" onclick="playAudio('ball.mp3','Ball',this)">🔊</button></div><div class="word-zh">球</div><div class="word-tip">滚球、踢球时喊 Ball! 宝宝对球的兴趣会转化为对单词的记忆。</div></div><div class="word-card"><div class="word-top"><span class="word-en">Bird</span><span class="word-ipa">/bɜːrd/</span><button class="tts-btn" onclick="playAudio('bird.mp3','Bird',this)">🔊</button></div><div class="word-zh">小鸟</div><div class="word-tip">户外看到小鸟说 Look! A bird! 引导宝宝指一指、听一听叫声。</div></div></div>
-<div class="card"><div class="section-title">💬 情景对话</div><div class="dialogue-row"><div class="dialogue-emoji">👶</div><div class="dialogue-text"><div class="dialogue-en">An apple a day keeps the doctor away! <button class="tts-btn" onclick="playAudio(null,'An apple a day keeps the doctor away!',this)">🔊</button></div><div class="dialogue-zh">一天一苹果，医生远离我！</div></div></div><div class="dialogue-row"><div class="dialogue-emoji">👩</div><div class="dialogue-text"><div class="dialogue-en">Night, night! Sweet dreams! <button class="tts-btn" onclick="playAudio(null,'Night, night! Sweet dreams!',this)">🔊</button></div><div class="dialogue-zh">晚安，做个好梦！</div></div></div><div class="dialogue-row"><div class="dialogue-emoji">🛁</div><div class="dialogue-text"><div class="dialogue-en">Bath time! Splash! Splash! <button class="tts-btn" onclick="playAudio(null,'Bath time! Splash! Splash!',this)">🔊</button></div><div class="dialogue-zh">洗澡时间到！哗啦哗啦！</div></div></div><div class="dialogue-row"><div class="dialogue-emoji">⚽</div><div class="dialogue-text"><div class="dialogue-en">Ball! Throw the ball! <button class="tts-btn" onclick="playAudio(null,'Ball! Throw the ball!',this)">🔊</button></div><div class="dialogue-zh">球！扔球球！</div></div></div></div>
-<div class="song-card"><div class="song-title">🎵 Apple Round</div><div class="song-sub">手指谣 · 适合1-2岁宝宝</div><div class="song-lyrics"><div class="song-line"><span class="line-text">Apple round, apple round.</span></div><div class="song-line"><span class="line-text">Apple red, apple juicy.</span></div><div class="song-line"><span class="line-text">Bite, bite, bite!</span></div><div class="song-line"><span class="line-text">Yummy, yummy, yummy!</span></div></div></div>
-<div class="big-phrase"><div class="phrase-en">Apple! Banana! Ball! 🍌⚽</div><div style="margin-top:8px;font-size:14px;color:#6D4C41">说出三个B开头的单词，和宝宝一起做动作！</div></div>
-<div class="phonetic-note">💡 字母B发音技巧：嘴巴紧闭，然后张开说 buh，和宝宝一起做发声练习！</div>
-<div class="footer-note">🌟 <b>今日目标</b>：学会 6 个 B 单词<br>找一找家里还有哪些 B 开头的东西？<br><br>📖 第3期预告：<b>字母C · 颜色和物品</b> · Car, Cat, Cake...<br><a href="issue-003.html">下一期 →</a></div>
-<!-- Audio: Multi-CDN fallback + TTS -->
+
+<!-- 导航 -->
+<div class="nav-tabs">
+  <span class="nav-tab" onclick="location.href='issue-001.html'">001·A</span>
+  <span class="nav-tab active" onclick="location.href='issue-002.html'">002·B</span>
+  <span class="nav-tab" onclick="location.href='issue-003.html'">003·C</span>
+  <span class="nav-tab" onclick="location.href='issue-004.html'">004·D</span>
+  <span class="nav-tab" onclick="location.href='issue-005.html'">005·E</span>
+  <span class="nav-tab" onclick="location.href='issue-006.html'">006·F</span>
+  <span class="nav-tab" onclick="location.href='issue-007.html'">007·G</span>
+</div>
+
+<!-- 导读 -->
+<div class="intro-box">
+  <p>🪥 起床后的洗漱时间，是亲子英语互动的黄金10分钟！今天学5个洗漱关键词，配合儿歌《This Is the Way》，让刷牙变成快乐时光！</p>
+  <p>💡 本期目标：认识 5 个洗漱词，学唱 1 首洗漱歌，掌握早晨洗漱场景</p>
+</div>
+
+<!-- 模块1：核心词汇 -->
+<div class="divider-title">📚 模块一 · 今日核心词汇</div>
+<div class="card">
+  <div class="section-title">📚 5个洗漱关键词</div>
+  <div class="word-grid">
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-en">Brush</span>
+        <span class="word-ipa">/brʌʃ/</span>
+        <button class="tts-btn" onclick="playAudio('brush.mp3','Brush',this)">🔊 听发音</button>
+      </div>
+      <div class="word-zh">刷（动词）</div>
+      <div class="word-tip">💡 每天早上拿着牙刷说 <b>"Time to brush!"</b> 让宝宝把 Brush 和刷牙联系起来。</div>
+      <div class="word-example">"Brush, brush, brush your teeth!"</div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-en">Teeth</span>
+        <span class="word-ipa">/tiːθ/</span>
+        <button class="tts-btn" onclick="playAudio('teeth.mp3','Teeth',this)">🔊 听发音</button>
+      </div>
+      <div class="word-zh">牙齿（复数）</div>
+      <div class="word-tip">💡 指着宝宝的牙齿说 <b>"Show me your teeth!"</b> 宝宝张嘴时趁机说 "Nice teeth!"</div>
+      <div class="word-example">"Brush your teeth! Open wide!"</div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-en">Wash</span>
+        <span class="word-ipa">/wɒʃ/</span>
+        <button class="tts-btn" onclick="playAudio('wash.mp3','Wash',this)">🔊 听发音</button>
+      </div>
+      <div class="word-zh">洗（动词）</div>
+      <div class="word-tip">💡 洗脸的"洗"就是 Wash，和宝宝一起边洗脸边说 <b>"Wash, wash, wash!"</b></div>
+      <div class="word-example">"Time to wash your face!"</div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-en">Face</span>
+        <span class="word-ipa">/feɪs/</span>
+        <button class="tts-btn" onclick="playAudio('face.mp3','Face',this)">🔊 听发音</button>
+      </div>
+      <div class="word-zh">脸</div>
+      <div class="word-tip">💡 洗完脸后指着镜子里的脸说 <b>"Look at your face! So clean!"</b></div>
+      <div class="word-example">"Touch your face! My face, your face!"</div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-top">
+        <span class="word-en">Clean</span>
+        <span class="word-ipa">/kliːn/</span>
+        <button class="tts-btn" onclick="playAudio('clean.mp3','Clean',this)">🔊 听发音</button>
+      </div>
+      <div class="word-zh">干净的</div>
+      <div class="word-tip">💡 洗漱完毕时夸张地说 <b>"So clean! So shiny!"</b> 宝宝会很有成就感！</div>
+      <div class="word-example">"You're so clean and shiny now!"</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 大声跟读 -->
+<div class="repeat-card">
+  <div class="repeat-en">Brush brush brush! 🪥 So clean!</div>
+  <div class="repeat-zh">和宝宝一起大声说！</div>
+  <button class="play-btn" onclick="playAudio('brush.mp3','Brush brush brush! So clean!',this)">🎙️ 点我跟读</button>
+</div>
+
+<!-- 模块2：字母B -->
+<div class="divider-title">🔤 模块二 · 字母 B 认知</div>
+<div class="card">
+  <div class="section-title">🔤 字母 B — 第二个字母</div>
+  <div class="phonics-row" style="background:#F3E5F5;border-radius:12px;padding:12px 14px;margin-bottom:12px">
+    <div style="font-size:72px;font-weight:900;color:#6A1B9A;width:80px;text-align:center;line-height:1">B</div>
+    <div style="flex:1">
+      <div style="font-size:14px;color:#7B1FA2;font-weight:700;margin-bottom:4px">大写 B · 小写 b</div>
+      <div style="font-size:13px;color:#9C27B0;line-height:1.7">发音：<b>/biː/</b>（"比"的音）<br>像小熊 Teddy Bear 一样可爱！</div>
+    </div>
+  </div>
+  <div class="phonics-row">
+    <div class="phonics-icon">🐻</div>
+    <div class="phonics-body">
+      <div class="phonics-word">Bear <span style="font-size:14px;font-weight:400;color:#9C27B0">/beər/</span></div>
+      <div class="phonics-desc">熊 · B 开头的可爱动物</div>
+      <div class="phonics-tip">🌟 抱着熊玩偶说：B for bear! Big, fluffy bear!</div>
+    </div>
+    <button class="tts-btn" onclick="playAudio('bear.mp3','Bear',this)">🔊</button>
+  </div>
+  <div class="phonics-row">
+    <div class="phonics-icon">🍌</div>
+    <div class="phonics-body">
+      <div class="phonics-word">Banana <span style="font-size:14px;font-weight:400;color:#9C27B0">/bəˈnɑːnə/</span></div>
+      <div class="phonics-desc">香蕉 · B 开头的宝宝最爱</div>
+      <div class="phonics-tip">🌟 吃香蕉时说：B for banana! Yellow and yummy!</div>
+    </div>
+    <button class="tts-btn" onclick="playAudio('banana.mp3','Banana',this)">🔊</button>
+  </div>
+  <div class="phonics-row">
+    <div class="phonics-icon">⚽</div>
+    <div class="phonics-body">
+      <div class="phonics-word">Ball <span style="font-size:14px;font-weight:400;color:#9C27B0">/bɔːl/</span></div>
+      <div class="phonics-desc">球 · B 开头可以玩的</div>
+      <div class="phonics-tip">🌟 玩球时说：B for ball! Throw it! Catch it!</div>
+    </div>
+    <button class="tts-btn" onclick="playAudio('ball.mp3','Ball',this)">🔊</button>
+  </div>
+</div>
+
+<!-- 模块3：情景对话 -->
+<div class="divider-title">💬 模块三 · 亲子情景对话</div>
+
+<div class="card">
+  <div class="dialogue-row">
+    <div class="d-avatar" style="background:#FFF3E0">👩</div>
+    <div class="d-bubble orange">
+      <div class="d-en">Good morning! Time to brush your teeth! Open wide!</div>
+      <div class="d-zh">早上好！该刷牙啦！嘴巴张大！</div>
+    </div>
+  </div>
+  <div class="dialogue-row">
+    <div class="d-avatar" style="background:#E3F2FD">👶</div>
+    <div class="d-bubble blue">
+      <div class="d-en">Ahhh~</div>
+      <div class="d-zh">啊~</div>
+    </div>
+  </div>
+  <div class="dialogue-row">
+    <div class="d-avatar" style="background:#FFF3E0">👩</div>
+    <div class="d-bubble orange">
+      <div class="d-en">Brush, brush, brush! Up and down! Good job!</div>
+      <div class="d-zh">刷刷刷！上上下下！真棒！</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="dialogue-row">
+    <div class="d-avatar" style="background:#FFF3E0">👩</div>
+    <div class="d-bubble orange">
+      <div class="d-en">Now let's wash your face! Feel the warm water!</div>
+      <div class="d-zh">现在洗洗脸！感受一下温水！</div>
+    </div>
+  </div>
+  <div class="dialogue-row">
+    <div class="d-avatar" style="background:#E3F2FD">👶</div>
+    <div class="d-bubble blue">
+      <div class="d-en">Warm!</div>
+      <div class="d-zh">暖暖的！</div>
+    </div>
+  </div>
+  <div class="dialogue-row">
+    <div class="d-avatar" style="background:#FFF3E0">👩</div>
+    <div class="d-bubble orange">
+      <div class="d-en">Yes! Clean face coming up!</div>
+      <div class="d-zh">对！脸洗好啦！</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="dialogue-row">
+    <div class="d-avatar" style="background:#FFF3E0">👩</div>
+    <div class="d-bubble orange">
+      <div class="d-en">Look in the mirror! Your face is so clean!</div>
+      <div class="d-zh">照照镜子！你的脸好干净呀！</div>
+    </div>
+  </div>
+  <div class="dialogue-row">
+    <div class="d-avatar" style="background:#E3F2FD">👶</div>
+    <div class="d-bubble blue">
+      <div class="d-en">Pretty!</div>
+      <div class="d-zh">漂亮！</div>
+    </div>
+  </div>
+  <div class="dialogue-row">
+    <div class="d-avatar" style="background:#FFF3E0">👩</div>
+    <div class="d-bubble orange">
+      <div class="d-en">Yes! So fresh and clean!</div>
+      <div class="d-zh">对！好清爽好干净！</div>
+    </div>
+  </div>
+</div>
+
+<!-- 模块4：儿歌 -->
+<div class="divider-title">🎵 模块四 · 儿歌：This Is the Way</div>
+
+<div class="song-card">
+  <div class="song-header">
+    <div class="song-title">🎵 This Is the Way</div>
+    <div class="song-sub">刷牙洗脸歌 · 每天洗漱时唱</div>
+  </div>
+  <div class="lyrics-box">
+    <div class="lyric-line">
+      <div class="lyric-text">
+        <div class="lyric-en">This is the way we brush our teeth,</div>
+        <div class="lyric-zh">我们这样刷牙，</div>
+      </div>
+      <button class="tts-btn" onclick="playAudio('nursery_this.mp3','This is the way we brush our teeth',this)">🔊</button>
+    </div>
+    <div class="lyric-line">
+      <div class="lyric-text">
+        <div class="lyric-en">brush our teeth, brush our teeth!</div>
+        <div class="lyric-zh">刷牙，刷牙！</div>
+      </div>
+      <button class="tts-btn" onclick="playAudio(null,'brush our teeth brush our teeth',this)">🔊</button>
+    </div>
+    <div class="lyric-line">
+      <div class="lyric-text">
+        <div class="lyric-en">This is the way we brush our teeth,</div>
+        <div class="lyric-zh">我们这样刷牙，</div>
+      </div>
+      <button class="tts-btn" onclick="playAudio(null,'This is the way we brush our teeth',this)">🔊</button>
+    </div>
+    <div class="lyric-line">
+      <div class="lyric-text">
+        <div class="lyric-en">so early in the morning! ☀️</div>
+        <div class="lyric-zh">这么早的早晨！</div>
+      </div>
+      <button class="tts-btn" onclick="playAudio(null,'so early in the morning',this)">🔊</button>
+    </div>
+  </div>
+  <div style="background:rgba(255,255,255,.6);border-radius:10px;padding:10px 14px;margin-top:14px;font-size:13px;color:#388E3C;line-height:1.8">
+    💡 <b>唱法提示：</b>刷牙时唱，边刷边做刷牙动作 "brush, brush, brush!"！洗脸时换成 "wash our face"，把洗漱变成有趣的仪式！
+  </div>
+</div>
+
+<!-- 模块5：绘本故事 -->
+<div class="divider-title">📖 模块五 · 绘本故事</div>
+
+<div class="story-card">
+  <div class="story-header">
+    <div class="story-emoji">🦷</div>
+    <div class="story-title">A Day with Brush</div>
+    <div style="font-size:13px;color:#795548;margin-top:4px">小熊的刷牙故事 · 亲子共读</div>
+  </div>
+
+  <div class="story-para">
+    <div class="story-en">☀️ Morning comes. Little Bear wakes up.</div>
+    <div class="story-zh">☀️ 早晨到了，小熊醒了。</div>
+  </div>
+
+  <div class="story-para">
+    <div class="story-en">🪥 "Time to brush! Open wide!" says Mommy Bear.</div>
+    <div class="story-zh">🪥 熊妈妈说："该刷牙啦！嘴巴张大！"</div>
+  </div>
+
+  <div class="story-para">
+    <div class="story-en">🦷 Brush, brush, brush! Up and down!</div>
+    <div class="story-zh">🦷 刷刷刷！上上下下！</div>
+  </div>
+
+  <div class="story-para">
+    <div class="story-en">💧 Now wash your face! Splash splash!</div>
+    <div class="story-zh">💧 现在洗洗脸！哗哗哗！</div>
+  </div>
+
+  <div class="story-para">
+    <div class="story-en">🪞 Look in the mirror! So clean!</div>
+    <div class="story-zh">🪞 照照镜子！好干净呀！</div>
+  </div>
+
+  <div class="story-para">
+    <div class="story-en">😊 Little Bear smiles. "I am clean and fresh!"</div>
+    <div class="story-zh">😊 小熊笑了："我好干净好清爽！"</div>
+  </div>
+
+  <div style="background:rgba(255,255,255,.6);border-radius:10px;padding:12px 14px;margin-top:10px;font-size:13px;color:#795548;line-height:1.8">
+    📖 <b>共读提示：</b>指着书里的图画，让宝宝跟着做刷牙、洗脸的动作。重复读2-3遍！
+  </div>
+</div>
+
+<!-- 模块6：发音要点 -->
+<div class="divider-title">🗣️ 模块六 · 发音要点</div>
+
+<div class="card" style="background:linear-gradient(135deg,#F3E5F5,#EDE7F6)">
+  <div class="phonics-row">
+    <div class="phonics-icon">👄</div>
+    <div class="phonics-body">
+      <div class="phonics-word">Brush /brʌʃ/</div>
+      <div class="phonics-desc">重音在第一音节，br 要一起发，嘴型从咧开到收</div>
+    </div>
+  </div>
+  <div class="phonics-row">
+    <div class="phonics-icon">🦷</div>
+    <div class="phonics-body">
+      <div class="phonics-word">Teeth /tiːθ/</div>
+      <div class="phonics-desc">th 音舌头要放在上下齿中间，轻轻咬舌尖</div>
+    </div>
+  </div>
+  <div class="phonics-row">
+    <div class="phonics-icon">💧</div>
+    <div class="phonics-body">
+      <div class="phonics-word">Wash /wɒʃ/</div>
+      <div class="phonics-desc">w 要嘟嘴，a 要张大，超级好发音！</div>
+    </div>
+  </div>
+</div>
+
+<!-- 模块7：活动建议 -->
+<div class="divider-title">🎮 模块七 · 今日活动建议</div>
+
+<div class="activity-card">
+  <div class="section-title">🎮 4个超简单互动活动</div>
+
+  <div class="activity-item">
+    <div class="activity-num">1</div>
+    <div class="activity-body">
+      <div class="activity-title">🦷 刷牙游戏</div>
+      <div class="activity-desc">和宝宝一起刷牙，边刷边唱 "Brush, brush, brush!" 看谁刷得更久！</div>
+    </div>
+  </div>
+
+  <div class="activity-item">
+    <div class="activity-num">2</div>
+    <div class="activity-body">
+      <div class="activity-title">🪞 镜子秀</div>
+      <div class="activity-desc">洗漱完毕后带宝宝照镜子，指着脸说</div>
+      <div class="activity-phrase">"Clean face! So pretty!"</div>
+    </div>
+  </div>
+
+  <div class="activity-item">
+    <div class="activity-num">3</div>
+    <div class="activity-body">
+      <div class="activity-title">🧸 玩具洗漱</div>
+      <div class="activity-desc">拿宝宝的毛绒玩具"刷牙"，让宝宝当小老师教玩具刷牙</div>
+    </div>
+  </div>
+
+  <div class="activity-item">
+    <div class="activity-num">4</div>
+    <div class="activity-body">
+      <div class="activity-title">🌊 泼水游戏</div>
+      <div class="activity-desc">洗手时让宝宝玩水，说</div>
+      <div class="activity-phrase">"Splash! Wash! Clean!"</div>
+    </div>
+  </div>
+</div>
+
+<!-- 模块8：打卡 -->
+<div class="divider-title">✅ 模块八 · 今日打卡</div>
+
+<div class="checklist-card">
+  <div class="check-item" onclick="toggleCheck(this)">
+    <div class="check-box"></div>
+    <div class="check-text">🔊 听了5个洗漱词汇发音</div>
+  </div>
+  <div class="check-item" onclick="toggleCheck(this)">
+    <div class="check-box"></div>
+    <div class="check-text">🎵 唱了 This Is the Way 儿歌</div>
+  </div>
+  <div class="check-item" onclick="toggleCheck(this)">
+    <div class="check-box"></div>
+    <div class="check-text">🪥 和宝宝一起刷了牙</div>
+  </div>
+  <div class="check-item" onclick="toggleCheck(this)">
+    <div class="check-box"></div>
+    <div class="check-text">📖 共读了小故事</div>
+  </div>
+  <div class="check-item" onclick="toggleCheck(this)">
+    <div class="check-box"></div>
+    <div class="check-text">🌅 洗漱时说英语</div>
+  </div>
+</div>
+
+<!-- 大声跟读 -->
+<div class="repeat-card">
+  <div class="repeat-en">Brush brush brush! 🪥 So clean!</div>
+  <div class="repeat-zh">最后再大声说一遍！</div>
+  <button class="play-btn" onclick="playAudio('brush.mp3','Brush brush brush! So clean!',this)">🎙️ 大声说出来</button>
+</div>
+
+<!-- Footer -->
+<div class="footer-note">
+  🌟 <b>本期学习要点</b>：Brush · Teeth · Wash · Face · Clean<br>
+  💡 每天刷牙洗脸时重复这5个词，一周后宝宝就能听懂！<br><br>
+  📖 <b>第003期预告</b>：字母 C · 水果 · Apples and Bananas...<br>
+  <a href="issue-003.html">下一期 →</a>
+</div>
+
 <script>
-var _curAud=null;
-var AUDIO_CDNS=[
-  'https://baby-english-seven.vercel.app/audio/',
+var _curAud = null;
+var AUDIO_CDNS = [
+  'https://baby-english-d7gb3dwij91d31020-1346728686.tcloudbaseapp.com/audio/',
   'https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/',
   'https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/'
 ];
-var _cdnIdx=0;
-function playAudio(src,text,btn){
-  if(!src){speak(text,btn);return;}
-  if(_curAud){_curAud.pause();_curAud.currentTime=0;_curAud=null;}
-  var playingBtns=document.querySelectorAll('.tts-btn.playing,.tts-sentence-btn.playing');
-  for(var i=0;i<playingBtns.length;i++)playingBtns[i].classList.remove('playing');
-  function tryCDN(cdn){
-    var a=new Audio();
-    a.preload='none';
-    a.addEventListener('play',function(){if(btn)btn.classList.add('playing');});
-    a.addEventListener('ended',function(){if(btn)btn.classList.remove('playing');});
-    a.addEventListener('error',function(){
-      if(btn)btn.classList.remove('playing');
-      if(_cdnIdx<AUDIO_CDNS.length-1){_cdnIdx++;tryCDN(AUDIO_CDNS[_cdnIdx]);}else{speak(text,btn);}
-    });
-    var timer=setTimeout(function(){
-      if(!a.readyState||a.readyState<2){a.pause();if(btn)btn.classList.remove('playing');
-        if(_cdnIdx<AUDIO_CDNS.length-1){_cdnIdx++;tryCDN(AUDIO_CDNS[_cdnIdx]);}else{speak(text,btn);}
-      }
-    },5000);
-    a.addEventListener('canplay',function(){clearTimeout(timer);},{once:true});
-    a.src=cdn+src;
-    a.load();
-    a.play().catch(function(){
-      clearTimeout(timer);
-      if(btn)btn.classList.remove('playing');
-      if(_cdnIdx<AUDIO_CDNS.length-1){_cdnIdx++;tryCDN(AUDIO_CDNS[_cdnIdx]);}else{speak(text,btn);}
-    });
-    _curAud=a;
-  }
-  _cdnIdx=0;
-  tryCDN(AUDIO_CDNS[0]);
+var _cdnIdx = 0;
+
+function playAudio(src, text, btn) {
+  if (!src) { speak(text, btn); return; }
+  if (_curAud) { try { _curAud.pause(); _curAud.currentTime = 0; } catch(e){} _curAud = null; }
+  var playing = document.querySelectorAll('.tts-btn.playing, .play-btn.playing');
+  for (var i = 0; i < playing.length; i++) playing[i].classList.remove('playing');
+  _cdnIdx = 0;
+  tryCDN(AUDIO_CDNS[0], src, text, btn);
 }
-function speak(text,btn){
-  if(!('speechSynthesis' in window))return;
+
+function tryCDN(cdn, src, text, btn) {
+  var a = new Audio();
+  a.preload = 'auto';
+  var loaded = false;
+  a.oncanplaythrough = function() { loaded = true; clearTimeout(timer); if (btn) btn.classList.add('playing'); var playPromise = a.play(); if (playPromise !== undefined) { playPromise.catch(function() { a.play(); }); } _curAud = a; };
+  a.onplay = function() { if (btn) btn.classList.add('playing'); };
+  a.onended = function() { if (btn) btn.classList.remove('playing'); _curAud = null; };
+  a.onerror = function() { clearTimeout(timer); if (btn) btn.classList.remove('playing'); nextCDN(src, text, btn); };
+  var timer = setTimeout(function() { if (!loaded) { try { a.pause(); } catch(e){} if (btn) btn.classList.remove('playing'); nextCDN(src, text, btn); } }, 6000);
+  a.src = cdn + src;
+  a.load();
+}
+
+function nextCDN(src, text, btn) {
+  _cdnIdx++;
+  if (_cdnIdx < AUDIO_CDNS.length) { tryCDN(AUDIO_CDNS[_cdnIdx], src, text, btn); } else { speak(text, btn); }
+}
+
+function speak(text, btn) {
+  if (!('speechSynthesis' in window)) return;
   window.speechSynthesis.cancel();
-  var utt=new SpeechSynthesisUtterance(text);
-  utt.lang='en-US';utt.rate=0.85;utt.pitch=1.1;
-  var voices=window.speechSynthesis.getVoices();
-  for(var i=0;i<voices.length;i++){
-    if(voices[i].lang.indexOf('en-AU')>-1||voices[i].lang.indexOf('en-GB')>-1){utt.voice=voices[i];break;}
-  }
-  if(!utt.voice){for(var i=0;i<voices.length;i++){if(voices[i].lang.indexOf('en')>-1){utt.voice=voices[i];break;}}}
-  if(btn)btn.classList.add('playing');
-  utt.onend=utt.onerror=function(){if(btn)btn.classList.remove('playing');};
+  var utt = new SpeechSynthesisUtterance(text);
+  utt.lang = 'en-US';
+  utt.rate = 0.82;
+  utt.pitch = 1.1;
+  if (btn) btn.classList.add('playing');
+  utt.onend = utt.onerror = function() { if (btn) btn.classList.remove('playing'); };
   window.speechSynthesis.speak(utt);
 }
-window.speechSynthesis.getVoices();
-window.speechSynthesis.addEventListener('voiceschanged',function(){window.speechSynthesis.getVoices();});
-</script>
 
+function toggleCheck(item) {
+  var box = item.querySelector('.check-box');
+  if (box.classList.contains('checked')) { box.classList.remove('checked'); box.innerHTML = ''; } else { box.classList.add('checked'); box.innerHTML = '✓'; box.style.color = '#fff'; box.style.fontSize = '14px'; }
+}
+
+if ('speechSynthesis' in window) { window.speechSynthesis.getVoices(); window.speechSynthesis.addEventListener('voiceschanged', function() { window.speechSynthesis.getVoices(); }); }
+</script>
 </body>
 </html>
