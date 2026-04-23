@@ -19,9 +19,7 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .nav-tabs::-webkit-scrollbar{display:none}
 .tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #FFA72644;background:#fff;cursor:pointer;color:#FFA726;transition:all .2s}
 .tab.active{background:#FFA726;color:#fff;border-color:#FFA726}
-.card{background:#FFA72611;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #FFA72633;display:none}
-.card.active{display:block}
-.card-title{font-size:18px;font-weight:800;color:#FFA726;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #FFA72644;display:flex;align-items:center;gap:8px}
+.card{margin:16px 16px;padding:22px 18px;border-radius:16px;display:block}
 .content p{margin:10px 0;font-size:15px;line-height:1.9}
 .content h4{font-size:16px;font-weight:700;color:#FFA726;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #FFA72644}
 .content blockquote{background:#FFA72622;border-left:4px solid #FFA726;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
@@ -30,11 +28,49 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .content li:last-child{border-bottom:none}
 .content li::before{content:'•';position:absolute;left:6px;color:#FFA726;font-weight:bold;font-size:18px;top:8px}
 .content strong{color:#FFA726}
+
+.audio-btn{margin:4px 4px;padding:6px 14px;border:none;border-radius:20px;background:#FFF3E0;color:#E65100;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .2s;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+.audio-btn:hover{background:#FFE0B2;transform:scale(1.05)}
+.audio-btn:active{transform:scale(0.95)}
 .footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #FFA72633;z-index:100;gap:12px}
 .footer a{flex:1;text-align:center;padding:13px;background:#FFA726;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
 .footer .nav-btn{background:#fff;color:#FFA726;border:2px solid #FFA726}
 .nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
+<script>
+var AUDIO_CDNS = ["https://baby-english-d7gb3dwj91d31020-1346728686.tcloudbaseapp.com/audio/", "https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/", "https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/"];
+var audioPlayer = null;
+function playAudio(audioName) {
+    if (audioPlayer) {
+        audioPlayer.pause();
+    }
+    audioPlayer = new Audio();
+    var cdnIndex = 0;
+    audioPlayer.addEventListener('error', function() {
+        cdnIndex++;
+        if (cdnIndex < AUDIO_CDNS.length) {
+            audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+            audioPlayer.play().catch(function() {});
+        } else {
+            // 最终降级：使用浏览器TTS
+            if (window.speechSynthesis) {
+                var utter = new SpeechSynthesisUtterance(audioName.replace(/_/g, ' '));
+                utter.lang = 'en-US';
+                utter.rate = 0.9;
+                window.speechSynthesis.speak(utter);
+            }
+        }
+    });
+    audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+    audioPlayer.play().catch(function() {});
+}
+function stopAudio() {
+    if (audioPlayer) {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+    }
+}
+</script>
 </head>
 <body>
 <div class="hero">
@@ -48,16 +84,10 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   </div>
 </div>
 
-<nav class="nav-tabs">
-  <button class="tab active" onclick="showTab('s1')">💬 金句</button>
-  <button class="tab" onclick="showTab('s2')">🎵 儿歌</button>
-  <button class="tab" onclick="showTab('s3')">📖 绘本</button>
-  <button class="tab" onclick="showTab('s4')">🔤 字母</button>
-  <button class="tab" onclick="showTab('s5')">🎮 活动</button>
-  <button class="tab" onclick="showTab('s6')">💡 贴士</button>
-</nav>
 
-<div class="card active" id="s1"><div class="card-title">💬 今日金句</div><div class="content"><p>### 句1：开心时刻 <blockquote><strong>「I'm so happy! I am happy!」</strong></blockquote></p>
+
+<div class="card active" id="s1"><div class="card-title">💬 今日金句</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('hot')" title="点击播放音频">🔊 hot</button><button class="audio-btn" onclick="playAudio('cold')" title="点击播放音频">🔊 cold</button><button class="audio-btn" onclick="playAudio('happy')" title="点击播放音频">🔊 happy</button></div><div class="content"><p>### 句1：开心时刻 <blockquote><strong>「I'm so happy! I am happy!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：当宝宝做了一件好事时，夸张地说「I'm happy!」示范开心的表情和动作。</p>
 <p>### 句2：难过了 <blockquote><strong>「Are you sad? It's okay to be sad sometimes.」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：宝宝哭的时候抱着说「Are you sad?」教宝宝识别自己的情绪「sad」。</p>
@@ -68,11 +98,13 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 <p>### 句5：表达爱意 <blockquote><strong>「I love you so much! Do you feel loved?」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：经常对宝宝说「I love you」并问「Do you feel loved?」让宝宝知道爱是可以被感受到的。</p>
 <p>---</p></div></div>
-<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div><div class="content"><p><strong>开心版：</strong> <ul> <li>:musical_note: If you're happy and you know it, clap your hands! (clap clap)</li> <li>:musical_note: If you're happy and you know it, clap your hands! (clap clap)</li> <li>:musical_note: If you're happy and you know it,</li> <li>:musical_note: some other things to do,</li> <li>:musical_note: If you're happy and you know it, clap your hands!</li> </ul></p>
+<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('if_you_happy')" title="点击播放音频">🔊 播放儿歌</button></div><div class="content"><p><strong>开心版：</strong> <ul> <li>:musical_note: If you're happy and you know it, clap your hands! (clap clap)</li> <li>:musical_note: If you're happy and you know it, clap your hands! (clap clap)</li> <li>:musical_note: If you're happy and you know it,</li> <li>:musical_note: some other things to do,</li> <li>:musical_note: If you're happy and you know it, clap your hands!</li> </ul></p>
 <p><strong>难过版：</strong> <ul> <li>:musical_note: If you're sad and you feel down, say 'it's okay'!</li> <li>:musical_note: If you're sad and you feel down, say 'it's okay'!</li> <li>:musical_note: If you're sad and you feel down,</li> <li>:musical_note: Take a breath and look around,</li> <li>:musical_note: If you're sad and you feel down, say 'it's okay'!</li> </ul></p>
 <p><strong>怎么唱</strong>： 感觉版更有深度！开心时唱开心版，生气时唱处理版。每种情绪配上不同的动作：happy=拍手，sad=用手在脸上画眼泪。让宝宝知道每种情绪都有对应的表达方式。</p>
 <p>---</p></div></div>
-<div class="card" id="s3"><div class="card-title">📖 绘本预热</div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
+<div class="card" id="s3"><div class="card-title">📖 绘本预热</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('bear')" title="点击播放音频">🔊 播放绘本片段</button></div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
 <p>这本绘本把不同的情绪用不同颜色的小怪兽表示，是情绪启蒙的最佳绘本：</p>
 <p><strong>书中关键词</strong>： <ul> <li>`happy` — 开心</li> <li>`sad` — 难过</li> <li>`angry` — 生气</li> <li>`scared` — 害怕</li> <li>`calm` — 平静</li> </ul></p>
 <p>🗣️ <strong>亲子共读提示</strong>： 每读一页问宝宝「What color is this feeling?」让宝宝用颜色识别情绪，然后再用英语说出来。</p>
@@ -100,13 +132,6 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   <a href="issue-019.html" class="nav-btn">下一期 →</a>
 </div>
 
-<script>
-function showTab(id){
-  document.querySelectorAll('.card').forEach(e=>e.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
-}
-</script>
+
 </body>
 </html>
