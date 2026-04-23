@@ -19,9 +19,7 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .nav-tabs::-webkit-scrollbar{display:none}
 .tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #EF535044;background:#fff;cursor:pointer;color:#EF5350;transition:all .2s}
 .tab.active{background:#EF5350;color:#fff;border-color:#EF5350}
-.card{background:#EF535011;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #EF535033;display:none}
-.card.active{display:block}
-.card-title{font-size:18px;font-weight:800;color:#EF5350;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #EF535044;display:flex;align-items:center;gap:8px}
+.card{margin:16px 16px;padding:22px 18px;border-radius:16px;display:block}
 .content p{margin:10px 0;font-size:15px;line-height:1.9}
 .content h4{font-size:16px;font-weight:700;color:#EF5350;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #EF535044}
 .content blockquote{background:#EF535022;border-left:4px solid #EF5350;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
@@ -30,11 +28,49 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .content li:last-child{border-bottom:none}
 .content li::before{content:'•';position:absolute;left:6px;color:#EF5350;font-weight:bold;font-size:18px;top:8px}
 .content strong{color:#EF5350}
+
+.audio-btn{margin:4px 4px;padding:6px 14px;border:none;border-radius:20px;background:#FFF3E0;color:#E65100;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .2s;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+.audio-btn:hover{background:#FFE0B2;transform:scale(1.05)}
+.audio-btn:active{transform:scale(0.95)}
 .footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #EF535033;z-index:100;gap:12px}
 .footer a{flex:1;text-align:center;padding:13px;background:#EF5350;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
 .footer .nav-btn{background:#fff;color:#EF5350;border:2px solid #EF5350}
 .nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
+<script>
+var AUDIO_CDNS = ["https://baby-english-d7gb3dwj91d31020-1346728686.tcloudbaseapp.com/audio/", "https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/", "https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/"];
+var audioPlayer = null;
+function playAudio(audioName) {
+    if (audioPlayer) {
+        audioPlayer.pause();
+    }
+    audioPlayer = new Audio();
+    var cdnIndex = 0;
+    audioPlayer.addEventListener('error', function() {
+        cdnIndex++;
+        if (cdnIndex < AUDIO_CDNS.length) {
+            audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+            audioPlayer.play().catch(function() {});
+        } else {
+            // 最终降级：使用浏览器TTS
+            if (window.speechSynthesis) {
+                var utter = new SpeechSynthesisUtterance(audioName.replace(/_/g, ' '));
+                utter.lang = 'en-US';
+                utter.rate = 0.9;
+                window.speechSynthesis.speak(utter);
+            }
+        }
+    });
+    audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+    audioPlayer.play().catch(function() {});
+}
+function stopAudio() {
+    if (audioPlayer) {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+    }
+}
+</script>
 </head>
 <body>
 <div class="hero">
@@ -48,16 +84,10 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   </div>
 </div>
 
-<nav class="nav-tabs">
-  <button class="tab active" onclick="showTab('s1')">💬 金句</button>
-  <button class="tab" onclick="showTab('s2')">🎵 儿歌</button>
-  <button class="tab" onclick="showTab('s3')">📖 绘本</button>
-  <button class="tab" onclick="showTab('s4')">🔤 字母</button>
-  <button class="tab" onclick="showTab('s5')">🎮 活动</button>
-  <button class="tab" onclick="showTab('s6')">💡 贴士</button>
-</nav>
 
-<div class="card active" id="s1"><div class="card-title">💬 今日金句</div><div class="content"><p>### 句1：门铃响了 <blockquote><strong>「Ding dong! Someone is at the door!」</strong></blockquote></p>
+
+<div class="card active" id="s1"><div class="card-title">💬 今日金句</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('music')" title="点击播放音频">🔊 music</button><button class="audio-btn" onclick="playAudio('sing')" title="点击播放音频">🔊 sing</button><button class="audio-btn" onclick="playAudio('drum')" title="点击播放音频">🔊 drum</button></div><div class="content"><p>### 句1：门铃响了 <blockquote><strong>「Ding dong! Someone is at the door!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：门铃响时说「ding dong」，让宝宝去开门说「Open the door!」</p>
 <p>### 句2：汽车喇叭 <blockquote><strong>「Beep beep! The car says beep beep!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：听到喇叭时说「honk」或「beep」，也可以自己用嘴模仿「beep beep」。</p>
@@ -68,11 +98,13 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 <p>### 句5：音乐时间 <blockquote><strong>「Music time! Let's dance! Boom boom!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：放音乐时跟着节奏动起来「dance」「jump」「spin」，用身体感受节拍。</p>
 <p>---</p></div></div>
-<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div><div class="content"><p><strong>主歌：</strong> <ul> <li>:musical_note: What do you hear? What do you hear?</li> <li>:musical_note: I hear the birds singing in my ear!</li> <li>:musical_note: Tweet tweet tweet, tweet tweet tweet!</li> <li>:musical_note: That's what I hear!</li> </ul></p>
+<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('old_macdonald')" title="点击播放音频">🔊 播放儿歌</button></div><div class="content"><p><strong>主歌：</strong> <ul> <li>:musical_note: What do you hear? What do you hear?</li> <li>:musical_note: I hear the birds singing in my ear!</li> <li>:musical_note: Tweet tweet tweet, tweet tweet tweet!</li> <li>:musical_note: That's what I hear!</li> </ul></p>
 <p><strong>扩展版：</strong> <ul> <li>:musical_note: What do you hear? I hear the rain!</li> <li>:musical_note: Pitter patter, pitter patter on the window pane!</li> <li>:musical_note: What do you hear? I hear the clock!</li> <li>:musical_note: Tick tock tick tock around the clock!</li> </ul></p>
 <p><strong>怎么唱</strong>： 这是一首可以即兴创作的声音歌！听到什么声音就唱什么：听到狗叫「I hear a dog — woof woof!」听到汽车「I hear a car — beep beep!」随时可以改编，是最好的听力训练！</p>
 <p>---</p></div></div>
-<div class="card" id="s3"><div class="card-title">📖 绘本预热</div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
+<div class="card" id="s3"><div class="card-title">📖 绘本预热</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('bear')" title="点击播放音频">🔊 播放绘本片段</button></div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
 <p>用绘本介绍各种乐器和它们的声音，是音乐启蒙的好选择：</p>
 <p><strong>书中关键词</strong>： <ul> <li>`music` — 音乐</li> <li>`sound` — 声音</li> <li>`sing` — 唱</li> <li>`dance` — 跳舞</li> <li>`instrument` — 乐器</li> </ul></p>
 <p>🗣️ <strong>亲子共读提示</strong>： 读完绘本后拿出真实的乐器（如果有）或者用锅碗瓢盆当乐器，一起演奏「家庭交响乐」，每种「乐器」都有自己的声音词。</p>
@@ -100,13 +132,6 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   <a href="issue-023.html" class="nav-btn">下一期 →</a>
 </div>
 
-<script>
-function showTab(id){
-  document.querySelectorAll('.card').forEach(e=>e.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
-}
-</script>
+
 </body>
 </html>
