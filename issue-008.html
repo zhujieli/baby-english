@@ -19,9 +19,7 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .nav-tabs::-webkit-scrollbar{display:none}
 .tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #7986CB44;background:#fff;cursor:pointer;color:#7986CB;transition:all .2s}
 .tab.active{background:#7986CB;color:#fff;border-color:#7986CB}
-.card{background:#7986CB11;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #7986CB33;display:none}
-.card.active{display:block}
-.card-title{font-size:18px;font-weight:800;color:#7986CB;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #7986CB44;display:flex;align-items:center;gap:8px}
+.card{margin:16px 16px;padding:22px 18px;border-radius:16px;display:block}
 .content p{margin:10px 0;font-size:15px;line-height:1.9}
 .content h4{font-size:16px;font-weight:700;color:#7986CB;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #7986CB44}
 .content blockquote{background:#7986CB22;border-left:4px solid #7986CB;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
@@ -30,11 +28,49 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .content li:last-child{border-bottom:none}
 .content li::before{content:'•';position:absolute;left:6px;color:#7986CB;font-weight:bold;font-size:18px;top:8px}
 .content strong{color:#7986CB}
+
+.audio-btn{margin:4px 4px;padding:6px 14px;border:none;border-radius:20px;background:#FFF3E0;color:#E65100;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .2s;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+.audio-btn:hover{background:#FFE0B2;transform:scale(1.05)}
+.audio-btn:active{transform:scale(0.95)}
 .footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #7986CB33;z-index:100;gap:12px}
 .footer a{flex:1;text-align:center;padding:13px;background:#7986CB;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
 .footer .nav-btn{background:#fff;color:#7986CB;border:2px solid #7986CB}
 .nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
+<script>
+var AUDIO_CDNS = ["https://baby-english-d7gb3dwj91d31020-1346728686.tcloudbaseapp.com/audio/", "https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/", "https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/"];
+var audioPlayer = null;
+function playAudio(audioName) {
+    if (audioPlayer) {
+        audioPlayer.pause();
+    }
+    audioPlayer = new Audio();
+    var cdnIndex = 0;
+    audioPlayer.addEventListener('error', function() {
+        cdnIndex++;
+        if (cdnIndex < AUDIO_CDNS.length) {
+            audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+            audioPlayer.play().catch(function() {});
+        } else {
+            // 最终降级：使用浏览器TTS
+            if (window.speechSynthesis) {
+                var utter = new SpeechSynthesisUtterance(audioName.replace(/_/g, ' '));
+                utter.lang = 'en-US';
+                utter.rate = 0.9;
+                window.speechSynthesis.speak(utter);
+            }
+        }
+    });
+    audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+    audioPlayer.play().catch(function() {});
+}
+function stopAudio() {
+    if (audioPlayer) {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+    }
+}
+</script>
 </head>
 <body>
 <div class="hero">
@@ -48,16 +84,10 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   </div>
 </div>
 
-<nav class="nav-tabs">
-  <button class="tab active" onclick="showTab('s1')">💬 金句</button>
-  <button class="tab" onclick="showTab('s2')">🎵 儿歌</button>
-  <button class="tab" onclick="showTab('s3')">📖 绘本</button>
-  <button class="tab" onclick="showTab('s4')">🔤 字母</button>
-  <button class="tab" onclick="showTab('s5')">🎮 活动</button>
-  <button class="tab" onclick="showTab('s6')">💡 贴士</button>
-</nav>
 
-<div class="card active" id="s1"><div class="card-title">💬 今日金句</div><div class="content"><p>### 句1：早上看天气 <blockquote><strong>「Look outside! What's the weather today?」</strong></blockquote></p>
+
+<div class="card active" id="s1"><div class="card-title">💬 今日金句</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('sun')" title="点击播放音频">🔊 sun</button><button class="audio-btn" onclick="playAudio('rain')" title="点击播放音频">🔊 rain</button><button class="audio-btn" onclick="playAudio('snow')" title="点击播放音频">🔊 snow</button></div><div class="content"><p>### 句1：早上看天气 <blockquote><strong>「Look outside! What's the weather today?」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：每天早上第一个任务——拉开窗帘看天空，建立天气观察的习惯「It's sunny!」</p>
 <p>---</p>
 <p>### 句2：根据天气穿衣 <blockquote><strong>「It's cold today! Do you want a jacket?」</strong></blockquote></p>
@@ -72,11 +102,13 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 <p>### 句5：睡前天气回顾 <blockquote><strong>「Today was sunny! What did we see?」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：晚上回顾一天的天气，培养反思能力，同时复习天气词汇「Rainy, sunny, cloudy...」</p>
 <p>---</p></div></div>
-<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div><div class="content"><p><strong>完整歌词：</strong> <ul> <li>:musical_note: The itsy bitsy spider climbed up the water spout.</li> <li>:musical_note: Down came the rain and washed the spider out.</li> <li>:musical_note: Out came the sun and dried up all the rain,</li> <li>:musical_note: and the itsy bitsy spider climbed up the spout again.</li> </ul></p>
+<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('rain_rain')" title="点击播放音频">🔊 播放儿歌</button></div><div class="content"><p><strong>完整歌词：</strong> <ul> <li>:musical_note: The itsy bitsy spider climbed up the water spout.</li> <li>:musical_note: Down came the rain and washed the spider out.</li> <li>:musical_note: Out came the sun and dried up all the rain,</li> <li>:musical_note: and the itsy bitsy spider climbed up the spout again.</li> </ul></p>
 <p><strong>动作指南：</strong> <ul> <li>:musical_note: 🕷️ climb up — 双手交替向上爬（模仿蜘蛛）</li> <li>:musical_note: 🌧️ down came the rain — 双手从头顶向下滑（模仿雨）</li> <li>:musical_note: ☀️ out came the sun — 双手举过头顶成圆形（模仿太阳）</li> <li>:musical_note: 🔄 climbed up again — 再次向上爬</li> </ul></p>
 <p><strong>怎么唱</strong>： 这是一首有「剧情」的儿歌！用手势表演蜘蛛爬管子、被雨冲走、太阳出来、蜘蛛再爬……动作配合故事，宝宝会着迷！雨天唱最有感觉，也可以在洗手时唱（水从手指流下=rain washed out）！可以唱3-5遍，越唱越快！</p>
 <p>---</p></div></div>
-<div class="card" id="s3"><div class="card-title">📖 绘本预热</div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
+<div class="card" id="s3"><div class="card-title">📖 绘本预热</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('bear')" title="点击播放音频">🔊 播放绘本片段</button></div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
 <p>虽然原书是关于爱的表达的，但可以延伸到不同天气里父母对宝宝的爱，非常温暖：</p>
 <p><strong>书中关键词</strong>： <ul> <li>`big` — 大</li> <li>`little` — 小</li> <li>`love` — 爱</li> <li>`jump` — 跳</li> <li>`run` — 跑</li> </ul></p>
 <p>🗣️ <strong>亲子共读提示</strong>： 读完书后抱着宝宝说「I love you this much!」雨天加一句「Even when it's rainy, I love you!」把爱和安全感受天气联系起来。天气不好也不怕，因为爸爸妈妈的爱不受天气影响！</p>
@@ -104,13 +136,6 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   <a href="issue-009.html" class="nav-btn">下一期 →</a>
 </div>
 
-<script>
-function showTab(id){
-  document.querySelectorAll('.card').forEach(e=>e.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
-}
-</script>
+
 </body>
 </html>
