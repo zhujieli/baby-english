@@ -19,9 +19,7 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .nav-tabs::-webkit-scrollbar{display:none}
 .tab{flex-shrink:0;padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid #BA68C844;background:#fff;cursor:pointer;color:#BA68C8;transition:all .2s}
 .tab.active{background:#BA68C8;color:#fff;border-color:#BA68C8}
-.card{background:#BA68C811;margin:16px 16px;padding:22px 18px;border-radius:var(--r);border:1.5px solid #BA68C833;display:none}
-.card.active{display:block}
-.card-title{font-size:18px;font-weight:800;color:#BA68C8;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #BA68C844;display:flex;align-items:center;gap:8px}
+.card{margin:16px 16px;padding:22px 18px;border-radius:16px;display:block}
 .content p{margin:10px 0;font-size:15px;line-height:1.9}
 .content h4{font-size:16px;font-weight:700;color:#BA68C8;margin:16px 0 8px;padding:6px 0;border-bottom:1px dashed #BA68C844}
 .content blockquote{background:#BA68C822;border-left:4px solid #BA68C8;padding:12px 16px;border-radius:0 12px 12px 0;margin:14px 0;font-size:14px;line-height:1.85}
@@ -30,11 +28,49 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 .content li:last-child{border-bottom:none}
 .content li::before{content:'•';position:absolute;left:6px;color:#BA68C8;font-weight:bold;font-size:18px;top:8px}
 .content strong{color:#BA68C8}
+
+.audio-btn{margin:4px 4px;padding:6px 14px;border:none;border-radius:20px;background:#FFF3E0;color:#E65100;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .2s;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+.audio-btn:hover{background:#FFE0B2;transform:scale(1.05)}
+.audio-btn:active{transform:scale(0.95)}
 .footer{display:flex;justify-content:space-between;padding:14px 16px;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #BA68C833;z-index:100;gap:12px}
 .footer a{flex:1;text-align:center;padding:13px;background:#BA68C8;color:#fff;border-radius:var(--r);font-weight:700;font-size:14px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
 .footer .nav-btn{background:#fff;color:#BA68C8;border:2px solid #BA68C8}
 .nav-disabled{opacity:.4;cursor:not-allowed}
 </style>
+<script>
+var AUDIO_CDNS = ["https://baby-english-d7gb3dwj91d31020-1346728686.tcloudbaseapp.com/audio/", "https://cdn.jsdelivr.net/gh/zhujieli/baby-english@main/audio/", "https://raw.githubusercontent.com/zhujieli/baby-english/main/audio/"];
+var audioPlayer = null;
+function playAudio(audioName) {
+    if (audioPlayer) {
+        audioPlayer.pause();
+    }
+    audioPlayer = new Audio();
+    var cdnIndex = 0;
+    audioPlayer.addEventListener('error', function() {
+        cdnIndex++;
+        if (cdnIndex < AUDIO_CDNS.length) {
+            audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+            audioPlayer.play().catch(function() {});
+        } else {
+            // 最终降级：使用浏览器TTS
+            if (window.speechSynthesis) {
+                var utter = new SpeechSynthesisUtterance(audioName.replace(/_/g, ' '));
+                utter.lang = 'en-US';
+                utter.rate = 0.9;
+                window.speechSynthesis.speak(utter);
+            }
+        }
+    });
+    audioPlayer.src = AUDIO_CDNS[cdnIndex] + audioName + '.mp3';
+    audioPlayer.play().catch(function() {});
+}
+function stopAudio() {
+    if (audioPlayer) {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+    }
+}
+</script>
 </head>
 <body>
 <div class="hero">
@@ -48,16 +84,10 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   </div>
 </div>
 
-<nav class="nav-tabs">
-  <button class="tab active" onclick="showTab('s1')">💬 金句</button>
-  <button class="tab" onclick="showTab('s2')">🎵 儿歌</button>
-  <button class="tab" onclick="showTab('s3')">📖 绘本</button>
-  <button class="tab" onclick="showTab('s4')">🔤 字母</button>
-  <button class="tab" onclick="showTab('s5')">🎮 活动</button>
-  <button class="tab" onclick="showTab('s6')">💡 贴士</button>
-</nav>
 
-<div class="card active" id="s1"><div class="card-title">💬 今日金句</div><div class="content"><p>### 句1：准备洗澡 <blockquote><strong>「The bath is ready! Let's take a bath!」</strong></blockquote></p>
+
+<div class="card active" id="s1"><div class="card-title">💬 今日金句</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('bath')" title="点击播放音频">🔊 bath</button><button class="audio-btn" onclick="playAudio('bubble')" title="点击播放音频">🔊 bubble</button><button class="audio-btn" onclick="playAudio('soap')" title="点击播放音频">🔊 soap</button></div><div class="content"><p>### 句1：准备洗澡 <blockquote><strong>「The bath is ready! Let's take a bath!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：放水的时候让宝宝在旁边看，说「Watch the water! It's filling up!」让宝宝期待泡泡时间。</p>
 <p>---</p>
 <p>### 句2：进入浴缸 <blockquote><strong>「One, two, three — into the bath!」</strong></blockquote></p>
@@ -72,11 +102,13 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
 <p>### 句5：洗完出浴 <blockquote><strong>「All done! Out of the bath!」</strong></blockquote></p>
 <p>💡 <strong>怎么用</strong>：用大毛巾把宝宝包起来，说「You're so clean! Smells so good!」把香香的味道和英语联系起来。</p>
 <p>---</p></div></div>
-<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div><div class="content"><p><strong>经典版本：</strong> <ul> <li>:musical_note: Row, row, row your boat,</li> <li>:musical_note: gently down the stream!</li> <li>:musical_note: Merrily, merrily, merrily, merrily,</li> <li>:musical_note: Life is but a dream!</li> </ul></p>
+<div class="card" id="s2"><div class="card-title">🎵 配套儿歌</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('pat_a_cake')" title="点击播放音频">🔊 播放儿歌</button></div><div class="content"><p><strong>经典版本：</strong> <ul> <li>:musical_note: Row, row, row your boat,</li> <li>:musical_note: gently down the stream!</li> <li>:musical_note: Merrily, merrily, merrily, merrily,</li> <li>:musical_note: Life is but a dream!</li> </ul></p>
 <p><strong>泡泡版本（加动作）：</strong> <ul> <li>:musical_note: Splash, splash in the bath,</li> <li>:musical_note: happy as can be!</li> <li>:musical_note: Rub-a-dub-dub, three men in a tub,</li> <li>:musical_note: and all of them are me!</li> </ul></p>
 <p><strong>怎么唱</strong>： 把小船玩具放进浴缸，边划边唱「Row, row, row your boat」；唱「Splash」时拍打水面。洗澡歌可以让宝宝安静下来，适合睡前洗澡场景！全家一起唱最开心！</p>
 <p>---</p></div></div>
-<div class="card" id="s3"><div class="card-title">📖 绘本预热</div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
+<div class="card" id="s3"><div class="card-title">📖 绘本预热</div>
+<div style="margin-bottom:12px"><button class="audio-btn" onclick="playAudio('bear')" title="点击播放音频">🔊 播放绘本片段</button></div><div class="content"><blockquote><strong>小彼恩系列·今日片段引入</strong></blockquote>
 <p>这是一本关于洗澡后准备睡觉的绘本，可以自然过渡到睡前程序，睡眠仪式感满满：</p>
 <p><strong>书中关键词</strong>： <ul> <li>`bath` — 洗澡</li> <li>`sleepy` — 困了</li> <li>`blanket` — 毯子</li> <li>`good night` — 晚安</li> <li>`dream` — 梦</li> </ul></p>
 <p>🗣️ <strong>亲子共读提示</strong>： 洗完澡后说「You're so clean! Now it's time for sleepy！」自然引入睡眠词汇，为后续的Goodnight Moon绘本做铺垫！</p>
@@ -104,13 +136,6 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',Arial,sans-serif;b
   <a href="issue-005.html" class="nav-btn">下一期 →</a>
 </div>
 
-<script>
-function showTab(id){
-  document.querySelectorAll('.card').forEach(e=>e.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
-}
-</script>
+
 </body>
 </html>
